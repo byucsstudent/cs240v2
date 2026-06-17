@@ -9,7 +9,7 @@
           "title": "Home",
           "type": "instruction",
           "path": "README.md",
-          "id": "700a970e-d602-437f-9f00-91136b1f8096",
+          "id": "97ae7242-6f80-4148-bd4a-503e2492d066",
           "state": "published",
           "interactions": [],
           "description": ""
@@ -17,21 +17,21 @@
         {
           "title": "Syllabus",
           "path": "instruction/syllabus/syllabus.md",
-          "id": "afd15fd1-0747-4fed-bb39-2e3a561dc317",
+          "id": "c1a1ebe9-a8b7-4646-b4a0-25860a2bbe9f",
           "state": "published",
           "interactions": []
         },
         {
           "title": "Instruction topics",
           "path": "instruction/modules.md",
-          "id": "5054878e-9c3c-4402-bb16-73614596a0b2",
+          "id": "119cb280-7fc4-437f-8084-db67cc58188b",
           "state": "published",
           "interactions": []
         },
         {
           "title": "Asking questions",
           "path": "instruction/askingQuestions/askingQuestions.md",
-          "id": "cbd516e5-8b00-499f-9442-8b11fb587f79",
+          "id": "90015ed2-d4a9-4da1-8b21-a47786c99267",
           "state": "published",
           "interactions": []
         }
@@ -43,43 +43,43 @@
         {
           "title": "Introduction",
           "path": "instruction/introduction/introduction.md",
-          "id": "daa7f287-95e2-4add-84d2-2aa965b8b914",
+          "id": "4c1fdd8c-572f-47a6-a220-26d13c97517d",
           "state": "published"
         },
         {
           "title": "Git",
           "path": "instruction/git/git.md",
-          "id": "fb094a09-5777-4c76-8212-b63818461db4",
+          "id": "b689ad9d-a894-4073-ae01-3190ff3cf151",
           "state": "published"
         },
         {
           "title": "Chess",
           "path": "chess/chess.md",
-          "id": "436479a1-8a89-4361-b42a-3777d258677f",
+          "id": "f518cf2b-bddd-4c0f-84ee-a08eae035082",
           "state": "published"
         },
         {
           "title": "Pet Shop",
           "path": "petshop/petshop.md",
-          "id": "1bca77fe-6943-442e-a465-82c5d7a83b38",
+          "id": "171fddea-bdfe-4aff-a3e3-d71f4742750c",
           "state": "published"
         },
         {
           "title": "☑ Chess GitHub Repository",
           "path": "chess/chess-github-repository/chess-github-repository.md",
-          "id": "9b5fb308-1844-40a4-a010-817251c6b101",
+          "id": "1bf772fb-40cf-4d5c-a97e-f63d6218a542",
           "state": "published"
         },
         {
           "title": "Programming Exam",
           "path": "instruction/programming-exam/programming-exam.md",
-          "id": "c669a059-fdb6-4ea1-bee3-ab7b838daf56",
+          "id": "644b4c1f-3088-444c-a3b4-4fb3a30ad3b0",
           "state": "published"
         },
         {
           "title": "TA Tips",
           "path": "instruction/chess-tips/chess-tips.md",
-          "id": "a23d676d-1ca9-4aad-b428-df6424f78a1e",
+          "id": "f9f845b1-efe1-4bbb-8182-ab405bf8ec13",
           "state": "published"
         }
       ]
@@ -90,110 +90,110 @@
         {
           "title": "Java Fundamentals",
           "path": "instruction/java-fundamentals/java-fundamentals.md",
-          "id": "4fccabcf-bf43-4c6c-9961-53c6e29d6c61",
+          "id": "91501491-314b-421c-87e7-fa40639d0c60",
           "state": "published"
         },
         {
           "title": "Phase 0: Getting Started",
           "path": "chess/0-chess-moves/getting-started.md",
-          "id": "0ba83923-da38-49b7-aff4-84e1b95548c1",
+          "id": "8d9c3c79-4bbb-475f-a2ed-269ffcfcb10d",
           "state": "published"
         },
         {
           "title": "☑ Phase 0: Chess Moves",
           "path": "chess/0-chess-moves/chess-moves.md",
-          "id": "5d757f75-cc13-46aa-b3e4-966d17a18f61",
+          "id": "807a1d1b-6dff-4ccb-a7bb-3293602b7931",
           "state": "published"
         },
         {
           "title": "Java Object Class",
           "path": "instruction/java-object-class/java-object-class.md",
-          "id": "3332ad66-f879-4900-bd01-55e786c43ae0",
+          "id": "d1e7971b-a868-4920-933d-9c7c1716d9df",
           "state": "published"
         },
         {
           "title": "Classes and Objects",
           "path": "instruction/classes-and-objects/classes-and-objects.md",
-          "id": "3bec3fad-f434-4441-a5d2-0153ee130cf7",
+          "id": "e4725eb1-ac14-4229-b82c-69dbf98a5ccf",
           "state": "published"
         },
         {
           "title": "Java Records",
           "path": "instruction/records/records.md",
-          "id": "ebb28e8d-18c9-42fd-a0fc-0f50da89c6d8",
+          "id": "1fdbe416-2d26-4e48-a761-b7a13ac2c012",
           "state": "published"
         },
         {
           "title": "Interfaces and Abstract Classes",
           "path": "instruction/interfaces-abstract-classes/interfaces-and-abstract-classes.md",
-          "id": "8d35e1bd-e7d0-4838-9272-e6902a5c4622",
+          "id": "3f4ab06f-03f4-49f6-ad69-2258e58f1b64",
           "state": "published",
           "interactions": []
         },
         {
           "title": "Copying Objects",
           "path": "instruction/copying-objects/copying-objects.md",
-          "id": "5db046dd-94c1-4e29-b6c4-0786189252bb",
+          "id": "4f0fba08-4979-49ba-8617-f4a9fd342ad6",
           "state": "published"
         },
         {
           "title": "Java Exceptions",
           "path": "instruction/exceptions/exceptions.md",
-          "id": "09dd0b9b-6ddc-4b18-9b86-c3494c8f8c8a",
+          "id": "5e40afed-8a52-4f66-9c93-a2406bed4eee",
           "state": "published"
         },
         {
           "title": "Java Collections",
           "path": "instruction/collections/collections.md",
-          "id": "8fe712a4-ff54-4146-acdb-edbf23929c7d",
+          "id": "b895636d-d167-498f-8df5-4d88a40d4952",
           "state": "published"
         },
         {
           "title": "Object Oriented Design",
           "path": "instruction/object-oriented-design/object-oriented-design.md",
-          "id": "f5a08e81-81a8-4f56-830d-b6714f96279b",
+          "id": "7ca20c16-5111-45bb-9a94-13c05d46c411",
           "state": "published"
         },
         {
           "title": "Design Principles",
           "path": "instruction/design-principles/design-principles.md",
-          "id": "38005272-6339-43da-912b-886bda6bcbae",
+          "id": "67bb907c-816b-40e0-8d46-efb270a0b000",
           "state": "published"
         },
         {
           "title": "Java Inner Classes",
           "path": "instruction/inner-classes/inner-classes.md",
-          "id": "2de7e070-cb53-4810-b687-8fd6ef6121a0",
+          "id": "983e7617-7fa0-48ca-8ccc-3f6f2f8ead90",
           "state": "published"
         },
         {
           "title": "Phase 1: Getting Started",
           "path": "chess/1-chess-game/getting-started.md",
-          "id": "e3042209-a974-4d5e-967f-4899ee36ff77",
+          "id": "2df6f94b-6d13-48e7-ba02-e820a93e3242",
           "state": "published"
         },
         {
           "title": "☑ Phase 1: Chess Game",
           "path": "chess/1-chess-game/chess-game.md",
-          "id": "3d7737da-c17e-413a-8596-2eac96d88274",
+          "id": "773b3a41-6df9-4796-8894-a9a8ae6036ae",
           "state": "published"
         },
         {
           "title": "Java Input and Output (IO)",
           "path": "instruction/io/io.md",
-          "id": "9ac207b1-23da-46b6-a879-ad4b748c55c9",
+          "id": "872db001-7cb9-4530-acab-b80d494e7880",
           "state": "published"
         },
         {
           "title": "Java Generics",
           "path": "instruction/generics/generics.md",
-          "id": "0ff096fb-b9c7-4447-92e9-8f5d22d481fd",
+          "id": "88238c79-271a-434c-aa98-5377424c433b",
           "state": "published"
         },
         {
           "title": "Java Lambdas",
           "path": "instruction/lambdas/lambdas.md",
-          "id": "c8d41446-47a5-49ab-b48b-2605fbd99a66",
+          "id": "5fc24ac6-e3ec-43f5-9ea5-1005ba1f41c2",
           "state": "published"
         }
       ]
@@ -204,67 +204,67 @@
         {
           "title": "JSON and Serialization",
           "path": "instruction/json/json.md",
-          "id": "dd89a0d9-c456-4144-8d05-13e178044547",
+          "id": "38ed2906-754f-4b0e-a59a-274a422bffcf",
           "state": "published"
         },
         {
           "title": "☑ Phase 2: Chess Server Design",
           "path": "chess/2-server-design/server-design.md",
-          "id": "90e32a33-211e-4980-a5fe-bfbb39cda9af",
+          "id": "f459c5a9-c14e-4383-96f7-21fbfef67bae",
           "state": "published"
         },
         {
           "title": "HTTP",
           "path": "instruction/http/http.md",
-          "id": "f730776e-5b13-4a82-8fec-f4a7afd023d5",
+          "id": "496c90f3-4c8d-446c-a5a3-b21bdacbc209",
           "state": "published"
         },
         {
           "title": "cURL",
           "path": "instruction/curl/curl.md",
-          "id": "404c37c3-4205-4411-8d56-3613e0aad0d0",
+          "id": "990189e6-efe2-44e9-8313-767c9074da9b",
           "state": "published"
         },
         {
           "title": "Web API",
           "path": "instruction/web-api/web-api.md",
-          "id": "5fab57d9-3faf-4ee4-8f89-9ce8bbfb94c5",
+          "id": "def865eb-0fc9-4383-a2a2-05bb46528ab1",
           "state": "published"
         },
         {
           "title": "Phase 3: Getting Started",
           "path": "chess/3-web-api/getting-started.md",
-          "id": "082540e1-8dc1-4a2f-a467-7fcd58891e3c",
+          "id": "afa916e8-a9dc-4b25-8c82-56f38395cb8e",
           "state": "published"
         },
         {
           "title": "☑ Phase 3: Chess Web API",
           "path": "chess/3-web-api/web-api.md",
-          "id": "0af6161c-03f7-4f9e-9e46-5a068eceb97b",
+          "id": "8c6cf5d7-89e5-4af1-a3f7-6b25e8dfed82",
           "state": "published"
         },
         {
           "title": "Writing Quality Code",
           "path": "instruction/quality-code/quality-code.md",
-          "id": "68137d10-937e-456e-bd2a-24367694cdbb",
+          "id": "a0227764-2fb9-47d6-8f64-4f2db685af8a",
           "state": "published"
         },
         {
           "title": "Style Checking",
           "path": "instruction/style-checker/style-checker.md",
-          "id": "9d31d727-a7df-4c6a-84ee-841e513f62f9",
+          "id": "1d84be1f-b7e0-4576-a716-daa4c7173511",
           "state": "published"
         },
         {
           "title": "Unit Testing",
           "path": "instruction/unit-testing/unit-testing.md",
-          "id": "cdbf58b3-add0-4e29-8bfc-dfe0b265d223",
+          "id": "00287eee-722f-450a-b48b-6be729d43573",
           "state": "published"
         },
         {
           "title": "Code Coverage",
           "path": "instruction/code-coverage/code-coverage.md",
-          "id": "559f4ee9-e45f-4c28-aaf4-314ce399e270",
+          "id": "0412f5dd-9767-420a-b2c4-3b64c6b3e16c",
           "state": "published"
         }
       ]
@@ -275,61 +275,61 @@
         {
           "title": "Relational Model",
           "path": "instruction/db-model/db-model.md",
-          "id": "9c15e0e5-f0aa-4d9b-b413-370cf1e60793",
+          "id": "b2865075-48d5-4df5-a507-adea207c51a5",
           "state": "published"
         },
         {
           "title": "MySQL",
           "path": "instruction/mysql/mysql.md",
-          "id": "bb1caff7-0fbf-4b70-8616-eefa357523f1",
+          "id": "25c3b096-518e-438e-88dd-3443731f74d4",
           "state": "published"
         },
         {
           "title": "SQL",
           "path": "instruction/db-sql/db-sql.md",
-          "id": "1e333ebb-b584-4355-b805-3ab84f168a49",
+          "id": "8b21a842-4986-4984-af7f-457bff716739",
           "state": "published"
         },
         {
           "title": "JDBC",
           "path": "instruction/db-jdbc/db-jdbc.md",
-          "id": "126e3c20-f919-48ae-bcc8-b5ce90cd9a78",
+          "id": "9773ec2e-938c-4f18-96b1-c76b6a835766",
           "state": "published"
         },
         {
           "title": "Securing Passwords",
           "path": "instruction/securing-passwords/securing-passwords.md",
-          "id": "b19b9486-c32e-4e7e-a89b-6523395b7399",
+          "id": "7f39c46d-ccbd-4837-b559-d46b0997c5e4",
           "state": "published"
         },
         {
           "title": "Phase 4: Getting Started",
           "path": "chess/4-database/getting-started.md",
-          "id": "7015834a-21b5-4ce5-ba51-647900194cb7",
+          "id": "edeec8a4-c238-47a1-866e-a190c7c6e0d0",
           "state": "published"
         },
         {
           "title": "☑ Phase 4: Chess Database",
           "path": "chess/4-database/database.md",
-          "id": "268b44ba-6f99-45c3-829a-7929d5614eb3",
+          "id": "35fc7825-07b3-4400-82c1-9b06147291ea",
           "state": "published"
         },
         {
           "title": "Logging",
           "path": "instruction/logging/logging.md",
-          "id": "4d22d359-6c0c-4e5d-a9ec-6f4a55e5bc54",
+          "id": "7dd775ef-6131-4ac4-b58d-2017f27634e8",
           "state": "published"
         },
         {
           "title": "Debugging",
           "path": "instruction/debugging/debugging.md",
-          "id": "739f3ab0-799e-404c-a003-89ff083c1498",
+          "id": "5f56719a-a964-4d91-afb2-80537d39bff0",
           "state": "published"
         },
         {
           "title": "Defensive Programming",
           "path": "instruction/defensive-programming/defensive-programming.md",
-          "id": "adfb714a-a337-40ff-b2b6-b00f832e3932",
+          "id": "7814003c-2643-4298-8452-b696a7fb4122",
           "state": "published"
         }
       ]
@@ -340,61 +340,61 @@
         {
           "title": "Console UI",
           "path": "instruction/console-ui/console-ui.md",
-          "id": "ca7ac1b1-959d-4312-93b2-880c836d53df",
+          "id": "b94dc1ae-a083-43cf-bbda-04b467b7ba04",
           "state": "published"
         },
         {
           "title": "Phase 5: Getting Started",
           "path": "chess/5-pregame/getting-started.md",
-          "id": "8476adc5-2796-4f8d-a54b-31fe09089551",
+          "id": "2f9040df-795b-4847-bfe2-ac3d8de10d0b",
           "state": "published"
         },
         {
           "title": "☑ Phase 5: Chess Pregame",
           "path": "chess/5-pregame/pregame.md",
-          "id": "3d46a6ba-532c-4be5-8b73-d8353977825d",
+          "id": "a9c3b3e6-bfe7-4247-a034-a08adbf35334",
           "state": "published"
         },
         {
           "title": "WebSocket",
           "path": "instruction/websocket/websocket.md",
-          "id": "22efda8e-ff07-4e90-b84c-6c2e1092d42e",
+          "id": "ea1daf23-33c1-4104-8fec-532d089e638d",
           "state": "published"
         },
         {
           "title": "Phase 6: Getting Started",
           "path": "chess/6-gameplay/getting-started.md",
-          "id": "40c0ada2-ebf7-4a75-b7e3-410533c1d4fc",
+          "id": "855830c3-1eb0-4f72-befd-1398f534c493",
           "state": "published"
         },
         {
           "title": "☑ Phase 6: Chess Gameplay",
           "path": "chess/6-gameplay/gameplay.md",
-          "id": "6ea75270-9c65-4adc-ad0d-75b3195bf3e0",
+          "id": "c4ee3fa9-aa3c-401c-8053-a29b5a12b0cb",
           "state": "published"
         },
         {
           "title": "Computer Security",
           "path": "instruction/computer-security/computer-security.md",
-          "id": "33ffe9db-8bc7-4091-943f-89bf6c368d4c",
+          "id": "0ffff5f3-5a33-45e3-9e93-9213a75260b3",
           "state": "published"
         },
         {
           "title": "Concurrency",
           "path": "instruction/concurrency/concurrency.md",
-          "id": "186f08f3-7da3-4360-a650-6deb8f38d885",
+          "id": "65803a0c-cc78-41f6-9c01-f935e26c00ab",
           "state": "published"
         },
         {
           "title": "Command line tools",
           "path": "instruction/command-line-builds/command-line-builds.md",
-          "id": "e71eb6ac-cde2-4982-a86d-d33372f70c5d",
+          "id": "3d7d9d55-a0a6-4ce1-93cf-bcadad0f66f3",
           "state": "published"
         },
         {
           "title": "AWS Chess Server",
           "path": "instruction/aws-chess-server/aws-chess-server.md",
-          "id": "149ee1b9-6a89-480d-a7ac-2204ea78fcec",
+          "id": "8ed1bd15-0fa8-41f8-9dd3-8fe70af59fe3",
           "state": "published"
         }
       ]
@@ -405,7 +405,7 @@
         {
           "title": "Final Exam Review",
           "path": "instruction/final-exam-review/final-exam-review.md",
-          "id": "4cf0a717-093f-44f8-98b8-0b74320fcecc",
+          "id": "04fc421b-e9af-4ba9-9ae0-09c1133683ae",
           "state": "published"
         }
       ]
