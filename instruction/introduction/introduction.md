@@ -114,6 +114,18 @@ More important than the actual grade you receive from this course is the degree 
 
 Take the time during the course to dive deeper into topics that you find interesting. Learn from external sources and gain a wide perspective of understanding. Question what is being taught and seek to find a better way to construct software. With this attitude, **you** might be the next leader of a new revolution in software construction.
 
+
+## ☑ Exercise
+
+```masteryls
+{"id":"2fdc2fdb-e3de-49c9-ba25-f66b0da68d1a", "title":"Canvas notifications", "type":"multiple-choice" }
+We often send out critical notifications for the course using the Canvas email announcements. Log into the Canvas course and check to make sure you have the correct email address and notification setting associated with your user.
+
+
+- [x] My email address is associated with Canvas and that I frequently check for notifications.
+- [ ] I want to stay in the dark and miss important notifications.
+```
+
 ## Videos
 
 - 🎥 [Course Overview (10:34)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=080df794-9d59-426b-b7c8-b19c0109e6f1) - [[transcript]](https://github.com/user-attachments/files/17738690/CS_240_Course_Overview_Transcript.pdf)
