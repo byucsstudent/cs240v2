@@ -50,6 +50,13 @@
           "id": "90015ed2-d4a9-4da1-8b21-a47786c99267",
           "state": "published",
           "interactions": []
+        },
+        {
+          "title": "Late policy",
+          "type": "instruction",
+          "path": "instruction/late-policy/late-policy.md",
+          "id": "93609927-67d6-4237-ad40-74b86d1cbf18",
+          "description": ""
         }
       ]
     },
