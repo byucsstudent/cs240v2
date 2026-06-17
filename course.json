@@ -101,9 +101,12 @@
         },
         {
           "title": "☑ Chess GitHub Repository",
+          "type": "project",
+          "points": 100,
           "path": "chess/chess-github-repository/chess-github-repository.md",
           "id": "1bf772fb-40cf-4d5c-a97e-f63d6218a542",
-          "state": "published"
+          "state": "published",
+          "description": ""
         },
         {
           "title": "Programming Exam",
