@@ -53,6 +53,24 @@ You will need a reasonably current computer to complete the programming projects
 
 If you do not have a computer of your own, you can rent one from the [BYU Office of Information Technology (OIT)](https://itsurplus.byu.edu/rentals).
 
+## Late Policy
+
+See the [late policy](../latePolicy/latePolicy.md) instruction for a full description of the policy.
+
+## Resubmissions
+
+When you work on a deliverable you should follow this basic pattern:
+
+1. **Carefully read and follow all the relevant course instruction**
+1. Do your best work
+1. Submit your best work for grading and feedback
+
+Resubmissions are only considered in cases where the instruction was unclear, or something failed between the submission and grading process (e.g. Your server died before it was able to be graded). If you are unclear about the deliverable, or would like to have someone review your work, please reach out to a TA or the instructor prior to submitting.
+
+## Commit Policy
+
+It is critical that you develop good software engineering practices. Your GitHub commit history should demonstrate every step of your work in this class. An acceptable commit history requires granular commits (_multiple commits_) done over the entire period of the assignment (_multiple days_) If your history does not prove your ownership of the work **you may be given a failing grade for the class**.
+
 ## Programming Exam
 
 One of the major goals of CS 240 is to ensure that all students have sufficiently strong programming skills to succeed in upper-division computer science courses. One mechanism for ensuring this is the Programming Exam.
