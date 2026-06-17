@@ -66,7 +66,10 @@
           "title": "Introduction",
           "path": "instruction/introduction/introduction.md",
           "id": "4c1fdd8c-572f-47a6-a220-26d13c97517d",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "2fdc2fdb-e3de-49c9-ba25-f66b0da68d1a"
+          ]
         },
         {
           "title": "Git",
