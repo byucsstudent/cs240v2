@@ -49,6 +49,8 @@ The **PetClient** controls the REPL (Read, Execute, Print, Loop) interaction wit
 **PetClient** implements the **NotificationHandler** interface, which allows the **WebSocketFacade** to pass received messages to the **PetClient** for display to the user.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
 classDiagram
     PetClient--|> NotificationHandler
     PetClient o-- ServerFacade
@@ -67,6 +69,7 @@ The **PetServer** passes application objects from network requests to the `Servi
 To persist data between service calls, the **PetService** reads and writes data via the `DataAccess` layer. The **DataAccess** interface is implemented by two different solutions: **MemoryDataAccess** stores data in memory, and **SqlDataAccess** stores data in a relational database (MySQL).
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 classDiagram
     PetServer o-- PetService
 
@@ -124,6 +127,7 @@ The **ServerFacade** is located in the shared module so it can be used by both t
 **Action** and **Notification** are used for WebSocket communication.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 classDiagram
     class Pet
     class PetType
