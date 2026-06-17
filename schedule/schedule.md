@@ -42,7 +42,7 @@
 | 14 | Tue Dec 1 |  |  | [Concurrency](../instruction/concurrency/concurrency.md) | [Concurrency](https://docs.google.com/presentation/d/1OcH2XYen-U0f1sBAxaaCswwzp_OergGhq7b9mopszRM) |
 |  | Thu Dec 3 |  |  | [Command line tools](../instruction/command-line-builds/command-line-builds.md) | [Maven](https://docs.google.com/presentation/d/1zgt9rpNWEpgxkP-FQ1wXsEFA8974AV3oElUXlUZZaZo) |
 |  | Sat Dec 5, 2026 |  | [☑ Phase 6: Chess Gameplay](../chess/6-gameplay/gameplay.md) |  |  |
-| 15 | Tue Dec 8 |  |  | Protips</br>[Final Exam Review](../instruction/final-exam-review/final-exam-review.md) | [Protips](https://docs.google.com/presentation/d/1HitFGYCbV01poP2Ib2FzhPMGxiYFRtZNu2UmUrSqTOM)</br>[Employment](https://docs.google.com/presentation/d/1CQD6biLpKW2SCHutBmrpwdy5tqMgpZVB_jr7vBd6qNY) |
+| 15 | Tue Dec 8 |  |  | [Final Exam Review](../instruction/final-exam-review/final-exam-review.md) |  |
 |  | Thu Dec 10 |  | _Dec 11-17_ - Final |  |  |
 
 ## Special days
