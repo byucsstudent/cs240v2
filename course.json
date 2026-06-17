@@ -1,6 +1,18 @@
 {
   "title": "Advanced Software Construction v2",
   "links": {},
+  "schedule": {
+    "id": "1f3c824b-fd26-497f-9a0f-f2aa40adef88",
+    "files": [
+      {
+        "id": "3431b5e4-3b80-4117-926e-a1c96f5d41d9",
+        "title": "Schedule",
+        "path": "schedule/schedule.md",
+        "default": true,
+        "state": "published"
+      }
+    ]
+  },
   "modules": [
     {
       "title": "Course info",
