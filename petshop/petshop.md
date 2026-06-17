@@ -155,3 +155,13 @@ The server tracks all connected clients in the **ConnectionManager**. When a mes
 The Pet Shop [WebSocket Communication Diagram](https://sequencediagram.org/index.html#initialData=A4QwTgLglgxloDsIAIDCAbKBTJAoUks8ISyA6lgEYDKA9jANZYQBiIMIAJlvuNHIhTUsYAG4jcuHBDABPAM6g4CAObIADADoAnLhVhaAV2ABiWVnTpaAd2QnMKgBYRzlm+Sp1GzScLEjkAFoAPg8aeiYIAAkSTnQRAC5kGDAsEAgeSQxsUhCwr0i2Dm4klLSMgAoEWmgAM1h0qFoEGIQ4kQBKXApw71Z2Liwg0J6C5lb2sFLmhCwYCAAVWj9xMElRiPHY+LBhtBm56GaAWRIQFUTkLk4K+Sx5eSaELqzMaT2Vy+uABWYK34gXU+uzywKSPx8wL2Gz6Ex2SQAtvIVIiQEwAHK0KB3XBQwJ5bLSJLAHzrTybaLbAIEg7zJ6nBDnS6UAxcDjyCAVJEqLpWWjAZAs2hskAc5AI+7yJnyXDsaCidJDVC0o4IBlMtbKhCzOknM4XEEjcl9IqDRHIsm9QoDbh7QlIJLVOoNVVwkSaJ1QWqyLnIl72lAEt4O5AAEWxwHQIFk4otkm4cqgCoy+21h3p+okkhwnEkUjaQA) visualizes this process.
 
 ![WebSocket Communication Diagram](webSocketCommunicationDiagram.png)
+
+```masteryls
+{"id":"409b54f0-93e2-4aea-9877-77f9367c82bf","title":"Purpose of the Pet Shop Application","type":"multiple-choice"}
+What is the primary purpose of the Pet Shop application in the context of software development?
+
+- [ ] To provide me with code I can blindly copy into my chess application
+- [ ] To demonstrate the one and only solution for building distributed applications
+- [x] To serve as a reference architecture that demonstrates design patterns and one possible solution for building a distributed application
+- [ ] To serve as a blueprint that I should following for my chess application
+```
