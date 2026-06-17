@@ -94,7 +94,10 @@
           "title": "Pet Shop",
           "path": "petshop/petshop.md",
           "id": "171fddea-bdfe-4aff-a3e3-d71f4742750c",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "409b54f0-93e2-4aea-9877-77f9367c82bf"
+          ]
         },
         {
           "title": "☑ Chess GitHub Repository",
