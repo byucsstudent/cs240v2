@@ -33,7 +33,9 @@
           "path": "instruction/syllabus/syllabus.md",
           "id": "c1a1ebe9-a8b7-4646-b4a0-25860a2bbe9f",
           "state": "published",
-          "interactions": []
+          "interactions": [
+            "cae08349-d561-4c4b-9a84-208fab172b36"
+          ]
         },
         {
           "title": "Instruction topics",
