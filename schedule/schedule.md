@@ -35,7 +35,8 @@
 |  | Thu Nov 12 |  |  | [Computer Security](../instruction/computer-security/computer-security.md) | [Hashing](https://docs.google.com/presentation/d/1mWgXs0u2Lr7ducLhPEALvu3DlINNzMY_ZZk0NGoku58) |
 |  | Sat Nov 14, 2026 |  | [☑ Phase 5: Chess Pregame](../chess/5-pregame/pregame.md) |  |  |
 | 12 | Tue Nov 17 |  |  | [Computer Security](../instruction/computer-security/computer-security.md) | [Encryption](https://docs.google.com/presentation/d/1rXrgWisZYZKIXz5Mh1t7PUA8mMNYL6e0ovY8hldKnLA) |
-|  | Thu Nov 19 |  | _Nov 20_ - 2nd Programming Exam retake | In class help session |  |
+|  | Thu Nov 19 |  |  | In class help session |  |
+|  | Fri Nov 20, 2026 |  | 2nd Programming Exam retake |  |  |
 | 13 | Tue Nov 24 |  |  | _Thanksgiving_ **NO CLASS** |  |
 |  | Thu Nov 26 |  |  | _Thanksgiving_ **NO CLASS** |  |
 | 14 | Tue Dec 1 |  |  | [Concurrency](../instruction/concurrency/concurrency.md) | [Concurrency](https://docs.google.com/presentation/d/1OcH2XYen-U0f1sBAxaaCswwzp_OergGhq7b9mopszRM) |
