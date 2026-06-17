@@ -75,7 +75,10 @@
           "title": "Git",
           "path": "instruction/git/git.md",
           "id": "b689ad9d-a894-4073-ae01-3190ff3cf151",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "955c39cf-a2b9-45ba-9cb4-62fde6b482a1"
+          ]
         },
         {
           "title": "Chess",
