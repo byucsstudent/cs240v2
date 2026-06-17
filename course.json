@@ -23,9 +23,7 @@
           "path": "README.md",
           "id": "97ae7242-6f80-4148-bd4a-503e2492d066",
           "state": "published",
-          "interactions": [
-            "624dbbb7-bbc1-4061-9c51-080623358b39"
-          ],
+          "interactions": ["624dbbb7-bbc1-4061-9c51-080623358b39"],
           "description": ""
         },
         {
@@ -33,16 +31,7 @@
           "path": "instruction/syllabus/syllabus.md",
           "id": "c1a1ebe9-a8b7-4646-b4a0-25860a2bbe9f",
           "state": "published",
-          "interactions": [
-            "cae08349-d561-4c4b-9a84-208fab172b36"
-          ]
-        },
-        {
-          "title": "Instruction topics",
-          "path": "instruction/modules.md",
-          "id": "119cb280-7fc4-437f-8084-db67cc58188b",
-          "state": "published",
-          "interactions": []
+          "interactions": ["cae08349-d561-4c4b-9a84-208fab172b36"]
         },
         {
           "title": "Asking questions",
@@ -56,9 +45,7 @@
           "type": "instruction",
           "path": "instruction/late-policy/late-policy.md",
           "id": "93609927-67d6-4237-ad40-74b86d1cbf18",
-          "interactions": [
-            "a819fd43-c894-4945-b851-3b513d659573"
-          ],
+          "interactions": ["a819fd43-c894-4945-b851-3b513d659573"],
           "description": ""
         }
       ]
