@@ -56,6 +56,9 @@
           "type": "instruction",
           "path": "instruction/late-policy/late-policy.md",
           "id": "93609927-67d6-4237-ad40-74b86d1cbf18",
+          "interactions": [
+            "a819fd43-c894-4945-b851-3b513d659573"
+          ],
           "description": ""
         }
       ]
