@@ -24,20 +24,23 @@
 |  | Thu Oct 8, 2026 |  | [☑ Phase 2: Chess Server Design](../chess/2-server-design/server-design.md) |  |  |
 | 7 | Tue Oct 13 |  |  | [Writing Quality](../instruction/quality-code/quality-code.md)</br>[Code Style Checker](../instruction/style-checker/style-checker.md) | [Code Quality](https://docs.google.com/presentation/d/1BL8fSa7Evd5gdqNIpGub03YoulWM_zBIRIe9k82w5DI) |
 |  | Thu Oct 15 |  |  | [Unit Testing](../instruction/unit-testing/unit-testing.md)</br>[Code Coverage](../instruction/code-coverage/code-coverage.md) | [Testing](https://docs.google.com/presentation/d/10UAz0tZo8HXoaewgk3CDq8ACCBQPI2pmYbr6nVBvRRU) |
-| 8 | Tue Oct 20 |  | _Oct 22_ - Phase 3: Chess Web-API | [Relational Model](../instruction/db-model/db-model.md)</br>[MySQL](../instruction/mysql/mysql.md)</br>[SQL](../instruction/db-sql/db-sql.md) | [Relational Model](https://docs.google.com/presentation/d/1URzOUT09zQ1YR8vgxAsGgxnj_5KnRb6CUvhBv2RiUhk)</br>[SQL](https://docs.google.com/presentation/d/1WVLMOK4arzmqS6r2SsBRRmSvW984gIoBWiKtz7mnnUY) |
-|  | Thu Oct 22 |  |  | [`Phase 4: Chess Database`](../chess/4-database/database.md)</br>[JDBC](../instruction/db-jdbc/db-jdbc.md)</br>[Securing Passwords](../instruction/securing-passwords/securing-passwords.md) | [JDBC](https://docs.google.com/presentation/d/1Yj9dwQUIWexTtnnSNAc64o2iRRZ7ETBIFWGxibw5rEs) |
+| 8 | Tue Oct 20 |  |  | [Relational Model](../instruction/db-model/db-model.md)</br>[MySQL](../instruction/mysql/mysql.md)</br>[SQL](../instruction/db-sql/db-sql.md) | [Relational Model](https://docs.google.com/presentation/d/1URzOUT09zQ1YR8vgxAsGgxnj_5KnRb6CUvhBv2RiUhk)</br>[SQL](https://docs.google.com/presentation/d/1WVLMOK4arzmqS6r2SsBRRmSvW984gIoBWiKtz7mnnUY) |
+|  | Thu Oct 22 |  | [☑ Phase 3: Chess Web API](../chess/3-web-api/web-api.md) | [`Phase 4: Chess Database`](../chess/4-database/database.md)</br>[JDBC](../instruction/db-jdbc/db-jdbc.md)</br>[Securing Passwords](../instruction/securing-passwords/securing-passwords.md) | [JDBC](https://docs.google.com/presentation/d/1Yj9dwQUIWexTtnnSNAc64o2iRRZ7ETBIFWGxibw5rEs) |
 | 9 | Tue Oct 27 |  |  | In class help session |  |
-|  | Thu Oct 29 |  | _Oct 31_ - Phase 4: Chess Database | [Console UI](../instruction/console-ui/console-ui.md)</br>[Client HTTP](../instruction/web-api/web-api.md)</br>[`Phase 5: Chess Pregame`](../chess/5-pregame/pregame.md) | [Client](https://docs.google.com/presentation/d/1T6l8iPi3RhMEYnUzeftLR8mMUFkbOzIhh6PjDNUHQvo) |
+|  | Thu Oct 29 |  |  | [Console UI](../instruction/console-ui/console-ui.md)</br>[Client HTTP](../instruction/web-api/web-api.md)</br>[`Phase 5: Chess Pregame`](../chess/5-pregame/pregame.md) | [Client](https://docs.google.com/presentation/d/1T6l8iPi3RhMEYnUzeftLR8mMUFkbOzIhh6PjDNUHQvo) |
+|  | Sat Oct 31, 2026 |  | [☑ Phase 4: Chess Database](../chess/4-database/database.md) |  |  |
 | 10 | Tue Nov 3 |  |  | [Logging](../instruction/logging/logging.md)</br>[Debugging](../instruction/debugging/debugging.md)</br>[Defensive Programming](../instruction/defensive-programming/defensive-programming.md) | [Logging & Debugging](https://docs.google.com/presentation/d/1ZVp56cAxA9FX_ldNZQxXNbVmMyTW-VQHYbe_RstFmcY) |
 |  | Thu Nov 5 |  |  | [WebSocket](../instruction/websocket/websocket.md) | [WebSocket](https://docs.google.com/presentation/d/19r2fC1VHMMTp7qUmRGh89swp7ZLgf3JcOUkEXIndKMg) |
 | 11 | Tue Nov 10 |  |  | [`Phase 6: Chess Gameplay`](../chess/6-gameplay/gameplay.md) | [Gameplay](https://docs.google.com/presentation/d/1xXsH2eCmbI0n6xW0Q6ClyXy2p5ZnaKf0nbOBuNN_exw) |
-|  | Thu Nov 12 |  | _Nov 14_ - Phase 5: Chess Pregame | [Computer Security](../instruction/computer-security/computer-security.md) | [Hashing](https://docs.google.com/presentation/d/1mWgXs0u2Lr7ducLhPEALvu3DlINNzMY_ZZk0NGoku58) |
+|  | Thu Nov 12 |  |  | [Computer Security](../instruction/computer-security/computer-security.md) | [Hashing](https://docs.google.com/presentation/d/1mWgXs0u2Lr7ducLhPEALvu3DlINNzMY_ZZk0NGoku58) |
+|  | Sat Nov 14, 2026 |  | [☑ Phase 5: Chess Pregame](../chess/5-pregame/pregame.md) |  |  |
 | 12 | Tue Nov 17 |  |  | [Computer Security](../instruction/computer-security/computer-security.md) | [Encryption](https://docs.google.com/presentation/d/1rXrgWisZYZKIXz5Mh1t7PUA8mMNYL6e0ovY8hldKnLA) |
 |  | Thu Nov 19 |  | _Nov 20_ - 2nd Programming Exam retake | In class help session |  |
 | 13 | Tue Nov 24 |  |  | _Thanksgiving_ **NO CLASS** |  |
 |  | Thu Nov 26 |  |  | _Thanksgiving_ **NO CLASS** |  |
 | 14 | Tue Dec 1 |  |  | [Concurrency](../instruction/concurrency/concurrency.md) | [Concurrency](https://docs.google.com/presentation/d/1OcH2XYen-U0f1sBAxaaCswwzp_OergGhq7b9mopszRM) |
-|  | Thu Dec 3 |  | _Dec 5_ - Phase 6: Chess Gameplay | [Command line tools](../instruction/command-line-builds/command-line-builds.md) | [Maven](https://docs.google.com/presentation/d/1zgt9rpNWEpgxkP-FQ1wXsEFA8974AV3oElUXlUZZaZo) |
+|  | Thu Dec 3 |  |  | [Command line tools](../instruction/command-line-builds/command-line-builds.md) | [Maven](https://docs.google.com/presentation/d/1zgt9rpNWEpgxkP-FQ1wXsEFA8974AV3oElUXlUZZaZo) |
+|  | Sat Dec 5, 2026 |  | [☑ Phase 6: Chess Gameplay](../chess/6-gameplay/gameplay.md) |  |  |
 | 15 | Tue Dec 8 |  |  | Protips</br>[Final Exam Review](../instruction/final-exam-review/final-exam-review.md) | [Protips](https://docs.google.com/presentation/d/1HitFGYCbV01poP2Ib2FzhPMGxiYFRtZNu2UmUrSqTOM)</br>[Employment](https://docs.google.com/presentation/d/1CQD6biLpKW2SCHutBmrpwdy5tqMgpZVB_jr7vBd6qNY) |
 |  | Thu Dec 10 |  | _Dec 11-17_ - Final |  |  |
 
