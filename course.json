@@ -1,5 +1,5 @@
 {
-  "title": "Advanced Software Construction",
+  "title": "Advanced Software Construction v2",
   "links": {},
   "modules": [
     {
@@ -11,7 +11,9 @@
           "path": "README.md",
           "id": "97ae7242-6f80-4148-bd4a-503e2492d066",
           "state": "published",
-          "interactions": [],
+          "interactions": [
+            "624dbbb7-bbc1-4061-9c51-080623358b39"
+          ],
           "description": ""
         },
         {
