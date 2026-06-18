@@ -43,44 +43,6 @@ It is helpful to distinguish between "programming" and "software engineering." W
 
 For example, consider the difference in how a simple task is handled. A programmer might write a script to process data once. A software engineer writes a robust service that handles errors, logs activity, and can be easily updated by other team members.
 
-### Example: Modular Design
-
-One key principle of software engineering is **modularity**. Instead of writing one giant file of code (a "monolith"), engineers break systems into smaller, reusable components.
-
-**Poor Approach (Hard to maintain):**
-```python
-# A single script that does everything
-data = open("file.txt").read()
-# ... 50 lines of complex processing ...
-print("Result: " + data)
-```
-
-**Software Engineering Approach (Modular and Testable):**
-```python
-def load_data(filepath):
-    """Loads raw data from a source."""
-    try:
-        with open(filepath, 'r') as f:
-            return f.read()
-    except FileNotFoundError:
-        return None
-
-def process_data(raw_content):
-    """Applies business logic to data."""
-    if not raw_content:
-        return ""
-    return raw_content.strip().upper()
-
-def main():
-    content = load_data("file.txt")
-    result = process_data(content)
-    print(f"Processed: {result}")
-
-if __name__ == "__main__":
-    main()
-```
-
-By separating concerns, the software engineer makes it possible to test the `process_data` function independently of the file system, making the code more reliable and easier for a team to manage.
 
 ```masteryls
 {"id":"ce3d8811-e669-4b43-a13c-b037d81e0d0f","title":"Defining Software Engineering","type":"multiple-choice"}
@@ -93,9 +55,70 @@ What is the primary factor that distinguishes software engineering from simple p
 ```
 
 
+### Example: Modular Design
+
+One key principle of software engineering is **modularity**. Instead of writing one giant file of code (a "monolith"), engineers break systems into smaller, reusable components.
+
+**Poor Approach (Hard to maintain):**
+```java
+public class Main {
+    public static void main(String[] args) throws java.io.IOException {
+        // Monolithic: Logic is tightly coupled to a specific file and the console
+        // Brittle: No error handling; the entire program crashes if the file is missing
+        byte[] encoded = java.nio.file.Files.readAllBytes(java.nio.file.Paths.get("file.txt"));
+        System.out.println("Result: " + new String(encoded).trim().toUpperCase());
+    }
+}
+```
+
+**Software Engineering Approach (Modular and Testable):**
+```java
+public class DataProcessor {
+    
+    /** Loads raw data from a source. */
+    public String loadData(String filepath) {
+        try {
+            return Files.readString(Paths.get(filepath));
+        } catch (IOException e) {
+            return e.toString();
+        }
+    }
+
+    /** Applies business logic to data. */
+    public String processData(String rawContent) {
+        if (rawContent == null) {
+            return "";
+        }
+        return rawContent.trim().toUpperCase();
+    }
+
+    /** Extracts the file from the command-line or uses default */
+    private static String getFilePath(String[] args) {
+        if (args != null && args.length > 0) {
+            return args[0];
+        }
+        return "file.txt";
+    }
+
+    public static void main(String[] args) {
+        DataProcessor processor = new DataProcessor();
+        
+        String filepath = getFilePath(args);
+        String content = processor.loadData(filepath);
+        String result = processor.processData(content);
+  
+        System.out.println("Result: " + result);
+    }
+}
+```
+
+By separating concerns, the software engineer makes it possible to test the `processData` function independently of the file system, making the code more reliable and easier for a team to manage.
+
 ## Chess Project
 
-We use the game of [chess](../../chess/chess.md) to help you develop and demonstrate mastery during this course. Your development work is divided into different phases, each demonstrating a different architectural concept or technology. The first phase implements the rules of chess.
+In order to teach the principles of software engineering we need an application that has enough complexity to warrent an arichtectural approach, but not so difficult that you get lost in the details.
+
+We chose an multiplayer full stack implementation of the game of [chess](../../chess/chess.md) as your mastery project. Your development work is divided into different phases, each demonstrating a different architectural concept or technology. The first phase implements the rules of chess.
 
 After implementing the first phase, you will rewrite the code from the base project template—without external help or resources—during a timed exam. This demonstrates your ability to work independently under pressure. Efficiently writing code under a deadline is an essential skill that prepares you for the realities of professional programming.
 
