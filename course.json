@@ -130,7 +130,10 @@
           "title": "Java Fundamentals",
           "path": "instruction/java-fundamentals/java-fundamentals.md",
           "id": "91501491-314b-421c-87e7-fa40639d0c60",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "77d4a535-9dc9-4de5-ad62-73d9872e2f0e"
+          ]
         },
         {
           "title": "Phase 0: Getting Started",
