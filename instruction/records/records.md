@@ -4,6 +4,14 @@
 
 🖥️ [Lecture Videos](#videos)
 
+### 🔑 Key points
+
+- Java records provide a concise representation of immutable data classes
+- Records support a reasonable equals and hashcode implementations
+
+---
+
+
 When writing object-oriented code, it is common to use classes that exist solely to act as containers for data. These are often called "data objects" or "data-carrier classes." Their primary purpose is to store state and pass it between different parts of an application. 
 
 For example, you might have a `Pet` object with `id`, `name`, and `type` fields. This object could be passed to a `Walker` object to track exercise or to a `PetHealth` object to monitor medical history. This type of encapsulation helps create cohesive objects with a single responsibility. 
@@ -93,6 +101,16 @@ public record PetRecord(int id, String name, String type) {
     }
 }
 ```
+
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"dff0788f-db66-4a2f-bd87-1de307ac5bf0", "title":"Records", "type":"teaching" }
+What is the value of a Java record? Why not just always use a class?
+```
+
 
 ## Videos
 
