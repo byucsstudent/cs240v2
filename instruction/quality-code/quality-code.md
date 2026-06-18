@@ -6,7 +6,7 @@
 
 🖥️ [Lecture Videos](#videos)
 
-#### 🔑 Key points
+### 🔑 Key points
 
 - The importance of a good name.
 - Three reasons to create methods.

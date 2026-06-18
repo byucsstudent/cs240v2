@@ -6,7 +6,7 @@
 
 ## Copy Constructors
 
-#### 🔑 Key points
+### 🔑 Key points
 
 - The difference between a shallow copy and a deep copy
 - How to use `copy constructors` to implement deep copies

@@ -12,7 +12,7 @@
 >
 > — Edgar Cobb
 
-#### 🔑 Key points
+### 🔑 Key points
 
 - How data is represented in the relational model
 - How primary and foreign keys work

@@ -8,7 +8,7 @@
 
 - Chapter 5: Exceptions, Assertions, And Logging. (_Only read sections 5.1-5.1.9: Exception Handling_)
 
-#### 🔑 Key points
+### 🔑 Key points
 
 - The difference between checked and unchecked exceptions in Java
 - How and when to handle an exception in Java

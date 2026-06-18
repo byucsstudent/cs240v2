@@ -4,7 +4,7 @@
 
 🖥️ [Lecture Videos](#videos)
 
-#### 🔑 Key points
+### 🔑 Key points
 
 - First understand the application domain
 - Domain represented with classes

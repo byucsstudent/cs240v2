@@ -6,7 +6,7 @@
 
 📖 **Required Reading**: None
 
-#### 🔑 Key points
+### 🔑 Key points
 
 - The goals of software design
 - Design is an iterative process

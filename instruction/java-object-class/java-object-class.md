@@ -4,7 +4,7 @@
 
 🖥️ [Lecture Videos](#videos)
 
-#### 🔑 Key points
+### 🔑 Key points
 
 - **Method Overriding:** How to redefine a superclass method in a subclass.
 - **Method Overloading:** How to define multiple methods with the same name but different parameters.

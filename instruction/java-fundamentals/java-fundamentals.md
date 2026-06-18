@@ -13,7 +13,7 @@
 
 ## Learning Software Construction with Java
 
-##### 🔑 Key points
+#### 🔑 Key points
 
 1. We will learn software engineering principles and patterns using Java
 1. How to get and install Java and an IDE

@@ -4,7 +4,7 @@
 
 🖥️ [Lecture Videos](#videos)
 
-#### 🔑 Key points
+### 🔑 Key points
 
 - How to set a breakpoint
 - How to step through code and into method calls

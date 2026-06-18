@@ -4,7 +4,7 @@
 
 🖥️ [Lecture Videos](#videos)
 
-#### 🔑 Key points
+### 🔑 Key points
 
 - How to use command line arguments
 - How to write to the standard out
