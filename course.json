@@ -151,6 +151,9 @@
           "path": "chess/0-chess-moves/chess-moves.md",
           "id": "807a1d1b-6dff-4ccb-a7bb-3293602b7931",
           "state": "published",
+          "interactions": [
+            "2aba68a0-07ea-4f09-8b23-a4c5ac90ef86"
+          ],
           "description": ""
         },
         {
