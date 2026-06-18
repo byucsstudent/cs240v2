@@ -6,6 +6,30 @@
 
 In Java, every class descends from a single root: the `java.lang.Object` class. When you create a class, you inherit all public and protected methods provided by `Object`. If you do not explicitly specify a superclass using the `extends` keyword, Java automatically makes your class extend `Object`.
 
+
+### Java Object Hierarchy Diagram
+
+In Java, every class implicitly or explicitly inherits from the `java.lang.Object` class. This makes `Object` the root of the entire class hierarchy, providing fundamental methods that all Java objects share.
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
+classDiagram
+    direction BT
+    class Object {
+        +equals(Object obj) boolean
+        +hashCode() int
+        +toString() String
+    }
+
+    class MyClass {
+        -String data
+        +doWork() void
+    }
+
+    MyClass --|> Object : extends
+```
+
 When a class extends another, it can **override** the base class's methods to alter or extend their functionality. The `Object` class contains several key methods designed to be overridden:
 
 | Method | Purpose |
@@ -39,6 +63,14 @@ public class Person extends Object {
 ```
 
 The Java Development Kit (JDK) builds extensively on the `Object` class to provide standard implementations for lists, sets, networking, streams, and math. You can explore these capabilities by reviewing the [official Java documentation](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html).
+
+
+### Key Concepts
+*   **Implicit Inheritance:** If a class does not specify a parent class using the `extends` keyword, the Java compiler automatically makes it a child of the `Object` class.
+*   **Method Overriding:** Child classes (like `MyClass`) often override `toString()`, `equals(Object obj)`, and `hashCode()` to provide behavior specific to that class.
+*   **Root Class:** Because `Object` is the top-level class, a variable of type `Object` can hold a reference to an instance of any Java class.
+
+
 
 ## equals
 
