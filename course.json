@@ -160,7 +160,10 @@
           "title": "Java Object Class",
           "path": "instruction/java-object-class/java-object-class.md",
           "id": "d1e7971b-a868-4920-933d-9c7c1716d9df",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "2ec94cfd-ac42-4ced-a34f-8cd81c95c0ef"
+          ]
         },
         {
           "title": "Classes and Objects",
