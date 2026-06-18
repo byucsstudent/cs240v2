@@ -122,6 +122,8 @@ We chose an multiplayer full stack implementation of the game of [chess](../../c
 
 After implementing the first phase, you will rewrite the code from the base project template—without external help or resources—during a timed exam. This demonstrates your ability to work independently under pressure. Efficiently writing code under a deadline is an essential skill that prepares you for the realities of professional programming.
 
+![checkpoints.jpg](checkpoints.jpg)
+
 The remaining phases involve implementing a chess server that allows multiple client programs to connect, register users, and play games.
 
 ![Chess game](highlight-moves.png)
