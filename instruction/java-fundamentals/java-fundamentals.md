@@ -15,8 +15,6 @@
 
 ## 🔑 Key points
 
----
-
 1. We will learn software engineering principles and patterns using Java
 1. How to get and install Java and an IDE
 1. Why Java is both portable and fast
@@ -29,6 +27,9 @@
 1. How to specify command-line parameters in IntelliJ
 1. The relationship between Packages, Imports and the CLASSPATH environment variable
 1. How to use a Scanner to read a text file of words, separated by whitespace
+
+---
+
 
 The focus of this course is to teach you the core principles and patterns of software engineering. While these concepts require a programming language for implementation, the language itself is not the primary focus. The design principles and architectural patterns covered here apply across the industry, independent of the specific language you use.
 
