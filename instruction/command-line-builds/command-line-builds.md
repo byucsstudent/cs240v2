@@ -12,7 +12,7 @@
 
 - OPTIONAL: [Maven Getting Started Guide](https://maven.apache.org/guides/getting-started/index.html)
 
-## 🔑 Key points
+#### 🔑 Key points
 
 - The benefits of using command-line builds
 - All popular language environments have tools for creating command-line builds

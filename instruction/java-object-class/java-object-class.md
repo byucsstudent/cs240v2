@@ -4,7 +4,7 @@
 
 🖥️ [Lecture Videos](#videos)
 
-## 🔑 Key points
+#### 🔑 Key points
 
 - **Method Overriding:** How to redefine a superclass method in a subclass.
 - **Method Overloading:** How to define multiple methods with the same name but different parameters.
@@ -43,11 +43,11 @@ classDiagram
 
 When a class extends another, it can **override** the base class's methods to alter or extend their functionality. The `Object` class contains several key methods designed to be overridden:
 
-| Method | Purpose |
-| :--- | :--- |
-| `toString()` | Provides a human-readable string representing the object's state. |
-| `equals(Object o)` | Determines if another object is logically "equal" to the current one. |
-| `hashCode()` | Returns an integer representation of the object, essential for use in hash-based collections. |
+| Method             | Purpose                                                                                       |
+| :----------------- | :-------------------------------------------------------------------------------------------- |
+| `toString()`       | Provides a human-readable string representing the object's state.                             |
+| `equals(Object o)` | Determines if another object is logically "equal" to the current one.                         |
+| `hashCode()`       | Returns an integer representation of the object, essential for use in hash-based collections. |
 
 **Note**: Other methods in the `Object` class, such as `getClass()`, `wait()`, and `notify()`, are `final` and cannot be overridden.
 
@@ -75,9 +75,10 @@ public class Person extends Object {
 The Java Development Kit (JDK) builds extensively on the `Object` class to provide standard implementations for lists, sets, networking, streams, and math. You can explore these capabilities by reviewing the [official Java documentation](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html).
 
 ### Key Concepts
-*   **Implicit Inheritance:** If a class does not specify a parent class using the `extends` keyword, the Java compiler automatically makes it a child of the `Object` class.
-*   **Method Overriding:** Child classes (like `Person`) often override `toString()`, `equals(Object obj)`, and `hashCode()` to provide behavior specific to that class.
-*   **Root Class:** Because `Object` is the top-level class, a variable of type `Object` can hold a reference to an instance of any Java class.
+
+- **Implicit Inheritance:** If a class does not specify a parent class using the `extends` keyword, the Java compiler automatically makes it a child of the `Object` class.
+- **Method Overriding:** Child classes (like `Person`) often override `toString()`, `equals(Object obj)`, and `hashCode()` to provide behavior specific to that class.
+- **Root Class:** Because `Object` is the top-level class, a variable of type `Object` can hold a reference to an instance of any Java class.
 
 ## Important Object Default Methods
 
@@ -85,9 +86,9 @@ The Java Development Kit (JDK) builds extensively on the `Object` class to provi
 
 The `toString()` method is a member of the `java.lang.Object` class, which is the parent class of all objects in Java. Its primary purpose is to return a string representation of an object.
 
-*   **Default Behavior:** If not overridden, the method returns a string consisting of the class name, the `@` symbol, and the unsigned hexadecimal representation of the object's hash code (e.g., `Student@15db9742`).
-*   **Overriding:** Developers typically override this method to provide a meaningful, human-readable summary of the object's internal state (its field values).
-*   **Automatic Invocation:** The `toString()` method is automatically called when an object is passed to `System.out.println()` or when an object is concatenated with a String.
+- **Default Behavior:** If not overridden, the method returns a string consisting of the class name, the `@` symbol, and the unsigned hexadecimal representation of the object's hash code (e.g., `Student@15db9742`).
+- **Overriding:** Developers typically override this method to provide a meaningful, human-readable summary of the object's internal state (its field values).
+- **Automatic Invocation:** The `toString()` method is automatically called when an object is passed to `System.out.println()` or when an object is concatenated with a String.
 
 The following example demonstrates how to override the `toString()` method to provide useful information about a `Car` object.
 
@@ -109,12 +110,13 @@ class Car {
 
     public static void main(String[] args) {
         Car myCar = new Car("Toyota Corolla", 2022);
-        System.out.println(myCar.toString()); 
+        System.out.println(myCar.toString());
     }
 }
 ```
 
 **Output:**
+
 ```text
 Car {model='Toyota Corolla', year=2022}
 ```
@@ -199,6 +201,7 @@ If you do not override these functions, a `HashMap` will treat every instance as
 The `java.lang.Object` class is the cornerstone of Java's class hierarchy. Every class in Java, whether user-defined or part of the standard library, implicitly inherits from `Object`. This design demonstrates several fundamental software engineering principles, most notably **Universal Inheritance** and **Contractual Programming**. By providing a common ancestor, Java ensures that every instance of any class shares a baseline set of behaviors, such as the ability to be compared, converted to a string, or used in synchronization.
 
 ### The Principle of Universal Inheritance
+
 Java utilizes a single-root hierarchy. This design choice simplifies the runtime environment and provides a "universal type" that can represent any object. This is a manifestation of the **Liskov Substitution Principle**, where a subtype (`String`, `ArrayList`, etc.) can always be treated as its supertype (`Object`).
 
 ```mermaid
@@ -209,11 +212,12 @@ graph TD
     Number --> Integer
     Number --> Double
     Collection --> ArrayList
-    
+
     classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
 ```
 
 ### Contractual Programming through Overridable Methods
+
 The `Object` class defines a "contract" for how objects should behave. When you create a class, you are encouraged (and sometimes required) to override specific methods to maintain this contract. The three most critical methods are:
 
 1.  **`toString()`**: Provides a string representation of the object, facilitating debugging and logging.
@@ -223,6 +227,7 @@ The `Object` class defines a "contract" for how objects should behave. When you 
 By defining these in the root class, Java enforces a consistent API across the entire ecosystem. For example, any logging framework can call `.toString()` on an unknown object because it is guaranteed to exist.
 
 ### Polymorphism and Generic Utility
+
 The `Object` class can be used for creating reusable data structures. For example, because an `ArrayList` can store `Object` references, it can hold any data type. This demonstrates **Subtype Polymorphism**, where a single interface (the `Object` API) is used to handle different underlying forms.
 
 ```java
@@ -239,10 +244,10 @@ public class UniversalContainer {
 
     public static void main(String[] args) {
         UniversalContainer container = new UniversalContainer();
-        
+
         // The principle of polymorphism allows any type to be passed
-        container.setContent("Hello World"); 
-        container.setContent(42); 
+        container.setContent("Hello World");
+        container.setContent(42);
         container.setContent(new java.util.Date());
     }
 }

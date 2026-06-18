@@ -10,7 +10,7 @@
 
 🖥️ [Lecture Videos](#videos)
 
-## 🔑 Key points
+#### 🔑 Key points
 
 - How input and output streams work
 - The difference between streams and readers and writers

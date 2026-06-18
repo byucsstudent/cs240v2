@@ -10,7 +10,7 @@
 
 ## JSON
 
-## 🔑 Key points
+#### 🔑 Key points
 
 - How to read / understand JSON documents
 - How to generate an JSON string from the instance variables of a Java object

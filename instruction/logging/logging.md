@@ -8,7 +8,7 @@
 
 🖥️ [Lecture Videos](#videos)
 
-## 🔑 Key points
+#### 🔑 Key points
 
 - What is logging and why do we need it?
 - How do you log messages at different levels?

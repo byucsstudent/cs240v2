@@ -1,6 +1,6 @@
 # Securing Passwords
 
-## 🔑 Key points
+#### 🔑 Key points
 
 - Securely storing passwords using Bcrypt
 

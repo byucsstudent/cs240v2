@@ -4,7 +4,7 @@
 
 🖥️ [Lecture Videos](#videos)
 
-## 🔑 Key points
+#### 🔑 Key points
 
 - How to create and drop tables
 - Why drop table if exists is useful

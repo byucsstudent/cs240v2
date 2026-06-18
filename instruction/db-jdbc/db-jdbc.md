@@ -4,7 +4,7 @@
 
 🖥️ [Lecture Videos](#videos)
 
-## 🔑 Key points
+#### 🔑 Key points
 
 - How to execute each of the SQL statements from Java using JDBC
 - How to use JDBC connections

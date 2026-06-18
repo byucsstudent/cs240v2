@@ -6,7 +6,7 @@
 
 🖥️ [Lecture Videos](#videos)
 
-## 🔑 Key points
+#### 🔑 Key points
 
 - What object references are and why we need them
 - The differences between static methods and variables and instance methods and variables

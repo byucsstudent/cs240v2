@@ -8,7 +8,7 @@
 
 - Chapter 7: Collections
 
-## 🔑 Key points
+#### 🔑 Key points
 
 - The interfaces and classes that make up the Java collection API
 - What each interface and class is used for

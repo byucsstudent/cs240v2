@@ -8,7 +8,7 @@
 
 - Chapter 5: Exceptions, Assertions, And Logging. (_Only read sections 5.1-5.1.9: Exception Handling_)
 
-## 🔑 Key points
+#### 🔑 Key points
 
 - The difference between checked and unchecked exceptions in Java
 - How and when to handle an exception in Java
@@ -139,6 +139,7 @@ public class ExceptionExample {
 Java has many useful Exception types you can `throw`, but often you won't find one that matches what you need. You can create your own exception types by creating subclasses of the `Exception` class (or of any other exception type). Feel free to add fields to your exception classes to contain any information that might be useful about what went wrong. If you find yourself catching an exception and then checking the message string to see what kind of error it is, you may want to replace it with a custom exception type instead.
 
 Here is an example of a custom exception type:
+
 ```java
 public class AlreadyTakenException extends Exception {
     public AlreadyTakenException(String message) {

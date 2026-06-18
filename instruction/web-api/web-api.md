@@ -8,7 +8,7 @@
 
 🖥️ [Lecture Videos](#videos)
 
-## 🔑 Key points
+#### 🔑 Key points
 
 - Writing the main Server class
 - Writing HTTP handlers for GET and POST requests

@@ -8,7 +8,7 @@
 
 🖥️ [Lecture Videos](#videos)
 
-## 🔑 Key points
+#### 🔑 Key points
 
 - How and when to write assertions.
 - How and when to use parameter checking instead of assertions.

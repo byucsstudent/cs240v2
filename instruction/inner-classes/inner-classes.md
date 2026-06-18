@@ -7,7 +7,7 @@
 
 🖥️ [Lecture Videos](#videos)
 
-## 🔑 Key points
+#### 🔑 Key points
 
 - What are static inner classes and what benefits do they provide?
 - What can regular inner classes do that static inner classes cannot?

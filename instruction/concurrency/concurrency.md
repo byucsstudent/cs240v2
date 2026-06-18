@@ -6,7 +6,7 @@
 
 🖥️ [Lecture Videos](#videos)
 
-## 🔑 Key points
+#### 🔑 Key points
 
 - What is a thread?
 - Creating and executing a simple thread in Java

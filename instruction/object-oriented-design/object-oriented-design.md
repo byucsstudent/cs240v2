@@ -4,7 +4,7 @@
 
 🖥️ [Lecture Videos](#videos)
 
-## 🔑 Key points
+#### 🔑 Key points
 
 - First understand the application domain
 - Domain represented with classes
@@ -38,11 +38,11 @@ In object oriented programming everything revolves around a `Class` construct th
 
 In order to fully model the real world with your objects, you need to describe the relationships between objects. Three of the most common relationships are `is-a`, `has-a`, and `uses-a`.
 
-| Relationship | Description                                                             | Example                            |
-| ------------ | ----------------------------------------------------------------------- | ---------------------------------- |
-| Is-A         | Polymorphic inheritance.  Often defined by a extending a class. | A `Programmer` is a `Person`.      |
-| Has-A        | Ownership.  Often defined by a class field.                                                             | A `Programmer` has a `Computer`.    |
-| Uses-A       | Transient association. Often defined by a method parameter.      | A `Person` uses a `Taxi` to travel. |
+| Relationship | Description                                                    | Example                             |
+| ------------ | -------------------------------------------------------------- | ----------------------------------- |
+| Is-A         | Polymorphic inheritance. Often defined by a extending a class. | A `Programmer` is a `Person`.       |
+| Has-A        | Ownership. Often defined by a class field.                     | A `Programmer` has a `Computer`.    |
+| Uses-A       | Transient association. Often defined by a method parameter.    | A `Person` uses a `Taxi` to travel. |
 
 The following is an example of the relationships between a number of objects. Note that there are many ways that you can represent the real world with object oriented design.
 

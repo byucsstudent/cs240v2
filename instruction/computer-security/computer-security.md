@@ -6,7 +6,7 @@
 
 📖 **Required Reading**: None
 
-## 🔑 Key points
+#### 🔑 Key points
 
 - High-level goals of computer security
   - Data confidentiality

@@ -17,7 +17,7 @@
 
 ## Polymorphism
 
-## 🔑 Key points
+#### 🔑 Key points
 
 - What polymorphism is
 - What abstract classes are and when to use them

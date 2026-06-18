@@ -10,7 +10,7 @@
 
 🖥️ [Lecture Videos](#videos)
 
-## 🔑 Key points
+#### 🔑 Key points
 
 - Why unit testing is important
 - How to write unit tests using the JUnit testing framework
