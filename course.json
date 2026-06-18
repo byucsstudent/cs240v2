@@ -131,6 +131,10 @@
           "type": "instruction",
           "path": "instruction/object-oriented-programming/object-oriented-programming.md",
           "id": "64ed9534-3644-4dd6-9538-45e149d1666d",
+          "interactions": [
+            "6d998d67-76af-4c7e-af57-305de7dc1494",
+            "c1e93ca5-9be0-47dc-a826-3c73adb5be39"
+          ],
           "description": "The basics of object oriented programming including:\n\nEncapsulation: Bundling data and the methods that operate on that data into a single unit.\nAbstraction: Simplifying complex systems by modeling classes appropriate to the problem.\nInheritance: Creating new classes based on existing ones to reuse and extend functionality.\nPolymorphism"
         },
         {
