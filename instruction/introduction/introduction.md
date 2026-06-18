@@ -31,21 +31,9 @@ Software engineering is more than just writing code; it is a systematic, discipl
 
 At its core, software engineering applies engineering principles—the same rigor used to build bridges or airplanes—to digital systems. This is necessary because software has become incredibly complex. Modern applications often involve millions of lines of code, distributed teams, and the need to run on diverse hardware. Without a structured engineering approach, projects often suffer from "software crisis" symptoms: going over budget, missing deadlines, and containing numerous bugs.
 
-### The Software Development Life Cycle (SDLC)
-
 To manage this complexity, software engineers follow a structured process known as the Software Development Life Cycle (SDLC). This ensures that every phase of the project is documented and verified.
 
-```mermaid
-graph TB
-  A[Requirements Analysis] --> B[System Design]
-  B --> C[Implementation]
-  C --> D[Testing]
-  D --> E[Deployment]
-  E --> F[Maintenance]
-  F --> A
-  
-  classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
-```
+![sdlc.jpg](sdlc.jpg)
 
 
 It is helpful to distinguish between "programming" and "software engineering." While they overlap, the scope of software engineering is significantly broader.
