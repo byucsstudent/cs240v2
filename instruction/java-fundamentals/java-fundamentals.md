@@ -398,6 +398,16 @@ public class ScannerExample {
 1. The relationship between Packages, Imports and the CLASSPATH environment variable
 1. How to use a Scanner to read a text file of words, separated by whitespace
 
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"77d4a535-9dc9-4de5-ad62-73d9872e2f0e", "title":"Your first Java program", "type":"essay", "gradingCriteria":"- The program properly compiles and outputs the conosole text: 'Hello World'" }
+Before you break out your compiler and make your first Java program. Try to create a Java Program that prints `Hello World` to the console. Do this from your memory of what you learned above without copying any code. The feedback you receive will help you get things right.
+```
+
+
 ## Videos
 
 - 🎥 [Java History and Overview (10:13)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cb99566e-3a9d-40c9-86c0-ad56013f4a64) - [[transcript]](https://github.com/user-attachments/files/17804894/CS_240_Java_History_and_Overview.pdf)
