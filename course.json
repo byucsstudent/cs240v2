@@ -127,6 +127,13 @@
       "title": "Object Oriented Programming",
       "topics": [
         {
+          "title": "Object Oriented Programming",
+          "type": "instruction",
+          "path": "instruction/object-oriented-programming/object-oriented-programming.md",
+          "id": "64ed9534-3644-4dd6-9538-45e149d1666d",
+          "description": "The basics of object oriented programming including:\n\nEncapsulation: Bundling data and the methods that operate on that data into a single unit.\nAbstraction: Simplifying complex systems by modeling classes appropriate to the problem.\nInheritance: Creating new classes based on existing ones to reuse and extend functionality.\nPolymorphism"
+        },
+        {
           "title": "Java Fundamentals",
           "path": "instruction/java-fundamentals/java-fundamentals.md",
           "id": "91501491-314b-421c-87e7-fa40639d0c60",
@@ -250,13 +257,6 @@
           "path": "instruction/lambdas/lambdas.md",
           "id": "5fc24ac6-e3ec-43f5-9ea5-1005ba1f41c2",
           "state": "published"
-        },
-        {
-          "title": "Object Oriented Programming",
-          "type": "instruction",
-          "path": "instruction/object-oriented-programming/object-oriented-programming.md",
-          "id": "64ed9534-3644-4dd6-9538-45e149d1666d",
-          "description": "The basics of object oriented programming including:\n\nEncapsulation: Bundling data and the methods that operate on that data into a single unit.\nAbstraction: Simplifying complex systems by modeling classes appropriate to the problem.\nInheritance: Creating new classes based on existing ones to reuse and extend functionality.\nPolymorphism"
         }
       ]
     },
