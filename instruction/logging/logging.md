@@ -8,6 +8,16 @@
 
 🖥️ [Lecture Videos](#videos)
 
+## 🔑 Key points
+
+- What is logging and why do we need it?
+- How do you log messages at different levels?
+- Why do we need different levels?
+- How do you configure logging from a configuration file?
+- Why do we have Log4J is Java has a built-in logging API?
+
+---
+
 Logging is a critical piece of advanced software construction. Without logging your application is a black box where only your users know if it is working or not. By recording, or logging, what is happening within your application you create a persistent record of what users are doing and how the application is responding to their requests. Logging works by recording entries in a log that describes what is happening at key points in your application. Typically this includes the request and response of HTTP endpoints, authentication and authorization requests, and exceptional errors. You can then query your logs to view events, graphs, and reports that give you insight into what the system is doing. You can also set up your logging system to automatically alert you when things seem exceptional.
 
 ![logging flow](logging-flow.png)
@@ -216,14 +226,6 @@ You can then query your database for requests that match a given time range or l
 ## Log4J
 
 Java's direct support for logging, with the `java.util.logging` package, was not introduced until 2002. Before that developers had to implement their own logging. The most common solution was to use the 3rd party package `Log4J`. In fact `java.util.logging` was modeled based upon the functionality of `Log4J`. For that reason it is very common to still see production Java code using `Log4J`.
-
-## Things to Understand
-
-- What is logging and why do we need it?
-- How do you log messages at different levels?
-- Why do we need different levels?
-- How do you configure logging from a configuration file?
-- Why do we have Log4J is Java has a built-in logging API?
 
 ## Videos
 

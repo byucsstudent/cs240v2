@@ -8,6 +8,16 @@
 
 🖥️ [Lecture Videos](#videos)
 
+## 🔑 Key points
+
+- Writing the main Server class
+- Writing HTTP handlers for GET and POST requests
+- Implementing the Test Web Page using a FileHandler
+- Writing a web client
+- Server and client code examples
+
+---
+
 Now that you understand how HTTP works at a theoretical level you can write Java code to make requests from an HTTP client and respond from an HTTP server.
 
 ## Web Server
@@ -157,7 +167,6 @@ public class SimpleNameServer {
         ctx.contentType("application/json");
         ctx.result(new Gson().toJson(Map.of("name", names)));
     }
-
 
     private void deleteName(Context ctx) {
         if (authorized(ctx)) {
@@ -451,14 +460,6 @@ java -cp ../../lib/gson-2.10.1.jar ClientCurlExample.java POST 'http://localhost
 
 {name=joe, count=3.0}
 ```
-
-## Things to Understand
-
-- Writing the main Server class
-- Writing HTTP handlers for GET and POST requests
-- Implementing the Test Web Page using a FileHandler
-- Writing a web client
-- Server and client code examples
 
 ## Videos
 

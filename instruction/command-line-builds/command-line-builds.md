@@ -12,6 +12,17 @@
 
 - OPTIONAL: [Maven Getting Started Guide](https://maven.apache.org/guides/getting-started/index.html)
 
+## 🔑 Key points
+
+- The benefits of using command-line builds
+- All popular language environments have tools for creating command-line builds
+- How to run a command-line build
+- Typical features of command-line build tools, such as dependency management
+- Have a general understanding of how Maven can be used to create a command-line build for a Java project
+- Have a general understanding of how Maven can be used with IntelliJ
+
+---
+
 When developing a software project, you must frequently "build" the software. The "build process" includes activities such as compiling the code, compiling and running automated test cases, packaging the code into distributable files, generating code and test quality reports, etc. IDEs such as IntelliJ are great, but using them to build a project can be a partially manual and error-prone process. For many reasons, it can be advantageous to create a "command-line build" for your project, which allows anyone to compile, run, test, package, deploy, and validate the software using simple shell (ie, command-line) commands. Fortunately, there are many tools available to help create a command-line build for a project, such as Apache Maven.
 
 ## Installing Maven
@@ -322,15 +333,6 @@ This will display a search dialog at queries [mvnRepository.com](https://mvnrepo
 ![Maven Artifact Search](mavenArtifactSearch.png)
 
 Once you press `Add` your `pom.xml` file will be updated and you are ready to go.
-
-## Things to Understand
-
-- The benefits of using command-line builds
-- All popular language environments have tools for creating command-line builds
-- How to run a command-line build
-- Typical features of command-line build tools, such as dependency management
-- Have a general understanding of how Maven can be used to create a command-line build for a Java project
-- Have a general understanding of how Maven can be used with IntelliJ
 
 ## Videos
 

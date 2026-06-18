@@ -10,6 +10,18 @@
 
 🖥️ [Lecture Videos](#videos)
 
+## 🔑 Key points
+
+- How input and output streams work
+- The difference between streams and readers and writers
+- How to chain streams, readers, or writers together to get complex behavior
+- How to convert from an input stream to a reader using the InputStreamReader class
+- How to convert from a writer to an output stream using the OutputStreamWriter class
+- How to use the scanner class
+- Uses of the file class
+
+---
+
 Input refers to when you read data in from some source of data. Output is the opposite, where you write data out to some destination. Sources and destinations commonly represent devices such as persistent storage, the network, a keyboard, or a printer. It can also represent bytes being pulled from, or written to, an array or some other memory based structure.
 
 The [java.io](https://docs.oracle.com/javase/20/docs/api/java/io/package-summary.html) package contains many classes and interfaces for working with I/O. The following table gives examples of some of the more commonly used `java.io` classes.
@@ -113,16 +125,6 @@ public class ReadFile {
     }
 }
 ```
-
-## Things to Understand
-
-- How input and output streams work
-- The difference between streams and readers and writers
-- How to chain streams, readers, or writers together to get complex behavior
-- How to convert from an input stream to a reader using the InputStreamReader class
-- How to convert from a writer to an output stream using the OutputStreamWriter class
-- How to use the scanner class
-- Uses of the file class
 
 ## Videos
 

@@ -6,6 +6,20 @@
 
 🖥️ [Lecture Videos](#videos)
 
+## 🔑 Key points
+
+- The importance of a good name.
+- Three reasons to create methods.
+- How to decompose a complex algorithm into sub methods.
+- How the use of good names and decomposition can reduce or eliminate the need to write inline comments.
+- How to properly use parameters.
+- How to properly layout your code to maximize readability.
+- How to make expressions easy to read and understand.
+- How to refactor your code.
+- Writing pseudo-code.
+
+---
+
 Despite stereotypes to the contrary, software engineering is an art form. It requires significant creativity to envision, architect, and create quality user experiences. That same care and artistic expression should be reflected in how your organize and write your code. One quality of a distinguished engineer is that they write code that is easy to discover, read, comprehend, manipulate, and extend. Take for example the following two small programs.
 
 **Example 1**
@@ -339,18 +353,6 @@ client make move
    call server with the validated move
 
 ```
-
-## Things to Understand
-
-- The importance of a good name.
-- Three reasons to create methods.
-- How to decompose a complex algorithm into sub methods.
-- How the use of good names and decomposition can reduce or eliminate the need to write inline comments.
-- How to properly use parameters.
-- How to properly layout your code to maximize readability.
-- How to make expressions easy to read and understand.
-- How to refactor your code.
-- Writing pseudo-code.
 
 ## Videos
 

@@ -6,6 +6,14 @@
 
 ## Copy Constructors
 
+## 🔑 Key points
+
+- The difference between a shallow copy and a deep copy
+- How to use `copy constructors` to implement deep copies
+- How to use `clone` methods to implement deep copies
+
+---
+
 An easy way to provide the ability to make a copy of your object is to create a constructor that takes an object you want to copy. This is commonly called a `Copy Constructor`.
 
 Here is an example of a class that has a default constructor, and a copy constructor. Both constructors create the object, but with the default constructor you supply all the fields. With the copy constructor all the fields are copied out of the provided object.
@@ -114,12 +122,6 @@ public static class CloneCopy implements Cloneable {
 ```
 
 However, overriding `clone` requires that you implement the `Cloneable` marker interface, do a typecasting on the result, and handle the possibility of a `CloneNotSupportedException`.
-
-## Things to Understand
-
-- The difference between a shallow copy and a deep copy
-- How to use `copy constructors` to implement deep copies
-- How to use `clone` methods to implement deep copies
 
 ## Videos
 

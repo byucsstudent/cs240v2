@@ -6,6 +6,25 @@
 
 📖 **Required Reading**: None
 
+## 🔑 Key points
+
+- High-level goals of computer security
+  - Data confidentiality
+  - Authentication
+  - Data integrity
+  - Non-Repudiation
+- Fundamental security concepts and technologies
+  - Cryptographic hash functions
+  - Symmetric encryption
+  - Asymmetric encryption with public and private keys
+  - Secure key exchange
+  - Digital signatures
+  - Public key certificates
+- Secure password storage and verification
+- Secure network communication using HTTPS
+
+---
+
 Software systems conduct trillions of dollars in daily transactions, and manage access to billions of personal records. This makes these systems a valuable target for attack. Bad actors try to compromise systems in a variety of ways. They may try to gain unauthorized access to data and computers for the purposes of stealing, monitoring, damaging, or otherwise misusing these assets. In order to mitigate their efforts you must include security as a primary design criteria, understand historical and current attack vectors, vigilantly monitor for intrusion, and continually enhance your systems as new threats evolve.
 
 This topic focuses on the core concepts and technologies necessary to securely store and transmit data. The core concepts of computer security include the following.
@@ -53,7 +72,6 @@ package demo;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.nio.charset.StandardCharsets;
-
 
 public class CryptoHashFunctionDemo {
 
@@ -445,23 +463,6 @@ If the website cannot decrypt the symmetric key then that means the website is n
 ![web certs](webCert.png)
 
 This demonstrates how modern cryptography forms the foundation of web security by providing user authentication, authorization, non-repudiation, data integrity, and secure communication.
-
-## Things to Understand
-
-- High-level goals of computer security
-  - Data confidentiality
-  - Authentication
-  - Data integrity
-  - Non-Repudiation
-- Fundamental security concepts and technologies
-  - Cryptographic hash functions
-  - Symmetric encryption
-  - Asymmetric encryption with public and private keys
-  - Secure key exchange
-  - Digital signatures
-  - Public key certificates
-- Secure password storage and verification
-- Secure network communication using HTTPS
 
 ## Videos
 

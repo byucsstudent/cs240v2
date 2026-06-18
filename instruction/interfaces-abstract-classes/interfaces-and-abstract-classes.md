@@ -17,6 +17,18 @@
 
 ## Polymorphism
 
+## 🔑 Key points
+
+- What polymorphism is
+- What abstract classes are and when to use them
+- What interfaces are and when to use them
+- How interfaces and abstract classes are both similar and different
+- How to implement an interface in a class
+- How to create an interface
+- How to do inheritance in Java
+
+---
+
 Polymorphism is the blanket term used in computer science to represent the idea of morphing an object to fit into many (i.e. poly) different contexts. In Java, the use of inheritance and abstract classes are the primary ways to provide polymorphism. You use the `extends` keyword to inherit another class's functionality, and you use the `implements` keyword to inherit an interface definition. Polymorphism allows you to decouple, or abstract, a class's internals, from how it is used. That makes it so you can significantly alter the class without having to change how the class is used.
 
 ## Interfaces
@@ -181,7 +193,6 @@ public static void main(String[] args) {
     print(new PrefixAlphabetIterator());
 }
 
-
 public static void print(AlphabetIterator iter) {
     while (iter.hasNext()) {
         System.out.println(iter.nextWithPrefix("+ "));
@@ -303,7 +314,6 @@ classDiagram
         pieceMoves()
     }
 
-
     class Rule {
         <<interface>>
         pieceMoves()
@@ -365,16 +375,6 @@ classDiagram
         pieceMoves()
     }
 ```
-
-## Things to Understand
-
-- What polymorphism is
-- What abstract classes are and when to use them
-- What interfaces are and when to use them
-- How interfaces and abstract classes are both similar and different
-- How to implement an interface in a class
-- How to create an interface
-- How to do inheritance in Java
 
 ## Videos
 

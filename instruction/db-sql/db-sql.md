@@ -4,6 +4,16 @@
 
 🖥️ [Lecture Videos](#videos)
 
+## 🔑 Key points
+
+- How to create and drop tables
+- Why drop table if exists is useful
+- How to insert, update, delete, and retrieve data from a database table
+- How to retrieve data from multiple related tables using a join
+- What database transactions are and why we need them
+
+---
+
 `Structured Query Language` (SQL) is a programming language that is specifically designed to interact with relational databases. It contains statements for inserting, updating, reading, and deleting data. It also provides statements for managing the database and the users that have access to the database.
 
 You can categorizes the most commonly used SQL statements into the following buckets.
@@ -308,14 +318,6 @@ The follow table summaries all of the commands that were used in this instructio
 | TRUNCATE TABLE  | Deletes all rows from a table, but preserves the table structure.       | TRUNCATE TABLE pet;                                                                                                          |
 | CREATE VIEW     | Creates a virtual table that is based on one or more underlying tables. | CREATE VIEW cats AS SELECT \* FROM pet WHERE type = 'cat';                                                                   |
 | DROP VIEW       | Deletes a view.                                                         | DROP VIEW cats;                                                                                                              |
-
-## Things to Understand
-
-- How to create and drop tables
-- Why drop table if exists is useful
-- How to insert, update, delete, and retrieve data from a database table
-- How to retrieve data from multiple related tables using a join
-- What database transactions are and why we need them
 
 ## Videos
 

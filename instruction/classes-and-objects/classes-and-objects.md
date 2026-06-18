@@ -6,6 +6,20 @@
 
 🖥️ [Lecture Videos](#videos)
 
+## 🔑 Key points
+
+- What object references are and why we need them
+- The differences between static methods and variables and instance methods and variables
+- How constructors work in Java
+- What constructor the compiler writes (and when it doesn't write one)
+- What code the compiler adds to some constructors and why
+- What the 'this' reference is used for
+- When the 'this' reference is required and when it is optional
+- What an enum is and how to implement one
+- The standard order of elements in a Java class
+
+---
+
 Classes are the primary programming construct for Java. A class contains fields and methods. Fields represent variables within the class and methods represent operations that the class performs. For example, if we had a class that represents a person, we might have a field called `name` that contains the person's name, and a method called `sayName` that outputs the name. An object is an instantiation, or instance, of a class that has been initialized to contain values. A class may also have a constructor that provides the default values for the fields when the class is instantiated into an object.
 
 ```java
@@ -168,18 +182,6 @@ public static void main(String[] args) {
     }
 }
 ```
-
-## Things to Understand
-
-- What object references are and why we need them
-- The differences between static methods and variables and instance methods and variables
-- How constructors work in Java
-- What constructor the compiler writes (and when it doesn't write one)
-- What code the compiler adds to some constructors and why
-- What the 'this' reference is used for
-- When the 'this' reference is required and when it is optional
-- What an enum is and how to implement one
-- The standard order of elements in a Java class
 
 ## Videos
 

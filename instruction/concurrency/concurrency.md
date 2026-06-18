@@ -2,9 +2,21 @@
 
 🖥️ [Slides](https://docs.google.com/presentation/d/1ibtqBjYEzx45Nh9eLP5xq6jWKfVjVMpv/edit#slide=id.p1)
 
-📖 **Optional Reading**: OPTIONAL: Core Java for the Impatient, Chapter 10: Concurrent Programming
+📖 **Optional Reading**: Core Java for the Impatient, Chapter 10: Concurrent Programming
 
 🖥️ [Lecture Videos](#videos)
+
+## 🔑 Key points
+
+- What is a thread?
+- Creating and executing a simple thread in Java
+- Using a thread pool (ExecutorService in Java) to run multiple threads
+- What is a race condition (or race hazard)?
+- How to use database transactions to avoid race conditions
+- How to use "synchronized" methods and code blocks in Java to avoid race conditions
+- How to avoid race conditions in the Chess server and client programs
+
+---
 
 In order to understand the value of concurrent programming it is helpful to examine a process that executes discrete tasks. Imagine a pizza shop that takes orders and makes pizzas. A shop that only has one worker can only take one order at a time and make one pizza at a time.
 
@@ -514,16 +526,6 @@ There are several possible corruptions that we need to consider.
 1. A single user can make multiple moves if executed from multiple threads. For example, a quick execution of concurrent requests could move all of the pawns.
 
 All of these problems can be mitigated by using atomic operations or thread synchronization to protect critical sections. The important first step is to recognize that you have a multithreaded application and to consider all of the ways your shared data needs to be protected.
-
-## Things to Understand
-
-- What is a thread?
-- Creating and executing a simple thread in Java
-- Using a thread pool (ExecutorService in Java) to run multiple threads
-- What is a race condition (or race hazard)?
-- How to use database transactions to avoid race conditions
-- How to use "synchronized" methods and code blocks in Java to avoid race conditions
-- How to avoid race conditions in the Chess server and client programs
 
 ## Videos
 

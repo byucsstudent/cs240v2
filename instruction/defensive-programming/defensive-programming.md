@@ -8,6 +8,13 @@
 
 🖥️ [Lecture Videos](#videos)
 
+## 🔑 Key points
+
+- How and when to write assertions.
+- How and when to use parameter checking instead of assertions.
+
+---
+
 Java introduced the `assertion` keyword with version 1.4.
 
 ## Protecting Public Access
@@ -92,11 +99,6 @@ public class DefensiveExample {
     }
 }
 ```
-
-## Things to Understand
-
-- How and when to write assertions.
-- How and when to use parameter checking instead of assertions.
 
 ## Videos
 

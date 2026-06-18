@@ -4,6 +4,17 @@
 
 🖥️ [Lecture Videos](#videos)
 
+## 🔑 Key points
+
+- How to set a breakpoint
+- How to step through code and into method calls
+- How to set conditional breakpoints
+- How to view the values and local and instance values while stepping through code
+- How to view the current call stack
+- How to set watches
+
+---
+
 Debugging is one of the most important development skills that you can master. If you can learn how to rapidly reproduce a problem, narrow down its cause, and quickly implement a solution, you will dramatically increase your value as a software engineer.
 
 Knowing what debugging tools are available and how to effectively employ them is key to your success. Common categories of debugging tools include:
@@ -288,15 +299,6 @@ A quick change to our regular expression corrects the problem.
 ```java
 "^(c.*|a.{5,})$"
 ```
-
-## Things to Understand
-
-- How to set a breakpoint
-- How to step through code and into method calls
-- How to set conditional breakpoints
-- How to view the values and local and instance values while stepping through code
-- How to view the current call stack
-- How to set watches
 
 ## Videos
 

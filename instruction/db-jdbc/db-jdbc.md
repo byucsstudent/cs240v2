@@ -4,6 +4,16 @@
 
 🖥️ [Lecture Videos](#videos)
 
+## 🔑 Key points
+
+- How to execute each of the SQL statements from Java using JDBC
+- How to use JDBC connections
+- How to generate Java objects from the result of a database query
+- How to retrieve auto-increment primary keys that were generate by the database on an insert
+- How to get a JDBC driver for MySQL and make it available to your Java project/code
+
+---
+
 Now that we have covered what relational databases are and how to use SQL to interact with them, it is time to discuss how to use SQL from a Java program. Java uses a standard interface library called Java Database Connector (JDBC). This library provides you with classes to connect to a database, execute SQL queries, and process the results.
 
 We also discuss using the popular open source relational database software MySQL. You will install a MySQL server in your development environment and use it as the persistent data store for your chess program.
@@ -88,7 +98,6 @@ void configureDatabase() throws SQLException {
                 type VARCHAR(255) NOT NULL,
                 PRIMARY KEY (id)
             )""";
-
 
         try (var createTableStatement = conn.prepareStatement(createPetTable)) {
             createTableStatement.executeUpdate();
@@ -335,14 +344,6 @@ Collection<Pet> listPets(Connection conn) throws SQLException {
     return pets;
 }
 ```
-
-## Things to Understand
-
-- How to execute each of the SQL statements from Java using JDBC
-- How to use JDBC connections
-- How to generate Java objects from the result of a database query
-- How to retrieve auto-increment primary keys that were generate by the database on an insert
-- How to get a JDBC driver for MySQL and make it available to your Java project/code
 
 ## Videos
 

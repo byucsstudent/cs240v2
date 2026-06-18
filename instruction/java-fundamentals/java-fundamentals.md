@@ -13,6 +13,23 @@
 
 ## Learning Software Construction with Java
 
+## 🔑 Key points
+
+---
+
+1. We will learn software engineering principles and patterns using Java
+1. How to get and install Java and an IDE
+1. Why Java is both portable and fast
+1. How to compile and run Java code
+1. The primitive data types available in Java
+1. What's the difference between creating a string with `new` and creating one by just specifying it in double quotes?
+1. How to declare, create and initialize arrays
+1. How to find the length of an array
+1. How to create and access arrays of arrays
+1. How to specify command-line parameters in IntelliJ
+1. The relationship between Packages, Imports and the CLASSPATH environment variable
+1. How to use a Scanner to read a text file of words, separated by whitespace
+
 The focus of this course is to teach you the core principles and patterns of software engineering. While these concepts require a programming language for implementation, the language itself is not the primary focus. The design principles and architectural patterns covered here apply across the industry, independent of the specific language you use.
 
 However, some languages are better suited for constructing specific types of applications. The **Chess Project** used in this course is a natural fit for an object-oriented (OO) language like Java. OO languages allow you to represent real-world entities, such as a chess piece or a game board, as coded abstractions with defined properties (data) and operations (behavior).
@@ -383,30 +400,12 @@ public class ScannerExample {
 }
 ```
 
-## Things to Understand
-
-1. We will learn software engineering principles and patterns using Java
-1. How to get and install Java and an IDE
-1. Why Java is both portable and fast
-1. How to compile and run Java code
-1. The primitive data types available in Java
-1. What's the difference between creating a string with `new` and creating one by just specifying it in double quotes?
-1. How to declare, create and initialize arrays
-1. How to find the length of an array
-1. How to create and access arrays of arrays
-1. How to specify command-line parameters in IntelliJ
-1. The relationship between Packages, Imports and the CLASSPATH environment variable
-1. How to use a Scanner to read a text file of words, separated by whitespace
-
-
 ## ☑ Exercise
-
 
 ```masteryls
 {"id":"77d4a535-9dc9-4de5-ad62-73d9872e2f0e", "title":"Your first Java program", "type":"essay", "gradingCriteria":"- The program properly compiles and outputs the conosole text: 'Hello World'" }
 Before you break out your compiler and make your first Java program. Try to create a Java Program that prints `Hello World` to the console. Do this from your memory of what you learned above without copying any code. The feedback you receive will help you get things right.
 ```
-
 
 ## Videos
 

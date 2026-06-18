@@ -8,6 +8,15 @@
 
 - Chapter 7: Collections
 
+## 🔑 Key points
+
+- The interfaces and classes that make up the Java collection API
+- What each interface and class is used for
+- The importance of overriding the `equals(...)` and `hashCode()` methods of classes that will be placed in collections
+- The importance of implementing the Comparable interface in classes that will be placed in collections
+
+---
+
 The Java Collection library provide several useful utility classes for dealing with data structures. This includes things like lists, sets, and maps. Using the standard collections library makes it so that you don't have to write this code yourself. You can also be confident that the code has been thoroughly tested, is secure, and is multithreaded where appropriate.
 
 ![Collections](collections.png)
@@ -123,13 +132,6 @@ public class ComparableExample implements Comparable<ComparableExample> {
     }
 }
 ```
-
-## Things to Understand
-
-- The interfaces and classes that make up the Java collection API
-- What each interface and class is used for
-- The importance of overriding the `equals(...)` and `hashCode()` methods of classes that will be placed in collections
-- The importance of implementing the Comparable interface in classes that will be placed in collections
 
 ## Videos
 

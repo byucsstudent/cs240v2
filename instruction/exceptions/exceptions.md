@@ -8,6 +8,17 @@
 
 - Chapter 5: Exceptions, Assertions, And Logging. (_Only read sections 5.1-5.1.9: Exception Handling_)
 
+## 🔑 Key points
+
+- The difference between checked and unchecked exceptions in Java
+- How and when to handle an exception in Java
+- How and when to throw an exception in Java
+- How to create custom exception classes
+- How to use try/catch blocks
+- What finally blocks are and how to use them
+
+---
+
 Java exceptions allow you to escape out of the normal execution flow of a program when something exceptional happens. You can then centrally handle the exception at a location higher in the code execution stack.
 
 Java uses the standard `try`, `throw`, and `catch` syntax that are found in most programming languages. You define a block where exceptions can occur with the `try` statement. The `try` block is then followed by one or more `catch` blocks. For each `catch` block you can specify what exception type(s) the block handles. That type and any types derived from it will be caught by that block unless they also match a more specific block. The runtime will pick the block that most specifically matches your exception. If you want to handle all exceptions, then you can specify the `Exception` base class in your catch block. Keep in mind that it is often best to catch only the most specific exception type that will be thrown.
@@ -193,15 +204,6 @@ Sometimes a layer cannot handle an exception, but does have additional informati
 Remember that exceptions should be exceptional. Do not throw exceptions for things that happen in the normal flow of your code. For example, if it is expected that sometimes a file may not be found, then that is not exceptional. Also do not throw exceptions to return values from a function. For example, a token parser should not throw exceptions in order to return tokens that it parses to anyone with a catch block.
 
 Using exceptions for non-exceptional cases makes debugging much more difficult and creates unexpected side effects in your code that make it less maintainable.
-
-## Things to Understand
-
-- The difference between checked and unchecked exceptions in Java
-- How and when to handle an exception in Java
-- How and when to throw an exception in Java
-- How to create custom exception classes
-- How to use try/catch blocks
-- What finally blocks are and how to use them
 
 ## Videos
 

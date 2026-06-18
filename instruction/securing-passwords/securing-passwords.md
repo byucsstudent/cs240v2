@@ -1,5 +1,11 @@
 # Securing Passwords
 
+## 🔑 Key points
+
+- Securely storing passwords using Bcrypt
+
+---
+
 Whenever you accept personal information from a user, you become responsible for securing that information. One of the most critical pieces of information to protect is their password. If a password is exposed then you are exposing the ability to act as the user.
 
 We will describe the details of how cryptographic hash functions work in a later topic. However, for now we will demonstrate how to use the Bcrypt algorithm to securely hash and compare a user's password.
@@ -50,7 +56,3 @@ password != toomanysecrets
 ```
 
 With this example you can now security store and compare the passwords for your application.
-
-## Things to Understand
-
-- Securely storing passwords using Bcrypt

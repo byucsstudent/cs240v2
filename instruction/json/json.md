@@ -10,6 +10,16 @@
 
 ## JSON
 
+## 🔑 Key points
+
+- How to read / understand JSON documents
+- How to generate an JSON string from the instance variables of a Java object
+- How to parse an JSON object and represent the data with a Java object
+- Different ways to generate and parse JSON objects and the pros and cons of each
+- How to use the Gson library to serialize and deserialize a Java object
+
+---
+
 JavaScript Object Notation (JSON) was conceived by Douglas Crockford in 2001 while working at Yahoo! JSON, pronounced like the name Jason, received official standardization in 2013 and 2017 (ECMA-404, [RFC 8259](https://datatracker.ietf.org/doc/html/rfc8259)).
 
 JSON provides a simple, and yet effective way, to share and store data. By design JSON is easily convertible to, and from, JavaScript objects. This make it a very convenient data format when working with web technologies. Because of its simplicity, standardization, and compatibility with JavaScript, JSON has become one of the world's most popular data formats.
@@ -138,14 +148,6 @@ public static Gson createSerializer() {
 ```
 
 Remember that you only need to use a GsonBuilder to override the default Gson serialization functionality if you want different classes to be used when you deserialize your JSON back into Java objects. This is usually because you are using interfaces, abstract classes, or derived classes in fields of your serialized object.
-
-## Things to Understand
-
-- How to read / understand JSON documents
-- How to generate an JSON string from the instance variables of a Java object
-- How to parse an JSON object and represent the data with a Java object
-- Different ways to generate and parse JSON objects and the pros and cons of each
-- How to use the Gson library to serialize and deserialize a Java object
 
 ## Videos
 

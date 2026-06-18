@@ -6,6 +6,19 @@
 
 📖 **Required Reading**: None
 
+## 🔑 Key points
+
+- The goals of software design
+- Design is an iterative process
+- Abstraction
+- Single Responsibility Principle
+- Decomposition
+- Good algorithm and data structure selection
+- Encapsulation - Information hiding
+- DRY - Avoiding code duplication
+
+---
+
 Software design is the process of defining, architecting, and creating an application. The primary goal of any application is to satisfy a customer's requirements. With a firm focus on the customer, you then apply the principles of good software design to identify the important actors, objects, and interactions necessary to represent the application's domain. This naturally leads to a code architecture that is easy to understand, debug, enhance, and maintain as requirements change.
 
 As you seek to design software you should focus on the following high level goals:
@@ -569,17 +582,6 @@ class Correct {
 ```
 
 By inverting the dependencies, you can decouple the code and move the commitment to an algorithm at a higher level. Now you can execute the code with different parameters and completely modify how it works.
-
-## Things to Understand
-
-- The goals of software design
-- Design is an iterative process
-- Abstraction
-- Single Responsibility Principle
-- Decomposition
-- Good algorithm and data structure selection
-- Encapsulation - Information hiding
-- DRY - Avoiding code duplication
 
 ## Videos
 

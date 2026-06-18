@@ -4,8 +4,19 @@
 
 🖥️ [Lecture Videos](#videos)
 
-In Java, every class descends from a single root: the `java.lang.Object` class. When you create a class, you inherit all public and protected methods provided by `Object`. If you do not explicitly specify a superclass using the `extends` keyword, Java automatically makes your class extend `Object`.
+## 🔑 Key points
 
+- **Method Overriding:** How to redefine a superclass method in a subclass.
+- **Method Overloading:** How to define multiple methods with the same name but different parameters.
+- **The `equals` vs `==` distinction:** Reference equality versus logical equality.
+- **The `hashCode` Contract:** Why equal objects must have identical hash codes.
+- **The `toString` Method:** How to provide useful string representations for debugging and logging.
+- **The `final` Keyword:** Its effect when applied to variables (constants), methods (cannot be overridden), and classes (cannot be extended).
+- **Hash Tables:** The basic mechanism of how `hashCode` and `equals` allow for fast data retrieval.
+
+---
+
+In Java, every class descends from a single root: the `java.lang.Object` class. When you create a class, you inherit all public and protected methods provided by `Object`. If you do not explicitly specify a superclass using the `extends` keyword, Java automatically makes your class extend `Object`.
 
 ### Java Object Hierarchy Diagram
 
@@ -63,7 +74,6 @@ public class Person extends Object {
 
 The Java Development Kit (JDK) builds extensively on the `Object` class to provide standard implementations for lists, sets, networking, streams, and math. You can explore these capabilities by reviewing the [official Java documentation](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html).
 
-
 ### Key Concepts
 *   **Implicit Inheritance:** If a class does not specify a parent class using the `extends` keyword, the Java compiler automatically makes it a child of the `Object` class.
 *   **Method Overriding:** Child classes (like `Person`) often override `toString()`, `equals(Object obj)`, and `hashCode()` to provide behavior specific to that class.
@@ -108,7 +118,6 @@ class Car {
 ```text
 Car {model='Toyota Corolla', year=2022}
 ```
-
 
 ### equals
 
@@ -185,7 +194,6 @@ public class HashcodeExample {
 
 If you do not override these functions, a `HashMap` will treat every instance as unique based on its memory address, even if the fields within the objects are identical.
 
-
 ## Software Design Principles in the Object Class
 
 The `java.lang.Object` class is the cornerstone of Java's class hierarchy. Every class in Java, whether user-defined or part of the standard library, implicitly inherits from `Object`. This design demonstrates several fundamental software engineering principles, most notably **Universal Inheritance** and **Contractual Programming**. By providing a common ancestor, Java ensures that every instance of any class shares a baseline set of behaviors, such as the ability to be compared, converted to a string, or used in synchronization.
@@ -240,7 +248,6 @@ public class UniversalContainer {
 }
 ```
 
-
 ```masteryls
 {"id":"6e801e6c-018a-498b-b702-2b5d76f81172","title":"Understanding the Root Hierarchy","type":"multiple-choice"}
 Which software design principle is best demonstrated by the fact that any Java object can be passed to a method expecting a parameter of type `java.lang.Object`?
@@ -251,20 +258,7 @@ Which software design principle is best demonstrated by the fact that any Java o
 - [ ] Dependency Inversion, because high-level modules are not depending on low-level modules.
 ```
 
-
-## Things to Understand
-
-- **Method Overriding:** How to redefine a superclass method in a subclass.
-- **Method Overloading:** How to define multiple methods with the same name but different parameters.
-- **The `equals` vs `==` distinction:** Reference equality versus logical equality.
-- **The `hashCode` Contract:** Why equal objects must have identical hash codes.
-- **The `toString` Method:** How to provide useful string representations for debugging and logging.
-- **The `final` Keyword:** Its effect when applied to variables (constants), methods (cannot be overridden), and classes (cannot be extended).
-- **Hash Tables:** The basic mechanism of how `hashCode` and `equals` allow for fast data retrieval.
-
-
 ## ☑ Exercise
-
 
 ```masteryls
 {"id":"2ec94cfd-ac42-4ced-a34f-8cd81c95c0ef","title":"The Root of Java Hierarchy","type":"multiple-choice"}
@@ -275,7 +269,6 @@ In the Java programming language, the `java.lang.Object` class occupies a unique
 - [ ] It is the only class that cannot be extended by a user-defined subclass.
 - [ ] It is the only class that provides a default implementation for the `toString()` and `equals()` methods.
 ```
-
 
 ## Videos
 

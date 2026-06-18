@@ -12,6 +12,17 @@
 >
 > — Edgar Cobb
 
+## 🔑 Key points
+
+- How data is represented in the relational model
+- How primary and foreign keys work
+- How to represent one-to-one, one-to-many, and many-to-many relationships using primary and foreign keys
+- What makes a good primary key
+- How to model inheritance relationships in the relational model
+- How to represent a data model in an ERD
+
+---
+
 Relational databases are commonly used to persistently store and retrieve data. You can read and write data to a relational database from your program using the structured query language (SQL). Your code executes SQL statements against a database using standard library classes known as Java Database Connectivity (JDBC) package. Before we dive into how you actually write an application that uses a database, we first want to discuss how relational databases work.
 
 At a basic level, relational data is stored in a `database`. A database contains `tables`, and a table has a number of `columns` that define the fields of the table. This can be things like `name`, `phone number`, or `id`. When you insert data into a database table it becomes a `row` in the table. The inserted data must have fields that matches each of the tables columns.
@@ -120,15 +131,6 @@ Data views are usually only created temporarily so that an application can use t
 ## Working with Relational Data
 
 In practical terms, relational data is stored in a Relational Database Management System (RDBMS). For this course, we will use MySQL as our RDBMS. The language most commonly used to read, write, and query relational data is called Structure Query Language (SQL). We will discuss this declarative language as a future topic.
-
-## Things to Understand
-
-- How data is represented in the relational model
-- How primary and foreign keys work
-- How to represent one-to-one, one-to-many, and many-to-many relationships using primary and foreign keys
-- What makes a good primary key
-- How to model inheritance relationships in the relational model
-- How to represent a data model in an ERD
 
 ## Videos
 

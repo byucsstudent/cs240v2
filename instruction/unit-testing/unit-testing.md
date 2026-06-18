@@ -10,6 +10,15 @@
 
 🖥️ [Lecture Videos](#videos)
 
+## 🔑 Key points
+
+- Why unit testing is important
+- How to write unit tests using the JUnit testing framework
+- How to run Junit tests from Intellij
+- Special considerations for testing database code
+
+---
+
 Test driven development ([TDD](https://en.wikipedia.org/wiki/Test-driven_development)) was popularized in the 1990s as part of the [extreme programming](https://en.wikipedia.org/wiki/Extreme_programming) wave. The idea is that you begin writing software by creating tests that represent the consumer of your software. You then use the tests to drive the development of your code. When the tests pass you know that your code is complete.
 
 TDD has been proven to decrease development time, provide documentation and examples for your code, result in less bugs, and prevent against the introduction of future bugs. Additionally, by writing your tests by focusing on the consumer of your code, you tend to design better interfaces and accurate domain models.
@@ -103,13 +112,6 @@ public void addAndGetToList(Class<? extends List> listClass) throws Exception {
 With IntelliJ, you can autogenerate your unit tests. To use this tool open up any class and select the `generate|tests` option from the right click menu.
 
 ![generate tests](generate-tests.png)
-
-## Things to Understand
-
-- Why unit testing is important
-- How to write unit tests using the JUnit testing framework
-- How to run Junit tests from Intellij
-- Special considerations for testing database code
 
 ## Videos
 

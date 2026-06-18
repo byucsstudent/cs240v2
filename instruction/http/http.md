@@ -14,6 +14,14 @@
 
 ## URL
 
+## 🔑 Key points
+
+- Internet basics: IP addresses, domain names, port numbers
+- Web basics: URLs, the HTTP protocol (Headers, methods, and body)
+- URL schema
+
+---
+
 The Uniform Resource Locator (URL) represents the location of a web resource. A web resource can be anything, such as a web page, font, image, video stream, database record, or JSON object. It can also be completely ephemeral, such as a visitation counter, or gaming session.
 
 Looking at the different parts of a URL is a good way to understand what it represents. Here is an example URL that represents a query to BYU for cities that contain `pro` using secure HTTP.
@@ -174,12 +182,6 @@ HTTP headers specify metadata about a request or response. This includes things 
 ## Body
 
 The format of the body of an HTTP request or response is defined by the `Content-Type` header. For example, it may be HTML text (text/html), a binary image format (image/png), JSON (application/json), or JavaScript (text/javascript). A client may specify what formats it accepts using the `accept` header.
-
-## Things to Understand
-
-- Internet basics: IP addresses, domain names, port numbers
-- Web basics: URLs, the HTTP protocol (Headers, methods, and body)
-- URL schema
 
 ## Videos
 
