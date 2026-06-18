@@ -52,7 +52,7 @@ You will build a Semester long project that builds a full stack application that
 
 As you work on your culminating experience project you will pass through a series of checkpoints that demonstrate your increasing mastery.
 
-![checkpoints.jpg](introduction/checkpoints.jpg)
+![checkpoints.jpg](instruction/introduction/checkpoints.jpg)
 
 ## Technologies
 
