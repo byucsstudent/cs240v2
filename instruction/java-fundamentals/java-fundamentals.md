@@ -13,11 +13,17 @@
 
 ## Learning Software Construction with Java
 
-The focus of the is course is to teach you the core principles and patterns of software engineering. This requires the use of a programming language, but the programming language is not the focus of the course. The same design principles and architectural patterns apply independently from the choice of language.
+The focus of this course is to teach you the core principles and patterns of software engineering. While these concepts require a programming language for implementation, the language itself is not the primary focus. The design principles and architectural patterns covered here apply across the industry, independent of the specific language you use.
 
-However, some languages are easier to work with when constructing specific types of applications. The chess application is a natural fit for an object oriented programming language, such as Java. Object oriented languages represent real world objects such as a chess piece or board, as coded abstractions that have properties and operations. Java also is a mature language with a huge supporting community.
+However, some languages are better suited for constructing specific types of applications. The **Chess Project** used in this course is a natural fit for an object-oriented (OO) language like Java. OO languages allow you to represent real-world entities, such as a chess piece or a game board, as coded abstractions with defined properties (data) and operations (behavior).
 
-### Why Java
+By using Java, you will practice fundamental software engineering concepts including:
+
+- **Encapsulation**: Bundling data and the methods that operate on that data into a single unit.
+- **Abstraction**: Simplifying complex systems by modeling classes appropriate to the problem.
+- **Inheritance**: Creating new classes based on existing ones to reuse and extend functionality.
+
+### What Java has to offer
 
 1. **Portable** - You can execute your Java program on a large variety of computing platforms without having to recompile or write platform specific code.
 1. **Object Oriented** - The Java language encourages the representation of real world and conceptual objects. This makes it easier to translate user requirements and developer expectations into the code's design.
@@ -379,7 +385,7 @@ public class ScannerExample {
 
 ## Things to Understand
 
-1. Ways that Java is different from C++
+1. We will learn software engineering principles and patterns using Java
 1. How to get and install Java and an IDE
 1. Why Java is both portable and fast
 1. How to compile and run Java code
