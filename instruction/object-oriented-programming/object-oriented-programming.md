@@ -103,6 +103,26 @@ Transitioning to an object-oriented mindset can present several hurdles:
 *   **Over-Engineering:** It is easy to get carried away with abstraction, creating interfaces for logic that will only ever have one implementation.
     *   *Solution:* Keep it simple. Don't add abstraction until you actually need to support multiple variations of a behavior or need to decouple components for testing.
 
-### Summary
 
-Object-Oriented Programming is a powerful way to structure software by mimicking the way we perceive the real world. By utilizing **Encapsulation**, we protect our data; through **Abstraction**, we manage complexity; with **Inheritance**, we promote code reuse; and via **Polymorphism**, we create flexible and interchangeable code components. Mastering these four pillars is the first step toward becoming a proficient software architect capable of building robust, maintainable systems.
+## ☑ Exercise
+
+
+```masteryls
+{"id":"6d998d67-76af-4c7e-af57-305de7dc1494","title":"Understanding Polymorphism","type":"multiple-choice"}
+In Object-Oriented Programming, which of the following best describes the concept of polymorphism?
+
+- [ ] The process of hiding the internal state of an object and requiring all interaction to be performed through a strictly defined interface.
+- [ ] The ability to create a new class based on an existing class to reuse its fields and methods while adding new features.
+- [ ] The practice of reducing complexity by modeling classes that only include the essential characteristics relevant to the current problem.
+- [x] The ability of different classes to be treated as instances of the same parent class through a uniform interface, with each class implementing its own specific behavior.
+```
+
+```masteryls
+{"id":"c1e93ca5-9be0-47dc-a826-3c73adb5be39","title":"The Principle of Encapsulation","type":"multiple-choice"}
+In object-oriented programming, which of the following best describes how **encapsulation** is implemented within a class?
+
+- [ ] By defining a base class that provides a common interface for multiple derived subclasses to implement.
+- [x] By making data members private and providing controlled access through public getter and setter methods.
+- [ ] By allowing a single method name to perform different tasks based on the number or type of arguments passed to it.
+- [ ] By breaking a complex system down into smaller, independent functions that do not share any state.
+```
