@@ -139,7 +139,10 @@
           "title": "Phase 0: Getting Started",
           "path": "chess/0-chess-moves/getting-started.md",
           "id": "8d9c3c79-4bbb-475f-a2ed-269ffcfcb10d",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "d6399d4e-74c3-4eb3-bdf4-799a1e18f01e"
+          ]
         },
         {
           "title": "☑ Phase 0: Chess Moves",
