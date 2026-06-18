@@ -1,5 +1,16 @@
 # Object Oriented Programming
 
+
+#### 🔑 Key points
+
+- Represent real world objects as code
+- Use encapsulation to restrict access to private data
+- Use abstraction to only expose is required
+- Use inheritance to share commonality
+- Use polymorphism to morph an object to the context it is used
+
+---
+
 Object-Oriented Programming (OOP) is a fundamental paradigm in modern software engineering that organizes code around "objects" rather than "actions." While procedural programming focuses on writing functions or blocks of code that perform computations on data, OOP shifts the focus to the data itself. By grouping related data and behaviors into distinct units, developers can build complex systems that better represent the real world and are more modular, flexible, and easier to maintain.
 
 In the context of software architecture, OOP serves as the blueprint for creating scalable applications. It allows developers to map real-world entities—like a user, a bank transaction, or a chess piece—into digital structures. This approach not only makes the code more intuitive to read but also facilitates collaboration across large teams, as different developers can work on separate objects without inadvertently breaking the entire system.
