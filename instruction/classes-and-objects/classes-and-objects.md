@@ -188,6 +188,21 @@ public static void main(String[] args) {
 }
 ```
 
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"8818e31c-102f-4930-bc88-8f5662f09975","title":"Relationship Between Classes and Objects","type":"multiple-choice"}
+In object-oriented programming, which statement best describes the fundamental relationship between a **class** and an **object**?
+
+- [x] A class acts as a blueprint or template that defines properties and behaviors, while an object is a specific instance created from that blueprint.
+- [ ] An object is a static blueprint that defines the structure of a program, while a class is the dynamic memory allocated during execution.
+- [ ] A class is a specific realization of an object that contains unique data values assigned at runtime.
+- [ ] Classes and objects are synonymous terms used to describe the same data structures within a programming language.
+```
+
+
 ## Videos
 
 - 🎥 [Overview (2:47)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8248d213-ef10-44e1-8dbf-ad5d0143c0f8&start=0) - [[transcript]](https://github.com/user-attachments/files/17756219/CS_240_Classes_and_Objects_Overview.pdf)
