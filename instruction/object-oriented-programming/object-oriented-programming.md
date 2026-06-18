@@ -1,10 +1,10 @@
 # Object Oriented Programming
 
-Object-Oriented Programming (OOP) is a fundamental paradigm in modern software engineering that organizes code around "objects" rather than "actions." While procedural programming focuses on writing functions or blocks of code that perform computations on data, OOP shifts the focus to the data itself. By grouping related data and behaviors into distinct units, developers can build complex systems that are more modular, flexible, and easier to maintain.
+Object-Oriented Programming (OOP) is a fundamental paradigm in modern software engineering that organizes code around "objects" rather than "actions." While procedural programming focuses on writing functions or blocks of code that perform computations on data, OOP shifts the focus to the data itself. By grouping related data and behaviors into distinct units, developers can build complex systems that better represent the real world and are more modular, flexible, and easier to maintain.
 
 In the context of software architecture, OOP serves as the blueprint for creating scalable applications. It allows developers to map real-world entities—like a user, a bank transaction, or a chess piece—into digital structures. This approach not only makes the code more intuitive to read but also facilitates collaboration across large teams, as different developers can work on separate objects without inadvertently breaking the entire system.
 
-### The Four Pillars of OOP
+## The Four Pillars of OOP
 
 To master Object-Oriented Programming, one must understand the four core principles that govern how objects interact and how code is structured: Encapsulation, Abstraction, Inheritance, and Polymorphism.
 
@@ -87,11 +87,14 @@ If we have a method `makeSound()` in a superclass `Animal`, and subclasses `Dog`
 Transitioning to an object-oriented mindset can present several hurdles:
 
 *   **The "God Object" Problem:** Beginners often create a single class that tries to do everything. 
-    *   *Solution:* Follow the Single Responsibility Principle. Each class should have one, and only one, reason to change.
+    
+    *Solution:* Follow the Single Responsibility Principle. Each class should have one, and only one, reason to change.
 *   **Fragile Base Classes:** If an inheritance hierarchy is too deep, changing the parent class can inadvertently break dozens of child classes.
-    *   *Solution:* Favor "composition over inheritance" when possible. Instead of saying a class *is* something, ask if it *has* something.
+    
+    *Solution:* Favor "composition over inheritance" when possible. Instead of saying a class *is* something, ask if it *has* something.
 *   **Over-Engineering:** It is easy to get carried away with abstraction, creating interfaces for things that will only ever have one implementation.
-    *   *Solution:* Keep it simple. Don't add abstraction until you actually need to support multiple variations of a behavior.
+    
+    *Solution:* Keep it simple. Don't add abstraction until you actually need to support multiple variations of a behavior.
 
 ### Summary
 
