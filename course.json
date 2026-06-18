@@ -146,9 +146,12 @@
         },
         {
           "title": "☑ Phase 0: Chess Moves",
+          "type": "project",
+          "points": 100,
           "path": "chess/0-chess-moves/chess-moves.md",
           "id": "807a1d1b-6dff-4ccb-a7bb-3293602b7931",
-          "state": "published"
+          "state": "published",
+          "description": ""
         },
         {
           "title": "Java Object Class",
