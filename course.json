@@ -191,7 +191,10 @@
           "title": "Java Records",
           "path": "instruction/records/records.md",
           "id": "1fdbe416-2d26-4e48-a761-b7a13ac2c012",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "dff0788f-db66-4a2f-bd87-1de307ac5bf0"
+          ]
         },
         {
           "title": "Interfaces and Abstract Classes",
