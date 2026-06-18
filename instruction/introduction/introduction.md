@@ -14,7 +14,7 @@ In previous courses, you likely focused on building small programs designed to t
 
 ## Software Engineering
 
-The term "software engineering" was first used in conjunction with the software created for the Apollo moon landings. Margaret Hamilton, the director of the software division, described their work as being similar to hardware engineering in complexity and design, arguing that it should be called `software engineering`. Her careful design of the landing system's redundancy capabilities is credited with saving the Apollo 11 mission from aborting during the final minutes of the historic first moon landing.
+The term "software engineering" was first used in conjunction with the software created for the Apollo moon landings. Margaret Hamilton, the director of the software division, described their work as being comparable to hardware engineering in complexity and design, arguing that it should be called `software engineering`. Her careful design of the landing system's redundancy capabilities is credited with saving the Apollo 11 mission from aborting during the final minutes of the historic first moon landing.
 
 ![Margaret Hamilton](margaret-hamilton.jpg)
 
@@ -24,17 +24,15 @@ The term "software engineering" was first used in conjunction with the software 
 >
 > — Margaret Hamilton
 
-
 ## Defining Software Engineering
 
 Software engineering is more than just writing code; it is a systematic, disciplined, and quantifiable approach to the development, operation, and maintenance of software. While a programmer might focus on solving a specific logic problem or building a single feature, a software engineer looks at the entire lifecycle of a system. This involves ensuring that the software is scalable, maintainable, reliable, and built within budget and time constraints.
 
-At its core, software engineering applies engineering principles—the same rigor used to build bridges or airplanes—to digital systems. This is necessary because software has become incredibly complex. Modern applications often involve millions of lines of code, distributed teams, and the need to run on diverse hardware. Without a structured engineering approach, projects often suffer from "software crisis" symptoms: going over budget, missing deadlines, and containing numerous bugs.
+At its core, software engineering applies engineering principles—the same rigor used to build bridges or airplanes—to digital systems. This is necessary because software has become incredibly complex. Modern applications often involve millions of lines of code, distributed teams, and the need to run on diverse hardware. Without a structured engineering approach, projects often suffer from "software crisis" symptoms: exceeding budgets, missing deadlines, and suffering from numerous bugs.
 
 To manage this complexity, software engineers follow a structured process known as the Software Development Life Cycle (SDLC). This ensures that every phase of the project is documented and verified.
 
 ![sdlc.jpg](sdlc.jpg)
-
 
 It is helpful to distinguish between "programming" and "software engineering." While they overlap, the scope of software engineering is significantly broader.
 
@@ -42,7 +40,6 @@ It is helpful to distinguish between "programming" and "software engineering." W
 *   **Software Engineering:** Concerned with the entire system. It includes requirements gathering, architectural design, team collaboration, testing strategies, and long-term maintenance.
 
 For example, consider the difference in how a simple task is handled. A programmer might write a script to process data once. A software engineer writes a robust service that handles errors, logs activity, and can be easily updated by other team members.
-
 
 ```masteryls
 {"id":"ce3d8811-e669-4b43-a13c-b037d81e0d0f","title":"Defining Software Engineering","type":"multiple-choice"}
@@ -53,7 +50,6 @@ What is the primary factor that distinguishes software engineering from simple p
 - [ ] Software engineering is the process of fixing bugs after a programmer has finished the code
 - [x] Software engineering applies a systematic, disciplined approach to the entire software lifecycle
 ```
-
 
 ### Example: Modular Design
 
@@ -80,7 +76,7 @@ public class DataProcessor {
         try {
             return Files.readString(Paths.get(filepath));
         } catch (IOException e) {
-            return e.toString();
+            return "Error loading file: " + e.getMessage();
         }
     }
 
@@ -116,11 +112,11 @@ By separating concerns, the software engineer makes it possible to test the `pro
 
 ## Chess Project
 
-In order to teach the principles of software engineering we need an application that has enough complexity to warrent an arichtectural approach, but not so difficult that you get lost in the details.
+To teach the principles of software engineering, we need an application with enough complexity to warrant a structured architectural approach, yet simple enough that you do not get lost in the details.
 
-We chose an multiplayer full stack implementation of the game of [chess](../../chess/chess.md) as your mastery project. Your development work is divided into different phases, each demonstrating a different architectural concept or technology. The first phase implements the rules of chess.
+We have chosen a multiplayer, full-stack implementation of the game of [chess](../../chess/chess.md) as your mastery project. Your development work is divided into different phases, each demonstrating a different architectural concept or technology. The first phase implements the rules of chess.
 
-After implementing the first phase, you will rewrite the code from the base project template—without external help or resources—during a timed exam. This demonstrates your ability to work independently under pressure. Efficiently writing code under a deadline is an essential skill that prepares you for the realities of professional programming.
+After implementing the first phase, you will rewrite the code from the base project template—from memory and without external help—during a timed exam. This demonstrates your ability to work independently under pressure. Writing code efficiently under a deadline is an essential skill that prepares you for the realities of professional programming.
 
 ![checkpoints.jpg](checkpoints.jpg)
 
@@ -130,7 +126,7 @@ The remaining phases involve implementing a chess server that allows multiple cl
 
 ## Java
 
-You will use the Java programming language for all your work in this course. Java has been a leading industry language for decades. According to the [2025 Stack Overflow survey](https://survey.stackoverflow.co/2025/technology#most-popular-technologies), Java is used by 30% of professional developers. Java is object-oriented, compiled, garbage-collected, and strongly typed. Mastering Java will significantly round out your skill set and your resume.
+You will use the Java programming language for all your work in this course. Java has been a leading industry language for decades. According to the [2025 Stack Overflow survey](https://survey.stackoverflow.co/2025/technology#most-popular-technologies), Java is used by approximately 30% of professional developers. Java is object-oriented, compiled, garbage-collected, and strongly typed. Mastering Java will significantly strengthen both your technical skill set and your resume.
 
 ![alt text](popularTechnologies.png)
 
@@ -139,7 +135,7 @@ To learn Java effectively, you will need to reference selected chapters of the b
 ![Java for the Impatient](CoreJavaForTheImpatient4thEdition.png)
 
 > [!NOTE]
-> It is critical that you reserve significant time to learn Java outside of class. In-class instruction focuses on project architecture, complex concepts, and common pitfalls. It is assumed that you will learn the basics of Java syntax and standard libraries on your own.
+> It is critical that you reserve significant time to learn Java outside of class. In-class instruction focuses on project architecture, complex concepts, and common pitfalls. It is assumed that you will learn the basics of Java syntax and standard libraries through independent study.
 
 ## Enrichment Lectures
 
@@ -160,10 +156,10 @@ Becoming an exceptional software engineer requires continual improvement in four
 
 ![learning](essentialsLearning.png)
 
-1. **`Capable`** - You must know the technology. The better you understand your tools, the better you can leverage their capabilities. Discerning between meaningful technology and marketing-driven fads allows you to find valuable tools and avoid distractions. Technical expertise enables you to choose the right tool for the job, maximize performance, and automate execution.
-1. **`Creative`** - Creativity is not limited to the arts. There is immense art in making software usable, efficient, and maintainable. Organizing and sculpting code is a creative process. Well-designed systems are often described as "beautiful" or "elegant," reflecting the creativity of their authors.
-1. **`Collaborative`** - Software is rarely built or used in isolation. Applications are typically created by teams of contributors with diverse backgrounds for large groups of customers. The ability to work within a team and interact with customers is essential. This requires strong social skills: speaking, writing, reading, presenting, and—most importantly—listening.
-1. **`Curious`** - A questioning mind makes a significant difference. Simply completing a task is not enough. Progress is made by wanting to know why a task is useful, searching for alternative solutions, digging into the inner workings of "black boxes," and questioning accepted facts. Cultivating a love for lifelong learning will take you from adequate to exceptional.
+1.  **`Capable`** - You must know the technology. The better you understand your tools, the better you can leverage their capabilities. Discerning between meaningful technology and marketing-driven fads allows you to find valuable tools and avoid distractions. Technical expertise enables you to choose the right tool for the job, maximize performance, and automate execution.
+2.  **`Creative`** - Creativity is not limited to the arts. There is immense art in making software usable, efficient, and maintainable. Organizing and sculpting code is a creative process. Well-designed systems are often described as "beautiful" or "elegant," reflecting the creativity of their authors.
+3.  **`Collaborative`** - Software is rarely built or used in isolation. Applications are typically created by teams of contributors with diverse backgrounds for large groups of customers. The ability to work within a team and interact with customers is essential. This requires strong social skills: speaking, writing, reading, presenting, and—most importantly—listening.
+4.  **`Curious`** - A questioning mind makes a significant difference. Simply completing a task is not enough. Progress is made by wanting to know why a task is useful, searching for alternative solutions, digging into the inner workings of "black boxes," and questioning accepted facts. Cultivating a love for lifelong learning will take you from adequate to exceptional.
 
 > “When hiring we look for the ability to collaborate, creativity, curiosity, and expertise”
 >
@@ -173,8 +169,8 @@ Becoming an exceptional software engineer requires continual improvement in four
 
 By developing software engineering skills, you can have a significant impact for good. You can elevate this impact further by applying additional principles:
 
-1. **Divine Inspiration** - Seeking divine help and direction in your efforts can help you avoid unproductive paths and achieve results beyond your natural abilities.
-1. **Eternal Perspective** - Looking beyond project deadlines, diplomas, or careers allows you to focus on a purpose guided by the eternal rather than the momentary.
+1.  **Divine Inspiration** - Seeking divine help and direction in your efforts can help you avoid unproductive paths and achieve results beyond your natural abilities.
+2.  **Eternal Perspective** - Looking beyond project deadlines, diplomas, or careers allows you to focus on a purpose guided by the eternal rather than the momentary.
 
 As you tap into these principles, you will find greater motivation and enjoyment in your work. Emphasize being Christlike as you navigate your professional and personal journey.
 
@@ -196,11 +192,11 @@ Approach new challenges with the attitude that you will learn through trial and 
 
 Your mastery of advanced software construction is evaluated based on the following areas:
 
-| Area         | Percentage |
-| ------------ | ---------- |
-| Chess Project| 90%        |
-| Phase 0 Exam | 5%         |
-| Final Exam   | 5%         |
+| Area           | Percentage |
+| -------------- | ---------- |
+| Chess Project  | 90%        |
+| Phase 0 Exam   | 5%         |
+| Final Exam     | 5%         |
 
 More important than your grade is the degree to which you stretch yourself. Software construction takes decades to master. If you approach this subject intentionally, with effort and curiosity, your value as a software engineer will increase greatly.
 
