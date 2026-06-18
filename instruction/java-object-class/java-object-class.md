@@ -195,6 +195,21 @@ If you do not override these functions, a `HashMap` will treat every instance as
 - **The `final` Keyword:** Its effect when applied to variables (constants), methods (cannot be overridden), and classes (cannot be extended).
 - **Hash Tables:** The basic mechanism of how `hashCode` and `equals` allow for fast data retrieval.
 
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"2ec94cfd-ac42-4ced-a34f-8cd81c95c0ef","title":"The Root of Java Hierarchy","type":"multiple-choice"}
+In the Java programming language, the `java.lang.Object` class occupies a unique position. Which of the following statements correctly describes the fundamental structural difference between the `Object` class and every other class in Java?
+
+- [x] It is the only class in the Java hierarchy that does not have a superclass.
+- [ ] It is the only class that is automatically imported into every Java source file by the compiler.
+- [ ] It is the only class that cannot be extended by a user-defined subclass.
+- [ ] It is the only class that provides a default implementation for the `toString()` and `equals()` methods.
+```
+
+
 ## Videos
 
 - 🎥 [Classes and Objects Overview](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8d7440ec-313d-45d1-891f-ad5f01307ab8&start=0) - [[transcript]](https://github.com/user-attachments/files/17750879/CS_240_Classes_and_Objects_Overview_Transcript.1.pdf)
