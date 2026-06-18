@@ -2,7 +2,6 @@
 
 ![cover](softwareconstructioncover.jpg)
 
-
 ## Welcome
 
 Advanced software construction (CS240) helps you become responsible software engineers who continually improve your ability to frame, design, build, and test reliable systems. You will work with object-oriented design, network protocols, distributed services, and databases, while emphasizing long-term code quality, correctness, and responsibility for software others depend on—all while reflecting an eternal stewardship and concern for humanity.
@@ -21,7 +20,6 @@ You will learn to:
 - **Build** distributed applications that faithfully translate design intent into readable, testable implementations, showing diligence and integrity in the quality of code produced.
 - **Test** software systems systematically to validate behavior and uncover failure modes, valuing evidence, honesty, and accountability as foundations of trustworthy software.
 
-
 ```masteryls
 {"id":"624dbbb7-bbc1-4061-9c51-080623358b39", "title":"Outcomes", "type":"likert", "showResults":"editor" }
 Let us know where you currently are in regard to the course outcomes. This will help us know how to adjust the course to assist your success.
@@ -36,7 +34,6 @@ Scale: Strongly disagree | Disagree | Neutral | Agree | Strongly agree
 |Build|**Build** distributed applications that faithfully translate design intent into readable, testable implementations, showing diligence and integrity in the quality of code produced.|
 |Test|**Test** software systems systematically to validate behavior and uncover failure modes, valuing evidence, honesty, and accountability as foundations of trustworthy software.|
 ```
-
 
 ## Culminating Experience
 
@@ -55,7 +52,7 @@ You will build a Semester long project that builds a full stack application that
 
 As you work on your culminating experience project you will pass through a series of checkpoints that demonstrate your increasing mastery.
 
-![checkpoints.jpg](checkpoints.jpg)
+![checkpoints.jpg](introduction/checkpoints.jpg)
 
 ## Technologies
 
