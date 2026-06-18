@@ -11,7 +11,13 @@
 
 🖥️ [Lecture Videos](#videos)
 
-## Why Java
+## Learning Software Construction with Java
+
+The focus of the is course is to teach you the core principles and patterns of software engineering. This requires the use of a programming language, but the programming language is not the focus of the course. The same design principles and architectural patterns apply independently from the choice of language.
+
+However, some languages are easier to work with when constructing specific types of applications. The chess application is a natural fit for an object oriented programming language, such as Java. Object oriented languages represent real world objects such as a chess piece or board, as coded abstractions that have properties and operations. Java also is a mature language with a huge supporting community.
+
+### Why Java
 
 1. **Portable** - You can execute your Java program on a large variety of computing platforms without having to recompile or write platform specific code.
 1. **Object Oriented** - The Java language encourages the representation of real world and conceptual objects. This makes it easier to translate user requirements and developer expectations into the code's design.
