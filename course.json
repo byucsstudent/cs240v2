@@ -182,7 +182,10 @@
           "title": "Classes and Objects",
           "path": "instruction/classes-and-objects/classes-and-objects.md",
           "id": "e4725eb1-ac14-4229-b82c-69dbf98a5ccf",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "8818e31c-102f-4930-bc88-8f5662f09975"
+          ]
         },
         {
           "title": "Java Records",
