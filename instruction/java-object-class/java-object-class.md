@@ -17,9 +17,9 @@ In Java, every class implicitly or explicitly inherits from the `java.lang.Objec
 classDiagram
     direction BT
     class Object {
+        +toString() String
         +equals(Object obj) boolean
         +hashCode() int
-        +toString() String
     }
 
     class MyClass {
@@ -37,7 +37,6 @@ When a class extends another, it can **override** the base class's methods to al
 | `toString()` | Provides a human-readable string representing the object's state. |
 | `equals(Object o)` | Determines if another object is logically "equal" to the current one. |
 | `hashCode()` | Returns an integer representation of the object, essential for use in hash-based collections. |
-| `clone()` | Creates a shallow copy of the object. |
 
 Note: Other methods in the `Object` class, such as `getClass()`, `wait()`, and `notify()`, are `final` and cannot be overridden.
 
@@ -67,10 +66,8 @@ The Java Development Kit (JDK) builds extensively on the `Object` class to provi
 
 ### Key Concepts
 *   **Implicit Inheritance:** If a class does not specify a parent class using the `extends` keyword, the Java compiler automatically makes it a child of the `Object` class.
-*   **Method Overriding:** Child classes (like `MyClass`) often override `toString()`, `equals(Object obj)`, and `hashCode()` to provide behavior specific to that class.
+*   **Method Overriding:** Child classes (like `Person`) often override `toString()`, `equals(Object obj)`, and `hashCode()` to provide behavior specific to that class.
 *   **Root Class:** Because `Object` is the top-level class, a variable of type `Object` can hold a reference to an instance of any Java class.
-
-
 
 ## equals
 
