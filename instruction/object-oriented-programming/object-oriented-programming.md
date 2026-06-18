@@ -18,6 +18,8 @@ In the context of software architecture, OOP serves as the blueprint for creatin
 
 To master Object-Oriented Programming, one must understand the four core principles that govern how objects interact and how code is structured: **Encapsulation**, **Abstraction**, **Inheritance**, and **Polymorphism**.
 
+![fourPillarsOfOpp.jpg](fourPillarsOfOpp.jpg)
+
 ### Encapsulation
 
 Encapsulation is often referred to as the "black box" principle. It involves bundling the data (fields) and the methods (functions) that operate on that data into a single unit called a class. More importantly, encapsulation allows us to restrict direct access to some of an object's components, which is crucial for maintaining data integrity.
@@ -126,3 +128,15 @@ In object-oriented programming, which of the following best describes how **enca
 - [ ] By allowing a single method name to perform different tasks based on the number or type of arguments passed to it.
 - [ ] By breaking a complex system down into smaller, independent functions that do not share any state.
 ```
+
+
+```masteryls
+{"id":"d67c59c4-3df9-4a4a-9d77-a4adaf3e104c","title":"Encapsulation vs. Abstraction","type":"multiple-choice"}
+In Object-Oriented Programming, both encapsulation and abstraction are used to hide information, but they serve different purposes. Which of the following best describes the difference between the two?
+
+- [ ] Abstraction is the process of restricting access to specific data members using access modifiers, while encapsulation is the process of hiding the background details of a function.
+- [x] Encapsulation focuses on bundling data and methods while hiding the internal state of an object, whereas abstraction focuses on hiding implementation complexity to show only the essential interface.
+- [ ] Encapsulation is used to share behaviors between a parent and child class, while abstraction is used to ensure that a method can perform different tasks based on the input.
+- [ ] Abstraction is an implementation-level technique used to protect data from outside interference, while encapsulation is a design-level technique used to simplify the system for the user.
+```
+
