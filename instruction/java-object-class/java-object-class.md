@@ -185,6 +185,73 @@ public class HashcodeExample {
 
 If you do not override these functions, a `HashMap` will treat every instance as unique based on its memory address, even if the fields within the objects are identical.
 
+
+## Software Design Principles in the Object Class
+
+The `java.lang.Object` class is the cornerstone of Java's class hierarchy. Every class in Java, whether user-defined or part of the standard library, implicitly inherits from `Object`. This design demonstrates several fundamental software engineering principles, most notably **Universal Inheritance** and **Contractual Programming**. By providing a common ancestor, Java ensures that every instance of any class shares a baseline set of behaviors, such as the ability to be compared, converted to a string, or used in synchronization.
+
+### The Principle of Universal Inheritance
+Java utilizes a single-root hierarchy. This design choice simplifies the runtime environment and provides a "universal type" that can represent any object. This is a manifestation of the **Liskov Substitution Principle**, where a subtype (`String`, `ArrayList`, etc.) can always be treated as its supertype (`Object`).
+
+```mermaid
+graph TD
+    Object["java.lang.Object"] --> String
+    Object --> Number
+    Object --> Collection
+    Number --> Integer
+    Number --> Double
+    Collection --> ArrayList
+    
+    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
+```
+
+### Contractual Programming through Overridable Methods
+The `Object` class defines a "contract" for how objects should behave. When you create a class, you are encouraged (and sometimes required) to override specific methods to maintain this contract. The three most critical methods are:
+
+1.  **`toString()`**: Provides a string representation of the object, facilitating debugging and logging.
+2.  **`equals(Object obj)`**: Defines logical equality rather than identity (memory address) equality.
+3.  **`hashCode()`**: Ensures that objects can be stored efficiently in hash-based collections like `HashMap`.
+
+By defining these in the root class, Java enforces a consistent API across the entire ecosystem. For example, any logging framework can call `.toString()` on an unknown object because it is guaranteed to exist.
+
+### Polymorphism and Generic Utility
+The `Object` class can be used for creating reusable data structures. For example, because an `ArrayList` can store `Object` references, it can hold any data type. This demonstrates **Subtype Polymorphism**, where a single interface (the `Object` API) is used to handle different underlying forms.
+
+```java
+public class UniversalContainer {
+    private Object content;
+
+    public void setContent(Object content) {
+        this.content = content;
+    }
+
+    public Object getContent() {
+        return content;
+    }
+
+    public static void main(String[] args) {
+        UniversalContainer container = new UniversalContainer();
+        
+        // The principle of polymorphism allows any type to be passed
+        container.setContent("Hello World"); 
+        container.setContent(42); 
+        container.setContent(new java.util.Date());
+    }
+}
+```
+
+
+```masteryls
+{"id":"6e801e6c-018a-498b-b702-2b5d76f81172","title":"Understanding the Root Hierarchy","type":"multiple-choice"}
+Which software design principle is best demonstrated by the fact that any Java object can be passed to a method expecting a parameter of type `java.lang.Object`?
+
+- [ ] Encapsulation, because it hides the internal state of the object.
+- [x] Liskov Substitution Principle, because a subtype can replace its supertype without breaking the program.
+- [ ] Composition, because the object is composed of multiple superclasses.
+- [ ] Dependency Inversion, because high-level modules are not depending on low-level modules.
+```
+
+
 ## Things to Understand
 
 - **Method Overriding:** How to redefine a superclass method in a subclass.
