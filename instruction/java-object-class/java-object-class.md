@@ -4,22 +4,23 @@
 
 🖥️ [Lecture Videos](#videos)
 
-All classes in Java can have a single base class that they extend. When you extend another class you inherit all of the public and protected methods and fields that the class provides. The default Java base class is called the `Object` class. If you do not explicitly specify what base class your class extends then you will automatically inherit the `Object` class.
+In Java, every class descends from a single root: the `java.lang.Object` class. When you create a class, you inherit all public and protected methods provided by `Object`. If you do not explicitly specify a superclass using the `extends` keyword, Java automatically makes your class extend `Object`.
 
-When one class extends another class it can override, or overload, the base classes methods in order to alter, or extend, its functionality. The base `Object` class contains the following methods that you can override.
+When a class extends another, it can **override** the base class's methods to alter or extend their functionality. The `Object` class contains several key methods designed to be overridden:
 
-| Method          | Comment                                                                    |
-| --------------- | -------------------------------------------------------------------------- |
-| clone           | Creates a copy of the object                                               |
-| equals          | Returns true if the object equals the provided object                      |
-| getClass        | Gets the name of the class that the object represents                      |
-| toString        | Provides a human readable string that represents the object's state        |
-| wait and notify | Used to control multi-threaded concurrency by using the object as the lock |
+| Method | Purpose |
+| :--- | :--- |
+| `toString()` | Provides a human-readable string representing the object's state. |
+| `equals(Object o)` | Determines if another object is logically "equal" to the current one. |
+| `hashCode()` | Returns an integer representation of the object, essential for use in hash-based collections. |
+| `clone()` | Creates a shallow copy of the object. |
 
-Here is an example of a `Person` class that explicitly extends the `Object` class and overrides its `toString` method.
+Note: Other methods in the `Object` class, such as `getClass()`, `wait()`, and `notify()`, are `final` and cannot be overridden.
+
+The following example shows a `Person` class that overrides the `toString` method.
 
 ```java
-// Note that extending Object is the default and not normally explicitly stated
+// Note: 'extends Object' is implicit and usually omitted.
 public class Person extends Object {
     private String name;
 
@@ -28,7 +29,7 @@ public class Person extends Object {
     }
 
     /**
-     * Override the Object class implementation
+     * Overrides the Object class implementation to provide a custom description.
      */
     @Override
     public String toString() {
@@ -37,11 +38,13 @@ public class Person extends Object {
 }
 ```
 
-Just like classes that you write, the JDK builds on the `Object` class to provide many common implementations for things like lists, sets, network, stream, database, and math. You should become familiar with the common JDK classes by exploring the documentation.
+The Java Development Kit (JDK) builds extensively on the `Object` class to provide standard implementations for lists, sets, networking, streams, and math. You can explore these capabilities by reviewing the [official Java documentation](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html).
 
 ## equals
 
-When you compare primitive types, like an `int` or `char`, you can use the `==` operator. When you want to compare objects you want to use the `equals` operator. The `Object` class `==` and `equals` implementation will only return true if you are comparing the exact same object instance. If you want to actually compare the values of an object, then you need to override the `equals` method and implement what equality means for the class. For example, here is a class that compares the `value` field in order to determine equality.
+When comparing primitive types (like `int` or `char`), you use the `==` operator. However, when comparing objects, `==` only checks if two references point to the exact same memory address (reference equality).
+
+To check if two different object instances are "equal" based on their data (logical equality), you must override the `equals` method. If you do not override it, your class will use the default `Object` implementation, which behaves exactly like `==`.
 
 ```java
 public class EqualExample {
@@ -51,11 +54,13 @@ public class EqualExample {
         this.value = value;
     }
 
-
     @Override
     public boolean equals(Object o) {
+        // 1. Check for reference equality
         if (this == o) return true;
+        // 2. Check for null and ensure the classes match
         if (o == null || getClass() != o.getClass()) return false;
+        // 3. Cast and compare field values
         EqualExample that = (EqualExample) o;
         return value.equals(that.value);
     }
@@ -65,29 +70,32 @@ public class EqualExample {
         var o2 = new EqualExample("taco");
         var o3 = new EqualExample("fish");
 
-        System.out.println(o1 == o2);      // returns false
-        System.out.println(o2 == o2);      // returns true
+        System.out.println(o1 == o2);      // returns false (different instances)
+        System.out.println(o2 == o2);      // returns true (same instance)
         System.out.println(o1.equals(o1)); // returns true
-        System.out.println(o1.equals(o2)); // returns true
-        System.out.println(o1.equals(o3)); // returns false
+        System.out.println(o1.equals(o2)); // returns true (same value)
+        System.out.println(o1.equals(o3)); // returns false (different values)
     }
 }
 ```
 
 ## hashCode
 
-Many of the collection objects in Java require a fast method for determining equality. The `hashCode` method returns a reasonably unique number that represents the object's values. When a collection is attempting to determine the equality of two objects, it will first call the `hashCode` method and if the returned values match, it will then call the `equals` method.
+Many Java collections, such as `HashMap` and `HashSet`, use hash tables to store and retrieve data efficiently. These collections rely on the `hashCode` method, which returns an integer representing the object.
 
-Here is an example of a simple `hashCode` implementation that gets the hash code for the underlying `value` field and multiplies it by a prime number in order to make it more somewhat unique to this class.
+There is a strict **contract** between `equals` and `hashCode`: if two objects are equal according to the `equals(Object)` method, they **must** return the same integer from `hashCode()`.
+
+When a collection looks for an object, it first checks the `hashCode`. If the hash codes match, it then calls `equals` to confirm the identity. If you override `equals` but forget to override `hashCode`, your objects will not work correctly in Java collections.
 
 ```java
+import java.util.Objects;
+
 public class HashcodeExample {
-    String value;
+    private String value;
 
     public HashcodeExample(String value) {
         this.value = value;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -99,23 +107,23 @@ public class HashcodeExample {
 
     @Override
     public int hashCode() {
-        return 71 * value.hashCode();
+        // Using a prime number helps distribute hash codes more uniformly
+        return 31 * Objects.hashCode(value);
     }
 }
 ```
 
-When an object overrides both the `equals` and `hashCode` methods, you can use it with any of the JDK's collection classes that do equality checks. For example, the `HashMap` class indexes the objects that it contains by organizing them by their hash code and equality. If you do not override those functions then the HashMap will use the `Object` class's default implementation. That will result in every object in the map being considered as unique, even if they have the same field values.
+If you do not override these functions, a `HashMap` will treat every instance as unique based on its memory address, even if the fields within the objects are identical.
 
 ## Things to Understand
 
-- How to override methods in Java
-- How to properly implement a hashCode() method
-- How and why to overload a method
-- What the final keyword means when applied to variables, methods and classes
-- What the `toString()` method does and how to override it
-- What the `equals(...)` method does and how to override it
-- How to override the `hashCode()` method
-- How hash tables work and why we need a `hashCode()` method
+- **Method Overriding:** How to redefine a superclass method in a subclass.
+- **Method Overloading:** How to define multiple methods with the same name but different parameters.
+- **The `equals` vs `==` distinction:** Reference equality versus logical equality.
+- **The `hashCode` Contract:** Why equal objects must have identical hash codes.
+- **The `toString` Method:** How to provide useful string representations for debugging and logging.
+- **The `final` Keyword:** Its effect when applied to variables (constants), methods (cannot be overridden), and classes (cannot be extended).
+- **Hash Tables:** The basic mechanism of how `hashCode` and `equals` allow for fast data retrieval.
 
 ## Videos
 
