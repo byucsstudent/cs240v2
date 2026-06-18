@@ -38,7 +38,7 @@ When a class extends another, it can **override** the base class's methods to al
 | `equals(Object o)` | Determines if another object is logically "equal" to the current one. |
 | `hashCode()` | Returns an integer representation of the object, essential for use in hash-based collections. |
 
-Note: Other methods in the `Object` class, such as `getClass()`, `wait()`, and `notify()`, are `final` and cannot be overridden.
+**Note**: Other methods in the `Object` class, such as `getClass()`, `wait()`, and `notify()`, are `final` and cannot be overridden.
 
 The following example shows a `Person` class that overrides the `toString` method.
 
@@ -69,7 +69,48 @@ The Java Development Kit (JDK) builds extensively on the `Object` class to provi
 *   **Method Overriding:** Child classes (like `Person`) often override `toString()`, `equals(Object obj)`, and `hashCode()` to provide behavior specific to that class.
 *   **Root Class:** Because `Object` is the top-level class, a variable of type `Object` can hold a reference to an instance of any Java class.
 
-## equals
+## Important Object Default Methods
+
+### toString
+
+The `toString()` method is a member of the `java.lang.Object` class, which is the parent class of all objects in Java. Its primary purpose is to return a string representation of an object.
+
+*   **Default Behavior:** If not overridden, the method returns a string consisting of the class name, the `@` symbol, and the unsigned hexadecimal representation of the object's hash code (e.g., `Student@15db9742`).
+*   **Overriding:** Developers typically override this method to provide a meaningful, human-readable summary of the object's internal state (its field values).
+*   **Automatic Invocation:** The `toString()` method is automatically called when an object is passed to `System.out.println()` or when an object is concatenated with a String.
+
+The following example demonstrates how to override the `toString()` method to provide useful information about a `Car` object.
+
+```java
+class Car {
+    private String model;
+    private int year;
+
+    public Car(String model, int year) {
+        this.model = model;
+        this.year = year;
+    }
+
+    // Overriding the toString() method from the Object class
+    @Override
+    public String toString() {
+        return "Car {model='" + model + "', year=" + year + "}";
+    }
+
+    public static void main(String[] args) {
+        Car myCar = new Car("Toyota Corolla", 2022);
+        System.out.println(myCar.toString()); 
+    }
+}
+```
+
+**Output:**
+```text
+Car {model='Toyota Corolla', year=2022}
+```
+
+
+### equals
 
 When comparing primitive types (like `int` or `char`), you use the `==` operator. However, when comparing objects, `==` only checks if two references point to the exact same memory address (reference equality).
 
@@ -108,7 +149,7 @@ public class EqualExample {
 }
 ```
 
-## hashCode
+### hashCode
 
 Many Java collections, such as `HashMap` and `HashSet`, use hash tables to store and retrieve data efficiently. These collections rely on the `hashCode` method, which returns an integer representing the object.
 
