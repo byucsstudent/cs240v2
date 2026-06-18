@@ -50,6 +50,8 @@ When a subclass inherits from a superclass, it gains all its non-private fields 
 **The Hierarchy of Objects:**
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
 classDiagram
     class Vehicle {
         +String brand
@@ -65,7 +67,6 @@ classDiagram
     }
     Vehicle <|-- Car
     Vehicle <|-- Motorcycle
-    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
 ```
 
 In this diagram, both `Car` and `Motorcycle` inherit from `Vehicle`. They share the `startEngine()` method but maintain their own specific attributes.
@@ -95,9 +96,3 @@ Transitioning to an object-oriented mindset can present several hurdles:
 ### Summary
 
 Object-Oriented Programming is a powerful way to structure software by mimicking the way we perceive the real world. By utilizing **Encapsulation**, we protect our data; through **Abstraction**, we manage complexity; with **Inheritance**, we promote code reuse; and via **Polymorphism**, we create flexible and interchangeable code components. Mastering these four pillars is the first step toward becoming a proficient software architect capable of building robust, maintainable systems.
-
-### External Resources for Further Study
-
-*   [Oracle's Java Tutorials: Object-Oriented Programming Concepts](https://docs.oracle.com/javase/tutorial/java/concepts/)
-*   [Mozilla Developer Network (MDN): Object-oriented programming](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_programming) (Great for a language-agnostic perspective)
-*   [Refactoring.Guru: Design Patterns](https://refactoring.guru/design-patterns) (To see how OOP principles are applied to solve common problems)
