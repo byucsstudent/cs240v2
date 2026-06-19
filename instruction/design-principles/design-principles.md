@@ -143,6 +143,15 @@ Some of the benefits of abstraction include:
 
 One common mistake with abstraction is to think that it only applies to the public methods that you include in a class. You can also provide data hiding by implementing interfaces that restrict the view of what an object can do to a small set of methods. For example, you might have a class that represents a person. In order to provide abstraction of the class, the person might represent an `Object`, `LivingEntity` and `Animal` interface. By exposing different aspects of the person, the consumer of the object only needs to know about the aspect that is of interest to them. This provides all of the benefits of comprehension, extensibility, evolution, and security.
 
+
+### Program to an Interface, Not an Implementation
+By defining variables and parameters using interface types or abstract classes rather than concrete implementations, the code becomes decoupled from specific classes. This allows for easier testing (via mocking) and the ability to swap implementations without modifying the consuming code.
+
+
+
+
+
+
 ## Encapsulation
 
 Encapsulation is a form of abstraction that takes an object that provides some functionality and encapsulates, or hides it, in another object. For example, a car encapsulates an engine, drive train, and suspension. The driver of the car does not need to know any of those details because the driver never interfaces with those components.
@@ -282,6 +291,33 @@ You can reduce duplicated code by:
 1. Using inheritance and encapsulation to represent a single version of the functionality.
 1. Using utility methods for common operations.
 1. Using generics to represent objects that only differ by type.
+
+
+## The Law of Demeter (Principle of Least Knowledge)
+The Law of Demeter (LoD) states that an object should have limited knowledge about the internal structure of other objects. Specifically, a method of an object should only invoke the methods of:
+1. The object itself.
+2. Its parameters.
+3. Any objects it creates or instantiates.
+4. Its direct component objects (fields).
+
+**Goal:** Minimize coupling between distant classes. By avoiding "chaining" calls, you prevent a class from becoming dependent on the internal navigation path of another object.
+
+### Why It Matters
+LoD promotes **loose coupling** and **encapsulation**. When a class knows too much about the internal "guts" of its neighbors, the system becomes brittle. A change to a low-level object can cause a ripple effect, breaking unrelated classes that were reaching through several layers to access data.
+
+### Example of a Violation
+Imagine a `Store` class processing a purchase:
+
+```java
+// VIOLATION
+// The store reaches through the customer, into their wallet, to find a card.
+customer.getWallet().getCreditCard().charge(amount);
+```
+
+**Why this is problematic:**
+1.  **Tight Coupling:** The `Store` is now dependent on the internal structure of both the `Customer` and the `Wallet`. 
+2.  **Fragility:** If you update the `Customer` class to use a mobile `PaymentApp` instead of a physical `Wallet`, the `Store` code breaks, even though the store's primary concern (getting paid) hasn't changed.
+3.  **Better Design:** The store should simply call `customer.pay(amount)`. The `Customer` object then decides internally whether to use a wallet, a card, or a phone app, keeping those details hidden from the `Store`.
 
 ## SOLID
 
