@@ -384,6 +384,42 @@ customer.getWallet().getCreditCard().charge(amount);
 2.  **Fragility:** If you update the `Customer` class to use a mobile `PaymentApp` instead of a physical `Wallet`, the `Store` code breaks, even though the store's primary concern (getting paid) hasn't changed.
 3.  **Better Design:** The store should simply call `customer.pay(amount)`. The `Customer` object then decides internally whether to use a wallet, a card, or a phone app, keeping those details hidden from the `Store`.
 
+
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"24db3b5d-61c5-4488-a9f8-9116634d7b5a","title":"Coupling vs. Cohesion","type":"multiple-choice"}
+In software architecture, the design goal is typically to achieve **high cohesion** and **low coupling**. Which of the following scenarios best describes a system that successfully applies these principles?
+
+- [ ] A system where a single "God Object" manages all application logic to ensure that no external dependencies are required between different files.
+- [ ] A system where modules are highly interdependent to ensure rapid data transfer, but each module contains logic for several unrelated business features.
+- [x] A system where each module is responsible for a single, well-defined task and interacts with other modules through stable, minimal interfaces.
+- [ ] A system where code is split into many small modules to reduce complexity, even if those modules must frequently access and modify each other's internal private state.
+```
+
+```masteryls
+{"id":"08e88ca6-e6d9-467f-ae53-5502a601329d","title":"The Role of Decomposition","type":"multiple-choice"}
+In the context of software design principles, which statement best characterizes the primary objective of **decomposition**?
+
+- [ ] The process of hiding the internal implementation details of a module to prevent external dependencies from accessing private data.
+- [x] Breaking a complex system into smaller, more manageable parts that can be developed, tested, and maintained independently.
+- [ ] Merging several small, related functions into a single "God object" to reduce the total number of files and classes within a project.
+- [ ] The systematic rewriting of existing code to improve its internal structure and performance without changing its external behavior.
+```
+
+```masteryls
+{"id":"32035b75-8e43-4ac3-9c02-d63e7517b65c","title":"Distinguishing Abstraction from Encapsulation","type":"multiple-choice"}
+In object-oriented design, while abstraction and encapsulation are closely related, they serve distinct purposes. Which statement best describes the primary difference between these two principles?
+
+- [ ] Abstraction is a mechanism for hiding the internal state of an object using access modifiers, while encapsulation is the process of defining a contract through interfaces.
+- [ ] Abstraction focuses on the "how" an object performs its internal logic, while encapsulation focuses on the "what" the object provides to the rest of the system.
+- [x] Abstraction focuses on hiding complexity by providing a simplified interface (the "what"), while encapsulation focuses on hiding implementation details and protecting data from outside interference (the "how").
+- [ ] Abstraction is used to achieve code reuse through inheritance, whereas encapsulation is used to achieve polymorphism through method overriding.
+```
+
+
 ## Videos
 
 - 🎥 [Design Principles - Introduction (2:27)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3e09338f-77ca-4465-bebc-b17e014a8118) - [[transcript]](https://github.com/user-attachments/files/17738057/CS_240_Design_Principles_Introduction_Transcript.pdf)
