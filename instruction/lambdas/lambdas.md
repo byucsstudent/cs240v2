@@ -11,7 +11,7 @@
 ### 🔑 Key points
 
 - Java Lambdas are concise representations of anonymous functions
-- Method reference is a more concise representation for special case Lambda functions
+- Java Method References are a more concise representation for pass through lambda functions
 
 ---
 
