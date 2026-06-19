@@ -10,9 +10,7 @@
 
 ---
 
-![ai-illustrate-the-software-design-solid-principles.jpg](ai-illustrate-the-software-design-solid-principles.jpg)
-
-
+![solid.png](solid.png)
 SOLID is an acronym representing five key design principles:
 
 1.  **Single Responsibility**: A class should have one, and only one, reason to change.
