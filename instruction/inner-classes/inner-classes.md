@@ -198,6 +198,27 @@ public class AnonymousExample {
 }
 ```
 
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"650a7f59-34c9-45f6-8993-2229d72e0803", "title":"Inner Classes", "type":"essay" }
+What is the difference between an **inner class** and a **static inner class**?
+```
+
+
+```masteryls
+{"id":"fba7642f-e9f8-484a-9147-c3c3f055db57","title":"Closure in Inner Classes","type":"multiple-choice"}
+In Java, when an anonymous inner class or a local inner class accesses a local variable defined in its enclosing method, what is the requirement for that variable and why?
+
+- [x] The variable must be `final` or "effectively final" because the inner class receives a captured copy of the variable, and allowing changes would cause data inconsistency between the stack and the heap.
+- [ ] The variable must be declared `volatile` to ensure that any changes made by the inner class are immediately visible to the method's thread.
+- [ ] The variable must be declared `static` because local variables are stored on the stack and inner classes only have access to the static segment of memory.
+- [ ] The variable must be an object reference rather than a primitive, as Java closures cannot capture primitive data types from the method scope.
+```
+
+
 ## Videos
 
 - 🎥 [Introduction (6:23)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1a6ec347-24b8-41db-9dd8-ad72014f1ec1&start=0) - [[transcript]](https://github.com/user-attachments/files/17780969/CS_240_Inner_Class_Introduction.pdf)
@@ -206,14 +227,3 @@ public class AnonymousExample {
 - 🎥 [Local Inner Classes (7:09)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=817e3e88-8d19-4ffa-85b4-ad7201539033&start=0) - [[transcript]](https://github.com/user-attachments/files/17804799/CS_240_Local_Inner_Classes.pdf)
 - 🎥 [Anonymous Inner Classes (5:16)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7faf22b0-00df-4429-818f-ad720155ad20&start=0) - [[transcript]](https://github.com/user-attachments/files/17804804/CS_240_Anonymous_Inner_Classes.pdf)
 
-## Demonstration code
-
-📁 [Iterator.java](example-code/Iterator.java)
-
-📁 [anonymousInnerClass](example-code/anonymousInnerClass)
-
-📁 [innerClass](example-code/innerClass)
-
-📁 [localInnerClass](example-code/localInnerClass)
-
-📁 [staticInnerClass](example-code/staticInnerClass)
