@@ -167,50 +167,12 @@ classDiagram
 
 The "Not enough classes" design is problematic because it lacks semantic meaning and specific behavior. By reducing every concept to a generic `Object` with a recursive relationship, you lose the benefits of type safety and domain modeling. Instead of a `Person` who `eats` a `Fruit`, you have an anonymous `Object` interacting with another anonymous `Object`. This forces logic that should be encapsulated within classes out into the rest of the application, making the code significantly harder to maintain and debug.
 
-# Core Principles of Object-Oriented Design
-
-## 1. The SOLID Principles
-The SOLID principles are a subset of many principles promoted by Robert C. Martin. They are considered the standard for building maintainable and scalable software.
-
-*   **S - Single Responsibility Principle (SRP):** A class should have one, and only one, reason to change. This means a class should perform a single specialized task.
-*   **O - Open/Closed Principle (OCP):** Software entities (classes, modules, functions) should be open for extension but closed for modification. You should be able to add new functionality without changing existing code.
-*   **L - Liskov Substitution Principle (LSP):** Objects of a superclass should be replaceable with objects of its subclasses without breaking the application. This ensures that inheritance hierarchies are logically sound.
-*   **I - Interface Segregation Principle (ISP):** Clients should not be forced to depend on methods they do not use. It is better to have many small, specific interfaces than one large, general-purpose interface.
-*   **D - Dependency Inversion Principle (DIP):** High-level modules should not depend on low-level modules; both should depend on abstractions. Furthermore, abstractions should not depend on details; details should depend on abstractions.
-
-## 2. Favor Composition over Inheritance
-While inheritance is a fundamental pillar of OOP, "Good Design" often prioritizes composition. 
-*   **Inheritance (Is-a):** Creates a rigid relationship. Changes in a base class can have cascading effects on all subclasses (the "Fragile Base Class" problem).
-*   **Composition (Has-a):** Creates a flexible relationship. By combining simple objects to create complex ones, you can change behavior at runtime by swapping out components.
-
-## 3. Coupling and Cohesion
-These two metrics are the primary indicators of design quality:
-*   **Low Coupling:** Minimize the dependencies between different classes. When classes are loosely coupled, a change in one class is less likely to require changes in others.
-*   **High Cohesion:** Ensure that the elements within a single class are closely related and focused on a single task. Highly cohesive code is easier to understand and reuse.
-
-## 4. Encapsulation and Information Hiding
-Good design hides the internal state and implementation details of an object.
-*   **Encapsulation:** Bundling data and the methods that operate on that data into a single unit.
-*   **Information Hiding:** Using access modifiers (private, protected) to prevent external objects from accessing the internal workings of a class. This reduces complexity by only exposing a clean public interface (API).
-
 ## 5. GRASP (General Responsibility Assignment Software Patterns)
 GRASP provides a mental framework for assigning responsibilities to classes:
 *   **Information Expert:** Assign a responsibility to the class that has the information necessary to fulfill it.
 *   **Creator:** Determine which class should be responsible for creating new instances of another class.
 *   **Controller:** A non-user interface object responsible for receiving or handling a system event.
 *   **Indirection:** Assign responsibility to an intermediate object to mediate between two components, reducing coupling.
-
-## 6. The Law of Demeter (Principle of Least Knowledge)
-A method of an object should only invoke the methods of:
-1. The object itself.
-2. Its parameters.
-3. Any objects it creates or instantiates.
-4. Its direct component objects.
-
-**Goal:** Avoid "chaining" calls (e.g., `object.getA().getB().doSomething()`), which creates deep dependencies on the internal structure of other objects.
-
-## 7. Program to an Interface, Not an Implementation
-By defining variables and parameters using interface types or abstract classes rather than concrete implementations, the code becomes decoupled from specific classes. This allows for easier testing (via mocking) and the ability to swap implementations without modifying the consuming code.
 
 ## Videos
 
