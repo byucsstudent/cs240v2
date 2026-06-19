@@ -10,28 +10,82 @@
 
 ### 🔑 Key points
 
-- The interfaces and classes that make up the Java collection API
-- What each interface and class is used for
-- The importance of overriding the `equals(...)` and `hashCode()` methods of classes that will be placed in collections
-- The importance of implementing the Comparable interface in classes that will be placed in collections
+- The interfaces and classes that make up the Java Collections Framework (JCF)
+- The specific use cases for different interfaces and classes
+- The importance of overriding the `equals()` and `hashCode()` methods for objects stored in collections
+- The importance of implementing the `Comparable` interface to enable sorting
 
 ---
 
-The Java Collection library provide several useful utility classes for dealing with data structures. This includes things like lists, sets, and maps. Using the standard collections library makes it so that you don't have to write this code yourself. You can also be confident that the code has been thoroughly tested, is secure, and is multithreaded where appropriate.
+The Java Collections Framework provides several utility classes for managing data structures, such as lists, sets, and maps. Using the standard collections library ensures you do not have to implement these complex structures from scratch. These classes are thoroughly tested, performant, and thread-safe where specified.
 
-![Collections](collections.png)
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 
-Most of the JDK collection objects are contained in the [java.util](https://docs.oracle.com/javase/8/docs/api/java/util/package-summary.html) package. It is worth the time to browser the JavaDocs for this package and become familiar with what it offers. Some of the more commonly used interfaces include [List](https://docs.oracle.com/javase/8/docs/api/java/util/List.html), [Map](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html), [Set](https://docs.oracle.com/javase/8/docs/api/java/util/Set.html), and [Iterator](https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html). The package also provides various implementations of the interfaces such as [HashMap](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html), [ArrayList](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html), and [TreeSet](https://docs.oracle.com/javase/8/docs/api/java/util/TreeSet.html).
+classDiagram
+    class Collection {
+        <<interface>>
+    }
+    class List {
+        <<interface>>
+    }
+    class Set {
+        <<interface>>
+    }
+    class Queue {
+        <<interface>>
+    }
+    class SortedSet {
+        <<interface>>
+    }
+    class NavigableSet {
+        <<interface>>
+    }
+    class Deque {
+        <<interface>>
+    }
+    class Map {
+        <<interface>>
+    }
+    class SortedMap {
+        <<interface>>
+    }
+    class NavigableMap {
+        <<interface>>
+    }
+    class Iterator {
+        <<interface>>
+    }
+    class ListIterator {
+        <<interface>>
+    }
+
+    List --|> Collection
+    Set --|> Collection
+    Queue --|> Collection
+    SortedSet --|> Set
+    NavigableSet --|> SortedSet
+    Deque --|> Queue
+
+    SortedMap --|> Map
+    NavigableMap --|> SortedMap
+
+    ListIterator --|> Iterator
+```
+
+
+Most JCF objects are contained in the [java.util](https://docs.oracle.com/javase/8/docs/api/java/util/package-summary.html) package. It is worth the time to browse the Javadoc for this package to become familiar with its offerings. Some of the most commonly used interfaces include [List](https://docs.oracle.com/javase/8/docs/api/java/util/List.html), [Map](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html), [Set](https://docs.oracle.com/javase/8/docs/api/java/util/Set.html), and [Iterator](https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html). The package also provides various implementations of these interfaces, such as [HashMap](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html), [ArrayList](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html), and [TreeSet](https://docs.oracle.com/javase/8/docs/api/java/util/TreeSet.html).
 
 ## ArrayList Example
 
-Here is an example of using the `ArrayList` class.
+The `ArrayList` class is a resizable-array implementation of the `List` interface.
 
 ```java
 import java.util.ArrayList;
 
-public static class MountainList {
-    ArrayList mountains = new ArrayList();
+public class MountainList {
+    // Using generics <String> to specify the type of elements in the list
+    ArrayList<String> mountains = new ArrayList<>();
 
     public MountainList() {
         mountains.add("Nebo");
@@ -50,20 +104,20 @@ public static class MountainList {
     }
 
     public static void main(String[] args) {
-        var mountains = new MountainList();
-        mountains.print();
+        var list = new MountainList();
+        list.print();
     }
 }
 ```
 
 ## HashMap Example
 
-Here is an example of using the `HashMap` class.
+The `HashMap` class is a hash table-based implementation of the `Map` interface, used to store key-value pairs.
 
 ```java
 import java.util.HashMap;
 
-public static class MountainMap {
+public class MountainMap {
     HashMap<String, Integer> mountains = new HashMap<>();
 
     public MountainMap() {
@@ -77,31 +131,36 @@ public static class MountainMap {
     }
 
     public void print() {
-        for (var m : mountains.entrySet()) {
-            System.out.printf("%s, height: %d%n", m.getKey(), m.getValue());
+        for (var entry : mountains.entrySet()) {
+            System.out.printf("%s, height: %d%n", entry.getKey(), entry.getValue());
         }
     }
 
     public static void main(String[] args) {
-        var mountains = new MountainMap();
-        mountains.print();
+        var map = new MountainMap();
+        map.print();
     }
 }
 ```
 
 ## Equals and HashCode
 
-When we previously discussed the [Java Object](../java-object-class/java-object-class.md) class we talked about the importance of overriding the equals and hashCode methods. The JDK collection objects make extensive use of these methods and so it is vital that you implement them on any class that you use with collection objects such as a `Map`.
+When we discussed the [Java Object](../java-object-class/java-object-class.md) class, we noted the importance of overriding the `equals()` and `hashCode()` methods. Many collections, particularly hash-based ones like `HashMap` and `HashSet`, rely on these methods to locate and manage objects correctly. If you use a custom class as a key in a `Map` or as an element in a `Set`, you must implement these methods correctly.
 
 ## Comparable
 
-If you are going to use your objects with collections and operations that sort your objects, you must also implement the `Comparable` interface. This provides the ability to define the ordering of your object based on the values they contain.
+To use your objects with collections that require sorting (like `TreeSet`) or with utility methods like `Collections.sort()`, your class must implement the `Comparable` interface. This allows you to define the "natural ordering" of your objects.
 
-Comparable returns a negative integer if the object is less, zero if they are equal, or a positive integer if the object is greater than the object provided as a parameter to `compareTo`.
+The `compareTo` method returns:
+- A **negative integer** if the current object is less than the specified object.
+- **Zero** if the current object is equal to the specified object.
+- A **positive integer** if the current object is greater than the specified object.
 
 ```java
+import java.util.Arrays;
+
 public class ComparableExample implements Comparable<ComparableExample> {
-    final private char value;
+    private final char value;
 
     ComparableExample(char value) {
         this.value = value;
@@ -109,12 +168,13 @@ public class ComparableExample implements Comparable<ComparableExample> {
 
     @Override
     public int compareTo(ComparableExample o) {
-        return value - o.value;
+        // Simple subtraction for numeric or char comparison
+        return this.value - o.value;
     }
 
     @Override
     public String toString() {
-        return String.format("%c", value);
+        return String.valueOf(value);
     }
 
     public static void main(String[] args) {
@@ -126,9 +186,9 @@ public class ComparableExample implements Comparable<ComparableExample> {
 
         Arrays.sort(items);
         for (var i : items) {
-            System.out.println(i);
+            System.out.print(i + " ");
         }
-        // Outputs: a b r
+        // Outputs: a b r 
     }
 }
 ```
