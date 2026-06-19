@@ -308,7 +308,13 @@ Describe one of the JCF objects that interest you.
 
 ```masteryls
 {"id":"93f1825a-52bf-468d-9c05-881cdee91170","title":"The Power of Abstraction","type":"multiple-choice"}
-Why is it considered a best practice to declare a variable as 'List<String> list = new ArrayList<>()' instead of 'ArrayList<String> list = new ArrayList<>()'?
+Why is it considered a best practice to declare a variable as
+
+`List<String> list = new ArrayList<>()`
+
+instead of 
+
+`ArrayList<String> list = new ArrayList<>()`
 
 - [ ] It improves the runtime performance of the application by reducing memory overhead.
 - [ ] It allows the compiler to automatically choose the most efficient implementation at runtime.
