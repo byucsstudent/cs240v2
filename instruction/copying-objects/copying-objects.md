@@ -4,8 +4,6 @@
 
 🖥️ [Lecture Videos](#videos)
 
-## Copy Constructors
-
 ### 🔑 Key points
 
 - The difference between a shallow copy and a deep copy.
@@ -13,6 +11,8 @@
 - How to use `clone` methods to implement deep copies.
 
 ---
+
+## Copy Constructors
 
 A straightforward way to allow an object to be duplicated is to create a constructor that accepts an instance of its own class. This is commonly called a **Copy Constructor**.
 
