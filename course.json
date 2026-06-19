@@ -280,7 +280,11 @@
           "title": "Java Inner Classes",
           "path": "instruction/inner-classes/inner-classes.md",
           "id": "983e7617-7fa0-48ca-8ccc-3f6f2f8ead90",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "650a7f59-34c9-45f6-8993-2229d72e0803",
+            "fba7642f-e9f8-484a-9147-c3c3f055db57"
+          ]
         },
         {
           "title": "Java Lambdas",
