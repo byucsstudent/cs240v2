@@ -147,7 +147,7 @@ classDiagram
 
 ### Encapsulation
 
-Good object-oriented design is easy to enhance over time. Encapsulation, hiding details that do not need to be shared, makes it easier to evolve the model as requirements change. For example, by encapsulating the `Computer` object within the `Programmer` object, the rest of the system only needs to know how to call `writeCode` on the programmer, without needing to know that the programmer will use a computer.
+Good object-oriented design is easy to enhance over time. Encapsulation, hiding details that do not need to be shared, makes it easier to evolve the model as requirements change. For example, by encapsulating the `Computer` object within the `Programmer` object, the rest of the system only needs to know how to call `program` on the programmer, without needing to know that the programmer will use a computer.
 
 ```mermaid
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
@@ -170,8 +170,7 @@ Abstraction involves identifying the essential characteristics of an object whil
 
 classDiagram
     class Programmer {
-        -Computer
-        +Program()
+        +program()
     }
 ```
 
