@@ -45,15 +45,9 @@ In object-oriented programming (OOP), everything revolves around the `Class` con
 
 | Real World                       | Class Representation               | Object Representation |
 | -------------------------------- | ---------------------------------- | --------------------- |
-| ![James Gosling](smallJames.jpg) | ![person Diagram](personDiagram.png) | {name: James, birthPlace: Calgary }       |
+| ![James Gosling](smallJames.jpg) | ![person Diagram](personDiagram.png) | <pre>{<br/>  name: James,<br/>  birthPlace: Calgary<br/>}</pre>       |
 
 > _Source: Wikipedia_
-
-```mermaid
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
-flowchart TB
-    James["James<br/>---<br/>name: James<br/>birthPlace: Calgary"]
-```
 
 ## Object Relationships
 
