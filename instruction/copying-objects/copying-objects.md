@@ -139,7 +139,48 @@ public class CloneCopy implements Cloneable {
 }
 ```
 
-**Note:** While `clone` is part of the Java standard library, many developers prefer **copy constructors** or **static factory methods**. Overriding `clone` is often considered complex because it requires implementing the `Cloneable` marker interface, handling `CloneNotSupportedException`, and performing manual casting.
+## Copy Constructor Preference
+
+In modern Java development, **copy constructors** are widely preferred over the `clone()` method. While `Object.clone()` was part of the original language design, it is now often considered "broken" or problematic by experts like Joshua Bloch.
+
+### Why Developers Prefer Copy Constructors
+*   **Type Safety:** You don't need to cast the result from `Object` to your specific type.
+*   **Final Fields:** Copy constructors allow you to initialize `final` fields, which `clone()` cannot do.
+*   **No Checked Exceptions:** You don't have to catch `CloneNotSupportedException`.
+*   **Ease:** Overriding `clone` requires implementing the `Cloneable` marker interface
+*   **Control:** It is easier to implement "deep copies" (copying nested objects) manually within a constructor.
+
+```java
+public class Student {
+    private String name;
+
+    // Copy Constructor
+    public Student(Student other) {
+        this.name = other.name;
+    }
+}
+// Usage: Student copy = new Student(original);
+```
+
+```mermaid
+graph LR
+    A[Original Object] -->|Ref to| B[Copy Constructor]
+    B -->|Creates| C[New Independent Object]
+    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
+```
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"bfcc9583-3d22-4026-a36f-34fceb6be366", "title":"Essay", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+Which approach do you think would be easier to maintain if you added a list of grades to the `Student` class?
+```
+
+```masteryls
+{"id":"113e9ac2-025a-40a3-bc30-7ffbbc94cbbb", "title":"Essay", "type":"essay" }
+Write a simply copy constructor for a chess piece that has a color and type property.
+```
 
 ## Videos
 
