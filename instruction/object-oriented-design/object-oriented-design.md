@@ -167,13 +167,6 @@ classDiagram
 
 The "Not enough classes" design is problematic because it lacks semantic meaning and specific behavior. By reducing every concept to a generic `Object` with a recursive relationship, you lose the benefits of type safety and domain modeling. Instead of a `Person` who `eats` a `Fruit`, you have an anonymous `Object` interacting with another anonymous `Object`. This forces logic that should be encapsulated within classes out into the rest of the application, making the code significantly harder to maintain and debug.
 
-## 5. GRASP (General Responsibility Assignment Software Patterns)
-GRASP provides a mental framework for assigning responsibilities to classes:
-*   **Information Expert:** Assign a responsibility to the class that has the information necessary to fulfill it.
-*   **Creator:** Determine which class should be responsible for creating new instances of another class.
-*   **Controller:** A non-user interface object responsible for receiving or handling a system event.
-*   **Indirection:** Assign responsibility to an intermediate object to mediate between two components, reducing coupling.
-
 ## Videos
 
 - 🎥 [Object-Oriented Design Overview](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=77c184e5-8afd-4c56-84c8-ad64013f7a4b&start=0) - [[transcript]](https://github.com/user-attachments/files/17805111/CS_240_Object_Oriented_Design_Overview.pdf)
