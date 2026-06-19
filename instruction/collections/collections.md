@@ -19,6 +19,17 @@
 
 The Java Collections Framework is a unified architecture for representing and manipulating collections. It provides a set of interfaces, implementations, and algorithms that allow developers to manage groups of objects efficiently.
 
+### Core Interfaces
+Interfaces define the abstract data types that represent different types of collections. They establish the contract for how a collection behaves regardless of its internal implementation.
+
+*   **`Collection`**: The root of the collection hierarchy.
+*   **`List`**: An ordered collection (also known as a sequence) that can contain duplicate elements. Examples include `ArrayList` and `LinkedList`.
+*   **`Set`**: A collection that cannot contain duplicate elements. Examples include `HashSet` and `TreeSet`.
+*   **`Queue`**: A collection designed for holding elements prior to processing, typically following First-In-First-Out (FIFO) order.
+*   **`Deque`**: A double-ended queue that supports element insertion and removal at both ends.
+*   **`Map`**: An object that maps keys to values. A map cannot contain duplicate keys, and each key can map to at most one value. (Note: `Map` does not inherit from `Collection` but is considered part of the framework).
+
+
 ```mermaid
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 
@@ -73,17 +84,6 @@ classDiagram
     ListIterator --|> Iterator
 ```
 
-
-
-### Core Interfaces
-Interfaces define the abstract data types that represent different types of collections. They establish the contract for how a collection behaves regardless of its internal implementation.
-
-*   **`Collection`**: The root of the collection hierarchy.
-*   **`List`**: An ordered collection (also known as a sequence) that can contain duplicate elements. Examples include `ArrayList` and `LinkedList`.
-*   **`Set`**: A collection that cannot contain duplicate elements. Examples include `HashSet` and `TreeSet`.
-*   **`Queue`**: A collection designed for holding elements prior to processing, typically following First-In-First-Out (FIFO) order.
-*   **`Deque`**: A double-ended queue that supports element insertion and removal at both ends.
-*   **`Map`**: An object that maps keys to values. A map cannot contain duplicate keys, and each key can map to at most one value. (Note: `Map` does not inherit from `Collection` but is considered part of the framework).
 
 ### Concrete Implementations
 The framework provides pre-written, reusable data structures that implement the core interfaces. These implementations are optimized for different performance characteristics:
