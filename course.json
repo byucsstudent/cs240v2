@@ -221,7 +221,11 @@
           "title": "Java Exceptions",
           "path": "instruction/exceptions/exceptions.md",
           "id": "5e40afed-8a52-4f66-9c93-a2406bed4eee",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "d58151e1-451a-44ff-96c0-21c801866979",
+            "96312950-c328-42db-96c5-94fbeea1b4fd"
+          ]
         },
         {
           "title": "Java Collections",
