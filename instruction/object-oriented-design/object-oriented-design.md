@@ -224,12 +224,14 @@ graph TD
 
 
 ### Comparing Paradigms
-The following list highlights the core differences in how these models approach design:
+The following table highlights the core differences in how these models approach design:
 
-1.  **OOP:** Groups by "Things" (Nouns). Good for complex business logic and UI components.
-2.  **Functional:** Groups by "Transformations" (Verbs). Good for concurrent systems and data processing.
-3.  **Procedural:** Groups by "Tasks" (Steps). Good for low-level hardware interaction.
-4.  **Data-Oriented:** Groups by "Memory Layout" (Efficiency). Good for simulation and graphics engines.
+| Paradigm | Focus | Best For | Advantages | Disadvantages |
+| :--- | :--- | :--- | :--- | :--- |
+| **OOP** | "Things" (Nouns) | Complex business logic, UI components | Intuitive domain modeling and high reusability through modularity. | Risk of over-engineering and performance overhead from abstraction. |
+| **Functional** | "Transformations" (Verbs) | Concurrent systems, data processing | Predictable results via immutability; easier to test and parallelize. | Steeper learning curve and potentially higher memory usage. |
+| **Procedural** | "Tasks" (Steps) | Low-level hardware, simple scripts | Direct, easy-to-follow logic with very low execution overhead. | Hard to maintain at scale; often leads to "spaghetti code" via global state. |
+| **Data-Oriented** | "Memory Layout" (Efficiency) | Simulations, graphics engines | Maximum performance by optimizing for CPU cache hits. | Less intuitive for humans to read; rigid data structures are hard to evolve. |
 
 ```masteryls
 {"id":"763b6916-a651-47db-a39c-ebdb3212b541","title":"Identifying Functional Programming","type":"multiple-choice"}
