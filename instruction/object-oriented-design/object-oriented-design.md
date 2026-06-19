@@ -70,13 +70,55 @@ Simplicity is another important characteristic of object oriented programming. O
 
 Of course you can simplify too far and end up with thousands of classes that each have a single line of code, or a single object that aggregates itself and can represent everything. Both of these extremes should be avoided. What you want is to be straight forward in your object modeling and try to stick as close to the real world domain as possible.
 
-**Too many classes**
+### Too many classes
 
-![Verbose Object](verboseObject.png)
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
 
-**Not enough classes**
+classDiagram
+    class object
+    class Organism
+    class Animal
+    class Soul
+    class Body
+    class Head
+    class Torso
+    class Appendage
+    class Leg
+    class Arm
+    class Mammal
+    class Person
 
-![Ultimate Object](ultimateObject.jpg)
+    Organism --|> object
+    Animal --|> Organism
+    Mammal --|> Animal
+    Person --|> Mammal
+
+    Animal o-- Soul
+    Animal *-- Body
+
+    Body o-- Head
+    Body *-- Torso
+    Body o-- Appendage
+
+    Leg --|> Appendage
+    Arm --|> Appendage
+```
+
+### Not enough classes
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
+
+classDiagram
+    class Object {
+        value
+    }
+
+    Object o-- Object : has-a
+```
+
+This design is problematic because it lacks semantic meaning and specific behavior. By reducing every concept to a generic `Object` with a recursive relationship, you lose the benefits of type safety and domain modeling. Instead of having a `Person` that `eats` a `Fruit`, you have an anonymous `Object` interacting with another anonymous `Object`. This forces the logic that should be encapsulated within classes out into the rest of the application, making the code significantly harder to understand, maintain, and debug.
 
 ## Videos
 
