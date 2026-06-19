@@ -290,7 +290,11 @@
           "title": "Java Lambdas",
           "path": "instruction/lambdas/lambdas.md",
           "id": "5fc24ac6-e3ec-43f5-9ea5-1005ba1f41c2",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "8d174ea4-f27d-4e6b-a4bb-97b6392042a2",
+            "7d844be9-f784-47bd-98d1-6c16d71514af"
+          ]
         },
         {
           "title": "Phase 1: Getting Started",
