@@ -1,4 +1,4 @@
-# Object Oriented Design
+# Object-Oriented Design
 
 🖥️ [Slides](https://docs.google.com/presentation/d/17S-Y7Og08S9kRWHZfnH8k2wTBht39aCd/edit?usp=sharing&ouid=114081115660452804792&rtpof=true&sd=true)
 
@@ -6,71 +6,83 @@
 
 ### 🔑 Key points
 
-- First understand the application domain
-- Domain represented with classes
-- Classes are nouns that represent real world objects
-- Classes have methods and properties just like real world objects
-- Classes have relationships to each other. Is-A, Has-A, Uses-A
-- You encapsulate data in order to hide implementation details
-- Single Responsibility Principle
-- Class diagram
-- Sequence diagram
+- First, understand the application domain.
+- Represent the domain using classes.
+- Classes are nouns representing real-world objects.
+- Classes have methods (verbs) and properties (nouns), mirroring real-world objects.
+- Classes have relationships: Is-a, Has-a, and Uses-a.
+- Encapsulate data to hide implementation details.
+- Adhere to the Single Responsibility Principle.
+- Use Class and Sequence diagrams to model the system.
 
 ---
 
-`Object Oriented` design focuses on describing objects in the application domain as literal programming constructs. That means if your application contains people who eat fruit. Then you model the application by creating a `Person` and `Fruit` object. Those objects will have properties such as name, ripeness, and color. The objects will also have operations such as eat, plant, grow, or purchase. You then write your code as real world interactions between the core application domain objects. To continue our example, you would have interactions where a `Person` will either `plant`, or `purchase`, a `Fruit` object and then `eat` the fruit.
+`Object-oriented` design focuses on describing objects in the application domain as literal programming constructs. For example, if your application involves people eating fruit, you model the application by creating `Person` and `Fruit` objects. These objects have properties such as name, ripeness, and color, as well as operations (methods) such as `eat`, `plant`, `grow`, or `purchase`. You then write your code to reflect real-world interactions between these core objects. In this example, a `Person` might `purchase` a `Fruit` object and then `eat` it.
 
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
+
+sequenceDiagram
+    participant Person
+    participant Fruit
+
+    Person->>Fruit: plant
+    Fruit-->>Fruit: grow
+    Person->>Fruit: isRipe
+    Person->>Fruit: eat
+```
 ![Person Fruit Model](personFruitModel.jpg)
 
 > Eating fruit sequence diagram
 
-Object oriented design owes much of its popularity to its natural representation of the real world. By carefully modeling the actual application domain, the resulting code will exclude complications that would have resulted if you use other [programming paradigms](https://en.wikipedia.org/wiki/Programming_paradigm) that focus more on functional logic or declarative constructs.
+Object-oriented design owes much of its popularity to its natural representation of the real world. By carefully modeling the actual application domain, the resulting code avoids the complications that often arise in other [programming paradigms](https://en.wikipedia.org/wiki/Programming_paradigm) that focus more strictly on functional logic or declarative constructs.
 
-In object oriented programming everything revolves around a `Class` construct that serves as the template for actual objects. Classes always represent nouns, or things, such as a cat, car, word, database row, or even abstract things such as a thought or behavior. A class's operations, or methods, are always verbs, such as build, run, speak, compute, or destroy. When you instantiate a class into an object, you convert the template into an actual thing. For example, we can create an object named `James` from a class named `Person`. The class `Person` has a `birthPlace` field, the object `James` has a birth place value of Alberta Calgary.
+In object-oriented programming (OOP), everything revolves around the `Class` construct, which serves as a template for actual objects. Classes represent nouns, or "things," such as a cat, car, word, database row, or even abstract concepts like a thought or behavior. A class's operations, or methods, are verbs, such as `build`, `run`, `speak`, `compute`, or `destroy`. When you instantiate a class, you convert the template into an actual object. For example, we can create an object named `James` from a class named `Person`. While the `Person` class has a `birthPlace` field, the specific object `James` has a birth place value of "Calgary, Alberta."
 
 | Real World                       | Class Representation               | Object Representation |
 | -------------------------------- | ---------------------------------- | --------------------- |
-| ![James Gosling](smallJames.jpg) | ![class diagram](classDiagram.jpg) | James, Alberta        |
+| ![James Gosling](smallJames.jpg) | ![class diagram](classDiagram.jpg) | James, Calgary        |
 
 > _Source: Wikipedia_
 
 ## Object Relationships
 
-In order to fully model the real world with your objects, you need to describe the relationships between objects. Three of the most common relationships are `is-a`, `has-a`, and `uses-a`.
+To fully model the real world, you must describe the relationships between objects. Three of the most common relationships are `is-a`, `has-a`, and `uses-a`.
 
 | Relationship | Description                                                    | Example                             |
 | ------------ | -------------------------------------------------------------- | ----------------------------------- |
-| Is-A         | Polymorphic inheritance. Often defined by a extending a class. | A `Programmer` is a `Person`.       |
-| Has-A        | Ownership. Often defined by a class field.                     | A `Programmer` has a `Computer`.    |
-| Uses-A       | Transient association. Often defined by a method parameter.    | A `Person` uses a `Taxi` to travel. |
+| Is-a         | Polymorphic inheritance. Often defined by extending a class.   | A `Programmer` **is a** `Person`.   |
+| Has-a        | Ownership. Often defined by a class field (composition).      | A `Programmer` **has a** `Computer`.|
+| Uses-a       | Transient association. Often defined by a method parameter.    | A `Person` **uses a** `Taxi`.       |
 
-The following is an example of the relationships between a number of objects. Note that there are many ways that you can represent the real world with object oriented design.
+The following diagram illustrates relationships between several objects. Note that there are many ways to represent the real world using object-oriented design.
 
 ![Class Diagram](classRelationshipDiagram.jpg)
 
-The key is to understand your domain and distill the important object fields, operations, and interactions down to the minimal representation that meets the application needs. That might mean that your model doesn't perfectly fit real world objects, but you can often make your model easier to use and understand if you skip some of the important details. Likewise, sometimes the most literal domain representation does not fit the model of how users interact with their domain. When that happens, go with the users. It is their mental model you are trying to represent.
+The key is to understand your domain and distill the important fields, operations, and interactions down to the minimal representation that meets the application's needs. Your model does not need to be a perfect 1:1 replica of reality; you can often make a model easier to understand by omitting unnecessary details. However, if the literal domain representation conflicts with how users interact with the system, prioritize the users' mental model.
 
-For example, in the above example, a `Programmer` doesn't actually have a single `Computer` that is part of the required definition of a programmer. A more real world representation would be to allow for multiple computers, or to have a `uses-a` relationship with the computer instead of a `has-a` relationship. However, if our application doesn't need that complexity, then you can simplify things by making the assumption that all programmers in our domain have a single computer that they use to write code with. That allows you to encapsulate, or hide, the computer and gitHub repo they are using when the `writeCode` method is called.
+For example, in the diagram above, a `Programmer` is modeled as having a single `Computer`. In reality, a programmer might use multiple computers or only use a computer transiently (`uses-a`). If our application doesn't require that complexity, we can simplify the model by assuming every programmer has one computer. This allows us to encapsulate (hide) the `Computer` and `GitHubRepo` details when the `writeCode` method is called.
 
-What you really want to avoid is missing key objects, representing multiple objects with a single object, or providing unnecessary detailed complexity that obscures the vital mental model of the user.
+The goal is to avoid missing key objects, merging distinct objects into one, or introducing unnecessary complexity that obscures the user's mental model.
 
-In short, someone who understands the domain and the users of the application, should be able to review your model, and not be surprised by what objects you chose and how they relate to each other.
+In short, someone who understands the domain should be able to review your model and find the choice of objects and their relationships intuitive.
 
 ## Encapsulation
 
-A good object oriented design will be easy to enhance or improve as time goes by. Encapsulation, or hiding details that doesn't need to be shared, makes it easier to enhance your model as the application requirements evolve. For example, in the above model we encapsulated the `Computer` object into the `Programmer` object. When you call `writeCode` it just uses the encapsulated functionality of the `Computer`.
+Good object-oriented design is easy to enhance over time. Encapsulation—hiding details that do not need to be shared—makes it easier to evolve the model as requirements change. For example, by encapsulating the `Computer` object within the `Programmer` object, the rest of the system only needs to know how to call `writeCode`, without needing to know how the computer functions.
 
-We can always add functionality later that exposes that a `Programmer` has a computer, or pass the computer as part of the `writeCode` call, but if we keep that hidden then we are free to change the relationship with the computer and the programmer until it is necessary to expose it.
+We can expose the `Computer` later if necessary, but keeping it hidden allows us to change the internal relationship between the `Programmer` and the `Computer` without breaking other parts of the code.
 
-In many ways encapsulation is preferable to inheriting functionality primarily because it is more extensible. This is primarily due to the fact that there is no immediate external exposure of the encapsulation. With inheritance (using `extends` for your object) you are explicitly, publicly, exposing both the methods and the implementation that the extended class provides.
+Encapsulation is often preferable to inheritance because it is more extensible. Inheritance (using `extends`) explicitly and publicly exposes both the methods and the implementation of the parent class. Encapsulation keeps these details private and decoupled.
 
 ## Simplicity
 
-Simplicity is another important characteristic of object oriented programming. One form of simplicity is restricting the number of objects in your system to the smallest number possible, and no less. This includes the number of interfaces you create, how inheritance is abstracted, and what operations an object exposes.
+Simplicity is a vital characteristic of effective OOP. One form of simplicity is restricting the system to the smallest necessary number of objects. This applies to the number of interfaces, the depth of inheritance, and the operations an object exposes.
 
-Of course you can simplify too far and end up with thousands of classes that each have a single line of code, or a single object that aggregates itself and can represent everything. Both of these extremes should be avoided. What you want is to be straight forward in your object modeling and try to stick as close to the real world domain as possible.
+However, you can simplify too far. Avoid creating thousands of classes that each contain only one line of code, or a single "God Object" that tries to represent everything. Aim for a straightforward model that stays as close to the real-world domain as possible.
 
-### Too many classes
+### Problem: Too many classes (Over-engineered)
 
 ```mermaid
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
@@ -94,7 +106,7 @@ classDiagram
     Arm --|> Appendage
 ```
 
-### Not enough classes
+### Problem: Not enough classes (Anemic/Generic)
 
 ```mermaid
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
@@ -107,7 +119,7 @@ classDiagram
     Object o-- Object : has-a
 ```
 
-This design is problematic because it lacks semantic meaning and specific behavior. By reducing every concept to a generic `Object` with a recursive relationship, you lose the benefits of type safety and domain modeling. Instead of having a `Person` that `eats` a `Fruit`, you have an anonymous `Object` interacting with another anonymous `Object`. This forces the logic that should be encapsulated within classes out into the rest of the application, making the code significantly harder to understand, maintain, and debug.
+The "Not enough classes" design is problematic because it lacks semantic meaning and specific behavior. By reducing every concept to a generic `Object` with a recursive relationship, you lose the benefits of type safety and domain modeling. Instead of a `Person` who `eats` a `Fruit`, you have an anonymous `Object` interacting with another anonymous `Object`. This forces logic that should be encapsulated within classes out into the rest of the application, making the code significantly harder to maintain and debug.
 
 ## Videos
 
