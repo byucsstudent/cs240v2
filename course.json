@@ -283,6 +283,12 @@
           "state": "published"
         },
         {
+          "title": "Java Lambdas",
+          "path": "instruction/lambdas/lambdas.md",
+          "id": "5fc24ac6-e3ec-43f5-9ea5-1005ba1f41c2",
+          "state": "published"
+        },
+        {
           "title": "Phase 1: Getting Started",
           "path": "chess/1-chess-game/getting-started.md",
           "id": "2df6f94b-6d13-48e7-ba02-e820a93e3242",
@@ -304,12 +310,6 @@
           "title": "Java Generics",
           "path": "instruction/generics/generics.md",
           "id": "88238c79-271a-434c-aa98-5377424c433b",
-          "state": "published"
-        },
-        {
-          "title": "Java Lambdas",
-          "path": "instruction/lambdas/lambdas.md",
-          "id": "5fc24ac6-e3ec-43f5-9ea5-1005ba1f41c2",
           "state": "published"
         }
       ]
