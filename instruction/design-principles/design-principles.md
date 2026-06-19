@@ -226,12 +226,24 @@ Programming languages themselves utilize decomposition to represent different pa
 | Expression    | Logic of a method                                                |
 
 Using decomposition at the program level helps you so that you don't have to keep the whole code base on your screen at the same time. You just need to open the files that represent the current task.
-
 ## High Cohesion and Low Coupling
 
-High cohesion means that an object only represents highly related data and functionality. You don't include tangentially related methods or fields in an object. Instead you create a cohesive object that executes in concert with other related objects.
+Effective software design seeks to maximize **cohesion** within a component and minimize **coupling** between components.
 
-Low coupling means that objects do not strongly rely on each other. High coupling occurs when an object that cannot be used without understanding the specific implementation details of another object, or when two objects require each other to operate. Generally, low coupling means that you are using interfaces appropriately and that objects do not have bidirectional bindings.
+### Cohesion
+High cohesion means that an object only represents highly related data and functionality. You don't include tangentially related methods or fields in an object. Instead, you create a cohesive object that executes in concert with other related objects.
+
+*   **Example of High Cohesion:** A `Student` class that only manages a student's name, ID, and GPA. Every method in the class is dedicated to student-specific data.
+*   **Example of Low Cohesion:** A `Student` class that also contains methods for connecting to the university database, formatting PDF transcripts, and sending SMS alerts. This "God Object" is difficult to maintain because it has too many unrelated responsibilities.
+
+### Coupling
+Low coupling means that objects do not strongly rely on each other. High coupling occurs when an object cannot be used without understanding the specific implementation details of another object, or when two objects require each other to operate. Generally, low coupling means that you are using interfaces appropriately and that objects do not have bidirectional bindings.
+
+*   **Example of Low Coupling:** A `PaymentService` that interacts with a `PaymentProcessor` interface. It doesn't care if the actual implementation uses Stripe, PayPal, or a mock object for testing.
+*   **Example of High Coupling:** A `PaymentService` that directly instantiates a `StripeAPI` class and accesses its internal configuration fields. If you ever want to switch to a different provider, you have to rewrite the `PaymentService` code.
+
+### The Goal: Modularity
+High cohesion and low coupling together create **modularity**. When a system is modular, a change or bug in one part of the code has a minimal "ripple effect" on the rest of the application. This makes the system significantly easier to test, debug, and evolve as requirements change.
 
 ## Simplicity
 
