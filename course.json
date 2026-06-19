@@ -232,7 +232,11 @@
           "title": "Java Collections",
           "path": "instruction/collections/collections.md",
           "id": "b895636d-d167-498f-8df5-4d88a40d4952",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "04083ed9-a34d-4ab3-b8b6-06d7127de560",
+            "93f1825a-52bf-468d-9c05-881cdee91170"
+          ]
         },
         {
           "title": "Object Oriented Design",
