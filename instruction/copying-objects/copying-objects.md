@@ -139,35 +139,15 @@ public class CloneCopy implements Cloneable {
 }
 ```
 
-## Copy Constructor Preference
+## Copy Constructor vs. Clonable
 
-In modern Java development, **copy constructors** are widely preferred over the `clone()` method. While `Object.clone()` was part of the original language design, it is now often considered "broken" or problematic by experts like Joshua Bloch.
+In modern Java development, **copy constructors** are widely preferred over the `clone()` method. While `Object.clone()` was part of the original language design, it is now often considered "broken" or problematic by experts like Joshua Bloch for the following reasons:
 
-### Why Developers Prefer Copy Constructors
 *   **Type Safety:** You don't need to cast the result from `Object` to your specific type.
 *   **Final Fields:** Copy constructors allow you to initialize `final` fields, which `clone()` cannot do.
 *   **No Checked Exceptions:** You don't have to catch `CloneNotSupportedException`.
-*   **Ease:** Overriding `clone` requires implementing the `Cloneable` marker interface
 *   **Control:** It is easier to implement "deep copies" (copying nested objects) manually within a constructor.
 
-```java
-public class Student {
-    private String name;
-
-    // Copy Constructor
-    public Student(Student other) {
-        this.name = other.name;
-    }
-}
-// Usage: Student copy = new Student(original);
-```
-
-```mermaid
-graph LR
-    A[Original Object] -->|Ref to| B[Copy Constructor]
-    B -->|Creates| C[New Independent Object]
-    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
-```
 
 ## ☑ Exercise
 
