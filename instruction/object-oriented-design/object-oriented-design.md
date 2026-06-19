@@ -135,7 +135,7 @@ classDiagram
 ```
 
 
-Composition is often preferable to inheritance because it is more extensible. Inheritance (using `extends`) explicitly and publicly exposes both the methods and the implementation of the parent class. Composition keeps these details private and decoupled.
+Composition is often preferable to inheritance because it is more extensible. Inheritance (using `extends`) explicitly and publicly exposes both the methods and the implementation of the parent class. Composition (using `implements`) keeps these details private and decoupled.
 
 ### Decomposition
 
@@ -146,9 +146,9 @@ Decomposition is the process of breaking a complex system or problem into smalle
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
 
 classDiagram
-    Programmer --|> Computer
-    Programmer --|> GitHubRepo
-    Programmer --|> AiAccount
+    Programmer --> Computer
+    Programmer --> GitHubRepo
+    Programmer --> AiAccount
 ```
 
 ### Encapsulation
