@@ -240,7 +240,56 @@ Low coupling means that objects do not strongly rely on each other. High couplin
 
 ## Simplicity
 
-Simplicity is a core design principle. When given a choice between the simple and the complex always choose the simple. Dropping functionality is often preferable to introducing complexity that will make the system less usable and maintainable.
+Simplicity is a vital characteristic of effective good design. One form of simplicity is restricting the system to the smallest necessary number of objects. This applies to the number of interfaces, the depth of inheritance, and the operations an object exposes.
+
+However, you can simplify too far. Avoid creating thousands of classes that each contain only one line of code, or a single "God Object" that tries to represent everything. Aim for a straightforward model that stays as close to the real-world domain as possible.
+
+### Problem: Too many classes (Over-engineered)
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
+
+classDiagram
+    Creature --|> Object
+    Animal --|> Creature
+    Mammal --|> Animal
+    Person --|> Mammal
+
+    Animal o-- Soul
+    Animal *-- Body
+
+    Animal o-- Dwelling
+
+    Body o-- Head
+    Body *-- Torso
+    Body o-- Appendage
+
+    Leg --|> Appendage
+    Arm --|> Appendage
+```
+
+This design suffers from **speculative generality**. By creating deep inheritance hierarchies and over-decomposing objects (like splitting a `Body` into a `Head`, `Torso`, and `Appendage`), the system becomes brittle and difficult to navigate. Each additional layer adds cognitive load and makes the code harder to maintain, as changes to a base class like `Creature` ripple through every subclass. Unless the application specifically requires these fine-grained distinctions, this level of abstraction creates unnecessary complexity that obscures the actual domain logic.
+
+### Problem: Not enough classes (Anemic/Generic)
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
+
+classDiagram
+    class Object {
+        value
+    }
+
+    Object o-- Object : has-a
+```
+
+The "Not enough classes" design is problematic because it lacks semantic meaning and specific behavior. By reducing every concept to a generic `Object` with a recursive relationship, you lose the benefits of type safety and domain modeling. Instead of a `Person` who `eats` a `Fruit`, you have an anonymous `Object` interacting with another anonymous `Object`. This forces logic that should be encapsulated within classes out into the rest of the application, making the code significantly harder to maintain and debug.
+
+### Dealing with complexity
+
+When complexity cannot be avoided then make it more manageable by using **decomposition** to break the complexity into simpler parts,**encapulation** to restrict access internal workings, or **abstraction** to simplify the representation in the system. Always remember that your overriding goal should always be to trend to a simpler solution and not to manage unnecessary complexity.
+
+### Simplicity Quotes
 
 Simplicity is such an important principle that it is easy to find quotes from every thought leader on the subject.
 
@@ -255,8 +304,6 @@ Simplicity is such an important principle that it is easy to find quotes from ev
 > Any fool can write code that a computer can understand. Good programmers write code that humans can understand.
 >
 > — Martin Fowler
-
-When complexity cannot be avoided then make it more manageable by using decomposition to break the complexity into simpler parts, or by using abstraction to hide the complexity until it can be replaced by a simpler solution.
 
 ## Immutability
 
