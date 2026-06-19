@@ -51,12 +51,8 @@ In object-oriented programming (OOP), everything revolves around the `Class` con
 
 ```mermaid
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
-
-objectDiagram
-    object james {
-        name: "James"
-        birthPlace: "Calgary"
-    }
+flowchart TB
+    James["James<br/>---<br/>name: James<br/>birthPlace: Calgary"]
 ```
 
 ## Object Relationships
