@@ -49,6 +49,15 @@ In object-oriented programming (OOP), everything revolves around the `Class` con
 
 > _Source: Wikipedia_
 
+```mermaid
+classDiagram
+
+    class Person {
+        -name
+        -birthPlace
+    }
+```
+
 ## Object Relationships
 
 To fully model the real world, you must describe the relationships between objects. In Object-Oriented Design (_OOD_), these are categorized into three primary types: `is-a`, `has-a`, and `uses-a`.
