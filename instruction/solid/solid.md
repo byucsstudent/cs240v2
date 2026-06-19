@@ -1,6 +1,6 @@
 # SOLID
 
-The SOLID principles of clean code were promoted by a popular software design consultant named Robert Martin (AKA Uncle Bob).
+The SOLID principles of clean code were promoted by Robert C. Martin (also known as "Uncle Bob"), a prominent software design consultant.
 
 ![Uncle Bob](robert-martin.png)
 
@@ -10,19 +10,21 @@ The SOLID principles of clean code were promoted by a popular software design co
 >
 > — Robert Martin
 
-SOLID represent five key principles.
+SOLID is an acronym representing five key design principles:
 
-1. Single Responsibility - An actor has only one reason to use you
-1. Open Closed - Open for extension, closed for modification
-1. Liskov Substitution - Actually implement the interface
-1. Interface Segregation - Keep interfaces cohesive
-1. Dependency Inversion - Make dependencies parameters
+1.  **Single Responsibility**: A class should have one, and only one, reason to change.
+2.  **Open-Closed**: Software entities should be open for extension but closed for modification.
+3.  **Liskov Substitution**: Subtypes must be substitutable for their base types.
+4.  **Interface Segregation**: Clients should not be forced to depend on methods they do not use.
+5.  **Dependency Inversion**: Depend on abstractions, not on concretions.
 
 Let's look at each of these in detail.
 
 ## Single Responsibility Principle
 
-The [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) represents the desirability of high cohesion. The idea here is that an actor only has one reason to use an object. You don't have a `Person` class that represents everything associated with a person. You have a `Person` class that represents the distinct attributes of a person such as `name` and `birthDate`, and then you have other classes that represent things associated with a Person.
+The [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) (SRP) promotes high cohesion. The core idea is that a class should be responsible for a single part of the software's functionality. Robert Martin defines a "responsibility" as a "reason to change," often tied to a specific "actor" (a user or stakeholder group).
+
+For example, instead of a single `Person` class that handles every possible behavior associated with a human, you define a `Person` class for core attributes like `name` and `birthDate`, while delegating other behaviors to specialized classes.
 
 ```mermaid
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
@@ -56,17 +58,18 @@ classDiagram
     }
 ```
 
-Following the single responsibility principle makes it so there is only one reason to manipulate the class. You manipulate the `Person` class to represent the person and the `Death` class to represent a death. If you find yourself making a `FrankenObject` that represents multiple objects, or responsibilities, then you should consider refactoring your code into multiple classes.
+Following the SRP ensures that there is only one reason to modify a class. You modify the `Person` class to change how a person is represented and the `Death` class to change how death is recorded. If you find yourself creating a "FrankenObject" that handles multiple responsibilities, you should refactor it into smaller, more focused classes.
 
-The Java `String` class is a frequently cited example of violating the single responsibility principle as it not only represents an immutable string but provides operations for manipulating and converting the string. This makes the `String` class both a data container and a data mutator.
+The Java `String` class is frequently cited as a violation of SRP because it functions as both a data container and a data mutator/utility, providing operations for manipulation, conversion, and formatting.
 
-Classes are not the only places where you need to consider the single responsibility principle. Methods and variables can also fall prey to confusing and conflicting responsibilities. For example, the following method has been overloaded with multiple responsibilities and interpret the parameters and return value in contradictory ways.
+SRP applies to more than just classes; methods and variables can also fall prey to conflicting responsibilities. For example, a method that interprets parameters and return values in contradictory ways based on an input flag is likely violating this principle.
 
-If you find yourself changing a class for different reasons, functionality vs representation vs mutation vs display vs persistence, then you are probably in violation of the single responsibility principle.
+If you are changing a class for different reasons—such as changing business logic vs. data representation vs. persistence logic—you are likely violating the Single Responsibility Principle.
 
-### Violation Example
+### Violation Examples
 
 ```java
+// Violation: This interface combines personal life, professional life, and logistics.
 public interface FrankenPerson {
     public void drive();
     public void sleep();
@@ -85,23 +88,24 @@ public interface FrankenPerson {
 ```java
 public interface SRPViolation {
     /**
-     * i < 0 delete the key and the empty string if successful
-     * i == 0 return the old value if different
-     * i > 0 replace the value and return the old value
+     * Violation: This method does three different things based on the integer 'i'.
+     * i < 0: delete the key and return empty string if successful
+     * i == 0: return the old value if different
+     * i > 0: replace the value and return the old value
      */
     public String dbAction(String key, String value, int i);
 }
 ```
 
-## Open Closed Principle
+## Open-Closed Principle
 
-Classes should be open to extension and closed for modification. The core concept is that you should generalize the functionality of a class so that you don't have to internally modify it in order to provide a desired extension of its functionality.
+The Open-Closed Principle (OCP) states that classes should be open for extension but closed for modification. This means you should be able to add new functionality to a class without altering its existing source code.
 
-A common example for the open closed principle involves passing in interfaces that control how the class works. This is in contrast to modifying the classes methods to provide new functionality.
+A common way to achieve this is by using interfaces or abstract classes to control behavior. Instead of modifying a class's methods to handle new scenarios, you pass in an implementation of an interface that provides the new behavior.
 
 ### Violation Example
 
-As an example, the following code forces you to create a new method for every different type of format that you want the class to support. Additionally, the class has a constructor that represents a specific type of data. If you want to provide a different type of data, you must modify the class to include an additional constructor and internal data type.
+The following code requires you to create a new method every time you want to support a new format. Additionally, the class is tightly coupled to a specific data type (`String[]`). To support a different data type, you would have to modify the class internals.
 
 ```java
 public static class OpenForModificationList {
@@ -128,7 +132,7 @@ public static class OpenForModificationList {
 
 ### Correct Example
 
-We can improve the previous code by using interface parameters and Java generics to open the class to extension without ever modifying the code.
+We can improve this code by using interface parameters and Java generics. This allows us to extend the class's functionality without ever modifying its source code.
 
 ```java
 public interface Formatter<T> {
@@ -142,7 +146,7 @@ public static class OpenForExtensionList<T> {
         this.items = items;
     }
 
-    public String format(Formatter formatter, String separator) {
+    public String format(Formatter<T> formatter, String separator) {
         var formattedItems = new ArrayList<String>();
         for (var item : items) {
             formattedItems.add(formatter.format(item));
@@ -153,9 +157,7 @@ public static class OpenForExtensionList<T> {
 }
 ```
 
-In this example the `Formatter` interface extends how the class formats and the generic type extends the supported types.
-
-Dependency inversion and inheritance are both examples of the open closed principle.
+In this example, the `Formatter` interface allows us to extend how the class formats data, and the generic type `<T>` allows us to extend the types of data supported. Dependency inversion and inheritance are both primary tools for implementing the Open-Closed Principle.
 
 ## Liskov Substitution Principle
 
@@ -167,12 +169,16 @@ Dependency inversion and inheritance are both examples of the open closed princi
 >
 > — Barbara Liskov
 
-If an operation is dependent on an interface, or base class, you must be able to substitute any derived class without altering the operation. This can happen if a base class throws an `UnsupportedException` for an interface or overridden method, or if the operation does a type cast on the interface.
+The Liskov Substitution Principle (LSP) states that if a program is using a base class or an interface, it should be able to use any of its subclasses without knowing it and without the program failing. In other words, a derived class must enhance functionality, not break it.
 
-### Violation Example
+Violations often occur when a subclass throws an `UnsupportedOperationException` for a method required by the interface, or when a method performs a type cast (downcasting) on an interface parameter to access specific subclass features.
+
+### Violation Examples
 
 ```java
+// Violation: Throwing an exception for a standard method breaks the contract.
 public class LSPExample extends Object {
+    @Override
     public int hashCode() {
         throw new UnsupportedOperationException();
     }
@@ -180,18 +186,19 @@ public class LSPExample extends Object {
 ```
 
 ```java
+// Violation: This method only works if the List is specifically an ArrayList.
 void lspViolation2(List list) {
-  var arrayList = (ArrayList)list;
+  var arrayList = (ArrayList)list; 
 }
 ```
 
-Violations of this principle cause unexpected behaviors within the application and require the developer to understand all of the code before they can safely make substitutions.
+Violations of this principle cause unexpected behavior and force developers to understand the internal implementation of every subclass before they can safely use them.
 
 ## Interface Segregation Principle
 
-When you define an interface you only include methods that work together as a cohesive whole. You don't add methods that are related, but not necessary for the consumption of the primary usage of the interface. Put another way, the interface segregation principle states that that no consumer of an interface should be forced to depend on methods it does not use.
+The Interface Segregation Principle (ISP) states that no consumer of an interface should be forced to depend on methods it does not use. When defining an interface, you should only include methods that form a cohesive whole.
 
-Exposing methods to all consumers of the interface, without regard for the use of the methods by all the consumers, creates a significant maintenance problem. If you want to alter the interface then you must examine all uses of the interface. Instead, the preferred approach is to create multiple interfaces that an object uses and only use the interface that is appropriate to the consumer.
+Exposing unnecessary methods to all consumers creates a maintenance burden. If you need to alter a "fat" interface, you must examine every consumer, even those that don't use the methods you are changing. The preferred approach is to create multiple, specific interfaces.
 
 ### Violation Example
 
@@ -201,7 +208,7 @@ public interface ReaderWriter {
     String readString();
     int readInt();
 
-    // Outside cohesive whole.
+    // Violation: These write methods are not necessary for a "Reader" consumer.
     void writeByte(byte b);
     void writeString(String s);
     void writeInt(int i);
@@ -226,9 +233,9 @@ public interface Writer {
 
 ## Dependency Inversion Principle
 
-The dependency inversion principle suggests that low level objects should not explicitly depend on high level objects. Instead of a low level object creating and using a high level object, you should provide the high level object to the low level object. Interfaces enable the core abstraction necessary to enable dependency inversion.At the very least you are exposing a specific implementation, constructor, and potentially extraneous methods that are unnecessary to the use of higher level object.
+The Dependency Inversion Principle (DIP) states that high-level modules (business logic) should not depend on low-level modules (implementation details like databases or specific hardware). Both should depend on abstractions (interfaces).
 
-Put another way, the principle says that dependencies are made on aspects of functionality, not on implementations of the functionality. In the following example, the low level `Route` object is highly coupled with the instantiation and use of the high level `Honda` object.
+By depending on abstractions, you decouple your code. In the violation example below, the high-level `Route` class is tightly coupled to the low-level `Honda` class.
 
 ### Violation Example
 
@@ -240,11 +247,10 @@ class Violation {
 
     static class Route {
         void drive() {
+            // Violation: Route depends directly on the concrete Honda class.
             Honda honda = new Honda();
-
             honda.go();
         }
-
     }
 
     static class Honda {
@@ -257,7 +263,7 @@ class Violation {
 
 ### Correct Example
 
-In order to properly apply the dependency inversion principle you invert the use of high level object through an interface parameter. In the following example we use a factory method that uses reflection to load the desired high level object. Now the `Route` doesn't know anything about the vehicle that is being used. It just calls `go`. This breaks the coupling between the objects and moves the decision about what vehicle is actually used to be completely out of the code.
+To apply DIP, we "invert" the dependency by passing an interface as a parameter. In this example, we use a factory-style approach with reflection to load the desired object. The `Route` class no longer knows which specific vehicle it is using; it only knows that the object implements the `Vehicle` interface.
 
 ```java
 class Correct {
@@ -272,6 +278,7 @@ class Correct {
     }
 
     static class Route {
+        // Correct: Route depends on the Vehicle abstraction.
         void drive(Vehicle vehicle) {
             vehicle.go();
         }
@@ -297,4 +304,4 @@ class Correct {
 }
 ```
 
-By inverting the dependencies, you can decouple the code and move the commitment to an algorithm at a higher level. Now you can execute the code with different parameters and completely modify how it works.
+By inverting dependencies, you decouple your code and delay the commitment to a specific implementation. This allows you to modify how the application works simply by changing parameters or configuration, without rewriting the core logic.
