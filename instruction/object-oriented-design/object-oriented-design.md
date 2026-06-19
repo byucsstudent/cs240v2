@@ -120,54 +120,6 @@ We can expose the `Computer` later if necessary, but keeping it hidden allows us
 
 Encapsulation is often preferable to inheritance because it is more extensible. Inheritance (using `extends`) explicitly and publicly exposes both the methods and the implementation of the parent class. Encapsulation keeps these details private and decoupled.
 
-## Simplicity
-
-Simplicity is a vital characteristic of effective OOP. One form of simplicity is restricting the system to the smallest necessary number of objects. This applies to the number of interfaces, the depth of inheritance, and the operations an object exposes.
-
-However, you can simplify too far. Avoid creating thousands of classes that each contain only one line of code, or a single "God Object" that tries to represent everything. Aim for a straightforward model that stays as close to the real-world domain as possible.
-
-### Problem: Too many classes (Over-engineered)
-
-```mermaid
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
-
-classDiagram
-    Creature --|> Object
-    Animal --|> Creature
-    Mammal --|> Animal
-    Person --|> Mammal
-
-    Animal o-- Soul
-    Animal *-- Body
-
-    Animal o-- Dwelling
-
-    Body o-- Head
-    Body *-- Torso
-    Body o-- Appendage
-
-    Leg --|> Appendage
-    Arm --|> Appendage
-```
-
-This design suffers from **speculative generality**. By creating deep inheritance hierarchies and over-decomposing objects (like splitting a `Body` into a `Head`, `Torso`, and `Appendage`), the system becomes brittle and difficult to navigate. Each additional layer adds cognitive load and makes the code harder to maintain, as changes to a base class like `Creature` ripple through every subclass. Unless the application specifically requires these fine-grained distinctions, this level of abstraction creates unnecessary complexity that obscures the actual domain logic.
-
-### Problem: Not enough classes (Anemic/Generic)
-
-```mermaid
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
-
-classDiagram
-    class Object {
-        value
-    }
-
-    Object o-- Object : has-a
-```
-
-The "Not enough classes" design is problematic because it lacks semantic meaning and specific behavior. By reducing every concept to a generic `Object` with a recursive relationship, you lose the benefits of type safety and domain modeling. Instead of a `Person` who `eats` a `Fruit`, you have an anonymous `Object` interacting with another anonymous `Object`. This forces logic that should be encapsulated within classes out into the rest of the application, making the code significantly harder to maintain and debug.
-
-
 ## Beyond Objects: Alternative Design Paradigms
 
 While Object-Oriented Programming (OOP) is a dominant force in software engineering, it is not the only way to model complex systems. Depending on the constraints of your project—such as performance requirements, mathematical correctness, concurrency, or asynchronous responsiveness—other design models might offer more elegant solutions. Understanding these alternatives allows a designer to choose the right tool for the job rather than forcing every problem into an object-shaped hole.
