@@ -247,6 +247,8 @@ Using decomposition at the program level helps you so that you don't have to kee
 
 Effective software design seeks to maximize **cohesion** within a component and minimize **coupling** between components.
 
+High cohesion and low coupling together create **modularity**. When a system is modular, a change or bug in one part of the code has a minimal "ripple effect" on the rest of the application. This makes the system significantly easier to test, debug, and evolve as requirements change.
+
 ### Cohesion
 High cohesion means that an object only represents highly related data and functionality. You don't include tangentially related methods or fields in an object. Instead, you create a cohesive object that executes in concert with other related objects.
 
@@ -258,9 +260,6 @@ Low coupling means that objects do not strongly rely on each other. High couplin
 
 *   **Example of Low Coupling:** A `PaymentService` that interacts with a `PaymentProcessor` interface. It doesn't care if the actual implementation uses Stripe, PayPal, or a mock object for testing.
 *   **Example of High Coupling:** A `PaymentService` that directly instantiates a `StripeAPI` class and accesses its internal configuration fields. If you ever want to switch to a different provider, you have to rewrite the `PaymentService` code.
-
-### The Goal: Modularity
-High cohesion and low coupling together create **modularity**. When a system is modular, a change or bug in one part of the code has a minimal "ripple effect" on the rest of the application. This makes the system significantly easier to test, debug, and evolve as requirements change.
 
 ## Simplicity
 
