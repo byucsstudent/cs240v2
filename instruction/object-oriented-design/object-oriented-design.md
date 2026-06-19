@@ -51,58 +51,67 @@ In object-oriented programming (OOP), everything revolves around the `Class` con
 
 ## Object Relationships
 
-To fully model the real world, you must describe the relationships between objects. Three of the most common relationships are `is-a`, `has-a`, and `uses-a`.
+To fully model the real world, you must describe the relationships between objects. In Object-Oriented Design (_OOD_), these are categorized into three primary types: `is-a`, `has-a`, and `uses-a`.
 
-| Relationship | Description                                                    | Example                             |
-| ------------ | -------------------------------------------------------------- | ----------------------------------- |
-| Is-a         | Polymorphic inheritance. Often defined by extending a class.   | A `Programmer` **is a** `Person`.   |
-| Has-a        | Ownership. Often defined by a class field (composition).      | A `Programmer` **has a** `Computer`.|
-| Uses-a       | Transient association. Often defined by a method parameter.    | A `Person` **uses a** `Taxi`.       |
+| Relationship | Formal Name | Description | Example |
+| ------------ | ----------- | ----------- | ------- |
+| **Is-a** | Generalization | Inheritance. A specialized class (subclass) extends a more general class (superclass). | A `Programmer` **is a** `Person`. |
+| **Has-a** | Association | Ownership or containment. One object contains another as a member field. | A `Programmer` **has a** `Computer`. |
+| **Uses-a** | Dependency | Transient interaction. An object depends on another temporarily, often as a method parameter. | A `Person` **uses a** `Taxi`. |
 
-The following diagram illustrates relationships between several objects. Note that there are many ways to represent the real world using object-oriented design.
+### Refining "Has-a" Relationships
+In technical OOD, the `has-a` relationship is often further distinguished by the lifecycle of the objects:
+- **Composition (`*--`)**: Strong ownership. The "part" cannot exist without the "whole" (e.g., a `Room` in a `House`).
+- **Aggregation (`o--`)**: Weak ownership. The "part" can exist independently of the "whole" (e.g., a `Professor` in a `Department`).
+
+### Example
+
+The following diagram illustrates these relationships using standard UML notation.
 
 ```mermaid
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
 
 classDiagram
     class Car {
-        travel(Person, Route)
+        +travel(Person p, Route r)
     }
     class Person {
-        name
-        birthPlace
+        +String name
+        +String birthPlace
     }
-    class Route
+    class Route {
+        -String start
+        -String destination
+    }
     class Programmer {
-        GitHubRepo
-        Computer
-        writeCode()
+        -GitHubRepo repo
+        -Computer pc
+        +writeCode()
     }
     class Computer {
-        type
-        save(code)
-        run(code)
+        +String type
+        +save(code)
     }
     class GitHubRepo {
-        push()
-        pull()
+        +push()
+        +pull()
     }
 
-    Car ..> Person : uses-a
-    Car ..> Route : uses-a
-    Programmer --|> Person : is-a
-    Programmer o-- Computer : has-a
-    Programmer o-- GitHubRepo : has-a
+    Car ..> Person : uses-a (dependency)
+    Car ..> Route : uses-a (dependency)
+    Programmer --|> Person : is-a (inheritance)
+    Programmer o-- Computer : has-a (aggregation)
+    Programmer *-- GitHubRepo : has-a (composition)
 ```
 
 The key is to understand your domain and distill the important fields, operations, and interactions down to the minimal representation that meets the application's needs. Your model does not need to be a perfect 1:1 replica of reality; you can often make a model easier to understand by omitting unnecessary details. However, if the literal domain representation conflicts with how users interact with the system, prioritize the users' mental model.
 
 For example, in the diagram above, a `Programmer` is modeled as having a single `Computer`. In reality, a programmer might use multiple computers or only use a computer transiently (`uses-a`). If our application doesn't require that complexity, we can simplify the model by assuming every programmer has one computer. This allows us to encapsulate (hide) the `Computer` and `GitHubRepo` details when the `writeCode` method is called.
 
-The goal is to avoid missing key objects, merging distinct objects into one, or introducing unnecessary complexity that obscures the user's mental model.
+### Composition over Inheritance
+While `is-a` (inheritance) is powerful, a common design principle is to **favor composition over inheritance**. Inheritance creates a rigid, tight coupling between classes. Composition (`has-a`) allows for greater flexibility because you can change the internal components of an object at runtime or swap implementations without breaking the class hierarchy.
 
-In short, someone who understands the domain should be able to review your model and find the choice of objects and their relationships intuitive.
-
+The goal is to avoid missing key objects, merging distinct objects into one, or introducing unnecessary complexity that obscures the user's mental model. Someone who understands the domain should be able to review your model and find the choice of objects and their relationships intuitive.
 ## Encapsulation
 
 Good object-oriented design is easy to enhance over time. Encapsulation—hiding details that do not need to be shared—makes it easier to evolve the model as requirements change. For example, by encapsulating the `Computer` object within the `Programmer` object, the rest of the system only needs to know how to call `writeCode`, without needing to know how the computer functions.
