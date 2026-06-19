@@ -112,6 +112,13 @@ For example, in the diagram above, a `Programmer` is modeled as having a single 
 
 Effective class design focuses on creating modules that are highly cohesive and loosely coupled. A class should ideally represent a single concept or entity within your application domain, adhering to the principle of single responsibility. By keeping classes focused on a specific task, you make the system easier to test, maintain, and extend without causing unintended side effects in unrelated areas.
 
+|Concept	|Primary Focus|	Analogy|
+|-|-|-|
+|Composition|	Cohesion|	A car is composed of an engine, wheels, and a frame.|
+|Decomposition| Decoupling| A university is made up of different colleges.|
+|Encapsulation|	Data Privacy|	A medicine capsule hiding the chemicals inside.|
+|Abstraction|	Interface|	A TV remote; you press "Power" without knowing the circuitry.|
+
 ### Composition
 
 Composition is the practice of building complex objects by combining simpler ones. Instead of relying solely on inheritance to share behavior, composition uses "has-a" relationships to delegate tasks to internal components. This approach is often more flexible than inheritance because internal components can be replaced or updated at runtime, allowing for more dynamic and modular system behavior.
