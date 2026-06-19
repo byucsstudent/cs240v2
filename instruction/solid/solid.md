@@ -330,8 +330,41 @@ Can you explain Dependency Inversion to me? How do I invert a dependency?
 According to the Liskov Substitution Principle (LSP), which of the following statements best describes the requirement for a subclass when it inherits from a base class?
 
 - [ ] A subclass should be able to strengthen the pre-conditions of a method to ensure more rigorous data validation than the base class.
-- [ ] A subclass must implement every method defined in the parent interface, even if the method is not applicable to the subclass's specific context.
+- [ ] A subclass can throw an exception if the method is not applicable to the subclass's specific context.
 - [x] Objects of a superclass should be replaceable with objects of its subclasses without breaking the application or changing its expected behavior.
 - [ ] Derived classes should focus on extending the base class by adding new public methods rather than overriding existing ones to prevent side effects.
+```
+
+
+```masteryls
+{"id":"e53eaabd-42da-4129-a443-6df423d93012", "title":"Interface Segregation", "type":"essay" }
+How does the Java `String` class violate the **Interface Segregation Principle**?
+```
+
+```masteryls
+{"id":"95bfa643-e853-44ae-975a-66915d280de4","title":"SRP and the ChessGame Class","type":"multiple-choice"}
+A developer is designing a `ChessGame` class. Currently, the class is responsible for:
+1. Maintaining the current positions of all pieces on the board.
+2. Validating if a move follows the official rules of chess.
+3. Rendering the board and pieces to the user's graphical interface.
+4. Saving and loading the game state from a local database.
+
+Does this design violate the Single Responsibility Principle (SRP)?
+
+- [ ] No, because all these responsibilities are logically grouped under the "Chess" domain, ensuring high functional cohesion.
+- [ ] Yes, but only because the database logic is present; move validation and UI rendering are considered part of the same core game responsibility.
+- [x] Yes, because the class has multiple reasons to change, such as a change in the UI framework or a change in the database schema.
+- [ ] No, as long as the class is properly encapsulated and the methods are kept relatively short and well-documented.
+```
+
+
+```masteryls
+{"id":"c8f5ad82-4f54-4333-af24-709f99c55f23","title":"Extending System Functionality","type":"multiple-choice"}
+A developer needs to add a new "SMS Notification" feature to an existing system that currently only sends "Email Notifications." According to the Open/Closed Principle (OCP), what is the most appropriate way to implement this?
+
+- [ ] Modify the existing `NotificationService` class to include a switch statement that handles both Email and SMS types.
+- [x] Define a common `Notification` interface and create a new `SmsNotification` class that implements it, allowing the system to use the new class without changing existing code.
+- [ ] Update the original `EmailNotification` class by adding a boolean flag and conditional logic to determine whether to send an Email or an SMS.
+- [ ] Replace the existing `EmailNotification` class with a single "UniversalNotification" class that contains the logic for all current and future notification types.
 ```
 
