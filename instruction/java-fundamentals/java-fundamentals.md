@@ -30,7 +30,7 @@
 
 ---
 
-The focus of this course is to teach you the core principles and patterns of software engineering. While these concepts require a programming language for implementation, the language itself is not the primary focus. The design principles and architectural patterns covered here apply across the industry, independent of the specific language you use.
+The focus of this course is to teach you the core principles and patterns of software engineering. While these concepts require a programming language for implementation, the language itself is not important. The design principles and architectural patterns covered here apply across the industry, independent of the specific language you use.
 
 However, some languages are better suited for constructing specific types of applications. The **Chess Project** used in this course is a natural fit for an object-oriented (OO) language like Java. OO languages allow you to represent real-world entities, such as a chess piece or a game board, as coded abstractions with defined properties (data) and operations (behavior).
 
