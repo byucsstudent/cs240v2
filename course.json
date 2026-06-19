@@ -131,6 +131,7 @@
           "type": "instruction",
           "path": "instruction/object-oriented-programming/object-oriented-programming.md",
           "id": "64ed9534-3644-4dd6-9538-45e149d1666d",
+          "state": "published",
           "interactions": [
             "6d998d67-76af-4c7e-af57-305de7dc1494",
             "c1e93ca5-9be0-47dc-a826-3c73adb5be39",
@@ -201,7 +202,10 @@
           "path": "instruction/interfaces-abstract-classes/interfaces-and-abstract-classes.md",
           "id": "3f4ab06f-03f4-49f6-ad69-2258e58f1b64",
           "state": "published",
-          "interactions": []
+          "interactions": [
+            "225e7b39-9011-4973-8c40-704c9740b897",
+            "968a7b21-92da-4bf4-99bb-28fdb740a30d"
+          ]
         },
         {
           "title": "Copying Objects",
