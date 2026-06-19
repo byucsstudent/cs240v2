@@ -76,26 +76,15 @@ Of course you can simplify too far and end up with thousands of classes that eac
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
 
 classDiagram
-    class object
-    class Organism
-    class Animal
-    class Soul
-    class Body
-    class Head
-    class Torso
-    class Appendage
-    class Leg
-    class Arm
-    class Mammal
-    class Person
-
-    Organism --|> object
-    Animal --|> Organism
+    Creature --|> Object
+    Animal --|> Creature
     Mammal --|> Animal
     Person --|> Mammal
 
     Animal o-- Soul
     Animal *-- Body
+
+    Animal o-- Dwelling
 
     Body o-- Head
     Body *-- Torso
