@@ -108,7 +108,7 @@ The key is to understand your domain and distill the important fields, operation
 
 For example, in the diagram above, a `Programmer` is modeled as having a single `Computer`. In reality, a programmer might use multiple computers or only use a computer transiently (`uses-a`). If our application doesn't require that complexity, we can simplify the model by assuming every programmer has one computer. This allows us to encapsulate (hide) the `Computer` and `GitHubRepo` details when the `writeCode` method is called.
 
-## Principles of class design
+## Core Class Design Principles
 
 Effective class design focuses on creating modules that are highly cohesive and loosely coupled. A class should ideally represent a single concept or entity within your application domain, adhering to the principle of single responsibility. By keeping classes focused on a specific task, you make the system easier to test, maintain, and extend without causing unintended side effects in unrelated areas.
 
@@ -146,9 +146,9 @@ Decomposition is the process of breaking a complex system or problem into smalle
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
 
 classDiagram
-    Programmer --> Computer
-    Programmer --> GitHubRepo
-    Programmer --> AiAccount
+    Programmer --|> Computer
+    Programmer --|> GitHubRepo
+    Programmer --|> AiAccount
 ```
 
 ### Encapsulation
