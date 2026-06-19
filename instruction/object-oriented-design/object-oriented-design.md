@@ -170,7 +170,7 @@ The "Not enough classes" design is problematic because it lacks semantic meaning
 
 ## Beyond Objects: Alternative Design Paradigms
 
-While Object-Oriented Programming (OOP) is a dominant force in software engineering, it is not the only way to model complex systems. Depending on the constraints of your project—such as performance requirements, mathematical correctness, or concurrency—other design models might offer more elegant solutions. Understanding these alternatives allows a designer to choose the right tool for the job rather than forcing every problem into an object-shaped hole.
+While Object-Oriented Programming (OOP) is a dominant force in software engineering, it is not the only way to model complex systems. Depending on the constraints of your project—such as performance requirements, mathematical correctness, concurrency, or asynchronous responsiveness—other design models might offer more elegant solutions. Understanding these alternatives allows a designer to choose the right tool for the job rather than forcing every problem into an object-shaped hole.
 
 ### Procedural Programming
 Procedural programming is the most direct alternative to OOP. Instead of bundling data and behavior into objects, it treats a program as a sequence of instructions or function calls. Data is typically stored in simple structures (like structs in C) and passed into functions that perform operations upon them.
@@ -196,6 +196,13 @@ for n in numbers:
 # Functional Style (using map and lambda)
 squared_functional = list(map(lambda x: x**2, numbers))
 ```
+
+### Event-Driven Programming
+Event-driven programming centers the program's flow around events—such as user actions (clicks, key presses), sensor outputs, or messages from other programs. Instead of a single linear path of execution, the program sits in a loop and "listens" for events to occur, triggering specific callback functions or handlers when they do.
+
+*   **Focus:** Events and asynchronous reactions.
+*   **State Management:** State is often managed within handlers or through a central event bus.
+*   **Best for:** Graphical User Interfaces (GUIs), web servers, and distributed systems where components need to remain decoupled.
 
 ### Data-Oriented Design (DOD)
 Data-Oriented Design is a model frequently used in high-performance fields like game development. While OOP focuses on the "identity" of objects (e.g., a "Soldier" object), DOD focuses on how data is laid out in memory to maximize CPU cache efficiency. Instead of an array of Soldier objects, you might have an array of "Positions," an array of "Health Values," and an array of "Velocities."
@@ -231,18 +238,8 @@ The following table highlights the core differences in how these models approach
 | **OOP** | "Things" (Nouns) | Complex business logic, UI components | Intuitive domain modeling and high reusability through modularity. | Risk of over-engineering and performance overhead from abstraction. |
 | **Functional** | "Transformations" (Verbs) | Concurrent systems, data processing | Predictable results via immutability; easier to test and parallelize. | Steeper learning curve and potentially higher memory usage. |
 | **Procedural** | "Tasks" (Steps) | Low-level hardware, simple scripts | Direct, easy-to-follow logic with very low execution overhead. | Hard to maintain at scale; often leads to "spaghetti code" via global state. |
+| **Event-Driven** | "Events" (Signals) | GUIs, web servers, distributed systems | Highly responsive and decouples producers from consumers. | Can lead to complex "callback hell" or difficult-to-trace execution flows. |
 | **Data-Oriented** | "Memory Layout" (Efficiency) | Simulations, graphics engines | Maximum performance by optimizing for CPU cache hits. | Less intuitive for humans to read; rigid data structures are hard to evolve. |
-
-```masteryls
-{"id":"763b6916-a651-47db-a39c-ebdb3212b541","title":"Identifying Functional Programming","type":"multiple-choice"}
-Which of the following characteristics is a core pillar of the Functional Programming paradigm, distinguishing it from standard Object-Oriented Design?
-
-- [ ] Encapsulation of state within class instances
-- [x] Emphasis on immutability and pure functions
-- [ ] Extensive use of class inheritance hierarchies
-- [ ] Optimizing memory layout for CPU cache hits
-```
-
 
 ## ☑ Exercise
 
@@ -269,6 +266,16 @@ Which of the following correctly identifies the relationships between these clas
 - [ ] `Smartphone` has-a `iPhone`, `iPhone` uses-a `Battery`, and `Contact` is-a `Smartphone`
 ```
 
+
+```masteryls
+{"id":"763b6916-a651-47db-a39c-ebdb3212b541","title":"Identifying Functional Programming","type":"multiple-choice"}
+Which of the following characteristics is a core pillar of the Functional Programming paradigm, distinguishing it from standard Object-Oriented Design?
+
+- [ ] Encapsulation of state within class instances
+- [x] Emphasis on immutability and pure functions
+- [ ] Extensive use of class inheritance hierarchies
+- [ ] Optimizing memory layout for CPU cache hits
+```
 
 ```masteryls
 {"id":"db625d9d-4e00-45ee-b230-122908109b1e", "title":"Essay", "type":"essay" }
