@@ -10,15 +10,8 @@
 
 ---
 
-The SOLID principles of clean code were promoted by Robert C. Martin (also known as "Uncle Bob"), a prominent software design consultant.
+![ai-illustrate-the-software-design-solid-principles.jpg](ai-illustrate-the-software-design-solid-principles.jpg)
 
-![Uncle Bob](robert-martin.png)
-
-> _source: [SmarterMSP.com](https://smartermsp.com/pioneers-in-tech-barbara-liskov-and-the-clu-programming-language/)_
-
-> “Truth can only be found in one place: the code.”
->
-> — Robert Martin
 
 SOLID is an acronym representing five key design principles:
 
