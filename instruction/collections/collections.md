@@ -20,7 +20,7 @@
 The Java Collections Framework provides several utility classes for managing data structures, such as lists, sets, and maps. Using the standard collections library ensures you do not have to implement these complex structures from scratch. These classes are thoroughly tested, performant, and thread-safe where specified.
 
 ```mermaid
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 
 classDiagram
     class Collection {
