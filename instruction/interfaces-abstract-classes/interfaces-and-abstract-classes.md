@@ -277,6 +277,8 @@ public class FinalExample {
 Applying these concepts to a Chess program requires careful design. How should chess pieces be abstracted? Should the piece type be a simple data field?
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
 classDiagram
 
     class ChessPiece {
@@ -289,6 +291,8 @@ classDiagram
 Or would it be more appropriate to use inheritance with an abstract class?
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
 classDiagram
 
     class ChessPiece {
@@ -316,6 +320,8 @@ classDiagram
 Alternatively, should the movement rules be decoupled from the piece itself? In this scenario, the `ChessPiece` represents properties (like color), while a `Rule` interface handles the logic.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
 classDiagram
 
     class ChessPiece {
@@ -347,6 +353,8 @@ classDiagram
 You could even combine these concepts to create a more robust architecture for game rules.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
 classDiagram
 
     class Rules {
