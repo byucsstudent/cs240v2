@@ -393,6 +393,27 @@ classDiagram
 
 Deciding which approach to take is a core part of software design.
 
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"225e7b39-9011-4973-8c40-704c9740b897","title":"Interface Characteristics","type":"multiple-choice"}
+Which statement accurately describes the primary characteristic of an interface in object-oriented programming?
+
+- [ ] It serves as a base class that can store and manage the internal state of its subclasses through private instance variables.
+- [ ] It allows for the direct instantiation of objects that provide a default set of behaviors for a specific system component.
+- [x] It defines a contract of method signatures that implementing classes must provide, enabling polymorphism without requiring a shared class hierarchy.
+- [ ] It restricts a class to inheriting from only one source of behavior to ensure strict hierarchical organization.
+```
+
+
+```masteryls
+{"id":"968a7b21-92da-4bf4-99bb-28fdb740a30d", "title":"Teaching", "type":"teaching" }
+What is the difference between the extends and implements keywords in Java? When should I use which?
+```
+
+
 ## Videos
 
 - 🎥 [Polymorphism (5:53)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=23d2e58e-9628-43a4-9aaa-ad640141e7dc&start=0) - [[transcript]](https://github.com/user-attachments/files/17804824/CS_240_Polymorphism.pdf)
