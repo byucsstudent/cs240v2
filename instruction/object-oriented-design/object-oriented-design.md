@@ -56,7 +56,7 @@ To fully model the real world, you must describe the relationships between objec
 | Relationship | Formal Name | Description | Example |
 | ------------ | ----------- | ----------- | ------- |
 | **Is-a** | Generalization | Inheritance. A specialized class (subclass) extends a more general class (superclass). | A `Programmer` **is a** `Person`. |
-| **Has-a** | Association | Ownership or containment. One object contains another as a member field. | A `Programmer` **has a** `Computer`. |
+| **Has-a** | Composition | Ownership or containment. One object contains another as a member field. | A `Programmer` **has a** `Computer`. |
 | **Uses-a** | Dependency | Transient interaction. An object depends on another temporarily, often as a method parameter. | A `Person` **uses a** `Taxi`. |
 
 ### Refining "Has-a" Relationships
@@ -108,13 +108,72 @@ The key is to understand your domain and distill the important fields, operation
 
 For example, in the diagram above, a `Programmer` is modeled as having a single `Computer`. In reality, a programmer might use multiple computers or only use a computer transiently (`uses-a`). If our application doesn't require that complexity, we can simplify the model by assuming every programmer has one computer. This allows us to encapsulate (hide) the `Computer` and `GitHubRepo` details when the `writeCode` method is called.
 
-## Encapsulation
+## Principles of class design
+
+Effective class design focuses on creating modules that are highly cohesive and loosely coupled. A class should ideally represent a single concept or entity within your application domain, adhering to the principle of single responsibility. By keeping classes focused on a specific task, you make the system easier to test, maintain, and extend without causing unintended side effects in unrelated areas.
+
+### Composition
+
+Composition is the practice of building complex objects by combining simpler ones. Instead of relying solely on inheritance to share behavior, composition uses "has-a" relationships to delegate tasks to internal components. This approach is often more flexible than inheritance because internal components can be replaced or updated at runtime, allowing for more dynamic and modular system behavior.
+
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
+
+classDiagram
+    class Programmer {
+        -Computer
+        -GitHubRepo
+        -AiAccount
+    }
+```
+
+
+Composition is often preferable to inheritance because it is more extensible. Inheritance (using `extends`) explicitly and publicly exposes both the methods and the implementation of the parent class. Composition keeps these details private and decoupled.
+
+### Decomposition
+
+Decomposition is the process of breaking a complex system or problem into smaller, more manageable parts. In OOD, this involves identifying the distinct entities and behaviors within a domain and assigning them to specific classes. By decomposing a large problem, developers can focus on solving individual pieces of logic in isolation, which reduces overall complexity and improves the clarity of the design.
+
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
+
+classDiagram
+    Programmer --> Computer
+    Programmer --> GitHubRepo
+    Programmer --> AiAccount
+```
+
+### Encapsulation
 
 Good object-oriented design is easy to enhance over time. Encapsulation, hiding details that do not need to be shared, makes it easier to evolve the model as requirements change. For example, by encapsulating the `Computer` object within the `Programmer` object, the rest of the system only needs to know how to call `writeCode` on the programmer, without needing to know that the programmer will use a computer.
 
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
+
+classDiagram
+    class Programmer {
+        -Computer
+    }
+```
+
 We can expose the `Computer` later if necessary, but keeping it hidden allows us to change the internal relationship between the `Programmer` and the `Computer` without breaking other parts of the code.
 
-Encapsulation is often preferable to inheritance because it is more extensible. Inheritance (using `extends`) explicitly and publicly exposes both the methods and the implementation of the parent class. Encapsulation keeps these details private and decoupled.
+### Abstraction
+
+Abstraction involves identifying the essential characteristics of an object while hiding the non-essential implementation details. It allows a developer to focus on *what* an object does rather than *how* it does it. By defining clear interfaces and abstracting away the underlying complexity, you create a simplified model that is easier for other parts of the system to interact with.
+
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
+
+classDiagram
+    class Programmer {
+        -Computer
+        +Program()
+    }
+```
 
 ## Beyond Objects: Alternative Design Paradigms
 
