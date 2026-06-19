@@ -167,6 +167,23 @@ classDiagram
 
 However, the driver does need to be able to accelerate the car by pressing on the gas pedal which interfaces with the engine and drive train, but the car only exposes the gas pedal, not the engine or other encapsulated objects.
 
+You could even consider a higher level of encapsulation that only address how the car is used and not the details of how to drive it.
+
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+classDiagram
+    class car {
+        - private Engine
+        - private DriveTrain
+        - private Suspension
+        - private gasPedal
+        - private steeringWheel
+        + public drive(destination)
+    }
+```
+
+
 ## Inheritance
 
 Inheritance is another form of abstraction where one object can inherit the functionality of another object without knowing the details of how the parent object provides the functionality.
