@@ -220,11 +220,11 @@ In a well-designed chess application, each class has one clear reason to change:
 By delegating movement logic to the piece itself, we adhere to the **Open/Closed Principle**. If we wanted to add a new piece type (like a "Camel" or "Archbishop" from Chess variants), we could do so by creating a new class without modifying the existing board or piece code.
 
 ```java
-public class Knight implements ChessPiece {
+public class Camel implements ChessPiece {
     @Override
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition myPosition) {
         List<ChessMove> moves = new ArrayList<>();
-        int[][] offsets = { {2, 1}, {2, -1}, {-2, 1}, {-2, -1}, {1, 2}, {1, -2}, {-1, 2}, {-1, -2} };
+        int[][] offsets = { {3, 1}, {3, -1}, {-3, 1}, {-3, -1}, {1, 3}, {1, -3}, {-1, 3}, {-1, -3} };
 
         for (int[] offset : offsets) {
             ChessPosition target = myPosition.addOffset(offset[0], offset[1]);
