@@ -87,6 +87,7 @@ In object oriented programming `Interfaces` and `Objects` are used to provide th
 **Objects** abstract details by differentiating between private and public methods. Public methods can be accessed by other objects. Private methods can only be accessed by the object that defines them.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 classDiagram
     class car {
         - private engine
@@ -100,6 +101,7 @@ classDiagram
 An **interface** is a public description of functionality that provides no implementation. Think of it as a description without the ability to actually do anything. The interface description hides how the actual work is done. To use an interface, an object must first implement the interfaces definition. However, you can refer to the implementing object by any interface that the object implements. This hides not only how the functionality is implement, but who is implementing it.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 classDiagram
     class vehicle {
         <<interface>>
@@ -157,6 +159,7 @@ By defining variables and parameters using interface types or abstract classes r
 Encapsulation is a form of abstraction that takes an object that provides some functionality and encapsulates, or hides it, in another object. For example, a car encapsulates an engine, drive train, and suspension. The driver of the car does not need to know any of those details because the driver never interfaces with those components.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 classDiagram
     class car {
         - private Engine
@@ -176,6 +179,7 @@ Inheritance is another form of abstraction where one object can inherit the func
 For example, a `Car` could inherit a `WheeledVehicle` object that provides the wheels and suspension. The `wheeledVehicle` could inherit a `Vehicle` object that provides a place for passengers to sit.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 classDiagram
     car --|> wheeledVehicle
     wheeledVehicle --|> Vehicle
@@ -200,6 +204,7 @@ The basic idea of decomposition is to create abstractions that represent layers 
 The advantage of decomposition is that you only need to think about the details of the layer when you are actually working on it. This includes defining its interfaces, implementing the details, and writing tests for that layer. For example, when defining the `Participant` layer, you only need to think about how a participant interacts with the `Game` and is represented by a `Player` or `Observer`. At the player level, you don't need to worry about what a `Board` is comprised of, or what the rules for moving a `King` are.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 classDiagram
     Game *-- Board
     Game *-- Piece
@@ -346,6 +351,7 @@ Let's look at each of these in detail.
 The [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) represents the desirability of high cohesion. The idea here is that an actor only has one reason to use an object. You don't have a `Person` class that represents everything associated with a person. You have a `Person` class that represents the distinct attributes of a person such as `name` and `birthDate`, and then you have other classes that represent things associated with a Person.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 classDiagram
     Person <-- FoodConsumption : uses-a
     Person <-- OutdoorActivity : uses-a
