@@ -303,7 +303,7 @@ The JCF demonstrates the **Separation of Concerns** through the **Iterator Patte
 
 ```masteryls
 {"id":"04083ed9-a34d-4ab3-b8b6-06d7127de560", "title":"Collections", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Why is it interesting.\n- What principles of software engineering does it utilize?" }
-Describe one of the JCF objects that interest you.
+Describe one of the JCF objects that interest you. Discuss how it utilizes appropriate design principles.
 ```
 
 ```masteryls
