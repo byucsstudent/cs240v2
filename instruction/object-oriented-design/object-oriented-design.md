@@ -45,7 +45,7 @@ In object-oriented programming (OOP), everything revolves around the `Class` con
 
 | Real World                       | Class Representation               | Object Representation |
 | -------------------------------- | ---------------------------------- | --------------------- |
-| ![James Gosling](smallJames.jpg) | ![class diagram](classDiagram.jpg) | James, Calgary        |
+| ![James Gosling](smallJames.jpg) | ![class diagram](classDiagram.jpg) | {name: James, birthPlace: Calgary }       |
 
 > _Source: Wikipedia_
 
@@ -61,7 +61,39 @@ To fully model the real world, you must describe the relationships between objec
 
 The following diagram illustrates relationships between several objects. Note that there are many ways to represent the real world using object-oriented design.
 
-![Class Diagram](classRelationshipDiagram.jpg)
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
+
+classDiagram
+    class Car {
+        travel(Person, Route)
+    }
+    class Person {
+        name
+        birthPlace
+    }
+    class Route
+    class Programmer {
+        GitHubRepo
+        Computer
+        writeCode()
+    }
+    class Computer {
+        type
+        save(code)
+        run(code)
+    }
+    class GitHubRepo {
+        push()
+        pull()
+    }
+
+    Car ..> Person : uses-a
+    Car ..> Route : uses-a
+    Programmer --|> Person : is-a
+    Programmer o-- Computer : has-a
+    Programmer o-- GitHubRepo : has-a
+```
 
 The key is to understand your domain and distill the important fields, operations, and interactions down to the minimal representation that meets the application's needs. Your model does not need to be a perfect 1:1 replica of reality; you can often make a model easier to understand by omitting unnecessary details. However, if the literal domain representation conflicts with how users interact with the system, prioritize the users' mental model.
 
@@ -108,6 +140,8 @@ classDiagram
     Leg --|> Appendage
     Arm --|> Appendage
 ```
+
+This design suffers from **speculative generality**. By creating deep inheritance hierarchies and over-decomposing objects (like splitting a `Body` into a `Head`, `Torso`, and `Appendage`), the system becomes brittle and difficult to navigate. Each additional layer adds cognitive load and makes the code harder to maintain, as changes to a base class like `Creature` ripple through every subclass. Unless the application specifically requires these fine-grained distinctions, this level of abstraction creates unnecessary complexity that obscures the actual domain logic.
 
 ### Problem: Not enough classes (Anemic/Generic)
 
