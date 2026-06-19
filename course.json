@@ -291,6 +291,13 @@
           "path": "instruction/lambdas/lambdas.md",
           "id": "5fc24ac6-e3ec-43f5-9ea5-1005ba1f41c2",
           "state": "published"
+        },
+        {
+          "title": "SOLID",
+          "type": "instruction",
+          "path": "instruction/solid/solid.md",
+          "id": "f1af06ba-cd73-4be0-a060-980272b27a11",
+          "description": ""
         }
       ]
     },
