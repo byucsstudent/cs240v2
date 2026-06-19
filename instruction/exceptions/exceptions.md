@@ -198,7 +198,61 @@ For example, in a multi-layered application (UI -> Service -> Database):
 
 ## Exceptions Should be Exceptional
 
-Do not use exceptions for routine control flow. For example, you should not throw an exception to exit a loop or to return a standard value from a method. Using exceptions for non-exceptional cases makes debugging difficult, hurts performance, and makes code harder to maintain. Exceptions should be reserved for unexpected conditions that the current block of code is not prepared to handle.
+Adhere to the **Principle of Least Astonishment** by avoiding the use of exceptions for routine control flow. Using exceptions to exit loops or return standard values violates the **Separation of Concerns**, as it conflates error-handling mechanisms with standard business logic. This practice degrades **maintainability** by obscuring the developer's intent and introduces unnecessary **performance overhead** due to the cost of capturing stack traces. Exceptions should be reserved for truly exceptional, unexpected conditions that the current execution context is not equipped to resolve.
+
+
+## Engineering Robust Exception Handling
+
+Exception handling in Java is more than just a syntax requirement; it is a critical component of software engineering that impacts the maintainability, reliability, and security of an application. When applying engineering principles to exceptions, the goal is to separate "happy path" logic from error recovery, ensure the system fails gracefully, and provide enough context for debugging without exposing sensitive internal details.
+
+### The Fail-Fast Principle
+One of the most important principles in robust software design is **Fail-Fast**. This means that a program should report failure as soon as an unexpected state is detected. In Java, this often involves validating method arguments at the very beginning of a method and throwing an exception immediately if they are invalid. This prevents the application from entering an inconsistent state or performing expensive operations that are doomed to fail.
+
+```java
+public void processOrder(String orderId, int quantity) {
+    // Fail-Fast: Validate inputs before any business logic
+    if (orderId == null || orderId.isBlank()) {
+        throw new IllegalArgumentException("Order ID cannot be null or empty.");
+    }
+    if (quantity <= 0) {
+        throw new IllegalArgumentException("Quantity must be greater than zero.");
+    }
+
+    // Proceed with business logic only after validation
+    Order order = database.findOrder(orderId);
+    // ...
+}
+```
+
+### Separation of Concerns and Clean Code
+Well-engineered code avoids "swallowing" exceptions or using them for flow control. Swallowing an exception (catching it and doing nothing) is a dangerous anti-pattern because it hides bugs. Instead, developers should follow these best practices:
+
+*   **Catch specific exceptions:** Avoid `catch (Exception e)` unless you are at the very top level of the application.
+*   **Preserve the cause:** When re-throwing an exception, always pass the original exception as a cause to maintain the stack trace.
+*   **Use Custom Exceptions:** Create domain-specific exceptions (e.g., `InsufficientFundsException`) to make the code more readable and easier to handle at higher layers.
+
+### Applying the "Catch-Translate-Propagate" Pattern
+In multi-tiered architectures, it is often necessary to translate low-level technical exceptions into high-level business exceptions. This prevents implementation details (like database technology) from leaking into the presentation layer.
+
+The following example shows a SQL database exception being translated into something that a user can understand and encapsulates the details of the underlying system.
+
+```java
+public User getUser(Long id) {
+    try {
+        return userRepository.findById(id);
+    } catch (SQLException e) {
+        // Engineering Principle: Information Hiding
+        // Don't expose SQL details to the UI; translate to a Domain Exception
+        throw new ServiceException("Unable to retrieve user data at this time.", e);
+    }
+}
+```
+
+### Summary of Engineering Best Practices
+1.  **Never ignore exceptions:** Even a log message is better than an empty catch block.
+2.  **Clean up resources:** Use `try-with-resources` to ensure that File handles or Database connections are closed, even if an exception occurs.
+3.  **Document exceptions:** Use the `@throws` Javadoc tag to inform users of your API about the checked and unchecked exceptions they might encounter.
+4.  **Avoid using exceptions for flow control:** Exceptions are for *exceptional* circumstances, not for standard `if-else` logic.
 
 ## ☑ Exercise
 
@@ -260,6 +314,17 @@ What is the output when this code is executed?
 - [ ] `Try Catch Finally Close `
 - [ ] `Try Close Finally `
 ````
+
+
+```masteryls
+{"id":"0db430e0-5fc8-4378-a384-47d2d427961e","title":"The Fail-Fast Principle","type":"multiple-choice"}
+Which of the following best describes the 'Fail-Fast' principle in the context of Java exception handling?
+
+- [x] Validating inputs and state at the beginning of a method and throwing an exception immediately if requirements are not met.
+- [ ] Catching all possible exceptions at the lowest level to prevent the program from crashing.
+- [ ] Using a try-catch block to wrap the entire main method of an application.
+- [ ] Retrying a failed network connection multiple times before finally throwing an exception.
+```
 
 
 ## Videos
