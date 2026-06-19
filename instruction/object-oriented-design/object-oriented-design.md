@@ -167,6 +167,40 @@ classDiagram
 
 The "Not enough classes" design is problematic because it lacks semantic meaning and specific behavior. By reducing every concept to a generic `Object` with a recursive relationship, you lose the benefits of type safety and domain modeling. Instead of a `Person` who `eats` a `Fruit`, you have an anonymous `Object` interacting with another anonymous `Object`. This forces logic that should be encapsulated within classes out into the rest of the application, making the code significantly harder to maintain and debug.
 
+
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"6e9c6bce-f03e-448b-8bf4-c98ee16abc04","title":"Benefits of Composition over Inheritance","type":"multiple-choice"}
+When applying the principle of **Composition over Inheritance** in object-oriented design, which of the following statements best describes the primary advantage of utilizing composition?
+
+- [ ] It reduces the total number of classes in the system by consolidating multiple behaviors into a single, deep class hierarchy.
+- [ ] It enforces a strict **is-a** relationship between objects, ensuring that a subclass can always be used in place of its parent class.
+- [x] It provides greater runtime flexibility by allowing an object to change its behavior by swapping out its internal component parts.
+- [ ] It allows subclasses to gain direct access to the private member variables and protected methods of a base class, simplifying internal logic.
+```
+
+```masteryls
+{"id":"81466afd-b92c-4888-94e4-6f4b7fc5fc67","title":"Identifying Class Relationships","type":"multiple-choice"}
+A developer is designing a mobile device management system. They define a `Smartphone` class that contains a `Battery` object as a member variable. The `Smartphone` class also includes a method `void call(Contact person)` where the `Contact` object is passed as a parameter. Finally, they create a `iPhone` class that inherits from the `Smartphone` class. 
+
+Which of the following correctly identifies the relationships between these classes?
+
+- [ ] `Smartphone` is-a `Battery`, `iPhone` has-a `Smartphone`, and `Smartphone` uses-a `Contact`
+- [ ] `iPhone` uses-a `Smartphone`, `Smartphone` is-a `Battery`, and `Contact` has-a `Smartphone`
+- [x] `iPhone` is-a `Smartphone`, `Smartphone` has-a `Battery`, and `Smartphone` uses-a `Contact`
+- [ ] `Smartphone` has-a `iPhone`, `iPhone` uses-a `Battery`, and `Contact` is-a `Smartphone`
+```
+
+
+```masteryls
+{"id":"db625d9d-4e00-45ee-b230-122908109b1e", "title":"Essay", "type":"essay" }
+Describe what differentiates Object Oriented Design from Procedural, Functional, or Event Driven programming.
+```
+
+
 ## Videos
 
 - 🎥 [Object-Oriented Design Overview](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=77c184e5-8afd-4c56-84c8-ad64013f7a4b&start=0) - [[transcript]](https://github.com/user-attachments/files/17805111/CS_240_Object_Oriented_Design_Overview.pdf)
