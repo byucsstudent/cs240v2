@@ -1,5 +1,15 @@
 # SOLID
 
+### 🔑 Key points
+
+- Single responsibility
+- Open/closed
+- Liskov Substitution
+- Interface segregation
+- Dependency inversion
+
+---
+
 The SOLID principles of clean code were promoted by Robert C. Martin (also known as "Uncle Bob"), a prominent software design consultant.
 
 ![Uncle Bob](robert-martin.png)
