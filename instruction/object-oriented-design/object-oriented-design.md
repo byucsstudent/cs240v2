@@ -12,8 +12,8 @@
 - Classes have methods (verbs) and properties (nouns), mirroring real-world objects.
 - Classes have relationships: Is-a, Has-a, and Uses-a.
 - Encapsulate data to hide implementation details.
-- Adhere to the Single Responsibility Principle.
 - Use Class and Sequence diagrams to model the system.
+- Alternative design patterns
 
 ---
 
