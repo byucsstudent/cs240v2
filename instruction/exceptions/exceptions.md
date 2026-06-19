@@ -21,11 +21,11 @@
 
 Java exceptions allow you to deviate from the normal execution flow of a program when an "exceptional" event occurs. You can then handle the exception at a higher level in the call stack.
 
+![exception.jpg](exception.jpg)
+
 Java uses the standard `try`, `catch`, and `throw` syntax found in many modern programming languages. You define a block where exceptions might occur using the `try` statement. This block is followed by one or more `catch` blocks. For each `catch` block, you specify the exception type(s) it handles. That type and any types derived from it will be caught by that block. 
 
-> [!NOTE]
->
-> The Java runtime matches catch blocks from top to bottom. You should always list the most specific exceptions first and the most general (like `Exception`) last.
+The following demonstrates the basic usage of Java exception handling as defined above.
 
 ```java
 try {
@@ -39,6 +39,11 @@ try {
     // General error handling for everything else
 }
 ```
+
+> [!NOTE]
+>
+> The Java runtime matches catch blocks from top to bottom. You should always list the most specific exceptions first and the most general (like `Exception`) last.
+
 
 ## Throw and Throws
 
