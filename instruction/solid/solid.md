@@ -314,3 +314,24 @@ class Correct {
 ```
 
 By inverting dependencies, you decouple your code and delay the commitment to a specific implementation. This allows you to modify how the application works simply by changing parameters or configuration, without rewriting the core logic.
+
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"4a2c5b0d-28ff-4eeb-8d6a-e4ae4106f498", "title":"Dependency Inversion", "type":"teaching" }
+Can you explain Dependency Inversion to me? How do I invert a dependency?
+```
+
+
+```masteryls
+{"id":"a1fe5de4-2909-4cbc-a60e-5fee8766bb78","title":"Liskov Substitution Principle","type":"multiple-choice"}
+According to the Liskov Substitution Principle (LSP), which of the following statements best describes the requirement for a subclass when it inherits from a base class?
+
+- [ ] A subclass should be able to strengthen the pre-conditions of a method to ensure more rigorous data validation than the base class.
+- [ ] A subclass must implement every method defined in the parent interface, even if the method is not applicable to the subclass's specific context.
+- [x] Objects of a superclass should be replaceable with objects of its subclasses without breaking the application or changing its expected behavior.
+- [ ] Derived classes should focus on extending the base class by adding new public methods rather than overriding existing ones to prevent side effects.
+```
+
