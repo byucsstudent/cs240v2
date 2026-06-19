@@ -18,6 +18,8 @@ In the context of software architecture, OOP serves as the blueprint for creatin
 
 To master Object-Oriented Programming, one must understand the four core principles that govern how objects interact and how code is structured: **Encapsulation**, **Abstraction**, **Inheritance**, and **Polymorphism**.
 
+![fourPillars.png](fourPillars.png)
+
 ### Encapsulation
 
 Encapsulation is often referred to as the "black box" principle. It involves bundling the data (fields) and the methods (functions) that operate on that data into a single unit called a class. More importantly, encapsulation allows us to restrict direct access to some of an object's components, which is crucial for maintaining data integrity.
