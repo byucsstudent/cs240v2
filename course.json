@@ -211,7 +211,11 @@
           "title": "Copying Objects",
           "path": "instruction/copying-objects/copying-objects.md",
           "id": "4f0fba08-4979-49ba-8617-f4a9fd342ad6",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "bfcc9583-3d22-4026-a36f-34fceb6be366",
+            "113e9ac2-025a-40a3-bc30-7ffbbc94cbbb"
+          ]
         },
         {
           "title": "Java Exceptions",
