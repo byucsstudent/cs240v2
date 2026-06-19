@@ -253,8 +253,11 @@ public class UniversalContainer {
 }
 ```
 
+## ☑ Exercise
+
+
 ```masteryls
-{"id":"6e801e6c-018a-498b-b702-2b5d76f81172","title":"Understanding the Root Hierarchy","type":"multiple-choice"}
+{"id":"6e801e6c-018a-498b-b702-2b5d76f81172","title":"Universal Inheritance","type":"multiple-choice"}
 Which software design principle is best demonstrated by the fact that any Java object can be passed to a method expecting a parameter of type `java.lang.Object`?
 
 - [ ] Encapsulation, because it hides the internal state of the object.
@@ -262,8 +265,6 @@ Which software design principle is best demonstrated by the fact that any Java o
 - [ ] Composition, because the object is composed of multiple superclasses.
 - [ ] Dependency Inversion, because high-level modules are not depending on low-level modules.
 ```
-
-## ☑ Exercise
 
 ```masteryls
 {"id":"2ec94cfd-ac42-4ced-a34f-8cd81c95c0ef","title":"The Root of Java Hierarchy","type":"multiple-choice"}
