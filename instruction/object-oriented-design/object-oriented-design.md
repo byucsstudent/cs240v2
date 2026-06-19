@@ -108,13 +108,9 @@ The key is to understand your domain and distill the important fields, operation
 
 For example, in the diagram above, a `Programmer` is modeled as having a single `Computer`. In reality, a programmer might use multiple computers or only use a computer transiently (`uses-a`). If our application doesn't require that complexity, we can simplify the model by assuming every programmer has one computer. This allows us to encapsulate (hide) the `Computer` and `GitHubRepo` details when the `writeCode` method is called.
 
-### Composition over Inheritance
-While `is-a` (inheritance) is powerful, a common design principle is to **favor composition over inheritance**. Inheritance creates a rigid, tight coupling between classes. Composition (`has-a`) allows for greater flexibility because you can change the internal components of an object at runtime or swap implementations without breaking the class hierarchy.
-
-The goal is to avoid missing key objects, merging distinct objects into one, or introducing unnecessary complexity that obscures the user's mental model. Someone who understands the domain should be able to review your model and find the choice of objects and their relationships intuitive.
 ## Encapsulation
 
-Good object-oriented design is easy to enhance over time. Encapsulation, hiding details that do not need to be shared, makes it easier to evolve the model as requirements change. For example, by encapsulating the `Computer` object within the `Programmer` object, the rest of the system only needs to know how to call `writeCode`, without needing to know how the computer functions.
+Good object-oriented design is easy to enhance over time. Encapsulation, hiding details that do not need to be shared, makes it easier to evolve the model as requirements change. For example, by encapsulating the `Computer` object within the `Programmer` object, the rest of the system only needs to know how to call `writeCode` on the programmer, without needing to know that the programmer will use a computer.
 
 We can expose the `Computer` later if necessary, but keeping it hidden allows us to change the internal relationship between the `Programmer` and the `Computer` without breaking other parts of the code.
 
