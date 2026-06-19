@@ -25,6 +25,8 @@ Let's look at each of these in detail.
 
 ## Single Responsibility Principle
 
+![singleResponsibility.png](singleResponsibility.png)
+
 The [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle) (SRP) promotes high cohesion. The core idea is that a class should be responsible for a single part of the software's functionality. Robert Martin defines a "responsibility" as a "reason to change," often tied to a specific "actor" (a user or stakeholder group).
 
 For example, instead of a single `Person` class that handles every possible behavior associated with a human, you define a `Person` class for core attributes like `name` and `birthDate`, while delegating other behaviors to specialized classes.
@@ -102,6 +104,8 @@ public interface SRPViolation {
 
 ## Open-Closed Principle
 
+![openClosed.png](openClosed.png)
+
 The Open-Closed Principle (OCP) states that classes should be open for extension but closed for modification. This means you should be able to add new functionality to a class without altering its existing source code.
 
 A common way to achieve this is by using interfaces or abstract classes to control behavior. Instead of modifying a class's methods to handle new scenarios, you pass in an implementation of an interface that provides the new behavior.
@@ -172,6 +176,8 @@ In this example, the `Formatter` interface allows us to extend how the class for
 >
 > — Barbara Liskov
 
+![liskovSubstitution.png](liskovSubstitution.png)
+
 The Liskov Substitution Principle (LSP) states that if a program is using a base class or an interface, it should be able to use any of its subclasses without knowing it and without the program failing. In other words, a derived class must enhance functionality, not break it.
 
 Violations often occur when a subclass throws an `UnsupportedOperationException` for a method required by the interface, or when a method performs a type cast (downcasting) on an interface parameter to access specific subclass features.
@@ -198,6 +204,8 @@ void lspViolation2(List list) {
 Violations of this principle cause unexpected behavior and force developers to understand the internal implementation of every subclass before they can safely use them.
 
 ## Interface Segregation Principle
+
+![interfaceSegregation.png](interfaceSegregation.png)
 
 The Interface Segregation Principle (ISP) states that no consumer of an interface should be forced to depend on methods it does not use. When defining an interface, you should only include methods that form a cohesive whole.
 
@@ -235,7 +243,7 @@ public interface Writer {
 ```
 
 ## Dependency Inversion Principle
-
+![dependencyInversion.png](dependencyInversion.png)
 The Dependency Inversion Principle (DIP) states that high-level modules (business logic) should not depend on low-level modules (implementation details like databases or specific hardware). Both should depend on abstractions (interfaces).
 
 By depending on abstractions, you decouple your code. In the violation example below, the high-level `Route` class is tightly coupled to the low-level `Honda` class.
