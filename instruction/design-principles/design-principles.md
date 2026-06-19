@@ -353,6 +353,8 @@ You can reduce duplicated code by:
 
 ## The Law of Demeter (Principle of Least Knowledge)
 
+> "Don't talk to strangers; only talk to your immediate friends"
+
 The Law of Demeter (LoD) states that an object should have limited knowledge about the internal structure of other objects. Specifically, a method of an object should only invoke the methods of:
 
 1. The object itself.
