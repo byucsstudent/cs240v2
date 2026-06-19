@@ -19,7 +19,10 @@
 
 ---
 
-Java exceptions allow you to deviate from the normal execution flow of a program when an "exceptional" event occurs. You can then handle the exception at a higher level in the call stack.
+
+In traditional programming, error handling often relies on return codes, which forces developers to intersperse error-checking logic with the main business logic, leading to cluttered code that is difficult to read and maintain. Java Exceptions provide a structured alternative by separating the detection of an error from the code that handles it.
+
+Java exceptions allow you to deviate from the normal execution flow of a program when an "exceptional" event occurs. When an exception is thrown, the Java runtime searches the **call stack** for a matching handler. It starts with the current stack frame and, if no `catch` block is found, it "unwinds" the stack—popping the current frame and passing the exception to the calling method's frame. This process continues until a handler is found or the program terminates, allowing you to pass control from the point of failure to a higher-level frame equipped to handle the error.
 
 ![exception.jpg](exception.jpg)
 
