@@ -254,13 +254,19 @@
           "title": "Design Principles",
           "path": "instruction/design-principles/design-principles.md",
           "id": "67bb907c-816b-40e0-8d46-efb270a0b000",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "24db3b5d-61c5-4488-a9f8-9116634d7b5a",
+            "08e88ca6-e6d9-467f-ae53-5502a601329d",
+            "32035b75-8e43-4ac3-9c02-d63e7517b65c"
+          ]
         },
         {
           "title": "SOLID",
           "type": "instruction",
           "path": "instruction/solid/solid.md",
           "id": "f1af06ba-cd73-4be0-a060-980272b27a11",
+          "state": "published",
           "description": ""
         },
         {
