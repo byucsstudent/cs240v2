@@ -14,14 +14,18 @@
 - How and when to handle an exception in Java
 - How and when to throw an exception in Java
 - How to create custom exception classes
-- How to use try/catch blocks
-- What finally blocks are and how to use them
+- How to use `try/catch` blocks
+- What `finally` blocks are and how to use them
 
 ---
 
-Java exceptions allow you to escape out of the normal execution flow of a program when something exceptional happens. You can then centrally handle the exception at a location higher in the code execution stack.
+Java exceptions allow you to deviate from the normal execution flow of a program when an "exceptional" event occurs. You can then handle the exception at a higher level in the call stack.
 
-Java uses the standard `try`, `throw`, and `catch` syntax that are found in most programming languages. You define a block where exceptions can occur with the `try` statement. The `try` block is then followed by one or more `catch` blocks. For each `catch` block you can specify what exception type(s) the block handles. That type and any types derived from it will be caught by that block unless they also match a more specific block. The runtime will pick the block that most specifically matches your exception. If you want to handle all exceptions, then you can specify the `Exception` base class in your catch block. Keep in mind that it is often best to catch only the most specific exception type that will be thrown.
+Java uses the standard `try`, `catch`, and `throw` syntax found in many modern programming languages. You define a block where exceptions might occur using the `try` statement. This block is followed by one or more `catch` blocks. For each `catch` block, you specify the exception type(s) it handles. That type and any types derived from it will be caught by that block. 
+
+> [!NOTE]
+>
+> The Java runtime matches catch blocks from top to bottom. You should always list the most specific exceptions first and the most general (like `Exception`) last.
 
 ```java
 try {
@@ -29,59 +33,57 @@ try {
 } catch (FileNotFoundException ex) {
     // Specific file error handling
 } catch (IOException ex) {
-    // Other IO error handling except file not found
-    /* FileNotFoundException is a subclass of
-       IOExeption, but won't trigger this block. */
+    // Other IO error handling (excluding FileNotFoundException)
+    // FileNotFoundException is a subclass of IOException, but won't trigger this block  because it was caught above. 
 } catch (Exception ex) {
-    // General error handling
+    // General error handling for everything else
 }
-
 ```
 
 ## Throw and Throws
 
-You use the `throw` keyword followed by the allocation of a new exception in order to raise an exception.
+To raise an exception, use the `throw` keyword followed by an instance of an exception class.
 
 ```java
 throw new IllegalArgumentException("Missing required parameter");
 ```
 
-When you throw an exception, the normal flow of your code is interrupted and the execution pointer skips to the closest catch block in the execution stack.
+When you throw an exception, the normal flow of the code is interrupted, and the execution pointer jumps to the nearest matching `catch` block in the call stack.
 
-You can throw any exception from a function, but Java requires that your function signature declares all of the exceptions that the function throws. Note that the declaration requirement propagates to any function that calls a function that can throw an exception.
+Java requires that a method's signature declares all **checked** exceptions it might throw using the `throws` keyword. This requirement propagates up the call stack: any method calling a function that throws a checked exception must either catch it or declare it in its own signature.
 
 ```java
 void top() {
     try {
         A();
     } catch (Exception ex) {
-        System.out.println("this WILL execute");
+        System.out.println("This WILL execute");
     }
 }
 
 void A() throws Exception {
     B();
-    System.out.println("this will NOT execute");
+    System.out.println("This will NOT execute");
 }
 
 void B() throws Exception {
     C();
-    System.out.println("this will NOT execute");
+    System.out.println("This will NOT execute");
 }
 
 void C() throws Exception {
-    throw new Exception("declarations all the way up");
-    System.out.println("this will NOT execute");
+    throw new Exception("Declarations all the way up");
+    // System.out.println("This would be unreachable code");
 }
 ```
 
 ### Unchecked Exceptions
 
-The exclusion to the `throws` declaration rule is when you throw what is known as an unchecked exception. Unchecked exceptions are defined as any class that is derived from the `RuntimeException` class. The reason for unchecked exceptions is that they can be thrown at anytime and so it is unreasonable to explicitly handle them on every function in your code. These should be caught or thrown only very rarely, as they usually indicate a bug in your code (such as a `NullPointerException`, which is unchecked) rather than a problem that can occur during execution of your program (such as a `FileNotFoundException`, which is checked).
+The exception to the `throws` declaration rule is the **unchecked exception**. Unchecked exceptions are classes derived from `RuntimeException` (or `Error`). Because these can occur almost anywhere (like `NullPointerException` or `ArrayIndexOutOfBoundsException`), Java does not require them to be explicitly declared or caught. These usually indicate logic errors or bugs in your code rather than recoverable environmental problems (like a missing file).
 
 ## Finally
 
-You can also use the `try` syntax to create a block of code that always gets executed whenever the try block exits. This is called a finally block. The finally block is executed whether or not an exception is throw. If an exception is thrown, but there is no catch block, the finally method will get called, but then the exception continues up the call stack until a catch block is discovered.
+The `finally` block follows `try` or `catch` blocks and contains code that **always** executes, regardless of whether an exception was thrown or caught. This is useful for cleaning up resources, such as closing database connections. If an exception is thrown and not caught in the current method, the `finally` block executes before the exception continues up the call stack.
 
 ```java
 try {
@@ -93,9 +95,9 @@ try {
 
 ## Example
 
-Consider the example of a program that requires a configuration file in order to work correctly. If the file does not exist, then you want report the error from your `main` function and not deep down in the initialization code where the file fails to load.
+Consider a program that requires a configuration file. If the file is missing, you may want to report the error in the `main` function rather than deep inside the initialization logic.
 
-Note the use of multiple `catch` blocks, the use of `finally`, and also the necessity of declaring the exceptions that may be thrown.
+Note the use of multiple `catch` blocks, the `finally` block, and the `throws` declarations.
 
 ```java
 import java.io.File;
@@ -103,14 +105,14 @@ import java.io.FileNotFoundException;
 
 public class ExceptionExample {
     public static void main(String[] args) {
-        // Exceptions are handled centrally for anything that happens in this scope.
+        // Exceptions are handled centrally for this scope
         try {
             var example = new ExceptionExample();
             example.loadConfig();
         } catch (FileNotFoundException ex) {
-            System.out.printf("Required file not found: %s", ex);
+            System.out.printf("Required file not found: %s%n", ex.getMessage());
         } catch (Exception ex) {
-            System.out.printf("General error: %s", ex);
+            System.out.printf("General error: %s%n", ex.getMessage());
         } finally {
             System.out.println("Program completed");
         }
@@ -121,48 +123,34 @@ public class ExceptionExample {
         loadConfigFile("system");
     }
 
-    // Note that the function indicates that it can throw an exception.
+    // This method declares that it can throw a checked exception
     private void loadConfigFile(String location) throws FileNotFoundException {
         var file = new File(location);
         if (!file.exists()) {
-            // Let the code above know there was an exception.
-            throw new FileNotFoundException();
+            // Signal the caller that something went wrong
+            throw new FileNotFoundException("Could not find " + location);
         }
 
-        // Otherwise load the configuration
+        // Otherwise, proceed to load the configuration
     }
 }
 ```
 
 ## Custom Exception Types
 
-Java has many useful Exception types you can `throw`, but often you won't find one that matches what you need. You can create your own exception types by creating subclasses of the `Exception` class (or of any other exception type). Feel free to add fields to your exception classes to contain any information that might be useful about what went wrong. If you find yourself catching an exception and then checking the message string to see what kind of error it is, you may want to replace it with a custom exception type instead.
-
-Here is an example of a custom exception type:
+While Java provides many built-in exception types, you may need to create your own to represent specific domain errors. You can create a custom exception by subclassing `Exception` (for checked exceptions) or `RuntimeException` (for unchecked exceptions).
 
 ```java
 public class AlreadyTakenException extends Exception {
     public AlreadyTakenException(String message) {
-        super(message)
+        super(message);
     }
 }
 ```
 
 ## Try-With-Resources
 
-Not closing resources, such as file handles or database connections, can lead to leaks that will cause your application to fail. The following example shows the allocation of an input stream that closes the stream after it is used. However, if an exception is thrown during the read operation the stream is not closed and the file handle is leaked. That means the resources associated with the file are never released and eventually that application will not be able to open files.
-
-```java
-public void NoTry() throws IOException {
-    FileInputStream input = new FileInputStream("test.txt");
-    System.out.println(input.read());
-
-    // If an exception is thrown this will not close the stream
-    input.close();
-}
-```
-
-To work around this, it is common to use the `try/finally` syntax to clean up resources that need to be closed. In the example below the stream will be closed whether or not an exception is thrown.
+Failing to close resources like file handles or network connections can lead to memory leaks or system instability. Traditionally, developers used `try/finally` to ensure resources were closed:
 
 ```java
 public void TryWithFinally() throws IOException {
@@ -172,20 +160,17 @@ public void TryWithFinally() throws IOException {
         System.out.println(input.read());
     } finally {
         if (input != null) {
-            // If an exception is thrown this will not close the stream
-            input.close();
+            input.close(); // Ensures the stream is closed
         }
     }
 }
 ```
 
-As you can see by the previous example, resource cleanup introduces a lot of boilerplate code. To make this common and necessary activity easier to implement, Java introduced the `try-with-resources` syntax. You can use this syntax with any class that implements the [closable](https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html) interface. This includes things like input and output streams, readers and writers, network connections, files, and channels.
-
-To use this syntax you place the allocation of the object as a parameter to the `try` keyword. The Java complier will automatically generate the finally block and call close for you.
+This pattern is verbose. To simplify this, Java introduced the **try-with-resources** syntax. This can be used with any class that implements the `AutoCloseable` or `Closeable` interface. The Java compiler automatically generates the `finally` block to close the resource for you.
 
 ```java
 public void tryWithResources() throws IOException {
-    // Close is automatically called at the end of the try block
+    // The resource is declared in parentheses; it is closed automatically
     try (FileInputStream input = new FileInputStream("test.txt")) {
         System.out.println(input.read());
     }
@@ -194,17 +179,18 @@ public void tryWithResources() throws IOException {
 
 ## Where to Use `catch` and `throws`
 
-A significant part of exception handling is deciding where to handle exceptions. When an exception is thrown, at each level of the execution stack, you can either `catch` the error or use `throws` to pass it to the next level up. Consider what needs to happen when the exception is thrown. For example, do I want my program to halt? Does a message need to be sent back to the user? Which part of my program can do that?
+A key architectural decision is where to handle an exception. At each level of the call stack, you must decide: can I fix this here, or should I pass it up?
 
-A good rule of thumb is to ask: after I'm done handling this exception, where can I resume normal execution? For example, a login screen might have a UI layer, which calls a login service layer, which calls a database layer. If someone tries to login with an incorrect username, the database throws an error: user not found. The login service layer can't continue its normal execution, so it `throws` the error to the UI layer. However, the UI layer knows how to display an "invalid username" message, so it can `catch` the exception and resume.
+A good rule of thumb is: **Handle the exception at the level where you can take meaningful action to resume normal execution.**
 
-Sometimes a layer cannot handle an exception, but does have additional information about what went wrong. Then you can catch the exception and simply throw another exception, possibly of a different type, that contains that information. For example, the database layer from the previous example might throw a ValueNotFoundException, but the login service layer knows it's really an InvalidCredentialsException, so it catches and re-throws a more useful exception type.
+For example, in a multi-layered application (UI -> Service -> Database):
+1. The **Database** layer throws a `UserNotFoundException`.
+2. The **Service** layer cannot fulfill the login request without a user, so it lets the exception propagate (or wraps it).
+3. The **UI** layer catches the exception and displays a user-friendly message: "Invalid username. Please try again." The UI layer is the appropriate place to "resume" the program by waiting for new user input.
 
 ## Exceptions Should be Exceptional
 
-Remember that exceptions should be exceptional. Do not throw exceptions for things that happen in the normal flow of your code. For example, if it is expected that sometimes a file may not be found, then that is not exceptional. Also do not throw exceptions to return values from a function. For example, a token parser should not throw exceptions in order to return tokens that it parses to anyone with a catch block.
-
-Using exceptions for non-exceptional cases makes debugging much more difficult and creates unexpected side effects in your code that make it less maintainable.
+Do not use exceptions for routine control flow. For example, you should not throw an exception to exit a loop or to return a standard value from a method. Using exceptions for non-exceptional cases makes debugging difficult, hurts performance, and makes code harder to maintain. Exceptions should be reserved for unexpected conditions that the current block of code is not prepared to handle.
 
 ## Videos
 
