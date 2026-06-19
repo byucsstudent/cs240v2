@@ -21,7 +21,13 @@
 
 
 ```mermaid
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
+%%{init: { 'theme': 'neutral', 'look': 'handDrawn',
+  'sequence': { 
+    'mirrorActors': false,
+    'showSequenceNumbers': true,
+    'actorMargin': 10,
+    'boxMargin': 5
+  }, 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
 
 sequenceDiagram
     participant Person
@@ -32,9 +38,6 @@ sequenceDiagram
     Person->>Fruit: isRipe
     Person->>Fruit: eat
 ```
-![Person Fruit Model](personFruitModel.jpg)
-
-> Eating fruit sequence diagram
 
 Object-oriented design owes much of its popularity to its natural representation of the real world. By carefully modeling the actual application domain, the resulting code avoids the complications that often arise in other [programming paradigms](https://en.wikipedia.org/wiki/Programming_paradigm) that focus more strictly on functional logic or declarative constructs.
 
