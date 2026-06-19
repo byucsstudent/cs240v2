@@ -200,25 +200,69 @@ For example, in a multi-layered application (UI -> Service -> Database):
 
 Do not use exceptions for routine control flow. For example, you should not throw an exception to exit a loop or to return a standard value from a method. Using exceptions for non-exceptional cases makes debugging difficult, hurts performance, and makes code harder to maintain. Exceptions should be reserved for unexpected conditions that the current block of code is not prepared to handle.
 
+## ☑ Exercise
+
+
+````masteryls
+{"id":"d58151e1-451a-44ff-96c0-21c801866979","title":"Execution of finally blocks","type":"multiple-choice"}
+In Java exception handling, consider the following method:
+
+```java
+public int example() {
+    try {
+        int result = compute();
+        return result + 2;
+    } finally {
+        System.out.println("Finally executed");
+    }
+}
+```
+
+How does the `finally` block behave when the `return` statement is executed within the `try` block?
+
+- [ ] The `finally` block is bypassed because the `return` statement terminates the method execution immediately.
+- [ ] The `finally` block executes only if the `try` block finishes normally without encountering a `return` or a `throw` statement.
+- [ ] The `finally` block will only execute if an exception occurs; otherwise, the `return` statement in the `try` block skips it.
+- [x] The `finally` block executes even if a `return` statement is present in the `try` block, running after the return expression is evaluated but before the method returns.
+````
+
+
+````masteryls
+{"id":"96312950-c328-42db-96c5-94fbeea1b4fd","title":"Try-with-resources Execution Order","type":"multiple-choice"}
+Consider the following Java code snippet involving a resource that implements `AutoCloseable` and **try-with-resources** syntax:
+
+```java
+class MyResource implements AutoCloseable {
+    @Override
+    public void close() {
+        System.out.print("Close ");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        try (MyResource res = new MyResource()) {
+            System.out.print("Try ");
+            throw new RuntimeException();
+        } catch (Exception e) {
+            System.out.print("Catch ");
+        } finally {
+            System.out.print("Finally ");
+        }
+    }
+}
+```
+
+What is the output when this code is executed?
+
+- [ ] `Try Catch Close Finally `
+- [x] `Try Close Catch Finally `
+- [ ] `Try Catch Finally Close `
+- [ ] `Try Close Finally `
+````
+
+
 ## Videos
 
 - 🎥 [Exceptions (35:32)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=83d5acf8-12b7-473d-919d-ad6b0124631b&start=0) - [[transcript]](https://github.com/user-attachments/files/17780908/CS_240_Exceptions_Exceptions_in_Java.pdf)
 - 🎥 [Checked vs. Unchecked Exceptions (4:35)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3e7b6f62-13e5-41e6-9a81-ad6b012e8b25&start=0) - [[transcript]](https://github.com/user-attachments/files/17780909/CS_240_Exceptions_Checked_vs_Unchecked_Exceptions.pdf)
-
-## Demonstration code
-
-📁 [ExceptionRethrowingExample](example-code/ExceptionRethrowingExample.java)
-
-📁 [ExceptionThrowingExample](example-code/ExceptionThrowingExample.java)
-
-📁 [FileReadingWithExceptions](example-code/FileReadingWithExceptions.java)
-
-📁 [FileReadingWithoutExceptions](example-code/FileReadingWithoutExceptions.java)
-
-📁 [FinallyExample](example-code/FinallyExample.java)
-
-📁 [ImageEditorException](example-code/ImageEditorException.java)
-
-📁 [TryCatchExample](example-code/TryCatchExample.java)
-
-📁 [TryWithResourcesExample](example-code/TryWithResourcesExample.java)
