@@ -45,16 +45,17 @@ In object-oriented programming (OOP), everything revolves around the `Class` con
 
 | Real World                       | Class Representation               | Object Representation |
 | -------------------------------- | ---------------------------------- | --------------------- |
-| ![James Gosling](smallJames.jpg) | ![class diagram](classDiagram.jpg) | {name: James, birthPlace: Calgary }       |
+| ![James Gosling](smallJames.jpg) | ![person Diagram](personDiagram.png) | {name: James, birthPlace: Calgary }       |
 
 > _Source: Wikipedia_
 
 ```mermaid
-classDiagram
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
 
-    class Person {
-        -name
-        -birthPlace
+objectDiagram
+    object james {
+        name: "James"
+        birthPlace: "Calgary"
     }
 ```
 
