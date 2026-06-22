@@ -146,10 +146,12 @@ You can decompose your handlers, services, and data access components into multi
 Once you have created your diagram you can create a URL that represents it by selecting the `export diagram` tool found on the toolbar to the left of the application. In the export dialog select `Presentation Mode Link` and copy the URL.
 
 
+
 ```masteryls
-{"id":"1f493bb2-b96e-4335-ac75-f2304f5c8493","title":"","type":"multiple-choice"}
-Simple **submission** by url
+{"id":"9f81762a-9466-41b7-bf99-df104bf2a2e0", "title":"Phase 2 submission", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- Include a section named HTML Deliverable\n- At least two completed checklist items are explained clearly", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
+Submit the URL your sequence diagram.
 ```
+
 
 
  Submit the URL to the `Chess Server Design` Canvas Assignment.
