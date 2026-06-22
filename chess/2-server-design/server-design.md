@@ -148,7 +148,7 @@ Once you have created your diagram you can create a URL that represents it by se
 
 
 ```masteryls
-{"id":"4bf61d3b-e761-4258-a4e5-9096e04293fc","title":"","type":"multiple-choice"}
+{"id":"9f81762a-9466-41b7-bf99-df104bf2a2e0", "title":"Phase 2 submission", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"A UML sequence diagram that demonstrates the following:\nClear: Clears the database. Removes all users, games, and authTokens.\nRegister: Register a new user.\nLogin: Logs in an existing user (returns a new authToken)\nLogout: Logs out the user represented by the provided authToken.\nList Games: Verifies the provided authToken and gives a list of all games.\nCreate Game: Verifies the provided authToken and creates a new game.\nJoin Game: Verifies the provided authToken. Checks that the specified game exists, and adds the caller as the requested color to the game." }
 Submit the URL your sequence diagram.
 ```
 
