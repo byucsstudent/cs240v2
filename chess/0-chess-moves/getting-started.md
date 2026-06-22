@@ -2,9 +2,19 @@
 
 At this point, you should have already made your own copy of the [Chess GitHub Repository](../chess-github-repository/chess-github-repository.md) and made changes from the command line. Now, we will open the project in an Integrated Development Environment (IDE). IDEs assist developers when working on large software projects by providing tools for writing, debugging, and testing code.
 
-Follow these steps to set up your Chess project.
+
+```masteryls
+{"id":"57d595a3-6ae5-40a9-a512-041c1c1cd198", "title":"Phase 0: Getting started", "type":"multiple-choice" }
+
+- [x] I used the [Chess GitHub Repository](../chess-github-repository/chess-github-repository.md) template to create a repository in my GitHub account and have cloned it locally.
+- [ ] I was not able to successfully create the repo and am reaching out to a TA for help.
+```
+
+
 
 ## Open With IntelliJ
+
+Once you have cloned the chess repository locally, follow these steps to set up your Chess project.
 
 Open the project directory in IntelliJ to start developing, running, and debugging your code. Make sure you **OPEN** the project rather than creating a new project.
 
