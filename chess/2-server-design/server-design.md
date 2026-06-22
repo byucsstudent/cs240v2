@@ -154,7 +154,7 @@ Submit the URL your sequence diagram.
 
 
 ```masteryls
-{"id":"8ea4bfa2-d7d0-4084-b6e3-5fa3ef172ac2","title":"Phase 2 submission","type":"url-submission","syncGrade":false,"autoGrade":false,"validateUrl":true,"gradingCriteria":"A UML sequence diagram that demonstrates a comprehensive flow of requests and responses, including error messages, return HTTP status codes, parameters, and return objects such that implementation could begin for the following use cases: Register, Login, Loguout, List Games, Create Game, Join Game, Clear application. Each group is represented by a `group` block that contains at least 10 statements."}
+{"id":"8ea4bfa2-d7d0-4084-b6e3-5fa3ef172ac2","title":"Phase 2 submission","type":"url-submission","syncGrade":false,"autoGrade":false,"validateUrl":true,"gradingCriteria":"A UML sequence diagram that demonstrates a comprehensive flow of requests and responses, including error messages, return HTTP status codes, parameters, and return objects such that implementation could begin for the following use cases: Register, Login, Loguout, List Games, Create Game, Join Game, Clear application. Each group is represented by a `group` block that contains at least 10 statements. For example:\n```group#orange #FCEDCA\nLogin\nClient -> Server: [POST] /session\n{username, password}\nend```\n\n Should fail because it doesn't contain all of the event sequences necessary to demonstate a valid login."}
 Submit the URL your sequence diagram.
 ```
 
