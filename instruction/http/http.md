@@ -31,7 +31,7 @@ Analyzing the parts of a URL is a good way to understand how resources are ident
 The URL syntax follows this convention. Note the punctuation used to delimit the various parts. Most parts of the URL are optional; the only required elements are the scheme and the domain name.
 
 ```yaml
-<scheme>://<domain name>:<port>/<path>?<parameters>#<anchor>
+<scheme>://<domain name>:<port>/<path>?<parameters>#<fragment>
 ```
 
 | Part        | Example                              | Meaning                                                                                                                                                                                                                                                                             |
@@ -41,7 +41,7 @@ The URL syntax follows this convention. Note the punctuation used to delimit the
 | Port        | 3000                                 | The numbered network port used to connect to the server. Lower-numbered ports are reserved for common internet protocols (e.g., 80 for HTTP, 443 for HTTPS). Higher numbers can be used for custom services.                                                                        |
 | Path        | /school/byu/user/8014                | The path to the resource on the server. This does not have to match a physical file system; it can be a logical path representing API endpoints, database records, or object schemas.                                                                                               |
 | Parameters  | filter=names&highlight=intro,summary | A list of key-value pairs, also called the **query string**. These provide additional qualifiers, such as filters or formatting instructions for the requested resource.                                                                                                           |
-| Anchor      | summary                              | Also called a **hash** or **fragment ID**, this represents a sub-location within the resource. For HTML, the browser automatically scrolls to the element with a matching ID. Note: Anchors are handled by the browser and are not typically sent to the server.                   |
+| Fragment      | summary                              | Also called a **hash** or **anchor**, this represents a sub-location within the resource. For HTML, the browser automatically scrolls to the element with a matching ID. Note: Anchors are handled by the browser and are not typically sent to the server.                   |
 
 Technically, you can also provide a username and password before the domain name (e.g., `https://user:pass@example.com`). This was used historically for authentication but is now deprecated for security reasons. However, you will still see this convention in database connection strings.
 
