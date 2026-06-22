@@ -184,8 +184,7 @@ Building a chess engine—even just the movement logic—is a classic exercise i
 Instead of using a massive `switch` statement or a long chain of `if-else` blocks to determine how a piece moves, we use polymorphism. By defining a common `ChessPiece` interface, the `ChessBoard` can treat every piece the same way. When the board needs to know the valid moves for a piece at a specific location, it simply calls `piece.pieceMoves(board, position)`. It doesn't need to know if the piece is a Pawn, a Queen, or a Knight; it only cares that the piece knows its own rules.
 
 ```mermaid
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
-
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 classDiagram
     direction TB
     class ChessBoard {
