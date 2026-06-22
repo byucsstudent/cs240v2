@@ -331,6 +331,9 @@
           "type": "instruction",
           "path": "instruction/phase-1-architectural-patterns/phase-1-architectural-patterns.md",
           "id": "e01491b5-6068-4dfa-8518-637d7a6cf1cd",
+          "interactions": [
+            "fcb32d79-ec7c-4f58-bfc5-a7e1bd109c69"
+          ],
           "description": ""
         },
         {
