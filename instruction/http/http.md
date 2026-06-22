@@ -26,7 +26,7 @@ The Uniform Resource Locator (URL) represents the location of a web resource. A 
 
 Analyzing the parts of a URL is a good way to understand how resources are identified. Here is an example URL representing a query to BYU for cities containing "pro" using secure HTTP (HTTPS).
 
-![url](url.png)
+![urlSchema.jpg](urlSchema.jpg)
 
 The URL syntax follows this convention. Note the punctuation used to delimit the various parts. Most parts of the URL are optional; the only required elements are the scheme and the domain name.
 
