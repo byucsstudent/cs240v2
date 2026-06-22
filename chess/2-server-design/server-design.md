@@ -148,7 +148,7 @@ Once you have created your diagram you can create a URL that represents it by se
 
 
 ```masteryls
-{"id":"1e33a2cb-ea86-422c-90e1-f3daad781132","title":"","type":"multiple-choice"}
+{"id":"12d8a68d-22d8-40b7-9cd0-0f6c95633b85", "title":"URL submission", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- Include a section named HTML Deliverable\n- At least two completed checklist items are explained clearly", "urlPrompt":"Convert the user provided URL to create a URL that is the path to the raw GitHub content for the README.md file." }
 Submit the URL your sequence diagram.
 ```
 
