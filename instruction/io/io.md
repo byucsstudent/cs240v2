@@ -23,6 +23,8 @@
 
 Input is the process of reading data from a source. Output is the process of writing data to a destination. Sources and destinations commonly represent devices such as persistent storage (disks), the network, a keyboard, or a printer. They can also represent bytes being pulled from or written to an array or other memory-based structures.
 
+![javaio.jpg](javaio.jpg)
+
 The [java.io](https://docs.oracle.com/javase/20/docs/api/java/io/package-summary.html) package contains many classes and interfaces for working with I/O. The following table lists some of the most commonly used `java.io` classes.
 
 | Class | Purpose |
