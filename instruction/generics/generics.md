@@ -29,6 +29,8 @@ If you attempt to add an integer to `stringList`, the compiler will generate a *
 
 Before generics were introduced in Java 5, developers had to either create a separate class implementation for every supported type or use the `Object` class to represent data. Using `Object` required manual type casting, which is both tedious and error-prone. 
 
+![generics.jpg](generics.jpg)
+
 Consider the following use of a "raw" (non-generic) `ArrayList`:
 
 ```java
