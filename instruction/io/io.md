@@ -157,6 +157,31 @@ public class ReadFile {
 }
 ```
 
+## ☑ Exercise
+
+
+```masteryls
+{"id":"7f4a04df-a0bf-41a2-9992-a29a38532709","title":"Input vs. Output Streams","type":"multiple-choice"}
+In the Java IO framework, what is the fundamental functional difference between an `InputStream` and an `OutputStream`?
+
+- [x] An input stream is used to read data from a source into a program, whereas an output stream is used to write data from a program to a destination.
+- [ ] Input streams transfer data from the program to an external destination, while output streams fetch data from an external source into the program.
+- [ ] Input streams are designed exclusively for handling character-based data, while output streams are used for handling raw byte-based data.
+- [ ] An input stream represents data that has already been processed by the CPU, while an output stream represents data waiting in the system's RAM.
+```
+
+
+```masteryls
+{"id":"8b2838fa-5094-416a-a0c7-4dfab43557e3","title":"Streams vs. Readers","type":"multiple-choice"}
+In Java's `java.io` package, what is the fundamental difference between an `InputStream` and a `Reader`?
+
+- [ ] `InputStream` classes are used for reading data from a source, while `Reader` classes are used for writing data to a destination.
+- [ ] `InputStream` is a concrete class used for unbuffered IO, while `Reader` is an interface used to implement buffered IO.
+- [ ] `InputStream` classes are designed specifically for memory-based buffers, while `Reader` classes are designed specifically for disk-based files.
+- [x] `InputStream` handles data as a sequence of raw 8-bit bytes, whereas `Reader` handles data as a sequence of 16-bit Unicode characters.
+```
+
+
 ## Videos
 
 - 🎥 [Overview (2:50)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9c064639-8e05-4d4c-b458-ad64014cbb24&start=0) - [[transcript]](https://github.com/user-attachments/files/17804847/CS_240_I_O_Overview.pdf)
