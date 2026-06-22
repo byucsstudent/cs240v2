@@ -46,7 +46,26 @@ At the lowest level, Java represents I/O with a data abstraction known as a **st
 
 The two base classes for dealing with byte-oriented streams in Java are [InputStream](https://docs.oracle.com/javase/20/docs/api/java/io/InputStream.html) and [OutputStream](https://docs.oracle.com/javase/20/docs/api/java/io/OutputStream.html). You read data from an `InputStream` and you write data to an `OutputStream`. Both are abstract classes and require a specific subclass to provide functionality. For example, you use a `FileInputStream` to read bytes from a file and a `FileOutputStream` to write bytes to a file. Other subclasses include `ByteArrayOutputStream`, `ObjectOutputStream`, and `SequenceInputStream`.
 
-![Input Output Classes](InputOutputClasses.jpg)
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+classDiagram
+    class ObjectOutputStream {
+        writeObject(Object)
+    }
+    class OutputStream {
+        write(byte)
+    }
+    OutputStream <|-- ObjectOutputStream
+
+    class ByteArrayInputStream {
+        ByteArrayInputStream(byte[])
+    }
+    class InputStream {
+        read() byte
+    }
+    InputStream <|-- ByteArrayInputStream
+```
 
 ## System.in and System.out
 
@@ -145,21 +164,3 @@ public class ReadFile {
 - 🎥 [Readers and Writers (5:15)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=66d67329-cc52-4533-a2b4-ad64015237cf&start=0) - [[transcript]](https://github.com/user-attachments/files/17804852/CS_240_Readers_and_Writers.pdf)
 - 🎥 [The Scanner Class (5:54)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d2b32cd5-aa33-47fc-b261-b1a001104cde&start=0) - [[transcript]](https://github.com/user-attachments/files/17750511/CS_240_The_Scanner_Class_Tokenizing_Input_Transcript.pdf)
 - 🎥 [Other Ways to Read and Write Files (3:57)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=442ead32-4f14-461c-aec5-b1a001122096&start=0) - [[transcript]](https://github.com/user-attachments/files/17750517/CS_240_Other_Ways_to_Read_and_Write_Files_Transcript.pdf)
-
-## Demonstration code
-
-📁 [Compress](example-code/Compress.java)
-
-📁 [CopyFileExample](example-code/CopyFileExample.java)
-
-📁 [Decompress](example-code/Decompress.java)
-
-📁 [LegacyCompress](example-code/LegacyCompress.java)
-
-📁 [LegacyDecompress](example-code/LegacyDecompress.java)
-
-📁 [ScannerExample1](example-code/ScannerExample1.java)
-
-📁 [ScannerExample2](example-code/ScannerExample2.java)
-
-📁 [ScannerExample3](example-code/ScannerExample3.java)
