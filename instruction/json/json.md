@@ -38,6 +38,9 @@ JSON provides a simple yet effective way to share and store data in a textual re
 
  By design, JSON is easily convertible to and from in memory objects, making it a highly convenient data format for serializing data. Because of its simplicity, standardization, and compatibility, JSON has become one of the most popular data formats in the world.
 
+![jsonTransfer.jpg](jsonTransfer.jpg)
+
+
 ### Format
 
 A JSON document contains one of the following data types:
