@@ -321,7 +321,10 @@
           "title": "☑ Phase 1: Chess Game",
           "path": "chess/1-chess-game/chess-game.md",
           "id": "773b3a41-6df9-4796-8894-a9a8ae6036ae",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "92cb273b-e92d-4120-b720-8c40a3a87672"
+          ]
         },
         {
           "title": "Java Input and Output (IO)",
