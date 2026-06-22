@@ -18,8 +18,7 @@
 - How to convert from an `InputStream` to a `Reader` using the `InputStreamReader` class
 - How to convert from a `Writer` to an `OutputStream` using the `OutputStreamWriter` class
 - How to use the `Scanner` class
-- Common uses of the `File` class
-
+- Design patterns demonstrated by java.io.
 ---
 
 Input is the process of reading data from a source. Output is the process of writing data to a destination. Sources and destinations commonly represent devices such as persistent storage (disks), the network, a keyboard, or a printer. They can also represent bytes being pulled from or written to an array or other memory-based structures.
@@ -157,6 +156,74 @@ public class ReadFile {
 }
 ```
 
+## Design Patterns in Java IO: Decorators and Adapters
+
+The Java I/O (`java.io`) library is a classic example of how structural design patterns can be used to create a flexible and extensible framework. Rather than creating a massive class hierarchy that covers every possible combination of data source and processing capability, Java uses the **Decorator** and **Adapter** patterns to allow developers to compose functionality at runtime.
+
+### The Decorator Pattern
+
+The most prominent pattern in Java IO is the **Decorator Pattern**. This pattern allows behavior to be added to an individual object, dynamically, without affecting the behavior of other objects from the same class. In Java IO, "Filter" classes (like `BufferedInputStream`, `DataInputStream`, and `GZIPInputStream`) act as decorators.
+
+Instead of having a class called `BufferedFileInputStream`, Java provides a `FileInputStream` (the component) and a `BufferedInputStream` (the decorator). You "wrap" the stream to add functionality:
+
+```java
+// Composing behavior using the Decorator pattern
+try (InputStream fis = new FileInputStream("data.bin");
+     BufferedInputStream bis = new BufferedInputStream(fis);
+     DataInputStream dis = new DataInputStream(bis)) {
+    
+    int value = dis.readInt(); // Adds data parsing capabilities
+    System.out.println("Read value: " + value);
+} catch (IOException e) {
+    e.printStackTrace();
+}
+```
+
+The diagram below illustrates how decorators wrap the base component to extend its functionality:
+
+```mermaid
+graph TD
+    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
+    
+    Component[InputStream] --> FileStream[FileInputStream]
+    Component --> FilterStream[FilterInputStream / Decorator]
+    FilterStream --> Buffered[BufferedInputStream]
+    FilterStream --> Data[DataInputStream]
+    
+    Buffered -.-> |wraps| Component
+    Data -.-> |wraps| Component
+```
+
+### The Adapter Pattern
+
+The **Adapter Pattern** is used to bridge the gap between two incompatible interfaces. In Java IO, the primary distinction is between **Byte Streams** (8-bit) and **Character Streams** (16-bit Unicode). 
+
+Classes like `InputStreamReader` and `OutputStreamWriter` serve as adapters. They take a byte stream and "adapt" it to a character-based `Reader` or `Writer` interface, handling encoding conversions in the process.
+
+```java
+// Adapting a Byte Stream to a Character Reader
+FileInputStream fis = new FileInputStream("text.txt");
+InputStreamReader reader = new InputStreamReader(fis, "UTF-8");
+
+// Now we can use Reader methods instead of Stream methods
+int data = reader.read(); 
+```
+
+### Best Practices and Anti-Patterns
+
+When working with Java IO design patterns, adhering to established practices ensures your code remains performant and leak-free.
+
+**Good Practices:**
+*   **Use Try-with-Resources:** Always use the `try-with-resources` statement to ensure that streams are closed automatically, preventing memory and file handle leaks.
+*   **Always Buffer:** Reading or writing directly to a disk or network is expensive. Always wrap your base streams in a `BufferedInputStream` or `BufferedReader` unless you have a specific reason not to.
+*   **Specify Charsets:** When using adapters like `InputStreamReader`, explicitly specify the `Charset` (e.g., `StandardCharsets.UTF_8`) to avoid platform-dependent behavior.
+
+**Bad Practices (Anti-patterns):**
+*   **Manual Closing in Finally:** Before Java 7, closing in a `finally` block was standard, but it is error-prone (e.g., if `close()` itself throws an exception). Avoid this in modern Java and use `try-with-resources` instead.
+*   **Ignoring the Decorator Chain:** Don't forget that closing the outermost decorator (the "top" of the wrapper) will automatically close all underlying streams in the chain. You do not need to close each one individually.
+*   **Byte-by-Byte Processing:** Processing large files using `InputStream.read()` without a buffer leads to excessive system calls and poor performance.
+
+
 ## ☑ Exercise
 
 
@@ -180,6 +247,18 @@ In Java's `java.io` package, what is the fundamental difference between an `Inpu
 - [ ] `InputStream` classes are designed specifically for memory-based buffers, while `Reader` classes are designed specifically for disk-based files.
 - [x] `InputStream` handles data as a sequence of raw 8-bit bytes, whereas `Reader` handles data as a sequence of 16-bit Unicode characters.
 ```
+
+
+```masteryls
+{"id":"8d58b3aa-ce96-4f18-8f5f-59a22f5cf918","title":"Identifying IO Design Patterns","type":"multiple-choice"}
+Which design pattern is primarily responsible for the ability to wrap a 'FileInputStream' inside a 'BufferedInputStream' to add performance enhancements without changing the underlying interface?
+
+- [ ] The Singleton Pattern
+- [ ] The Adapter Pattern
+- [x] The Decorator Pattern
+- [ ] The Factory Pattern
+```
+
 
 
 ## Videos
