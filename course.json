@@ -321,6 +321,13 @@
           "path": "instruction/generics/generics.md",
           "id": "88238c79-271a-434c-aa98-5377424c433b",
           "state": "published"
+        },
+        {
+          "title": "Phase 0: Architecture",
+          "type": "instruction",
+          "path": "instruction/phase-0-architecture/phase-0-architecture.md",
+          "id": "4419212e-ba5e-4298-86db-3b3374243973",
+          "description": ""
         }
       ]
     },
