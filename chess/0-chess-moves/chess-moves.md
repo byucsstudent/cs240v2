@@ -33,7 +33,7 @@ In this phase you will implement the shared code that defines the board, pieces,
 The starter code contains the classes defined by the following diagram. However, instead of a full implementation, the methods all simply throw an exception if invoked. The classes are found in the `shared/src/main/java/chess` directory.
 
 ```mermaid
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 
 classDiagram
 
@@ -194,6 +194,15 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 | GitHub History | At least 8 GitHub commits evenly spread over the assignment period that demonstrate proof of work | Prerequisite |
 | Functionality  | All pass off test cases succeed                                                                   |          125 |
 |                | **Total**                                                                                         |      **125** |
+
+
+```masteryls
+{"id":"0bf59ef9-4f30-440c-aad5-0fdcd1bc7778", "title":"Phase 0 submission", "type":"multiple-choice" }
+- [x] All of the phase 0 test cases are passing and my GitHub Commit history complies with the course requirements.
+- [ ] I need to back and do some more work before submitting.
+```
+
+
 
 ## Videos
 
