@@ -148,7 +148,7 @@ Once you have created your diagram you can create a URL that represents it by se
 
 
 ```masteryls
-{"id":"12d8a68d-22d8-40b7-9cd0-0f6c95633b85", "title":"URL submission", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"A UML sequence diagram with the following information:" }
+{"id":"4bf61d3b-e761-4258-a4e5-9096e04293fc","title":"","type":"multiple-choice"}
 Submit the URL your sequence diagram.
 ```
 
