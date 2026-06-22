@@ -368,7 +368,11 @@
           "title": "JSON and Serialization",
           "path": "instruction/json/json.md",
           "id": "38ed2906-754f-4b0e-a59a-274a422bffcf",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "abf22efc-4823-4ae3-99c5-0847c7a6fd4d",
+            "1bfb9794-0fab-4bdc-8028-3029fe73365d"
+          ]
         },
         {
           "title": "☑ Phase 2: Chess Server Design",
