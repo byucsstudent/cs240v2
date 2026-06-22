@@ -183,7 +183,6 @@ public static Gson createSerializer() {
 
 ````masteryls
 {"id":"abf22efc-4823-4ae3-99c5-0847c7a6fd4d","title":"JSON Syntax Validation","type":"multiple-choice"}
-```
 
 Is the following JSON object valid? If not, identify the error.
 
@@ -218,17 +217,3 @@ Create a valid JSON document that represents a chess piece.
 - 🎥 [Creating GSON Project Dependency (6:06)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7d951c28-2f7e-4e0f-ab83-b1700164a7a7) - [[transcript]](https://github.com/user-attachments/files/17751202/CS_240_Creating_Gson_Project._Dependency_Transcript.pdf)
 - 🎥 [GSON Type Adapters (6:01)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5d389661-eda2-4d90-8168-b17001668914) - [[transcript]](https://github.com/user-attachments/files/17751233/CS_240_Gson_Type_Adapters_Transcript.pdf)
 - 🎥 [Complex Type Adapters (11:59)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5e845943-a45f-430b-8510-b1700168544d) - [[transcript]](https://github.com/user-attachments/files/17751262/CS_240_Complex_Type_Adapter_Transcript.pdf)
-
-## Demonstration code
-
-📁 [domain](example-code/domain)
-
-📁 [generator](example-code/generator)
-
-📁 [parser](example-code/parser)
-
-📁 [typeAdapter](example-code/typeAdapter)
-
-📁 [runtimeTypeAdapter](example-code/runtimeTypeAdapter)
-
-📁 [deserializer](example-code/deserializer)
