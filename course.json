@@ -173,6 +173,9 @@
           "type": "instruction",
           "path": "instruction/phase-0-architecture/phase-0-architecture.md",
           "id": "4419212e-ba5e-4298-86db-3b3374243973",
+          "interactions": [
+            "2aba68a0-07ea-4f09-8b23-a4c5ac90ef86"
+          ],
           "description": ""
         },
         {
