@@ -321,6 +321,13 @@
           "path": "instruction/generics/generics.md",
           "id": "88238c79-271a-434c-aa98-5377424c433b",
           "state": "published"
+        },
+        {
+          "title": "test",
+          "type": "instruction",
+          "path": "instruction/test/test.md",
+          "id": "39c0f8e6-b8d0-4078-84cf-4f35fe434ccb",
+          "description": ""
         }
       ]
     },
