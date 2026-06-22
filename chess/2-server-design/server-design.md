@@ -154,7 +154,7 @@ Submit the URL your sequence diagram.
 
 
 ```masteryls
-{"id":"8a6645dc-7a47-4599-a68a-f699ee29d269", "title":"Essay", "type":"essay", "gradingCriteria":"- The submission must be a URL to SequenceDiagram.org\n- From the provided URL extract the initialData parameter. Decode using LZ-string to recover the original diagram.\n-The decoded diagram should demonstrates a comprehensive flow of requests and responses, including error messages, return HTTP status codes, parameters, and return objects such that implementation could begin for the following use cases: Register, Login, Loguout, List Games, Create Game, Join Game, Clear application." }
+{"id":"8a6645dc-7a47-4599-a68a-f699ee29d269", "title":"Essay", "type":"essay", "gradingCriteria":"- The submission must be a URL to SequenceDiagram.org\n- From the provided URL extract the initialData parameter. Decode using LZ-string to recover the original diagram.\n-The decoded diagram should demonstrates a comprehensive flow of requests and responses, including error messages, return HTTP status codes, parameters, and return objects such that implementation could begin for the following use cases: Register, Login, Loguout, List Games, Create Game, Join Game, Clear application.\n- Each group is represented by a `group` block that contains at least 10 statements. For example:\n```group#orange #FCEDCA\nLogin\nClient -> Server: [POST] /session\n{username, password}\nend```\n\n Should fail because it doesn't contain all of the event sequences necessary to demonstate a valid login." }
 Submit the URL of your sequence diagram hosted on **https://sequenceDiagram.org**.
 
 _Example: https://sequencediagram.org/index.html#initialData=longstringofencodeddata_
