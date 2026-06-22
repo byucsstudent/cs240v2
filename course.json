@@ -353,7 +353,11 @@
           "title": "Java Generics",
           "path": "instruction/generics/generics.md",
           "id": "88238c79-271a-434c-aa98-5377424c433b",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "456c8942-f1aa-46a0-b24e-3337ad969702",
+            "7a8f7f8f-9000-4192-944e-13771867e356"
+          ]
         }
       ]
     },
