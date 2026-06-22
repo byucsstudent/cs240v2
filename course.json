@@ -175,6 +175,7 @@
           "type": "instruction",
           "path": "instruction/phase-0-architecture/phase-0-architecture.md",
           "id": "4419212e-ba5e-4298-86db-3b3374243973",
+          "state": "published",
           "interactions": [
             "4d5832eb-ebe3-415d-b792-094e95b9f305",
             "2aba68a0-07ea-4f09-8b23-a4c5ac90ef86"
@@ -331,6 +332,7 @@
           "type": "instruction",
           "path": "instruction/phase-1-architectural-patterns/phase-1-architectural-patterns.md",
           "id": "e01491b5-6068-4dfa-8518-637d7a6cf1cd",
+          "state": "published",
           "interactions": [
             "fcb32d79-ec7c-4f58-bfc5-a7e1bd109c69"
           ],
@@ -340,7 +342,11 @@
           "title": "Java Input and Output (IO)",
           "path": "instruction/io/io.md",
           "id": "872db001-7cb9-4530-acab-b80d494e7880",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "7f4a04df-a0bf-41a2-9992-a29a38532709",
+            "8b2838fa-5094-416a-a0c7-4dfab43557e3"
+          ]
         },
         {
           "title": "Java Generics",
