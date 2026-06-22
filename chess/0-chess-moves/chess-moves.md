@@ -183,6 +183,14 @@ All of the tests in your project must succeed in order to complete this phase.
 
 To pass off this assignment use the course [auto-grading](https://cs240.click/) tool. If your code passes then your grade will automatically be entered in Canvas.
 
+
+
+```masteryls
+{"id":"0bf59ef9-4f30-440c-aad5-0fdcd1bc7778", "title":"Submission Precheck", "type":"multiple-choice" }
+- [x] All of the test cases are passing and my GitHub Commit history complies with the course requirements.
+- [ ] I need to back and do some more work before submitting.
+```
+
 ### Grading Rubric
 
 > [!IMPORTANT]
@@ -195,12 +203,6 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 | Functionality  | All pass off test cases succeed                                                                   |          125 |
 |                | **Total**                                                                                         |      **125** |
 
-
-```masteryls
-{"id":"0bf59ef9-4f30-440c-aad5-0fdcd1bc7778", "title":"Phase 0 submission", "type":"multiple-choice" }
-- [x] All of the phase 0 test cases are passing and my GitHub Commit history complies with the course requirements.
-- [ ] I need to back and do some more work before submitting.
-```
 
 
 
