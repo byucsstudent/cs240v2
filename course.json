@@ -165,9 +165,7 @@
           "path": "chess/0-chess-moves/chess-moves.md",
           "id": "807a1d1b-6dff-4ccb-a7bb-3293602b7931",
           "state": "published",
-          "interactions": [
-            "2aba68a0-07ea-4f09-8b23-a4c5ac90ef86"
-          ],
+          "interactions": [],
           "description": ""
         },
         {
@@ -323,13 +321,6 @@
           "path": "instruction/generics/generics.md",
           "id": "88238c79-271a-434c-aa98-5377424c433b",
           "state": "published"
-        },
-        {
-          "title": "Phase 0: Architecture",
-          "type": "instruction",
-          "path": "instruction/phase-0-architecture/phase-0-architecture.md",
-          "id": "679b3bf2-3368-4cba-bbe5-d8df4fc7a863",
-          "description": ""
         }
       ]
     },
