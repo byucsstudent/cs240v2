@@ -300,7 +300,10 @@
           "title": "Phase 1: Getting Started",
           "path": "chess/1-chess-game/getting-started.md",
           "id": "2df6f94b-6d13-48e7-ba02-e820a93e3242",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "d3918a97-5dfd-45e0-99de-2eb8c7636785"
+          ]
         },
         {
           "title": "☑ Phase 1: Chess Game",
