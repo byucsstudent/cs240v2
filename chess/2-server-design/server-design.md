@@ -143,7 +143,16 @@ You can decompose your handlers, services, and data access components into multi
 
 ### Pass Off, Submission, and Grading
 
-Once you have created your diagram you can create a URL that represents it by selecting the `export diagram` tool found on the toolbar to the left of the application. In the export dialog select `Presentation Mode Link` and copy the URL. Submit the URL to the `Chess Server Design` Canvas Assignment.
+Once you have created your diagram you can create a URL that represents it by selecting the `export diagram` tool found on the toolbar to the left of the application. In the export dialog select `Presentation Mode Link` and copy the URL.
+
+
+```masteryls
+{"id":"1f493bb2-b96e-4335-ac75-f2304f5c8493","title":"","type":"multiple-choice"}
+Simple **submission** by url
+```
+
+
+ Submit the URL to the `Chess Server Design` Canvas Assignment.
 
 ![sequencediagram.org](sequence-diagram-org.gif)
 
