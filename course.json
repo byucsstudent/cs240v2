@@ -327,6 +327,13 @@
           ]
         },
         {
+          "title": "Phase 1: Architectural Patterns",
+          "type": "instruction",
+          "path": "instruction/phase-1-architectural-patterns/phase-1-architectural-patterns.md",
+          "id": "e01491b5-6068-4dfa-8518-637d7a6cf1cd",
+          "description": ""
+        },
+        {
           "title": "Java Input and Output (IO)",
           "path": "instruction/io/io.md",
           "id": "872db001-7cb9-4530-acab-b80d494e7880",
@@ -337,13 +344,6 @@
           "path": "instruction/generics/generics.md",
           "id": "88238c79-271a-434c-aa98-5377424c433b",
           "state": "published"
-        },
-        {
-          "title": "Phase 1: Architectural Patterns",
-          "type": "instruction",
-          "path": "instruction/phase-1-architectural-patterns/phase-1-architectural-patterns.md",
-          "id": "e01491b5-6068-4dfa-8518-637d7a6cf1cd",
-          "description": ""
         }
       ]
     },
