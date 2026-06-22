@@ -98,13 +98,6 @@ public class Box<T> {
 }
 ```
 
-### Variance and the Liskov Substitution Principle (LSP)
-
-Generics introduce the concept of **Variance** through wildcards (`? extends T` and `? super T`). This is a direct application of the **Liskov Substitution Principle**, which states that objects of a superclass should be replaceable with objects of its subclasses without breaking the application. In Java Generics, however, a `List<Integer>` is not a subtype of `List<Number>`. To restore the flexibility required by LSP in API design, we use the **PECS (Producer Extends, Consumer Super)** mnemonic:
-
-*   **Producer Extends:** If you need a collection to produce items (read from it), use `<? extends T>`.
-*   **Consumer Super:** If you need a collection to consume items (write to it), use `<? super T>`.
-
 ### Key Design Benefits
 
 The integration of generics into software design provides several architectural advantages:
@@ -123,15 +116,25 @@ Generics seem complicated with strange syntax. I don't understand why I really n
 ```
 
 
-```masteryls
-{"id":"7a8f7f8f-9000-4192-944e-13771867e356","title":"Understanding PECS and LSP","type":"multiple-choice"}
-When designing a method that copies elements from a source list to a destination list, which signature best follows the design principle of maximizing API flexibility while maintaining type safety?
+````masteryls
+{"id":"f470d4bb-9996-49d1-8e91-6bb2a7337fa6","title":"Java Generics Bounded Wildcards","type":"multiple-choice"}
+Consider the following Java method which uses a bounded wildcard. Which of the following operations inside the method will cause a **compile-time error**?
 
-- [ ] `public <T> void copy(List<T> dest, List<T> src)`
-- [ ] `public <T> void copy(List<? extends T> dest, List<? super T> src)`
-- [x] `public <T> void copy(List<? super T> dest, List<? extends T> src)`
-- [ ] `public <T> void copy(List<Object> dest, List<T> src)`
+```java
+public void processElements(List<? extends Number> elements) {
+    Number num = elements.get(0);
+    Object obj = elements.get(0);
+    elements.add(null);
+    elements.add(10.5);
+}
 ```
+
+- [ ] `Number num = elements.get(0);`
+- [ ] `Object obj = elements.get(0);`
+- [x] `elements.add(10.5);`
+- [ ] `elements.add(null);`
+````
+
 
 
 ## Videos
