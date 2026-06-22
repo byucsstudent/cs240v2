@@ -145,6 +145,29 @@ You can decompose your handlers, services, and data access components into multi
 
 Once you have created your diagram you can create a URL that represents it by selecting the `export diagram` tool found on the toolbar to the left of the application. In the export dialog select `Presentation Mode Link` and copy the URL.
 
+
+
+```masteryls
+{"id":"9f81762a-9466-41b7-bf99-df104bf2a2e0", "title":"Phase 2 submission", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"A UML sequence diagram that demonstrates a comprehensive flow of requests and responses, including error messages, return HTTP status codes, parameters, and resturn objects such that implementation could begin for the following use cases. Each group in the diagram should contain multiple requests and responses between the diagrams objects:\nClear: Clears the database. Removes all users, games, and authTokens.\nRegister: Register a new user.\nLogin: Logs in an existing user (returns a new authToken)\nLogout: Logs out the user represented by the provided authToken.\nList Games: Verifies the provided authToken and gives a list of all games.\nCreate Game: Verifies the provided authToken and creates a new game.\nJoin Game: Verifies the provided authToken. Checks that the specified game exists, and adds the caller as the requested color to the game." }
+Submit the URL your sequence diagram.
+```
+
+
+```masteryls
+{"id":"8a6645dc-7a47-4599-a68a-f699ee29d269", "title":"Essay", "type":"essay", "gradingCriteria":"- The submission must be a URL to SequenceDiagram.org\n- From the provided URL extract the initialData parameter. Decode it as Base64, URL-safe Base64, DEFLATE, zlib, LZ-string, or other common compression formats used by SequenceDiagram.org until the original text is recovered.\n-The decoded diagram should demonstrates a comprehensive flow of requests and responses, including error messages, return HTTP status codes, parameters, and return objects such that implementation could begin for the following use cases: Register, Login, Loguout, List Games, Create Game, Join Game, Clear application." }
+Submit the URL of your sequence diagram hosted on **https://sequenceDiagram.org**.
+
+_Example: https://sequencediagram.org/index.html#initialData=longstringofencodeddata_
+
+This will do an initial pass to examine your diagram. Further review will determine your final grade.
+```
+
+
+```masteryls
+{"id":"8ea4bfa2-d7d0-4084-b6e3-5fa3ef172ac2","title":"Phase 2 submission","type":"url-submission","syncGrade":false,"autoGrade":false,"validateUrl":true,"gradingCriteria":"A UML sequence diagram that demonstrates a comprehensive flow of requests and responses, including error messages, return HTTP status codes, parameters, and return objects such that implementation could begin for the following use cases: Register, Login, Loguout, List Games, Create Game, Join Game, Clear application. Each group is represented by a `group` block that contains at least 10 statements. For example:\n```group#orange #FCEDCA\nLogin\nClient -> Server: [POST] /session\n{username, password}\nend```\n\n Should fail because it doesn't contain all of the event sequences necessary to demonstate a valid login."}
+Submit the URL your sequence diagram.
+```
+
  Submit the URL to the `Chess Server Design` Canvas Assignment.
 
 ![sequencediagram.org](sequence-diagram-org.gif)
