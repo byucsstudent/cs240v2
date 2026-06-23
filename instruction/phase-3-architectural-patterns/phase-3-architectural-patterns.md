@@ -86,6 +86,8 @@ public class ChessServer {
 | **Circular Dependencies** | The Service layer calling the Server, or two Services calling each other directly. | Ensure a strict top-down flow: Server -> Service -> DAO. |
 | **Hardcoding Dependencies** | Using `new` to instantiate dependencies inside a constructor. | Use Constructor Injection to pass dependencies from the main application entry point. |
 
+## ☑ Exercise
+
 ```masteryls
 {"id":"b6c16aa7-1d68-4f2d-b159-d3da5e8e838a","title":"Identifying Layer Responsibilities","type":"multiple-choice"}
 In a properly architected Javalin chess application, which layer is responsible for determining if a move results in a "Checkmate" state?
