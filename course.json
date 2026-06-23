@@ -505,7 +505,10 @@
           "title": "SQL",
           "path": "instruction/db-sql/db-sql.md",
           "id": "8b21a842-4986-4984-af7f-457bff716739",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "b99232fb-8952-4891-820d-3d43c212c380"
+          ]
         },
         {
           "title": "JDBC",
