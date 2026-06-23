@@ -1,4 +1,4 @@
-# Getting Started
+# Phase 0: Getting Started
 
 At this point, you should have already made your own copy of the [Chess GitHub Repository](../chess-github-repository/chess-github-repository.md) and made changes from the command line. Now, we will open the project in an Integrated Development Environment (IDE). IDEs assist developers when working on large software projects by providing tools for writing, debugging, and testing code.
 
