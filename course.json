@@ -453,7 +453,10 @@
           "title": "Style Checking",
           "path": "instruction/style-checker/style-checker.md",
           "id": "1d84be1f-b7e0-4576-a716-daa4c7173511",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "95075348-bcd9-420f-83e3-02a4fb0aef05"
+          ]
         },
         {
           "title": "Unit Testing",
