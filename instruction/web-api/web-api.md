@@ -497,36 +497,46 @@ The Single Responsibility Principle states that a class or module should have on
 #### The "Bad" Example: Overloaded server class
 In this example, the server class is doing everything: validating, processing logic, and database management. This is difficult to test and maintain.
 
-```javascript
+```java
 // BAD: Violates SRP and Separation of Concerns
-app.post('/orders', async (req, res) => {
+app.post("/orders", ctx -> {
     // 1. Validation Logic
-    if (!req.body.items) return res.status(400).send("No items");
+    OrderRequest req = new Gson().fromJson(ctx.body(), OrderRequest.class);
+    if (req.items == null) {
+        ctx.status(400);
+        ctx.result("No items");
+        return;
+    }
 
     // 2. Business Logic (Calculating totals)
-    let total = 0;
-    req.body.items.forEach(item => total += item.price);
+    double total = 0;
+    for (var item : req.items) {
+        total += item.price;
+    }
 
     // 3. Data Access Logic (Raw DB query)
-    const result = await db.query('INSERT INTO orders (total) VALUES ($1)', [total]);
+    database.executeUpdate("INSERT INTO orders (total) VALUES (" + total + ")");
     
-    res.status(201).send(result);
+    ctx.status(201);
+    ctx.result("Order created");
 });
 ```
 
 #### The "Good" Example: Delegated Responsibility
 Here, the server class only handles the "Web" part of the Web API, delegating the heavy lifting to specialized services.
 
-```javascript
+```java
 // GOOD: Follows SRP
-app.post('/orders', async (req, res) => {
+app.post("/orders", ctx -> {
     try {
         // Controller only handles the Request/Response cycle
-        const orderData = req.body;
-        const newOrder = await OrderService.createOrder(orderData);
-        return res.status(201).json(newOrder);
-    } catch (error) {
-        return res.status(400).json({ error: error.message });
+        OrderRequest orderData = new Gson().fromJson(ctx.body(), OrderRequest.class);
+        Order newOrder = orderService.createOrder(orderData);
+        ctx.status(201);
+        ctx.json(newOrder);
+    } catch (Exception error) {
+        ctx.status(400);
+        ctx.json(Map.of("error", error.getMessage()));
     }
 });
 ```
