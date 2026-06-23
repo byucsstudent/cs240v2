@@ -385,7 +385,11 @@
           "title": "HTTP",
           "path": "instruction/http/http.md",
           "id": "496c90f3-4c8d-446c-a5a3-b21bdacbc209",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "f4e03e17-bc29-4e17-b48e-45c138c3abfb",
+            "569eaf90-5ac2-46a1-a115-fe54bb1685ad"
+          ]
         },
         {
           "title": "cURL",
