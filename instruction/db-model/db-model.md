@@ -4,14 +4,6 @@
 
 🖥️ [Lecture Videos](#videos)
 
-![Edgar Cobb](edgar-codd.png)
-
-> _source: [Wikipedia](https://en.wikipedia.org/wiki/Edgar_F._Codd)_
-
-> “At the time, Nixon was normalizing relations with China. I figured that if he could normalize relations, then so could I.”
->
-> — Edgar Cobb
-
 ### 🔑 Key points
 
 - How data is represented in the relational model
@@ -20,6 +12,14 @@
 - What makes a good primary key
 - How to model inheritance relationships in the relational model
 - How to represent a data model in an ERD
+
+![Edgar Cobb](edgar-codd.png)
+
+> _source: [Wikipedia](https://en.wikipedia.org/wiki/Edgar_F._Codd)_
+
+> “At the time, Nixon was normalizing relations with China. I figured that if he could normalize relations, then so could I.”
+>
+> — Edgar Cobb
 
 ---
 
