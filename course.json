@@ -423,7 +423,10 @@
           "title": "☑ Phase 3: Chess Web API",
           "path": "chess/3-web-api/web-api.md",
           "id": "8c6cf5d7-89e5-4af1-a3f7-6b25e8dfed82",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "8e3c0adc-1d43-44d3-b12d-32d81b0db1a6"
+          ]
         },
         {
           "title": "Writing Quality Code",
