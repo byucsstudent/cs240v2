@@ -316,6 +316,30 @@ The following table summarizes the commands covered in this topic:
 | CREATE VIEW     | Creates a virtual table based on a query.                               | `CREATE VIEW cats AS SELECT * FROM pet WHERE type = 'cat';`                                                                  |
 | DROP VIEW       | Deletes a view.                                                         | `DROP VIEW cats;`                                                                                                            |
 
+## ☑ Exercise
+
+
+````masteryls
+{"id":"b99232fb-8952-4891-820d-3d43c212c380","title":"Interpreting a Basic SELECT Statement","type":"multiple-choice"}
+Consider the following MySQL query:
+
+```sql
+SELECT title, author
+FROM books
+WHERE pages > 300
+ORDER BY title DESC;
+```
+
+What will be the result of executing this query?
+
+- [ ] It returns every column for books that have 300 or more pages, sorted alphabetically by title from A to Z.
+- [ ] It returns only the `title` and `author` for every book in the table, regardless of page count, sorted by title.
+- [x] It returns the `title` and `author` of books with more than 300 pages, sorted by the title in reverse alphabetical order.
+- [ ] It updates the `books` table to set the page count to 300 for any book where the title starts with the letter D.
+````
+
+
+
 ## Videos
 
 - 🎥 [Structured Query Language (2:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4f5a6bfe-5170-4c3c-97e8-ad660148d05a&start=0) - [[transcript]](https://github.com/user-attachments/files/17780823/CS_240_Structured_Query_Language_.SQL.pdf)
@@ -324,11 +348,3 @@ The following table summarizes the commands covered in this topic:
 - 🎥 [Inserting, Updating, and Deleting Rows (6:40)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=203b8c65-d726-4282-8912-b1a0011f18e5&start=0) - [[transcript]](https://github.com/user-attachments/files/17737783/CS_240_Inserting_Updating_and_Deleting_Rows_Transcript.pdf)
 - 🎥 [Retrieving Data with SQL Queries (11:15)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e7083e5f-66a8-425f-be92-ad6601513cbd&start=0) - [[transcript]](https://github.com/user-attachments/files/17780824/CS_240_Retrieving_Data_with_SQL_Queries.pdf)
 - 🎥 [Database Transactions (3:46)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6e75d23e-4075-4a27-85d0-ad6601548134&start=0)- [[transcript]](https://github.com/user-attachments/files/17780825/CS_240_Database_Transactions.pdf)
-
-## Demonstration code
-
-📁 [Book.java](example-code/Book.java)
-
-📁 [DatabaseAccessExample.java](example-code/DatabaseAccessExample.java)
-
-📁 [create-db.sql.txt](example-code/create-db.sql.txt)
