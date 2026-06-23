@@ -12,15 +12,15 @@
 - Web basics: URLs and the HTTP protocol (headers, methods, and body)
 - URL scheme syntax
 
----
-
-## URL
 
 ![Tim Berners Lee](timBernersLee.jpg)
 
 > “You affect the world by what you browse”
 >
 > — Tim Berners-Lee, (**Source**: _Answers for Young People_)
+---
+
+## URL
 
 The Uniform Resource Locator (URL) represents the location of a web resource. A web resource can be anything: a web page, font, image, video stream, database record, or JSON object. It can also be ephemeral, such as a visitation counter or a gaming session.
 
@@ -31,7 +31,7 @@ Analyzing the parts of a URL is a good way to understand how resources are ident
 The URL syntax follows this convention. Note the punctuation used to delimit the various parts. Most parts of the URL are optional; the only required elements are the scheme and the domain name.
 
 ```yaml
-<scheme>://<domain name>:<port>/<path>?<parameters>#<fragment>
+<scheme>://<domain name>:<port>/<path>?<query string>#<fragment>
 ```
 
 | Part        | Example                              | Meaning                                                                                                                                                                                                                                                                             |
@@ -40,7 +40,7 @@ The URL syntax follows this convention. Note the punctuation used to delimit the
 | Domain name | byu.edu                              | The domain name that owns the resource represented by the URL.                                                                                                                                                                                                                      |
 | Port        | 3000                                 | The numbered network port used to connect to the server. Lower-numbered ports are reserved for common internet protocols (e.g., 80 for HTTP, 443 for HTTPS). Higher numbers can be used for custom services.                                                                        |
 | Path        | /school/byu/user/8014                | The path to the resource on the server. This does not have to match a physical file system; it can be a logical path representing API endpoints, database records, or object schemas.                                                                                               |
-| Parameters  | filter=names&highlight=intro,summary | A list of key-value pairs, also called the **query string**. These provide additional qualifiers, such as filters or formatting instructions for the requested resource.                                                                                                           |
+| Query string  | filter=names&highlight=intro,summary | A list of key-value pairs, also called the **query string**. These provide additional qualifiers, such as filters or formatting instructions for the requested resource.                                                                                                           |
 | Fragment      | summary                              | Also called a **hash** or **anchor**, this represents a sub-location within the resource. For HTML, the browser automatically scrolls to the element with a matching ID. Note: Anchors are handled by the browser and are not typically sent to the server.                   |
 
 Technically, you can also provide a username and password before the domain name (e.g., `https://user:pass@example.com`). This was used historically for authentication but is now deprecated for security reasons. However, you will still see this convention in database connection strings.
@@ -178,6 +178,25 @@ Headers provide metadata about the request or response, such as security tokens,
 ## Body
 
 The body contains the actual data being transferred. Its format is defined by the `Content-Type` header. Common formats include HTML (`text/html`), images (`image/png`), JSON (`application/json`), and JavaScript (`text/javascript`). While `GET` requests typically do not have a body, `POST` and `PUT` requests use the body to send data to the server.
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"f4e03e17-bc29-4e17-b48e-45c138c3abfb","title":"Identifying URL Components","type":"multiple-choice"}
+In a standard URL (Uniform Resource Locator), which segment is used to pass data to the server as a series of key-value pairs, typically following the resource path and starting with a question mark (`?`)?
+
+- [ ] The fragment
+- [x] The query string
+- [ ] The scheme
+- [ ] The hostname
+```
+
+```masteryls
+{"id":"569eaf90-5ac2-46a1-a115-fe54bb1685ad", "title":"Essay", "type":"essay" }
+Describe the different parts of an HTTP request.
+```
+
 
 ## Videos
 
