@@ -496,7 +496,10 @@
           "title": "MySQL",
           "path": "instruction/mysql/mysql.md",
           "id": "25c3b096-518e-438e-88dd-3443731f74d4",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "19d8fb82-cb67-4849-b5d1-2fce2786f6b7"
+          ]
         },
         {
           "title": "SQL",
