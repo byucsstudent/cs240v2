@@ -415,9 +415,7 @@
           "path": "chess/3-web-api/getting-started.md",
           "id": "afa916e8-a9dc-4b25-8c82-56f38395cb8e",
           "state": "published",
-          "interactions": [
-            "df527bbe-1658-4bff-855a-9ac01e1ea6d1"
-          ]
+          "interactions": []
         },
         {
           "title": "☑ Phase 3: Chess Web API",
