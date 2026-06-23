@@ -4,6 +4,12 @@
 
 🖥️ [Lecture Videos](#videos)
 
+### 🔑 Key points
+
+- MySQL is a commonly used relational database
+
+___
+
 `MySQL` is an open source relational database that commonly powers many popular applications and websites. Learning how MySQL works will help you understand the relational data model, give you experience with an industry standard tool, and teach you |how to use it to power your applications.
 
 ## SQL Server Installation
