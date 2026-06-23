@@ -1,4 +1,4 @@
-# Getting Started
+# Phase 4: Getting Started
 
 The Starter Code has three folders, `resources`, `dataaccess`, and `passoff/server`. Complete the following steps to move the starter code into your project for this phase.
 
