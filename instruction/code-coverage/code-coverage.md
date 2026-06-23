@@ -38,6 +38,20 @@ Code coverage can also provide a false sense of security if the testing relies s
 
 Despite these limitations, code coverage is a vital indicator of testing quality. It highlights problematic areas that require review, particularly in code that is highly complex, has a high branching factor, or contains logic paths that are rarely executed.
 
+## ☑ Exercise
+
+
+```masteryls
+{"id":"4057882b-96e0-4013-8f40-6f182d587ba5","title":"Determining Ideal Code Coverage","type":"multiple-choice"}
+When establishing a target for code coverage within a software development team, which of the following best describes the "right" percentage to aim for?
+
+- [ ] 100% coverage should always be the mandatory goal to ensure that every line of code is executed and guaranteed to be bug-free.
+- [ ] Exactly 80% coverage, as this is the industry-standard threshold required for software to be considered "production-ready."
+- [ ] Coverage should be kept below 50% to ensure that the development team is focusing on writing new features rather than maintaining test suites.
+- [x] There is no universal "correct" percentage; the target should be based on the project's risk profile and the point of diminishing returns.
+```
+
+
 ## Videos
 
 - 🎥 [Code Coverage Overview (8:18)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5fc1d70d-9c34-41f1-b195-b1a001161540&start=0) - [[transcript]](https://github.com/user-attachments/files/17707673/CS_240_Code_Coverage_Overview_Transcript.pdf)
