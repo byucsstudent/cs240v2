@@ -193,6 +193,43 @@ In object-oriented programming, we use inheritance (e.g., a `Dog` *is a* `Pet`).
 
 These relationships, along with one-to-one, one-to-many, and many-to-many relationships, are visually represented using **Entity Relationship Diagrams (ERDs)**.
 
+## Engineering Principles in the Relational Model
+
+The relational model is more than just a method for storing data; it is a masterclass in software engineering design principles. At its core, the model leverages **abstraction**, **separation of concerns**, and **declarative programming** to manage complexity. By decoupling how data is logically organized from how it is physically stored, the relational model allows systems to evolve without breaking the applications that depend on them.
+
+### Data Independence and Abstraction
+One of the most significant contributions of the relational model is the concept of **Data Independence**. In early database systems, the application code had to know exactly how data was laid out on the disk (e.g., specific byte offsets). If the file format changed, the code broke. The relational model introduces a logical layer—the table—which acts as an abstraction.
+
+*   **Physical Data Independence:** You can change storage structures (like moving from a B-Tree index to a Hash index) without modifying the SQL queries.
+*   **Logical Data Independence:** You can change the schema (like splitting a table) and use "Views" to ensure the original interface remains available to the application.
+
+```mermaid
+graph LR
+    User[Application Code] -- "Declarative Query (SQL)" --> Logic[Logical Schema: Tables/Constraints]
+    Logic -- "Storage Engine" --> Phys[Physical Schema: Files/Indexes]
+    
+    subgraph "Separation of Concerns"
+    Logic
+    Phys
+    end
+
+    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
+```
+
+### Normalization and the DRY Principle
+Software engineers often follow the **DRY (Don't Repeat Yourself)** principle to reduce redundancy and maintain consistency. In the relational model, this is achieved through **Normalization**. By decomposing large, redundant tables into smaller, related tables, we ensure that a single piece of information is stored in exactly one place.
+
+For example, instead of storing a customer's address every time they place an order, we store a `customer_id`. This prevents "update anomalies"—where you update an address in one record but forget to update it in another.
+
+### Declarative vs. Imperative Design
+Relational databases promote a **declarative approach**. In imperative programming, you tell the computer *how* to do something (loop through a list, check a condition, move a pointer). In the relational model, you use SQL to describe *what* you want, and the database's query optimizer determines the most efficient execution plan.
+
+| Feature | Imperative Approach (Code) | Declarative Approach (Relational) |
+| :--- | :--- | :--- |
+| **Focus** | Process and Flow | Result and Logic |
+| **Optimization** | Manual (Developer writes loops) | Automatic (Query Optimizer) |
+| **Maintenance** | High (Changes require code refactor) | Low (Schema and Logic are decoupled) |
+
 ## Working with Relational Data
 
 In practical terms, relational data is stored in a Relational Database Management System (RDBMS). For this course, we will use **MySQL**. The language used to read, write, and query this data is **Structured Query Language (SQL)**, a declarative language we will explore in future topics.
@@ -227,6 +264,15 @@ What is the primary benefit of "Logical Data Independence" in the relational mod
 - [ ] It forces the user to write manual loops to navigate through physical memory addresses.
 ```
 
+```masteryls
+{"id":"1d3d77ad-0b50-47c5-933c-a3f4b715b436","title":"Understanding Data Independence","type":"multiple-choice"}
+Which software engineering principle is most directly supported by the ability to change a database's underlying indexing strategy without modifying the application's source code?
+
+- [ ] Encapsulation through private class members
+- [ ] The DRY (Don't Repeat Yourself) principle
+- [x] Physical Data Independence
+- [ ] Imperative logic flow
+```
 
 ## Videos
 
