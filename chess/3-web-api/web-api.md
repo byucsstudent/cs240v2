@@ -217,7 +217,42 @@ Here are some examples of the kinds of methods your DAOs will need to support. T
 
 In order to abstract from your services where data is actually being stored, you must create a Java interface that hides all of the implementation details for accessing and retrieving data. In this phase you will create an implementation of your data access interface that stores your server’s data in main memory (RAM) using standard data structures (maps, sets, lists). In the next phase you will create an implementation of the data access interface that uses an external SQL database.
 
-![data access classes](data-access-classes.png)
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
+classDiagram
+    direction LR
+
+    class UserDAO {
+        <<interface>>
+    }
+
+    class MemoryUserDAO
+    class SQLUserDAO
+
+    UserDAO <|.. MemoryUserDAO
+    UserDAO <|.. SQLUserDAO
+
+    class GameDAO {
+        <<interface>>
+    }
+
+    class MemoryGameDAO
+    class SQLGameDAO
+
+    GameDAO <|.. MemoryGameDAO
+    GameDAO <|.. SQLGameDAO
+
+    class AuthDAO {
+        <<interface>>
+    }
+
+    class MemoryAuthDAO
+    class SQLAuthDAO
+
+    AuthDAO <|.. MemoryAuthDAO
+    AuthDAO <|.. SQLAuthDAO
+```
 
 By using an interface you can hide, or encapsulate, how your data access works from the code that does not need to be aware of those details. This creates a flexible architecture that allows you to change how things work without rewriting all of your code. We see the benefits of this pattern in two ways.
 
