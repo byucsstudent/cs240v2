@@ -1,4 +1,4 @@
-# Getting Started
+# Phase 1: Getting Started
 
 Complete the following steps to move the starter code into your project for this phase.
 
