@@ -20,6 +20,10 @@
 
 Now that you understand how HTTP works at a theoretical level you can write Java code to make requests from an HTTP client and respond from an HTTP server.
 
+For example, with the Chess application we create a server 
+
+![server.png](server.png)
+
 ## Web Server
 
 For our server code, we will use a library called [Javalin](https://javalin.io/). `Javalin` makes it very easy to write an HTTP server that handles multiple endpoint requests. An endpoint is the code that handles a specific HTTP resource request. You can think of the service endpoints as being the public methods of the service interface.
