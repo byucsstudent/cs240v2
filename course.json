@@ -471,7 +471,10 @@
           "title": "Code Coverage",
           "path": "instruction/code-coverage/code-coverage.md",
           "id": "0412f5dd-9767-420a-b2c4-3b64c6b3e16c",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "4057882b-96e0-4013-8f40-6f182d587ba5"
+          ]
         }
       ]
     },
