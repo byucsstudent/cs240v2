@@ -395,7 +395,10 @@
           "title": "cURL",
           "path": "instruction/curl/curl.md",
           "id": "990189e6-efe2-44e9-8313-767c9074da9b",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "dc18f662-992d-4400-be14-87047258c032"
+          ]
         },
         {
           "title": "Web API",
