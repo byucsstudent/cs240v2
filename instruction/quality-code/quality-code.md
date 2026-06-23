@@ -340,7 +340,31 @@ for (var i : Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7)) {
 
 Thinking through what you are trying to code before you start coding often leads to better quality code. You can do this by creating class or sequence diagrams and then verbally stepping through the common use cases.
 
-![Sequence Diagram](sequence-diagram.png)
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
+sequenceDiagram
+    participant Client
+    participant Server
+    participant ChessGame
+    participant ChessBoard
+    participant ChessPiece
+
+    Client->>Server: validMoves()
+    activate Server
+
+    Server->>ChessGame: validMoves()
+    activate ChessGame
+
+    ChessGame->>ChessBoard: getPiece()
+    ChessGame->>ChessPiece: pieceMoves()
+
+    deactivate ChessGame
+    Server-->>Client: Collection<ChessMove>
+    deactivate Server
+
+    Client->>Server: makeMove(ChessMove)
+```
 
 You can also use a technique called pseudo-code, where you write out what the code does in plain text. For example:
 
