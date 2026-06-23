@@ -485,7 +485,12 @@
           "title": "Relational Model",
           "path": "instruction/db-model/db-model.md",
           "id": "b2865075-48d5-4df5-a507-adea207c51a5",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "919d8714-ed1e-46f4-bff4-a325ad6faa82",
+            "b71c6678-edec-4df5-91cf-0ea35c052fe9",
+            "bff5e1a4-9f58-4a88-9b7d-3f8a224a6cf4"
+          ]
         },
         {
           "title": "MySQL",
