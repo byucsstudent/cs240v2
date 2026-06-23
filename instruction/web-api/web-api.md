@@ -465,6 +465,119 @@ java -cp ../../lib/gson-2.10.1.jar ClientCurlExample.java POST 'http://localhost
 {name=joe, count=3.0}
 ```
 
+
+## Engineering Principles in Web API Design
+
+Web APIs are not just endpoints for data transfer; they are the primary interface through which software systems communicate. Applying software engineering principles to Web API development ensures that the server remains maintainable, scalable, and resilient to change. When a web server is poorly designed, it often suffers from "Leaky Abstractions," where internal implementation details (like database schemas) are exposed directly to the consumer, creating tight coupling and fragile systems.
+
+### Separation of Concerns (SoC)
+
+One of the most critical principles in web server design is the **Separation of Concerns**. In a well-architected API, the server logic is typically divided into layers: the **Server** (handling HTTP requests/responses), the **Service Layer** (containing business logic), and the **Data Access Layer** (interacting with the database).
+
+The following diagram illustrates the flow of a request through a structured server:
+
+```mermaid
+graph TD
+    A[Client Request] --> B[Server]
+    B --> C[Service Layer]
+    C --> D[Data Access Layer]
+    D --> E[(Database)]
+    E --> D
+    D --> C
+    C --> B
+    B --> F[Client Response]
+
+    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
+```
+
+### Single Responsibility Principle (SRP)
+
+The Single Responsibility Principle states that a class or module should have one, and only one, reason to change. In the context of a Web API, this means your route handlers should not be responsible for calculating taxes, validating complex business rules, or writing raw SQL queries.
+
+#### The "Bad" Example: Overloaded server class
+In this example, the server class is doing everything: validating, processing logic, and database management. This is difficult to test and maintain.
+
+```javascript
+// BAD: Violates SRP and Separation of Concerns
+app.post('/orders', async (req, res) => {
+    // 1. Validation Logic
+    if (!req.body.items) return res.status(400).send("No items");
+
+    // 2. Business Logic (Calculating totals)
+    let total = 0;
+    req.body.items.forEach(item => total += item.price);
+
+    // 3. Data Access Logic (Raw DB query)
+    const result = await db.query('INSERT INTO orders (total) VALUES ($1)', [total]);
+    
+    res.status(201).send(result);
+});
+```
+
+#### The "Good" Example: Delegated Responsibility
+Here, the server class only handles the "Web" part of the Web API, delegating the heavy lifting to specialized services.
+
+```javascript
+// GOOD: Follows SRP
+app.post('/orders', async (req, res) => {
+    try {
+        // Controller only handles the Request/Response cycle
+        const orderData = req.body;
+        const newOrder = await OrderService.createOrder(orderData);
+        return res.status(201).json(newOrder);
+    } catch (error) {
+        return res.status(400).json({ error: error.message });
+    }
+});
+```
+
+### Don't Repeat Yourself (DRY) and Abstraction
+
+The **DRY principle** is often implemented in web servers via **abstraction**. Instead of repeating authentication or logging logic in every single route handler, common tasks are abstracted into a pipeline that processes the request before it reaches the specific endpoint logic.
+
+*   **Bad Application:** Copy-pasting an authentication block at the top of every single route file.
+*   **Good Application:** Using a central authentication class that automatically protects all routes in a specific group.
+
+### Interface Segregation and Encapsulation
+
+A Web API acts as a contract. By using **Data Transfer Objects (DTOs)**, a server can encapsulate its internal database structure and only expose the fields necessary for the client.
+
+| Principle | Good Application | Bad Application |
+| :--- | :--- | :--- |
+| **Encapsulation** | Returning a `UserDTO` that hides the `password_hash`. | Returning `SELECT * FROM users` directly to the client. |
+| **KISS (Keep It Simple)** | Using standard HTTP status codes (200, 404, 500). | Creating custom "Status" fields inside a 200 OK response body. |
+| **Least Privilege** | API keys that only allow `GET` access to public data. | Using a single "Root" API key for all client integrations. |
+
+
+## ☑ Exercise
+
+
+````masteryls
+{"id":"c95709c4-34f1-4e02-82aa-e2c7584bcc82", "title":"Essay", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+What does the following code do?
+
+```java
+Javalin.create().get("/names", this::listNames)
+
+private void listNames(Context context) {
+    String jsonNames = new Gson().toJson(Map.of("name", names));
+    context.json(jsonNames);
+}
+```
+````
+
+
+```masteryls
+{"id":"0eb7aa48-f799-4522-b7e5-02506de60f63","title":"Identifying Separation of Concerns","type":"multiple-choice"}
+A developer moves all SQL query logic out of a server class route handler and into a separate 'DataAccess' class. Which software engineering principle is being primarily demonstrated?
+
+- [x] Separation of Concerns
+- [ ] DRY (Don't Repeat Yourself)
+- [ ] YAGNI (You Ain't Gonna Need It)
+- [ ] Interface Segregation
+```
+
+
 ## Videos
 
 - Javalin
