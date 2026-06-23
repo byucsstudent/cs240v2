@@ -443,7 +443,11 @@
           "title": "Writing Quality Code",
           "path": "instruction/quality-code/quality-code.md",
           "id": "a0227764-2fb9-47d6-8f64-4f2db685af8a",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "efe6a0a3-b72a-4126-8591-60d39f110906",
+            "d602989d-7d2a-4286-959f-1e864df2aff9"
+          ]
         },
         {
           "title": "Style Checking",
