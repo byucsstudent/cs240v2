@@ -378,6 +378,30 @@ client make move
 
 ```
 
+## ☑ Exercise
+
+
+```masteryls
+{"id":"efe6a0a3-b72a-4126-8591-60d39f110906","title":"Code Readability and Intent","type":"multiple-choice"}
+When aiming to write high-quality, maintainable code, which approach to naming and documentation is considered a best practice?
+
+- [ ] Prioritizing short, single-letter variable names like `i`, `rs`, and `data` to minimize file size and speed up execution.
+- [ ] Writing a detailed comment for every line of code to explain the specific syntax being used.
+- [x] Using descriptive names for variables and functions that clearly communicate their intent and purpose without requiring extra explanation.
+- [ ] Nesting multiple logical operations within a single function to ensure all related tasks are handled in one location.
+```
+
+```masteryls
+{"id":"d602989d-7d2a-4286-959f-1e864df2aff9","title":"Defining Refactoring","type":"multiple-choice"}
+In the context of writing quality code, what is the primary purpose of refactoring?
+
+- [ ] Fixing critical security vulnerabilities and logic bugs discovered during the production phase
+- [x] Improving the internal structure and readability of code without changing its external behavior
+- [ ] Adding new functionality and features to an existing module to meet changing requirements
+- [ ] Rewriting a legacy system from scratch using a more modern programming language or framework
+```
+
+
 ## Videos
 
 - 🎥 [Introduction (3:06)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ea73fd31-9c36-40d5-9e46-ad6b0151100a&start=0) - [[transcript]](https://github.com/user-attachments/files/17805182/CS_240_Writing_Quality_Code_Intro.pdf)
