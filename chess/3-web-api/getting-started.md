@@ -66,4 +66,10 @@ Open a web browser and navigate to `http://localhost:8080` (if you chose a diffe
 
 You can use this interface to test your endpoints as you develop the project.
 
-If you want to understand how this works in greater depth or need help troubleshooting, review the [Web API instruction](../../instruction/web-api/web-api.md).
+
+```masteryls
+{"id":"df527bbe-1658-4bff-855a-9ac01e1ea6d1", "title":"Server", "type":"url-submission", "syncGrade":false, "autoGrade":false, "validateUrl":true, "gradingCriteria":"- The page displays the text Chess Server" }
+Paste the server URL below to verify that it is running correctly.
+
+_Use: https://localhost:8080_
+```
