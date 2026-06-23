@@ -429,6 +429,14 @@
           ]
         },
         {
+          "title": "Phase 3: Architectural Patterns",
+          "type": "instruction",
+          "path": "instruction/phase-3-architectural-patterns/phase-3-architectural-patterns.md",
+          "id": "1ae9b65e-9a5f-413a-b224-de2fbecd11a2",
+          "state": "published",
+          "description": ""
+        },
+        {
           "title": "Writing Quality Code",
           "path": "instruction/quality-code/quality-code.md",
           "id": "a0227764-2fb9-47d6-8f64-4f2db685af8a",
@@ -451,13 +459,6 @@
           "path": "instruction/code-coverage/code-coverage.md",
           "id": "0412f5dd-9767-420a-b2c4-3b64c6b3e16c",
           "state": "published"
-        },
-        {
-          "title": "Phase 3: Architectural Patterns",
-          "type": "instruction",
-          "path": "instruction/phase-3-architectural-patterns/phase-3-architectural-patterns.md",
-          "id": "1ae9b65e-9a5f-413a-b224-de2fbecd11a2",
-          "description": ""
         }
       ]
     },
