@@ -14,25 +14,35 @@
 
 ---
 
-`Structured Query Language` (SQL) is a programming language specifically designed to interact with relational databases. It contains statements for inserting, updating, reading, and deleting data. It also provides commands for managing the database itself and the users who have access to it.
+**Structured Query Language** (SQL) is a programming language specifically designed to interact with relational databases. It includes statements for inserting, updating, reading, and deleting data. It also provides commands for managing the database itself and the users who have access to it.
 
-You can categorize the most commonly used SQL statements into three main groups:
+SQL statements are commonly categorized into three main groups:
 
-1.  **DDL** (Data Definition Language) - `CREATE`, `ALTER`, `DROP`.
-2.  **DML** (Data Manipulation Language) - `INSERT`, `UPDATE`, `DELETE`.
-3.  **DQL** (Data Query Language) - `SELECT`.
+1.  **DDL** (Data Definition Language) – Used for defining structure: `CREATE`, `ALTER`, `DROP`.
+2.  **DML** (Data Manipulation Language) – Used for managing data: `INSERT`, `UPDATE`, `DELETE`.
+3.  **DQL** (Data Query Language) – Used for retrieving data: `SELECT`.
 
-Below is an example of SQL statements used to create a database, create a table, and insert sample data.
+The following example demonstrates SQL statements used to create a database, create a table, and insert sample data.
 
 ```sql
-> CREATE DATABASE pet_store;
-> USE pet_store;
-> CREATE TABLE pet (id int, name varchar(255), type varchar(255));
-> INSERT INTO pet VALUES (93, "Fido", "dog");
-> INSERT INTO pet VALUES (14, "Puddles", "cat");
-> INSERT INTO pet VALUES (77, "Chip", "bird");
-> DESCRIBE pet;
+CREATE DATABASE pet_store;
+USE pet_store;
 
+CREATE TABLE pet (
+    id INT, 
+    name VARCHAR(255), 
+    type VARCHAR(255)
+);
+
+INSERT INTO pet VALUES (93, 'Fido', 'dog');
+INSERT INTO pet VALUES (14, 'Puddles', 'cat');
+INSERT INTO pet VALUES (77, 'Chip', 'bird');
+
+DESCRIBE pet;
+```
+
+**Output of DESCRIBE:**
+```text
 +-------+--------------+------+-----+---------+-------+
 | Field | Type         | Null | Key | Default | Extra |
 +-------+--------------+------+-----+---------+-------+
@@ -42,11 +52,14 @@ Below is an example of SQL statements used to create a database, create a table,
 +-------+--------------+------+-----+---------+-------+
 ```
 
-The following demonstrates a simple query to read all of the pets in the database.
+The following query retrieves specific columns for all pets in the database:
 
 ```sql
-> SELECT id, name, type FROM pet;
+SELECT id, name, type FROM pet;
+```
 
+**Result:**
+```text
 +--------+----------+---------------+
 | id     | name     | type          |
 +--------+----------+---------------+
@@ -58,24 +71,22 @@ The following demonstrates a simple query to read all of the pets in the databas
 
 SQL is a **declarative** programming language. This means you declare *what* you want to achieve rather than providing a series of imperative commands that define *how* to do it.
 
-To fully understand the examples above, we need to examine common SQL statements in more detail.
-
 ## Working with Databases
 
-A database server, or Relational Database Management System (RDBMS), can host one or more databases. You create a database with the `CREATE DATABASE` statement. After creating the database, you execute a `USE` statement to select it for subsequent commands.
+A database server, or Relational Database Management System (RDBMS), can host multiple databases. You create a database with the `CREATE DATABASE` statement. After creation, use the `USE` statement to select it as the active database for subsequent commands.
 
 ```sql
 CREATE DATABASE pet_store;
 USE pet_store;
 ```
 
-Databases have a default character set used to represent bytes as text. Normally, you specify the character set when you execute the `CREATE` request, but you can also modify an existing database using the `ALTER DATABASE` statement. For example, if you want to use UTF-8 to represent text, you would run the following:
+Databases use a default character set to represent bytes as text. While you can specify the character set during the `CREATE` request, you can also modify an existing database using the `ALTER DATABASE` statement. For example, to use UTF-8 (which supports a wide range of international characters and emojis), run:
 
 ```sql
 ALTER DATABASE pet_store CHARACTER SET utf8mb4;
 ```
 
-To delete a database and all of the data it contains, use the `DROP DATABASE` statement. While this is rarely used in production, it is common in development environments when experimenting with table schemas.
+To delete a database and all its contained data, use the `DROP DATABASE` statement. While rarely used in production, this is common in development when resetting schemas.
 
 ```sql
 DROP DATABASE pet_store;
@@ -83,7 +94,7 @@ DROP DATABASE pet_store;
 
 ## Working with Tables
 
-Once you have a database, you can create tables to hold rows representing your objects. A table definition is similar to declaring a class in Java. When you create a table, you must specify each field and its data type.
+Once a database is selected, you can create tables to hold rows of data. A table definition is conceptually similar to declaring a class in Java; you must specify each field (column) and its data type.
 
 ```sql
 CREATE TABLE pet (
@@ -94,13 +105,13 @@ CREATE TABLE pet (
 );
 ```
 
-In this example, each field is followed by the `NOT NULL` clause, meaning a value must be provided for every row inserted.
+In this example, each field is followed by the `NOT NULL` constraint, meaning a value must be provided for every row. 
 
-The `id` field is annotated with the `AUTO_INCREMENT` keyword. This means you do not need to provide an `id` when inserting a row; the database will automatically assign a unique, increasing integer.
+The `id` field uses the `AUTO_INCREMENT` keyword. This allows the database to automatically assign a unique, increasing integer to each new row, so you don't have to provide an ID manually during insertion.
 
 ### Altering Tables
 
-To modify an existing table, use the `ALTER TABLE` statement. The following example adds a `nickname` field after the table has already been created. This alteration does not include the `NOT NULL` clause, so existing rows will have their `nickname` set to `NULL` by default.
+To modify an existing table structure, use `ALTER TABLE`. The following example adds a `nickname` column. Because this alteration does not include a `NOT NULL` clause, existing rows will have their `nickname` set to `NULL` by default.
 
 ```sql
 ALTER TABLE pet ADD COLUMN nickname VARCHAR(255);
@@ -112,73 +123,68 @@ To delete a table entirely, use the `DROP TABLE` statement.
 DROP TABLE pet;
 ```
 
-**Note:** Be certain before executing this command, as there is no way to recover the data once a table is dropped.
+**Note:** Use this command with caution; once a table is dropped, the data cannot be recovered.
 
-It is important to understand that rerunning a `CREATE TABLE` statement does not modify an existing table. If the table already exists, the command will throw an error. You can use the `IF NOT EXISTS` qualifier to prevent this error, but to change a table's definition, you must either `DROP` and recreate it or use an `ALTER TABLE` statement.
+Rerunning a `CREATE TABLE` statement will result in an error if the table already exists. You can use the `IF NOT EXISTS` qualifier to prevent this error. To change a table's definition, you must either `DROP` and recreate it or use `ALTER TABLE`.
 
 ### Primary Keys and Indexes
 
-In addition to fields, the `CREATE TABLE` statement specifies which field is the **primary key**. Primary keys must be unique; attempting to insert two rows with the same key will result in an error. Primary keys are indexed by default because the database assumes you will use the key to query the table.
+The `CREATE TABLE` statement specifies which field acts as the **primary key**. Primary keys must be unique for every row; attempting to insert a duplicate key will result in an error. 
 
-Indexes significantly increase query performance, but they also consume additional storage and memory. You should only create indexes when necessary for performance.
+Primary keys are **indexed** by default. Indexes significantly increase query performance by allowing the database to find rows without scanning the entire table. However, they consume additional storage and can slow down write operations (`INSERT`, `UPDATE`). You should only create indexes on columns that are frequently used in search criteria.
 
-You can create indexes on fields other than the primary key using the `INDEX` keyword. In the example below, an index is added to the `name` field.
+You can create indexes on other fields using the `INDEX` keyword or the `CREATE INDEX` statement:
 
 ```sql
+-- Creating an index during table creation
 CREATE TABLE pet (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
-    type VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
     INDEX (name)
 );
-```
 
-If you decide you need an index after the table is created, use the `CREATE INDEX` statement:
-
-```sql
+-- Adding an index to an existing table
 CREATE INDEX index_name ON pet (name);
 ```
 
-### Types
+### Common SQL Data Types
 
-Below are common SQL data types used when creating tables:
-
-| Data type | Description                              | Example                                                   |
-| --------- | ---------------------------------------- | --------------------------------------------------------- |
-| INT       | Integer numbers.                         | 1, 10, -100                                               |
-| DECIMAL   | Fixed-point decimal numbers.             | 1.23, 100.00, -5.6789                                     |
-| FLOAT     | Single-precision floating-point numbers. | 1.23456789, 100.000000, -5.67890123                       |
-| DOUBLE    | Double-precision floating-point numbers. | 1.234567890123456, 100.00000000000000, -5.678901234567890 |
-| CHAR      | Fixed-length character strings.          | 'A', 'Hello, world!', '1234567890'                        |
-| VARCHAR   | Variable-length character strings.       | 'A', 'Hello, world!', '1234567890'                        |
-| TEXT      | Variable-length text data.               | 'This is a long text string that can be any length.'      |
-| BLOB      | Variable-length binary data.             | `Binary data of any length`                               |
-| DATE      | Date values.                             | '2023-10-14'                                              |
-| TIME      | Time values.                             | '15:43:45'                                                |
-| DATETIME  | Date and time values.                    | '2023-10-14 15:43:45'                                     |
+| Data type | Description | Example |
+| :--- | :--- | :--- |
+| **INT** | Integer numbers. | 1, 10, -100 |
+| **DECIMAL** | Fixed-point numbers (exact precision). | 1.23, 100.00 |
+| **FLOAT** | Single-precision floating-point numbers. | 1.234567 |
+| **DOUBLE** | Double-precision floating-point numbers. | 1.23456789012345 |
+| **CHAR** | Fixed-length character strings. | 'A', 'USA' |
+| **VARCHAR** | Variable-length character strings. | 'Fido', 'Hello World' |
+| **TEXT** | Large variable-length text data. | (A long paragraph) |
+| **BLOB** | Binary Large Object (for images/files). | (Binary data) |
+| **DATE** | Date values (YYYY-MM-DD). | '2023-10-14' |
+| **TIME** | Time values (HH:MM:SS). | '15:43:45' |
+| **DATETIME** | Combined date and time values. | '2023-10-14 15:43:45' |
 
 ## Inserting, Updating, and Deleting Data
 
-Once your table is ready, you can add data using the `INSERT` statement. You must supply values for all `NOT NULL` fields.
+Once your table is defined, you can add data using the `INSERT` statement.
 
 ```sql
 INSERT INTO pet (name, type) VALUES ('Puddles', 'cat');
 ```
 
-To modify existing data, use the `UPDATE` statement. It is critical to include a `WHERE` clause to specify which rows to update. If you omit the `WHERE` clause, **all rows** in the table will be updated.
+To modify existing data, use the `UPDATE` statement. It is critical to include a `WHERE` clause; if you omit it, **every row** in the table will be updated.
 
 ```sql
 UPDATE pet SET name = 'Fido' WHERE id = 1;
 ```
 
-To remove rows, use the `DELETE` statement with a `WHERE` clause. The following deletes all rows where the pet type is 'cat'.
+To remove rows, use the `DELETE` statement. Again, a `WHERE` clause is necessary to avoid deleting all data.
 
 ```sql
 DELETE FROM pet WHERE type = 'cat';
 ```
 
-If you want to delete **all** data from a table while keeping the table structure intact, use the `TRUNCATE` statement.
+If you want to delete **all** rows from a table while keeping its structure (and resetting auto-increment counters), use `TRUNCATE`.
 
 ```sql
 TRUNCATE TABLE pet;
@@ -186,19 +192,23 @@ TRUNCATE TABLE pet;
 
 ## Selecting Data
 
-The `SELECT` statement is the primary way to query data. A basic `SELECT` returns specific columns for every row:
+The `SELECT` statement is used to query data. A basic `SELECT` returns specific columns for every row:
 
 ```sql
 SELECT name, type FROM pet;
 ```
 
-To filter results, add a `WHERE` clause. These can include boolean logic and wildcards. You can also use `LIMIT` to restrict the number of rows returned.
+You can filter results using `WHERE`, sort them with `ORDER BY`, and limit the result count with `LIMIT`.
 
 ```sql
-SELECT name, type FROM pet WHERE type='dog' OR (type='cat' AND name='Puddles') LIMIT 2;
+SELECT name, type 
+FROM pet 
+WHERE type = 'dog' OR (type = 'cat' AND name = 'Puddles') 
+ORDER BY name ASC
+LIMIT 2;
 ```
 
-You can select all columns using `*` or count the total number of rows using the `COUNT` function.
+Use `*` to select all columns or `COUNT()` to return the number of rows.
 
 ```sql
 SELECT * FROM pet;
@@ -207,18 +217,17 @@ SELECT COUNT(*) FROM pet;
 
 ## Joining Tables
 
-To combine data from multiple tables, use a `JOIN` clause. This allows you to create a temporary view that relates rows from different tables. The following example joins the `purchase` and `pet` tables based on matching pet IDs.
+Relational databases often split data into multiple tables to reduce redundancy. To combine this data, use a `JOIN` clause. This relates rows from different tables based on a common column (usually a foreign key).
 
 ```sql
 SELECT purchase.id AS purchaseId, purchase.ownerId, pet.id AS petId, pet.name, pet.type
- FROM purchase JOIN pet ON purchase.petId = pet.id;
+FROM purchase 
+JOIN pet ON purchase.petId = pet.id;
 ```
 
-Given the following source tables:
-
-**Source**
-
-```sql
+**Source Tables:**
+*Purchase Table*
+```text
 +----+-------+---------+
 | id | petId | ownerId |
 +----+-------+---------+
@@ -226,24 +235,20 @@ Given the following source tables:
 |  2 |   891 |       3 |
 |  3 |   895 |       4 |
 +----+-------+---------+
-
-+-----+---------+------+----------+
-| id  | name    | type | nickname |
-+-----+---------+------+----------+
-| 890 | Puddles | cat  | NULL     |
-| 891 | Fluffy  | cat  | NULL     |
-| 892 | Willie  | cat  | NULL     |
-| 893 | George  | bird | NULL     |
-| 894 | Buddy   | dog  | NULL     |
-| 895 | Fido    | dog  | NULL     |
-+-----+---------+------+----------+
+```
+*Pet Table*
+```text
++-----+---------+------+
+| id  | name    | type |
++-----+---------+------+
+| 890 | Puddles | cat  |
+| 891 | Fluffy  | cat  |
+| 895 | Fido    | dog  |
++-----+---------+------+
 ```
 
-The result of the `JOIN` would be:
-
-**Result**
-
-```sql
+**Joined Result:**
+```text
 +------------+---------+-------+---------+------+
 | purchaseId | ownerId | petId | name    | type |
 +------------+---------+-------+---------+------+
@@ -253,13 +258,23 @@ The result of the `JOIN` would be:
 +------------+---------+-------+---------+------+
 ```
 
+## Database Transactions
+
+A **transaction** is a sequence of one or more SQL operations executed as a single unit of work. Transactions ensure data integrity through **ACID** properties:
+- **Atomicity:** All operations in the transaction succeed, or none do.
+- **Consistency:** The database moves from one valid state to another.
+- **Isolation:** Concurrent transactions do not interfere with each other.
+- **Durability:** Once committed, changes are permanent even in a system failure.
+
+In SQL, you typically start a transaction with `START TRANSACTION`, then either `COMMIT` to save the changes or `ROLLBACK` to undo them if an error occurs.
+
 ## Initializing Your Database
 
-When developing an application, it is helpful to ensure the database and tables exist upon startup. You can execute `CREATE DATABASE` and `CREATE TABLE` calls with the `IF NOT EXISTS` clause.
+When developing applications, it is helpful to ensure the database schema exists upon startup. You can use the `IF NOT EXISTS` clause to make scripts idempotent (safe to run multiple times).
 
 ```sql
-CREATE DATABASE IF NOT EXISTS petshop;
-USE petshop;
+CREATE DATABASE IF NOT EXISTS pet_store;
+USE pet_store;
 CREATE TABLE IF NOT EXISTS pet (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
@@ -268,56 +283,34 @@ CREATE TABLE IF NOT EXISTS pet (
 );
 ```
 
-This approach is known as **Infrastructure as Code** (IaC). It treats environment configuration as code, reducing human error and allowing you to track infrastructure changes through version control.
+This approach is a form of **Infrastructure as Code** (IaC). By treating your schema configuration as code, you can track changes in version control and automate environment setup.
 
-You can also write SQL statements in a text file and execute them via a command-line client like the MySQL Shell (`mysqlsh`). For example, a script might drop an old database and recreate a fresh schema for testing:
-
-```sql
-DROP DATABASE IF EXISTS pet_store;
-CREATE DATABASE pet_store;
-USE pet_store;
-
-CREATE TABLE pet (
-    id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
-    type VARCHAR(255) NOT NULL,
-    PRIMARY KEY (id),
-    INDEX (name)
-);
-```
-
-You could run this script using a command like this:
+You can execute SQL scripts from a file using a command-line client like the MySQL Shell:
 
 ```sh
-➜ mysqlsh -u yourusername -p --sql < initialize.sql
+mysqlsh -u username -p --sql < initialize.sql
 ```
 
 ## Table of Common SQL Commands
 
-The following table summarizes the commands covered in this topic:
-
-| Command         | Purpose                                                                 | Example statement                                                                                                            |
-| --------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| CREATE DATABASE | Creates a new database.                                                 | `CREATE DATABASE pet_store;`                                                                                                 |
-| ALTER DATABASE  | Modifies database settings (e.g., character set).                       | `ALTER DATABASE pet_store CHARACTER SET utf8mb4;`                                                                            |
-| DROP DATABASE   | Deletes a database and its contents.                                    | `DROP DATABASE pet_store;`                                                                                                   |
-| USE             | Selects a database for subsequent commands.                             | `USE pet_store;`                                                                                                             |
-| CREATE TABLE    | Creates a new table.                                                    | `CREATE TABLE pet (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(255), PRIMARY KEY (id));`                                    |
-| DESCRIBE        | Shows the structure/fields of a table.                                  | `DESCRIBE pet;`                                                                                                               |
-| ALTER TABLE     | Modifies a table's structure.                                           | `ALTER TABLE pet ADD COLUMN nickname VARCHAR(255);`                                                                          |
-| DROP TABLE      | Deletes a table.                                                        | `DROP TABLE pet;`                                                                                                            |
-| INSERT INTO     | Adds new rows to a table.                                               | `INSERT INTO pet (name, type) VALUES ('Puddles', 'cat');`                                                                    |
-| SELECT          | Retrieves data from a table.                                            | `SELECT name, type FROM pet;`                                                                                                |
-| UPDATE          | Modifies existing data.                                                 | `UPDATE pet SET name = 'Fido' WHERE id = 1;`                                                                                 |
-| DELETE          | Removes rows from a table.                                              | `DELETE FROM pet WHERE id = 1;`                                                                                              |
-| CREATE INDEX    | Adds an index for faster searching.                                     | `CREATE INDEX pet_name_index ON pet (name);`                                                                                 |
-| DROP INDEX      | Removes an index.                                                       | `DROP INDEX pet_name_index ON pet;`                                                                                          |
-| TRUNCATE TABLE  | Deletes all rows but keeps the table structure.                        | `TRUNCATE TABLE pet;`                                                                                                        |
-| CREATE VIEW     | Creates a virtual table based on a query.                               | `CREATE VIEW cats AS SELECT * FROM pet WHERE type = 'cat';`                                                                  |
-| DROP VIEW       | Deletes a view.                                                         | `DROP VIEW cats;`                                                                                                            |
+| Command | Purpose | Example |
+| :--- | :--- | :--- |
+| **CREATE DATABASE** | Creates a new database. | `CREATE DATABASE pet_store;` |
+| **DROP DATABASE** | Deletes a database and all its data. | `DROP DATABASE pet_store;` |
+| **USE** | Selects a database to work in. | `USE pet_store;` |
+| **CREATE TABLE** | Defines a new table. | `CREATE TABLE pet (id INT, name VARCHAR(255));` |
+| **DESCRIBE** | Shows a table's structure. | `DESCRIBE pet;` |
+| **ALTER TABLE** | Modifies table structure. | `ALTER TABLE pet ADD COLUMN age INT;` |
+| **DROP TABLE** | Deletes a table. | `DROP TABLE pet;` |
+| **INSERT INTO** | Adds new rows. | `INSERT INTO pet (name) VALUES ('Fido');` |
+| **SELECT** | Retrieves data. | `SELECT * FROM pet;` |
+| **UPDATE** | Modifies existing rows. | `UPDATE pet SET name = 'Rex' WHERE id = 1;` |
+| **DELETE** | Removes specific rows. | `DELETE FROM pet WHERE id = 1;` |
+| **TRUNCATE TABLE** | Deletes all rows but keeps structure. | `TRUNCATE TABLE pet;` |
+| **CREATE INDEX** | Speeds up data retrieval. | `CREATE INDEX idx_name ON pet (name);` |
+| **CREATE VIEW** | Creates a virtual table from a query. | `CREATE VIEW dogs AS SELECT * FROM pet WHERE type = 'dog';` |
 
 ## ☑ Exercise
-
 
 ````masteryls
 {"id":"b99232fb-8952-4891-820d-3d43c212c380","title":"Interpreting a Basic SELECT Statement","type":"multiple-choice"}
@@ -337,8 +330,6 @@ What will be the result of executing this query?
 - [x] It returns the `title` and `author` of books with more than 300 pages, sorted by the title in reverse alphabetical order.
 - [ ] It updates the `books` table to set the page count to 300 for any book where the title starts with the letter D.
 ````
-
-
 
 ## Videos
 
