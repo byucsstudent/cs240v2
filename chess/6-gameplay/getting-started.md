@@ -1,4 +1,4 @@
-# Getting Started
+# Phase 6: Getting Started
 
 The Starter Code has 2 folders, `server` and `websocket`. Complete the following steps to move the starter code into your project for this phase.
 
