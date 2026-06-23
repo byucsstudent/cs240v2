@@ -434,6 +434,9 @@
           "path": "instruction/phase-3-architectural-patterns/phase-3-architectural-patterns.md",
           "id": "1ae9b65e-9a5f-413a-b224-de2fbecd11a2",
           "state": "published",
+          "interactions": [
+            "b6c16aa7-1d68-4f2d-b159-d3da5e8e838a"
+          ],
           "description": ""
         },
         {
