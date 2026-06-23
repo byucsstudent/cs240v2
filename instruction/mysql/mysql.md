@@ -6,79 +6,81 @@
 
 ### 🔑 Key points
 
-- MySQL is a commonly used relational database
+- MySQL is a widely used open-source relational database management system (RDBMS).
+- It follows the relational data model, using tables, rows, and columns to organize data.
+- To interact with a MySQL server, you use a SQL client (either command-line or GUI).
 
 ___
 
-`MySQL` is an open source relational database that commonly powers many popular applications and websites. Learning how MySQL works will help you understand the relational data model, give you experience with an industry standard tool, and teach you |how to use it to power your applications.
+`MySQL` is an open-source relational database that powers many popular applications and websites. Learning how MySQL works will help you understand the relational data model, give you experience with an industry-standard tool, and teach you how to use it to power your own applications.
 
-## SQL Server Installation
+## MySQL Server Installation
 
-In order to get started you will need to install MySQL to your development environment. You can install the latest LTS (Long term support) free MySQL Community Server version from [MySQL.com](https://dev.mysql.com/downloads/mysql/).
+To get started, you will need to install MySQL in your development environment. You can install the latest LTS (Long Term Support) free MySQL Community Server version from [MySQL.com](https://dev.mysql.com/downloads/mysql/).
 
 ![MySQL install](mysql-install.png)
 
 ## SQL Clients
 
-Once you have installed MySQL it is time to start executing SQL statements. To do this you need a SQL client application that can talk to the SQL server that is now running in your development environment.
+Once you have installed MySQL, it is time to start executing SQL statements. To do this, you need a SQL client application that can communicate with the SQL server running in your development environment.
 
-There are several free and paid for options that you can choose from when looking for a client application to execute MySQL statements. One popular tool is the MySQL console client program called the MySQl Shell (`mysqlsh`). You can download shell from [MySQL.com](https://dev.mysql.com/downloads/shell/).
+There are several free and paid options available when choosing a client application. One popular tool is the MySQL command-line client called the MySQL Shell (`mysqlsh`). You can download the shell from [MySQL.com](https://dev.mysql.com/downloads/shell/).
 
-Once you have downloaded the shell, you can start it by opening a command console window and type the following (substituting the username and password that you provided when you installed MySQL).
+Once you have downloaded the shell, you can start it by opening a terminal or command prompt window and typing the following (substituting the username and password you provided when you installed MySQL):
 
 ```sh
 mysqlsh -u yourusername -pyourpassword --sql
 ```
 
-For example, if you created your root user with the password `edgarcobb` you would execute:
+For example, if you created your root user with the password `edgarcobb`, you would execute:
 
 ```sh
 mysqlsh -u root -pedgarcobb --sql
 ```
 
-Once the shell starts up you can get help by typing `\help` or exit the shell using `\exit`. If you start the shell without passing in the commandline arguments, you can use `\connect root@localhost:3306` and it will prompt you for the admin password. If you made a different account, you can replace `root` for the username of your other account.
+Once the shell starts up, you can get help by typing `\help` or exit the shell using `\exit`. If you start the shell without passing in command-line arguments, you can use `\connect root@localhost:3306`, and it will prompt you for the admin password. If you created a different account, replace `root` with your specific username.
 
 You can now start typing SQL queries! For example, try the following:
 
 ```sql
-SHOW databases;
+SHOW DATABASES;
 USE mysql;
-SHOW tables;
+SHOW TABLES;
 SELECT host, user FROM user;
 \exit
 ```
 
 ![MySQL shell](mysqlsh.png)
 
-Alternatively, if you are looking for a visual MySQL client you might try [MySQL workbench](https://www.mysql.com/products/workbench/).
+Alternatively, if you prefer a visual MySQL client, you might try [MySQL Workbench](https://www.mysql.com/products/workbench/).
 
 ![MySQL workbench](mysqlWorkbench.png)
 
 ## Common Commands
 
-Here are a list of common SQL commands that you can use to administrate a database.
+Here is a list of common SQL commands used to administer a database.
 
-| Command                | Purpose                                                     | Example                                       |
-| ---------------------- | ----------------------------------------------------------- | --------------------------------------------- |
-| show databases         | Lists all of the databases                                  | show databases                                |
-| use `name`             | Open database                                               | use student                                   |
-| show tables            | Lists all of the tables for the currently selected database | show tables                                   |
-| describe `name`        | List fields for a table                                     | describe student                              |
-| show index from `name` | List indexes for a table                                    | show index from student                       |
-| show full processlist  | List currently executing queries                            | show full processlist                         |
-| create database `name` | Create a new database                                       | create database student                       |
-| drop database `name`   | Delete a database                                           | drop database student                         |
-| create table `name`    | Create a new table                                          | create table pet (name varchar(128), age int) |
-| Insert into `name`     | Insert data into a table                                    | insert into pet values ("zoe", 3)             |
-| select \* from `name`  | Query a table                                               | select \* from pet                            |
-| drop table `name`      | Delete a table                                              | drop table pet                                |
+| Command | Purpose | Example |
+| :--- | :--- | :--- |
+| `SHOW DATABASES` | Lists all available databases | `SHOW DATABASES;` |
+| `USE name` | Opens a specific database | `USE student;` |
+| `SHOW TABLES` | Lists all tables in the currently selected database | `SHOW TABLES;` |
+| `DESCRIBE name` | Lists the fields (columns) for a specific table | `DESCRIBE student;` |
+| `SHOW INDEX FROM name` | Lists the indexes for a specific table | `SHOW INDEX FROM student;` |
+| `SHOW FULL PROCESSLIST` | Lists currently executing queries | `SHOW FULL PROCESSLIST;` |
+| `CREATE DATABASE name` | Creates a new database | `CREATE DATABASE student;` |
+| `DROP DATABASE name` | Deletes a database | `DROP DATABASE student;` |
+| `CREATE TABLE name` | Creates a new table | `CREATE TABLE pet (name VARCHAR(128), age INT);` |
+| `INSERT INTO name` | Inserts data into a table | `INSERT INTO pet VALUES ("zoe", 3);` |
+| `SELECT * FROM name` | Queries data from a table | `SELECT * FROM pet;` |
+| `DROP TABLE name` | Deletes a table | `DROP TABLE pet;` |
 
 ## Experimenting
 
-Spend some time working with your SQL client program to make requests. You can use some of the commands described above, or if you are worried about messing up your server, you can try some simple queries that don't actually manipulate table data. This includes queries that just do simple math or get the current time.
+Spend some time working with your SQL client program to execute queries. You can use the commands described above, or if you are concerned about modifying server data, you can try simple queries that perform calculations or retrieve system information.
 
 ```sql
-> select 1+1;
+> SELECT 1+1;
 +-----+
 | 1+1 |
 +-----+
@@ -86,26 +88,26 @@ Spend some time working with your SQL client program to make requests. You can u
 +-----+
 1 row in set (0.0008 sec)
 
-> select now();
+> SELECT NOW();
 +---------------------+
-| now()               |
+| NOW()               |
 +---------------------+
 | 2023-10-07 12:34:56 |
 +---------------------+
 1 row in set (0.0008 sec)
 
-> select now(), now() + 1;
+> SELECT NOW(), NOW() + 1;
 +---------------------+----------------+
-| now()               | now() + 1      |
+| NOW()               | NOW() + 1      |
 +---------------------+----------------+
 | 2023-10-07 12:34:56 | 20231007123457 |
 +---------------------+----------------+
 1 row in set (0.0008 sec)
 ```
 
-In future topics you will learn how to create tables, as well as insert and query the data. After that, you will learn how to connect to your database and execute queries from your Java code.
+In future topics, you will learn how to create tables, insert data, and perform complex queries. After that, you will learn how to connect to your database and execute queries directly from Java code.
 
-At this point you should just make sure your MySQL server is up and running, and that you can access using a client program.
+At this point, ensure your MySQL server is running and that you can access it using a client program.
 
 ## Videos
 
