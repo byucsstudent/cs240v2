@@ -23,6 +23,10 @@
 
 ---
 
+
+
+![relationalModelBenefit.jpg](relationalModelBenefit.jpg)
+
 Relational databases are commonly used to persistently store and retrieve data. You can read and write data to a relational database from your program using Structured Query Language (SQL). Your code executes SQL statements against a database using standard library classes known as the Java Database Connectivity (JDBC) API. Before diving into how to write an application that uses a database, we must first discuss how the relational model works.
 
 At a basic level, relational data is stored in a **database**. A database contains **tables**, and a table has a number of **columns** (or attributes) that define the fields of the table. These can include things like `name`, `phone_number`, or `id`. When you insert data into a database table, it becomes a **row** (or tuple) in the table. The inserted data must have fields that match each of the table's columns.
