@@ -20,7 +20,7 @@
 
 Now that you understand how HTTP works at a theoretical level you can write Java code to make requests from an HTTP client and respond from an HTTP server.
 
-For example, with the Chess application we create a server 
+For example, with the Chess application we create a web server that exposes request endpoints (commonly called a Web API) that enables any HTTP client to make requests.
 
 ![server.png](server.png)
 
