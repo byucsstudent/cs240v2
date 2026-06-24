@@ -93,6 +93,7 @@ The following sections describe the messages that will be exchanged between clie
 
 ```mermaid
 flowchart LR
+classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
   client
   server
   client --> |UserGameCommand|server
@@ -134,6 +135,8 @@ Here are the different command types that a user game command can represent.
 The following diagram represents a possible extension of the `UserGameCommand` class that you could make in order to support the required `ChessMove` field of the MAKE_MOVE command. You are free to follow this design, or come up with a representation of your own.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
 classDiagram
     class UserGameCommand {
         commandType: CommandType
@@ -185,6 +188,8 @@ Here are the different command types that a server message can represent.
 The following diagram represents possible extensions of the `ServerMessage` class that you could use to support the different `ServerMessage` commands. You are free to follow this design, or come up with a representation of your own. Just make sure the required fields are included in your JSON serialization.
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
 classDiagram
     class ServerMessage {
         serverMessageType : ServerMessageType
