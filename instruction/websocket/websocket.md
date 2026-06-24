@@ -4,6 +4,13 @@
 
 🖥️ [Lecture Videos](#videos)
 
+### 🔑 Key points
+
+- HTTP is unidirectional
+- WebSocket is bidirectional
+- WebSocket is useful for peer to peer communication and server events
+
+---
 ![webSocket](webServicesWebSocketsLogo.png)
 
 HTTP is based on a client-server architecture where the client always initiates the request and the server responds. This model is ideal for building a global document library connected by hyperlinks, but it is insufficient for many modern use cases. Applications requiring real-time notifications, distributed task processing, peer-to-peer communication, or asynchronous events need communication that can be initiated by any connected device.
