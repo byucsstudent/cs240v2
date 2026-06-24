@@ -165,6 +165,13 @@ All project tests must pass to complete this phase.
 #### Common Problems
 Review the [Phase 5 Passoff Common Problems](../../instruction/chess-tips/chess-tips.md#passoff-frequently-encountered-problems) before your meeting to ensure your code meets all expectations.
 
+
+```masteryls
+{"id":"e21028f3-f5e5-413c-be2f-ee53b77d3f6b","title":"Submission Precheck","type":"multiple-choice"}
+- [x] All the required functionality is complete, all of the test cases I wrote are passing, I have verified my code quality, and my GitHub commit history complies with the course requirements.
+- [ ] I need to back and do some more work before submitting.
+```
+
 ### Grading Rubric
 
 > [!NOTE]
