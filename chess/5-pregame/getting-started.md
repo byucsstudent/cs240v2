@@ -9,17 +9,24 @@ The starter code contains two folders: `client` and `ui`. Complete the following
 5.  In IntelliJ, right-click the `client/src/test/java` directory and select **Mark Directory as** > **Test Sources Root**. This configuration allows IntelliJ to recognize and execute the code in this directory as tests.
 6.  Copy the `starter-code/5-pregame/client/ServerFacadeTests.java` file into your project's `client/src/test/java/client` folder. This class provides a foundation for testing your `ServerFacade`. It includes boilerplate code for starting and stopping your HTTP server so that your tests can make live server requests.
 
+
+````masteryls
+{"id":"e286f471-ddec-45b2-9f02-7d50634fa061","title":"Phase 5: Getting started","type":"multiple-select"}
 Once finished, your project structure should include the following additions:
 
 ```text
-└── client
-    └── src
-        ├── main
-        │   └── java
-        │       └── ui
-        │           └── EscapeSequences.java
-        └── test
-            └── java
-                └── client
-                    └── ServerFacadeTests.java
+└─ client
+    └─ src
+        ├─ main
+        │   └─ java
+        │       └─ ui
+        │           └─ EscapeSequences.java
+        └─ test
+            └─ java
+                └─ client
+                    └─ ServerFacadeTests.java
 ```
+
+- [x] I the getting started steps and my project settings and structure look correct.
+````
+
