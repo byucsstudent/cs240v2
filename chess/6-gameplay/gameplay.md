@@ -23,7 +23,6 @@ classDiagram
     class Server
 
     ServerFacade --> HttpCommunicator
-    HttpCommunicator --> Internet
 
     ChessClient --> ServerFacade
 
@@ -34,12 +33,13 @@ classDiagram
         +notify(ServerMessage message)
     }
 
-    ChessClient --|> ServerMessageObserver
-
     WebsocketCommunicator --> ServerMessageObserver : notify()
 
-    WebsocketCommunicator <--> Internet
-    Internet <--> Server
+    ChessClient --|> ServerMessageObserver
+
+    HttpCommunicator ..> Internet
+    WebsocketCommunicator <..> Internet
+    Internet <..> Server
 ```
 _Figure 1: Recommended Chess Client Design_
 
