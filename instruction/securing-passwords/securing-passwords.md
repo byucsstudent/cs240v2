@@ -2,31 +2,35 @@
 
 ### 🔑 Key points
 
-- Securely storing passwords using Bcrypt
+- The importance of protecting user credentials
+- Securely storing passwords using the BCrypt hashing algorithm
+- Implementing password hashing and verification in Java
 
 ---
 
-Whenever you accept personal information from a user, you become responsible for securing that information. One of the most critical pieces of information to protect is their password. If a password is exposed then you are exposing the ability to act as the user.
+Whenever you accept personal information from a user, you become responsible for securing that data. One of the most critical pieces of information to protect is the user's password. If a password is exposed, you are essentially granting an attacker the ability to impersonate that user.
 
-We will describe the details of how cryptographic hash functions work in a later topic. However, for now we will demonstrate how to use the Bcrypt algorithm to securely hash and compare a user's password.
+While we will explore the mathematical details of how cryptographic hash functions work in a later topic, this guide demonstrates how to use the BCrypt algorithm to securely hash and compare user passwords.
 
-It is vital that you use a secure method of storing passwords as part of your work to persistently store your application's data.
+It is vital to use a secure storage method for passwords as part of your application's data persistence strategy.
 
 ### Securely Storing Passwords with BCrypt
 
-The Bcrypt algorithm enables you to take clear text password and irreversibly hash it to a deterministic representation. This allows you to hash the same password a second time and compare the result to the first password hash. If they are equal then you know that both hashes originated from the same password.
+The BCrypt algorithm allows you to take a plaintext password and irreversibly hash it. This process creates a "one-way" representation of the password. Because the process is irreversible, even if a nefarious party gains access to your database, they cannot easily retrieve the original plaintext passwords.
 
-By hashing the passwords, your application never stores a password in the database. You can still use the hash to verify a user's identity, but if a nefarious party gains access to your database, they still cannot retrieve your user's clear text password.
+When a user attempts to log in, BCrypt allows you to compare the new password attempt against the stored hash. If the hash of the attempt matches the stored hash, you know the password is correct, even though you never stored the password itself.
+
+By hashing passwords, your application never stores sensitive credentials in a readable format. You can still verify a user's identity while significantly reducing the risk of a data breach.
 
 ## Implementing BCrypt
 
-You can using `Bcrypt` in your application by using the following library.
+You can use BCrypt in your application by including the following library in your project dependencies:
 
 ```
 org.mindrot:jbcrypt:0.4
 ```
 
-This implementation of Bcrypt makes it so you can hash a password with one line of code, and then later compare the hash to a candidate password with another line of code. The following example first hashes the password `toomanysecrets` and then compares it to three possible candidates.
+This implementation of BCrypt allows you to hash a password with a single line of code and later compare a candidate password against that hash with another. The following example hashes the password `toomanysecrets` and then compares it to three different candidates to check for a match.
 
 ```java
 import org.mindrot.jbcrypt.BCrypt;
@@ -35,24 +39,31 @@ public class PasswordExample {
 
     public static void main(String[] args) {
         String secret = "toomanysecrets";
+        
+        // Hash a password for the first time
         String hash = BCrypt.hashpw(secret, BCrypt.gensalt());
 
-        String[] passwords = {"cow", "toomanysecrets", "password"};
-        for (var pw : passwords) {
-            var match = BCrypt.checkpw(pw, hash) ? "==" : "!=";
+        String[] candidates = {"cow", "toomanysecrets", "password"};
+        
+        for (var candidate : candidates) {
+            // Check if a plaintext candidate matches the stored hash
+            var match = BCrypt.checkpw(candidate, hash) ? "==" : "!=";
 
-            System.out.printf("%s %s %s%n", pw, match, secret);
+            System.out.printf("Candidate: %-15s %s Stored Secret%n", candidate, match);
         }
     }
 }
 ```
 
-Here are the results of running the program.
+### Expected Output
+
+When you run the program, the output demonstrates that only the correct plaintext password matches the generated hash:
 
 ```txt
-cow != toomanysecrets
-toomanysecrets == toomanysecrets
-password != toomanysecrets
+Candidate: cow             != Stored Secret
+Candidate: toomanysecrets  == Stored Secret
+Candidate: password        != Stored Secret
 ```
 
-With this example you can now security store and compare the passwords for your application.
+Using this approach, you can now securely store and verify passwords within your application, ensuring that user credentials remain protected even if your database is compromised.
+
