@@ -307,12 +307,6 @@ SELECT * FROM log WHERE date > '2023-10-20' AND level='INFO';
 
 Java's direct support for logging via the `java.util.logging` package was not introduced until 2002 (JDK 1.4). Before that, developers had to implement their own logging solutions. The most common solution was the 3rd-party package `Log4J`. In fact, `java.util.logging` was largely modeled after the functionality of `Log4J`. For this reason, it is still very common to see production Java code using `Log4J` or its successor, `Log4j 2`.
 
-## Videos
-
-- 🎥 [Logging (6:47)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=014ade75-f4ad-4119-95c1-ad6d0147c217&start=0) - [[transcript]](https://github.com/user-attachments/files/17805093/CS_240_Java_Logging.pdf)
-- 🎥 [Logging: Configuration (13:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5c08583a-579d-452e-88d6-ad6d0149e2cc&start=0) - [[transcript]](https://github.com/user-attachments/files/17805094/CS_240_Logging_Configuration.pdf)
-- 🎥 [Logging: Messages (9:04)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e1afdb4c-bb5f-42cc-ad6c-ad6d014dd97d&start=0) - [[transcript]](https://github.com/user-attachments/files/17805096/CS_240_Logging_Messages.pdf)
-
 ## ☑ Exercise
 
 
@@ -324,4 +318,10 @@ In professional software development, why is it considered a best practice to us
 - [ ] Standard output streams are strictly limited to console display and cannot be redirected to external files or databases.
 - [x] Logging frameworks provide granular control over message severity levels and allow for the dynamic configuration of output destinations without changing the code.
 - [ ] Using `System.out.println` triggers a mandatory `SecurityException` when the application is executed in a containerized environment like Docker or Kubernetes.
+## Videos
+
+- 🎥 [Logging (6:47)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=014ade75-f4ad-4119-95c1-ad6d0147c217&start=0) - [[transcript]](https://github.com/user-attachments/files/17805093/CS_240_Java_Logging.pdf)
+- 🎥 [Logging: Configuration (13:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5c08583a-579d-452e-88d6-ad6d0149e2cc&start=0) - [[transcript]](https://github.com/user-attachments/files/17805094/CS_240_Logging_Configuration.pdf)
+- 🎥 [Logging: Messages (9:04)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e1afdb4c-bb5f-42cc-ad6c-ad6d014dd97d&start=0) - [[transcript]](https://github.com/user-attachments/files/17805096/CS_240_Logging_Messages.pdf)
+
 ```
