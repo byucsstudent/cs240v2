@@ -275,6 +275,13 @@ To pass off this assignment submit your work to the course [auto-grading](https:
 
 Before coming to passoff with a TA, check to make sure your code functions properly and doesn't have any of these common problems past students have had. [Phase 6 Passoff Common Problems](../../instruction/chess-tips/chess-tips.md#passoff-frequently-encountered-problems-1)
 
+
+```masteryls
+{"id":"d2d9ee04-2d9a-40f9-9c13-db1db990c162","title":"Submission Precheck","type":"multiple-choice"}
+- [x] The functionatity is working, all of the tests are passing, I have verified my code quality, and my GitHub commit history complies with the course requirements.
+- [ ] I need to back and do some more work before submitting.
+```
+
 ### Grading Rubric
 
 > [!NOTE]
