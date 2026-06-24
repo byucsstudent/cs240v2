@@ -27,6 +27,8 @@
 
 Software systems conduct trillions of dollars in daily transactions and manage access to billions of personal records. This makes these systems valuable targets for attack. Malicious actors attempt to compromise systems in a variety of ways, such as gaining unauthorized access to data and computers for the purposes of stealing, monitoring, damaging, or otherwise misusing assets. To mitigate these threats, you must include security as a primary design criterion, understand historical and current attack vectors, vigilantly monitor for intrusion, and continually enhance your systems as new threats evolve.
 
+![securityGoals.jpg](securityGoals.jpg)
+
 This topic focuses on the core concepts and technologies necessary to securely store and transmit data. The core concepts of computer security include the following:
 
 - **Authentication**: Verifying the identity of an actor (e.g., a user or system).
