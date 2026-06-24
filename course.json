@@ -653,7 +653,10 @@
           "title": "☑ Phase 6: Chess Gameplay",
           "path": "chess/6-gameplay/gameplay.md",
           "id": "c4ee3fa9-aa3c-401c-8053-a29b5a12b0cb",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "d2d9ee04-2d9a-40f9-9c13-db1db990c162"
+          ]
         },
         {
           "title": "Computer Security",
