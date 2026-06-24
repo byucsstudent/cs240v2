@@ -626,6 +626,9 @@
           "path": "instruction/phase-5-architectural-patterns/phase-5-architectural-patterns.md",
           "id": "1679af67-89cc-4c5a-bee7-53bad99f4d44",
           "state": "published",
+          "interactions": [
+            "65911966-69cc-4552-9be7-a1b1ffe2ef7b"
+          ],
           "description": "Discuss the architectural patterns necessary to create a CLI program that communicates with a server over HTTP. Include software design patterns and pros and cons and common mistakes with the architecture.\n\nHere is the description of the project:\n\n\nIn this phase of the Chess Project, you will create the initial version of your Chess client. Your client will be a terminal-based (console) program providing a simple interface for interacting with the Chess server.\n\nYou will implement all user interactions that occur outside of active gameplay. Gameplay interactions will be implemented in the next phase. This includes functionality for displaying help text, registering, logging in, listing existing games, creating new games, joining a game, observing a game, logging out, and exiting. You will also write the client code responsible for drawing the chessboard.\n\nTo implement this, you will create a `ServerFacade` class to handle sending HTTP requests to your server and receiving responses. Your client code will use these `ServerFacade` methods to interact with the server API."
         },
         {
