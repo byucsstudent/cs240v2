@@ -719,6 +719,13 @@
           "path": "instruction/final-exam-review/final-exam-review.md",
           "id": "04fc421b-e9af-4ba9-9ae0-09c1133683ae",
           "state": "published"
+        },
+        {
+          "title": "Wrap Up",
+          "type": "instruction",
+          "path": "instruction/wrap-up/wrap-up.md",
+          "id": "b2e86dda-b774-4cc6-b437-0ac650e42233",
+          "description": "Conclusion of the class. A quick review of what was learned, suggestions on future areas of study and I review of the outcomes"
         }
       ]
     }
