@@ -725,6 +725,9 @@
           "type": "instruction",
           "path": "instruction/wrap-up/wrap-up.md",
           "id": "b2e86dda-b774-4cc6-b437-0ac650e42233",
+          "interactions": [
+            "ae0cbb96-e945-4746-8c51-048cce855e1c"
+          ],
           "description": "Conclusion of the class. A quick review of what was learned, suggestions on future areas of study and I review of the outcomes"
         }
       ]
