@@ -693,12 +693,6 @@
           ]
         },
         {
-          "title": "Command line tools",
-          "path": "instruction/command-line-builds/command-line-builds.md",
-          "id": "3d7d9d55-a0a6-4ce1-93cf-bcadad0f66f3",
-          "state": "published"
-        },
-        {
           "title": "AWS Chess Server",
           "path": "instruction/aws-chess-server/aws-chess-server.md",
           "id": "8ed1bd15-0fa8-41f8-9dd3-8fe70af59fe3",
