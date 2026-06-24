@@ -12,6 +12,7 @@ We will examine five distinct distributed application architectures to evaluate 
 | **Peer-to-Peer** | Decentralization | File sharing, blockchain, decentralized chat |
 | **Microservices** | Independent Scalability | Large, complex systems like Netflix or Amazon |
 | **Event-Driven** | Loose Coupling | IoT, real-time data streaming, UI responsiveness |
+| **Serverless** | Operational Efficiency | Event-based tasks, rapid scaling, APIs |
 
 
 ## Layered Client-Server (N-Tier) Architecture
@@ -178,11 +179,44 @@ function handleMove(move) {
 *   **Disadvantages:** It can be hard to follow the "logic flow" of the application, making debugging and tracing a challenge.
 
 
+## Serverless Architecture
+
+In a Serverless Architecture, developers write code as functions (e.g., AWS Lambda or Supabase Edge Functions) that execute in response to events. The cloud provider manages all infrastructure, scaling, and resource allocation. This allows developers to focus entirely on the logic without worrying about server maintenance or provisioning.
+
+In a Chess application, serverless functions are ideal for tasks that are intermittent or event-based, such as calculating a player's new rating after a game is recorded in the database.
+
+```mermaid
+graph LR
+    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
+    Client --> Lambda[AWS Lambda]
+    Lambda --> DB[(Database)]
+    Lambda --> Log[Logging Service]
+```
+
+### Practical Example (AWS Lambda in Python)
+
+```python
+# A serverless function that updates player ratings
+def update_rating_handler(event, context):
+    player_id = event['player_id']
+    result = event['result']
+
+    # Logic to update rating
+    print(f"Updating rating for player {player_id}...")
+
+    return {
+        'statusCode': 200,
+        'body': 'Rating updated'
+    }
+```
+
+### Advantages and Disadvantages
+*   **Advantages:** No server management and high cost-efficiency (pay-per-use). It scales automatically and handles spikes in traffic seamlessly.
+*   **Disadvantages:** Cold starts can cause latency when functions are first invoked. High dependence on a specific cloud provider (vendor lock-in).
 ## Other Notable Architectures
 
 While the five models above are the most common, several other specialized architectures exist:
 
-*   **Serverless Architecture:** Developers write code as functions (e.g., AWS Lambda) that execute in response to events. The cloud provider manages all infrastructure.
 *   **Space-Based Architecture:** Designed to handle huge spikes in traffic by distributing both data and processing across a "shared space" (memory grid), eliminating the database bottleneck.
 *   **Actor Model Architecture:** Units called "actors" communicate via asynchronous messages. This is excellent for high-concurrency systems where you want to avoid "locking" data.
 *   **CQRS + Event Sourcing:** Separates the "read" and "write" models of an application. The state is not stored as a single row in a DB, but as a sequence of events that can be replayed.
@@ -199,7 +233,7 @@ Regardless of the architecture you choose, moving from a single-machine "monolit
 2.  **Latency:** Network calls are orders of magnitude slower than local function calls. Architects must minimize the number of "round trips" between services.
 3.  **Data Consistency:** If you have multiple databases (as in Microservices), keeping them in sync is difficult. The **CAP Theorem** states that a distributed system can only provide two of the following three guarantees: Consistency, Availability, and Partition Tolerance.
 
-**Solutions:**
+### Solutions
 *   **Retries and Timeouts:** Never let a network call wait forever.
 *   **Idempotency:** Ensure that performing the same operation multiple times (like submitting a chess move) has the same effect as performing it once.
 *   **Observability:** Use logging and distributed tracing to see how a request moves through your various tiers or services.
@@ -216,3 +250,11 @@ As you build your Chess server, consider which of these patterns best fits your 
 *   *Designing Data-Intensive Applications* by Martin Kleppmann
 *   *Pattern of Enterprise Application Architecture* by Martin Fowler
 *   The Twelve-Factor App methodology (12factor.net)
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"2c6e844f-d498-44ef-8ac3-2a25b99d7b34", "title":"Distributed Architectures", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+Discuss one of the distributed architectures that you find interesting. Give the advantages and disadvantages of the model.
+```
