@@ -136,5 +136,11 @@ For further reading on these patterns, the [Refactoring Guru](https://refactorin
 
 ```masteryls
 {"id":"b0243709-feec-4de7-9dee-c55785397d85", "title":"Observer", "type":"essay" }
-What are the advantages of using the Observer pattern in this architecture?
+What are the advantages of using the Observer pattern in this architecture? What alternative patterns could you employ?
+```
+
+
+```masteryls
+{"id":"33b01d41-39c5-45dc-9ae6-b61fd516d6e6","title":"Coupling","type":"essay"}
+Discuss the coupling of components in this architecture? Is the design over-architected? 
 ```
