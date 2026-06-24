@@ -20,8 +20,6 @@
 
 Logging is a critical piece of advanced software construction. Without logging, your application is a "black box" where only your users know if it is working or not. By recording, or logging, what is happening within your application, you create a persistent record of what users are doing and how the application is responding to their requests. Logging works by recording entries in a log file or database that describes what is happening at key points in your application. Typically, this includes the requests and responses of HTTP endpoints, authentication and authorization requests, and exceptional errors. You can then query your logs to view events, graphs, and reports that give you insight into what the system is doing. You can also set up your logging system to automatically alert you when things seem exceptional.
 
-![logging flow](logging-flow.png)
-
 ```mermaid
 graph LR
 
@@ -33,7 +31,7 @@ database[(fa:fa-database database)]
 monitoring(fa:fa-chart-bar monitoring)
 alerting(fa:fa-bell alerting)
 
-classDef a fill:#258
+classDef a fill:#caf
 
 subgraph "logging"
 user:::a --> application
@@ -98,7 +96,53 @@ Remember that the logger might be restricted by its current level. Your code can
 
 ### Logging Classes
 
-![Logging diagram](logging-diagram.png)
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
+classDiagram
+
+
+class Formatter {
+  + format(Record record): String
+}
+
+class Handler {
+  publish(LogRecord record)
+}
+
+class LogManager {
+    Logger[]
+}
+
+class Logger {
+  Level
+  Handler[]
+  log(level, message)
+}
+
+class Level {
+  OFF
+  SEVERE
+  WARNING
+  INFO
+  FINE
+  FINER
+  FINEST
+  ALL
+}
+
+class LogRecord {
+    Level
+    Message
+}
+
+LogManager *-- Logger
+Logger *-- Handler
+Logger --> LogRecord
+Handler --> Formatter
+LogRecord *-- Level
+```
+
 
 ## Full Example
 
