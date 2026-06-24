@@ -9,6 +9,40 @@ For the final part of the Chess Project, you will implement gameplay. Gameplay w
 ![client design](client-design.png)
 
 
+```mermaid
+classDiagram
+
+    direction LR
+    class ChessClient
+    class ChessBoard
+    class ServerFacade
+    class WebsocketCommunicator
+    class HttpCommunicator
+    class Internet
+    class Server
+
+    ServerFacade --> HttpCommunicator
+    ChessClient --> ServerFacade
+    ChessClient --> ChessBoard
+
+    ServerFacade --> WebsocketCommunicator : ctor(observer)
+
+    class ServerMessageObserver {
+        <<interface>>
+        +notify(ServerMessage message)
+    }
+
+    ServerMessageObserver <|.. ChessClient
+
+
+    ServerFacade ..> WebsocketCommunicator : passes\nServerMessageObserver
+
+    WebsocketCommunicator --> ServerMessageObserver : notify()
+
+    WebsocketCommunicator --> Internet
+    HttpCommunicator --> Internet
+    Internet <--> Server
+```
 _Figure 1: Recommended Chess Client Design_
 
 
