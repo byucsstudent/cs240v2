@@ -1,8 +1,21 @@
 # Distributed Application Architectures
 
-In the modern landscape of software engineering, very few applications run in complete isolation. As you progress through the development of complex systems—such as the Chess server projects in this module—you will find that the way components are organized across a network determines the system's scalability, reliability, and maintainability. A distributed application is one where components located on networked computers communicate and coordinate their actions by passing messages. Choosing the right architecture is not just a technical decision; it is a strategic one that dictates how your application will grow and handle failure.
+In the modern landscape of software engineering, very few applications run in complete isolation. As you progress through the development of complex systems, such as the Chess server projects in this module, you will find that the way components are organized across a network determines the system's scalability, reliability, and maintainability. A distributed application is one where components located on networked computers communicate and coordinate their actions by passing messages. Choosing the right architecture is not just a technical decision; it is a strategic one that dictates how your application will grow and handle failure.
 
-### Client-Server Architecture
+
+We will examine five distinct distributed application architectures to evaluate their structural design and operational impact. By analyzing these models side-by-side, we will compare and contrast their specific strengths and weaknesses regarding scalability, maintainability, and fault tolerance. Through the use of practical coding examples and UML dataflow diagrams, you will gain the insights necessary to navigate the trade-offs inherent in each approach, enabling more informed decision-making when designing complex, distributed systems.
+
+
+| Architecture | Primary Focus | Best For |
+| :--- | :--- | :--- |
+| **Client-Server** | Centralization | Simple web apps, small-scale tools |
+| **Three-Tier** | Separation of Concerns | Standard enterprise applications |
+| **Peer-to-Peer** | Decentralization | File sharing, blockchain, decentralized chat |
+| **Microservices** | Independent Scalability | Large, complex systems like Netflix or Amazon |
+| **Event-Driven** | Loose Coupling | IoT, real-time data streaming, UI responsiveness |
+
+
+## Client-Server Architecture
 
 The Client-Server model is the foundational pattern for distributed systems. In this model, tasks are partitioned between the providers of a resource or service, called servers, and service requesters, called clients. The relationship is typically asymmetrical: the server sits in a passive state waiting for requests, while the client initiates the communication.
 
@@ -36,9 +49,8 @@ async function getGameState(gameId) {
 *   **Advantages:** Centralized control makes data management and security easier to implement.
 *   **Disadvantages:** The server is a single point of failure and can become a performance bottleneck as the number of clients increases.
 
----
 
-### Three-Tier Architecture
+## Three-Tier Architecture
 
 As applications grow, the "Server" in the client-server model often becomes bloated. Three-Tier architecture solves this by physically or logically separating the application into three layers: the Presentation Tier (UI), the Application Tier (Logic), and the Data Tier (Storage).
 
@@ -79,9 +91,8 @@ public class GameService {
 *   **Advantages:** High maintainability; you can change the database (Data Tier) without rewriting the UI (Presentation Tier).
 *   **Disadvantages:** Increased complexity in deployment and higher latency due to multiple network hops between tiers.
 
----
 
-### Peer-to-Peer (P2P) Architecture
+## Peer-to-Peer (P2P) Architecture
 
 Unlike the previous models, Peer-to-Peer (P2P) architecture treats every node as both a client and a server (often called "servents"). There is no central authority. Each node contributes resources, such as processing power, disk storage, or network bandwidth, directly to other participants.
 
@@ -113,9 +124,8 @@ def on_receive_move(move):
 *   **Advantages:** Highly resilient and fault-tolerant; the system stays alive as long as nodes are active.
 *   **Disadvantages:** Extremely difficult to secure and coordinate. Data consistency is a major challenge.
 
----
 
-### Microservices Architecture
+## Microservices Architecture
 
 Microservices architecture takes the idea of "separation of concerns" to the extreme. Instead of one large "Application Tier," the system is composed of many small, independent services that communicate over a network (usually via HTTP or message queues). Each service runs its own process and manages its own database.
 
@@ -150,11 +160,10 @@ def get_leaderboard():
 *   **Advantages:** Teams can deploy services independently. It is highly scalable, as you can scale only the services that are under heavy load.
 *   **Disadvantages:** Significant operational overhead. Managing inter-service communication and distributed transactions is difficult.
 
----
 
-### Event-Driven Architecture (EDA)
+## Event-Driven Architecture (EDA)
 
-In an Event-Driven Architecture, the flow of the program is determined by events—such as a user clicking a button, a sensor output, or a message from another program. Components communicate by publishing events to an event bus or broker, and other components subscribe to the events they care about. This creates a "loosely coupled" system where the producer of the information doesn't need to know who is consuming it.
+In an Event-Driven Architecture, the flow of the program is determined by events, such as a user clicking a button, a sensor output, or a message from another program. Components communicate by publishing events to an event bus or broker, and other components subscribe to the events they care about. This creates a "loosely coupled" system where the producer of the information doesn't need to know who is consuming it.
 
 **UML Dataflow Diagram**
 
@@ -190,21 +199,8 @@ function handleMove(move) {
 *   **Advantages:** Excellent for real-time systems and high responsiveness. Components are decoupled, making the system easy to extend.
 *   **Disadvantages:** It can be hard to follow the "logic flow" of the application, making debugging and tracing a challenge.
 
----
 
-### Comparison of Primary Architectures
-
-| Architecture | Primary Focus | Best For |
-| :--- | :--- | :--- |
-| **Client-Server** | Centralization | Simple web apps, small-scale tools |
-| **Three-Tier** | Separation of Concerns | Standard enterprise applications |
-| **Peer-to-Peer** | Decentralization | File sharing, blockchain, decentralized chat |
-| **Microservices** | Independent Scalability | Large, complex systems like Netflix or Amazon |
-| **Event-Driven** | Loose Coupling | IoT, real-time data streaming, UI responsiveness |
-
----
-
-### Other Notable Architectures
+## Other Notable Architectures
 
 While the five models above are the most common, several other specialized architectures exist:
 
@@ -217,9 +213,8 @@ While the five models above are the most common, several other specialized archi
 *   **Distributed Object Architecture:** Treats objects as if they exist on a single machine, even if they are spread across a network (e.g., CORBA or Java RMI). This is less common today due to tight coupling.
 *   **Data-Centric Architecture:** The database or data lake is the central hub, and all applications or services revolve around that shared data store.
 
----
 
-### Challenges in Distributed Systems
+## Challenges in Distributed Systems
 
 Regardless of the architecture you choose, moving from a single-machine "monolith" to a distributed system introduces several "fallacies of distributed computing."
 
@@ -232,9 +227,9 @@ Regardless of the architecture you choose, moving from a single-machine "monolit
 *   **Idempotency:** Ensure that performing the same operation multiple times (like submitting a chess move) has the same effect as performing it once.
 *   **Observability:** Use logging and distributed tracing to see how a request moves through your various tiers or services.
 
----
 
-### Summary
+
+## Summary
 
 Distributed application architecture is the study of trade-offs. The **Client-Server** and **Three-Tier** models offer simplicity and control, making them ideal for the initial phases of software development. As requirements for scale and resilience grow, **Microservices** and **Event-Driven** patterns provide the flexibility needed to handle millions of users. For specialized needs, **P2P** or **Serverless** models offer unique benefits in decentralization and cost management.
 
