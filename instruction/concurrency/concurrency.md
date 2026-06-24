@@ -10,7 +10,7 @@
 
 - What is a thread?
 - Creating and executing a simple thread in Java
-- Using a thread pool (ExecutorService in Java) to run multiple threads
+- Using a thread pool (`ExecutorService` in Java) to run multiple threads
 - What is a race condition (or race hazard)?
 - How to use database transactions to avoid race conditions
 - How to use `synchronized` methods and code blocks in Java to avoid race conditions
@@ -18,13 +18,13 @@
 
 ---
 
-In order to understand the value of concurrent programming, it is helpful to examine a process that executes discrete tasks. Imagine a pizza shop that takes orders and makes pizzas. A shop with only one worker can only take one order at a time and make one pizza at a time.
+To understand the value of concurrent programming, it is helpful to examine how a process executes tasks. Imagine a pizza shop that takes orders and prepares pizzas. A shop with only one worker can only take one order at a time and make one pizza at a time.
 
 ![Single thread](singleThread.gif)
 
 > _1_ - One worker, one customer
 
-This works well if you only have one customer at a time, but you run into trouble if multiple customers want pizzas at the same time—such as during a lunch hour rush. With only one employee, customers must wait for each previous customer to be served. This leads to unhappy customers and, eventually, a decrease in profit.
+This works well if you only have one customer at a time, but you run into trouble if multiple customers want pizzas simultaneously—such as during a lunch hour rush. With only one employee, customers must wait for every previous customer to be served. This leads to unhappy customers and, eventually, a decrease in profit.
 
 ![Single thread queued](singleThreadQueue.gif)
 
@@ -40,21 +40,21 @@ The pattern of concurrently executing tasks is a foundational principle in compu
 
 ## Parallel vs. Concurrent vs. Sequential
 
-When you have multiple tasks and a single CPU, the operating system will swap which task is executing so that each task gets a chance to run. This is known as **context switching**, and it allows tasks to run concurrently. If you have multiple CPUs, the operating system can actually run the tasks at the **same time**, or in parallel. 
+When you have multiple tasks and a single CPU, the operating system will swap which task is executing so that each task gets a chance to run. This is known as **context switching**, and it allows tasks to run concurrently. If you have multiple CPUs (or multiple cores), the operating system can actually run the tasks at the **same time**, or in **parallel**. 
 
-If each task must run to completion before another task can start, you are running **sequentially**. When running sequentially, you don't need to worry about data corruption, starvation, or deadlock because no other process can interrupt or interfere with the execution of a task.
+If each task must run to completion before another task can start, you are running **sequentially**. When running sequentially, you do not need to worry about data corruption, starvation, or deadlock because no other process can interrupt or interfere with the execution of a task.
 
-The following diagram shows two tasks, one yellow and one blue, that need to execute. Depending on how you write your code and the device it runs on, it may run under any of the following models.
+The following diagram shows two tasks, one yellow and one blue, that need to execute. Depending on how you write your code and the device it runs on, it may run under any of the following models:
 
 ![Models](models.png)
 
 ## Concurrency at the System Level
 
-When your computer runs, it handles hundreds of tasks simultaneously. This includes every program you start, network communications, keyboard input, graphics rendering, and data storage. A computer usually has multiple processing units (CPUs). Each CPU can process one task at a time. When a CPU periodically switches tasks, they are running concurrently, giving the appearance that everything is running at the same time. If you have multiple CPUs, the tasks are actually running in parallel. However, no computer has enough CPUs for every task to run in parallel, so the operating system spends much of its time scheduling and swapping tasks so that they run concurrently and in parallel.
+When your computer runs, it handles hundreds of tasks simultaneously. This includes every program you start, network communications, keyboard input, graphics rendering, and data storage. A computer usually has multiple processing units (CPUs). Each CPU can process one task at a time. When a CPU periodically switches tasks, they are running concurrently, giving the appearance that everything is running at the same time. If you have multiple CPUs, the tasks can run in parallel. However, no computer has enough CPUs for every task to run in parallel, so the operating system spends much of its time scheduling and swapping tasks so that they run concurrently and in parallel.
 
 ## Concurrency Complexities
 
-Implementing concurrency is not free. If an operating system only executed a single task at a time, it would be much simpler than an operating system that executes on multiple processors. In our pizza shop example, it is more complex to hire and manage multiple workers than to have a single worker. Additionally, if the workers cannot coordinate effectively, you may lose the benefits of concurrency and end up with a shop that is less efficient than one with a single worker. These complexities introduce operational overhead, resource synchronization issues, starvation, and deadlock.
+Implementing concurrency is not free. An operating system that executes only a single task at a time is much simpler than one that manages multiple processors. In our pizza shop example, it is more complex to hire and manage multiple workers than to have a single worker. Additionally, if the workers cannot coordinate effectively, you may lose the benefits of concurrency and end up with a shop that is less efficient than one with a single worker. These complexities introduce operational overhead, resource synchronization issues, starvation, and deadlock.
 
 ### Overhead
 
@@ -76,15 +76,15 @@ Most computers only have one network card. If one task monopolizes the network, 
 
 ### Deadlock
 
-In the pizza shop, you need a paddle to pull a pizza out of the oven and a box maker to create a pizza box. If one worker holds the box maker while a different worker holds the oven paddle, neither can complete their task. When two workers each hold a resource that the other needs to finish a job, you have **deadlock**. One worker must temporarily release their resource for the work to move forward.
+In the pizza shop, you need a paddle to pull a pizza out of the oven and a box maker to create a pizza box. If one worker holds the box maker while a different worker holds the oven paddle, and each needs the other's tool to finish, neither can complete their task. When two workers each hold a resource that the other needs to finish a job, you have **deadlock**. Progress is impossible unless one worker releases a resource or an external force intervenes.
 
-In a computer, imagine two resources: memory and the network. If one process locks the network and the other locks access to a specific memory block, and each needs the other's resource to finish, neither will complete. The operating system must step in and require one of them to release a resource.
+In a computer, imagine two resources: the network and a specific memory block. If one process locks the network and the other locks access to the memory block, and each needs the other's resource to finish, neither will complete. The operating system must step in and require one of them to release a resource.
 
 ## Concurrent Programming in Java
 
-Java provides two primary mechanisms for concurrent programming: `Processes` and `Threads`. A process is created when you run the Java Virtual Machine and point it at a class with a `main` function. Once the main process starts, it can spawn other processes using the [ProcessBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/ProcessBuilder.html) object. Each process runs as a separate application.
+Java provides two primary mechanisms for concurrent programming: `Processes` and `Threads`. A process is created when the Java Virtual Machine (JVM) starts and executes a class with a `main` method. Once the main process starts, it can spawn other processes using the [ProcessBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/ProcessBuilder.html) object. Each process runs as a separate application.
 
-Each process has a main thread of execution and can create additional threads to process concurrent tasks. A **Thread** is a lightweight process that runs within the context of a parent process. Threads in the same process share memory, allowing them to communicate through shared variables.
+Each process has a main thread of execution and can create additional threads to process concurrent tasks. A **thread** is a lightweight process that runs within the context of a parent process. Threads in the same process share memory, allowing them to communicate through shared variables.
 
 You create a Java thread by extending the [Thread](https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html) abstract class and providing a `run` method. You then instantiate your class and call the `start` method. This creates a branch in execution: one branch executes your `run` method, while the other continues executing the code following the `start` call.
 
@@ -94,7 +94,7 @@ Each process and thread is assigned a unique identifier by the operating system,
 
 The following program demonstrates creating two threads that print their IDs 10 times. The `CountingThread` class extends `Thread` and implements a loop in the `run` method.
 
-From the main method, we allocate two instances of `CountingThread` and call `start()` to begin execution.
+From the `main` method, we allocate two instances of `CountingThread` and call `start()` to begin execution.
 
 ```java
 public class ThreadExample {
@@ -167,7 +167,7 @@ public class JoinExample {
 }
 ```
 
-In this example, "Thread done" will always output before "Exiting Main Thread" because `join` blocks the main thread until the spawned thread exits.
+In this example, "Thread done" will always be output before "Exiting Main Thread" because `join` blocks the main thread until the spawned thread exits.
 
 ### Callable and Executors
 
@@ -351,7 +351,7 @@ Useful atomic and thread-safe classes include:
 
 | Class                | Description                                                                                                                                                                          |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `AtomicInteger`        | Atomically increments/decrements/adds to an integer.                                                                                                                                 |
+| `AtomicInteger`        | Atomically increments, decrements, or adds to an integer.                                                                                                                                 |
 | `AtomicBoolean`        | Atomically updates a boolean value.                                                                                                                                                  |
 | `BlockingQueue`        | A thread-safe queue for producer-consumer patterns.                                                                                                                                  |
 | `ConcurrentHashMap`    | A high-performance thread-safe map.                                                                                                                                                  |
@@ -401,7 +401,7 @@ Always identify your shared data and protect the critical sections where that da
 - 🎥 [Race Conditions (14:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=701222ac-dfd5-4117-bed0-b1aa0116d8e9&start=0) - [[transcript]](https://github.com/user-attachments/files/17736864/CS_240_Race_Conditions_Transcript.pdf)
 - 🎥 [Writing Threadsafe Code Part 1: Database Transactions (5:52)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=49333b55-7fb3-4a6c-b109-b1aa011b00b3&start=0) - [[transcript]](https://github.com/user-attachments/files/17736871/CS_240_Writing_Thread_Safe_Code_Part_1_Database_Transactions_Transcript.pdf)
 - 🎥 [Writing Threadsafe Code Part 2: Synchronized Methods (4:13)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=76b856ae-054c-43d9-9ca6-b1aa011d0b9a&start=0) - [[transcript]](https://github.com/user-attachments/files/17736877/CS_240_Writing_Thread_Safe_Code_Part_2_Synchronized_Methods_Transcript.pdf)
-- 🎥 [Writing Threadsafe Code Part 3: Synchronized Code Blocks(5:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bae2b472-34bb-4da6-87a4-b1aa011e7b2e&start=0) - [[transcript]](https://github.com/user-attachments/files/17736903/CS_240_Writing_Thread_Safe_Code_Part_3_Synchronized_Code_Blocks_Transcript.pdf)
+- 🎥 [Writing Threadsafe Code Part 3: Synchronized Code Blocks (5:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bae2b472-34bb-4da6-87a4-b1aa011e7b2e&start=0) - [[transcript]](https://github.com/user-attachments/files/17736903/CS_240_Writing_Thread_Safe_Code_Part_3_Synchronized_Code_Blocks_Transcript.pdf)
 - 🎥 [Writing Threadsafe Code Part 4: Atomic Variables (13:21)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=24d88711-3841-4494-b0b4-b1aa01207780&start=0) - [[transcript]](https://github.com/user-attachments/files/17736907/CS_240_Writing_Thread_Safe_Code_Part_4_Atomic_Variables_Transcript.pdf)
 - 🎥 [Race Conditions in Chess (5:38)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=40f625da-e37e-4b91-8dbd-b1aa0124d6ff&start=0) - [[transcript]](https://github.com/user-attachments/files/17736920/CS_240_Race_Conditions_in_Chess_Transcript.pdf)
 
