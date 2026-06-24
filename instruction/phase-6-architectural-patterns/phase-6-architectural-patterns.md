@@ -8,7 +8,10 @@ In this phase, we examine how specific architectural patterns—primarily the Fa
 
 The recommended design for the chess client relies on a clear hierarchy of responsibility. At the top level, the `ChessClient` serves as the orchestrator, managing the user's input and updating the display. However, the `ChessClient` does not handle the "how" of network communication. Instead, it delegates those concerns to a `ServerFacade`.
 
+
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
 classDiagram
     direction LR
     class ChessClient
@@ -33,9 +36,9 @@ classDiagram
     HttpCommunicator ..> Internet
     WebsocketCommunicator <..> Internet
     Internet <..> Server
-
-    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
 ```
+
+
 
 This structure utilizes the **Facade Pattern**. The `ServerFacade` provides a simplified interface to the rest of the application. Whether a command requires a standard HTTP POST request (like logging in) or a WebSocket message (like making a move), the `ChessClient` simply calls a method on the Facade. This hides the underlying complexity of JSON serialization, header management, and protocol selection.
 
