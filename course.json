@@ -719,6 +719,13 @@
           "path": "instruction/final-exam-review/final-exam-review.md",
           "id": "04fc421b-e9af-4ba9-9ae0-09c1133683ae",
           "state": "published"
+        },
+        {
+          "title": "Wrap Up",
+          "type": "instruction",
+          "path": "instruction/wrap-up/wrap-up.md",
+          "id": "0d6ce528-fc57-4126-a4fe-56adc2ab496e",
+          "description": ""
         }
       ]
     }
