@@ -244,7 +244,7 @@ public class SimpleExample {
 }
 ```
 
-This is easily defeated because there are only a few possible keys. Secure algorithms use large keys and complex mathematics. A key size of 1024 bits provides $2^{1024}$ possible combinations—a number larger than the estimated number of atoms in the observable universe ($10^{80}$).
+This is easily defeated because there are only a few possible keys. Secure algorithms use large keys and complex mathematics. A key size of 1024 bits provides **2^1024** possible combinations—a number larger than the estimated number of atoms in the observable universe (**10^80**).
 
 ## Symmetric Key Encryption
 
@@ -421,6 +421,35 @@ Browsers trust **Certificate Authorities (CAs)**. A website owner proves their i
 
 If the website cannot decrypt the symmetric key, it proves they do not own the private key associated with the certificate, and the browser terminates the connection.
 
+## ☑ Exercise
+
+
+```masteryls
+{"id":"72e7da2d-4755-40ef-bcc6-cd3c0ebee3c0","title":"Advantages of Symmetric Encryption","type":"multiple-choice"}
+When comparing symmetric and asymmetric cryptographic systems, which of the following represents a significant advantage of symmetric encryption?
+
+- [ ] It provides a native solution for the key distribution problem when communicating with unknown parties over the internet.
+- [ ] It inherently supports digital signatures, providing non-repudiation for all transmitted messages.
+- [x] It offers significantly higher processing speeds and lower computational overhead, making it ideal for bulk data encryption.
+- [ ] It simplifies key management in large networks by requiring only one pair of keys for every user.
+```
+
+```masteryls
+{"id":"c1c21706-2c8e-406e-a54d-62695cab0c42","title":"Role of Hashing in Digital Signatures","type":"multiple-choice"}
+In the process of creating a digital signature, what is the primary purpose of applying a cryptographic hash function to the original message before it is encrypted with a private key?
+
+- [ ] To provide confidentiality by ensuring that the message content remains hidden from any unauthorized third parties during transit.
+- [ ] To generate a shared symmetric key that both the sender and receiver will use to encrypt and decrypt the bulk of the message data.
+- [x] To produce a unique, fixed-size digest that allows the receiver to verify the integrity of the message by detecting any unauthorized modifications.
+- [ ] To increase the total length of the data string to ensure it meets the minimum bit-length requirements for asymmetric encryption algorithms.
+```
+
+```masteryls
+{"id":"848391d2-e265-4d53-ad15-a55fc760547c", "title":"Web Certificates", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+You are analyzing the security of your web application. Where would an attacker gain the most value from compromising the web certificate generation and use?
+```
+
+
 ## Videos
 
 - 🎥 [Computer Security Overview (7:49)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f60bd2e6-9aec-44ba-8e48-b1a8014a2efe) - [[transcript]](https://github.com/user-attachments/files/17736619/CS_240_Computer_Security_Overview_Transcript.pdf)
@@ -434,15 +463,3 @@ If the website cannot decrypt the symmetric key, it proves they do not own the p
 - 🎥 [Secure Key Exchange (4:51)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a466805a-7a15-4859-b84e-b1af0148e79d) - [[transcript]](https://github.com/user-attachments/files/17736726/CS_240_Secure_Key_Exchange_Transcript.pdf)
 - 🎥 [Secure Communication with HTTPS (14:17)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f02e79ed-fcca-4549-a8b7-b1af014aa782) - [[transcript]](https://github.com/user-attachments/files/17736732/CS_240_Secure_Communication_using_HTTPS_Transcript.pdf)
 - 🎥 [Digital Signatures (8:10)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=93205b28-04ef-4e11-b939-b1af014ef686) - [[transcript]](https://github.com/user-attachments/files/17736735/CS_240_Digital_Signatures_Transcript.pdf)
-
-## Demonstration code
-
-📁 [Cryptographic Hash Function Example](example-code/src/demo/CryptoHashFunctionDemo.java)
-
-📁 [Password Hashing and Verification Example](example-code/src/demo/PBKDF2WithHmacSHA1Hashing.java)
-
-📁 [Symmetric Key Encryption Example](example-code/src/demo/SymmetricKeyEncryptionDemo.java)
-
-📁 [Public Key Encryption Example](example-code/src/demo/PublicKeyEncryptionDemo.java)
-
-📁 [Security Utilities](example-code/src/demo/Utils.java)
