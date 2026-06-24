@@ -635,7 +635,10 @@
           "title": "WebSocket",
           "path": "instruction/websocket/websocket.md",
           "id": "ea1daf23-33c1-4104-8fec-532d089e638d",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "2d0aa07e-3398-475a-8c0d-e767bd659a5a"
+          ]
         },
         {
           "title": "Phase 6: Getting Started",
