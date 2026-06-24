@@ -62,7 +62,7 @@ When you run the `main` method, the server will start. IntelliJ may display seve
 
 
 ```masteryls
-{"id":"c8f7653a-760f-4c62-8817-376b7e381ab5","title":"Phase 1: Getting started","type":"multiple-choice"}
+{"id":"c8f7653a-760f-4c62-8817-376b7e381ab5","title":"Phase 3: Getting started","type":"multiple-choice"}
 Open a web browser and navigate to `http://localhost:8080` (if you chose a different port, use that instead).
 
 - [x] I see the following page: ![Webpage](chess-server-webpage.png)
