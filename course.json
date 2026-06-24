@@ -535,7 +535,10 @@
           "title": "Phase 4: Getting Started",
           "path": "chess/4-database/getting-started.md",
           "id": "edeec8a4-c238-47a1-866e-a190c7c6e0d0",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "dc4c1925-1449-4c42-a6cf-eda1740d1051"
+          ]
         },
         {
           "title": "☑ Phase 4: Chess Database",
