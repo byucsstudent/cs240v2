@@ -27,6 +27,6 @@ Once finished, your project structure should include the following additions:
                     └─ ServerFacadeTests.java
 ```
 
-- [x] I the getting started steps and my project settings and structure look correct.
+- [x] I completed the getting started steps and my project settings and structure look correct.
 ````
 
