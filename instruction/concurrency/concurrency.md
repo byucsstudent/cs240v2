@@ -393,6 +393,31 @@ Potential issues:
 
 Always identify your shared data and protect the critical sections where that data is read and modified.
 
+## ☑ Exercise
+
+
+```masteryls
+{"id":"4226f08f-09a1-49a3-a5cc-cd30f4760fbd", "title":"Concurrency", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+What is the difference between parallel and concurrent execution?
+```
+
+
+```masteryls
+{"id":"33d58c6f-e8af-4c3b-990f-7f7b05f860a6", "title":"Critical Sections", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+What is a critical section and what are some Java constructs that you can use to protect it?
+```
+
+```masteryls
+{"id":"d7ae2be0-5609-4b7c-8563-346ab36b286f","title":"Purpose of Atomic Objects","type":"multiple-choice"}
+In Java's `java.util.concurrent.atomic` package, what is the primary advantage of using classes such as `AtomicInteger` or `AtomicReference` instead of standard primitive types with `synchronized` blocks?
+
+- [ ] They prevent other threads from reading a value while an update is in progress by applying a pessimistic lock on the underlying memory address.
+- [x] They provide a way to perform thread-safe, non-blocking operations on single variables using low-level hardware primitives like Compare-And-Swap (CAS).
+- [ ] They ensure that variables are stored exclusively in the CPU cache to improve the performance of single-threaded applications.
+- [ ] They automatically detect and resolve deadlocks that occur when multiple threads attempt to update the same object simultaneously.
+```
+
+
 ## Videos
 
 - 🎥 [Concurrency Overview (12:12)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4a305382-e8a4-4c69-a7d6-b1aa010e1c9b&start=0) - [[transcript]](https://github.com/user-attachments/files/17736816/CS_240_Concurrency_Overview_Transcript.pdf)
@@ -404,13 +429,3 @@ Always identify your shared data and protect the critical sections where that da
 - 🎥 [Writing Threadsafe Code Part 3: Synchronized Code Blocks (5:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=bae2b472-34bb-4da6-87a4-b1aa011e7b2e&start=0) - [[transcript]](https://github.com/user-attachments/files/17736903/CS_240_Writing_Thread_Safe_Code_Part_3_Synchronized_Code_Blocks_Transcript.pdf)
 - 🎥 [Writing Threadsafe Code Part 4: Atomic Variables (13:21)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=24d88711-3841-4494-b0b4-b1aa01207780&start=0) - [[transcript]](https://github.com/user-attachments/files/17736907/CS_240_Writing_Thread_Safe_Code_Part_4_Atomic_Variables_Transcript.pdf)
 - 🎥 [Race Conditions in Chess (5:38)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=40f625da-e37e-4b91-8dbd-b1aa0124d6ff&start=0) - [[transcript]](https://github.com/user-attachments/files/17736920/CS_240_Race_Conditions_in_Chess_Transcript.pdf)
-
-## Demonstration code
-
-📁 [Java Thread Example](example-code/src/demo/JavaThreadExample.java)
-
-📁 [Java Thread Pool Example](example-code/src/demo/JavaThreadPoolExample.java)
-
-📁 [File Race Condition Example](example-code/src/demo/FileRaceConditionExample.java)
-
-📁 [Synchronized Stack Example](example-code/src/demo/Stack.java)
