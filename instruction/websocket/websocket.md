@@ -12,7 +12,7 @@ For years, web developers used various workarounds to overcome the limitations o
 
 In 2011, the WebSocket protocol was standardized to solve this problem. The core feature of WebSocket is that it is **full-duplex**. After an initial connection is made over HTTP and then "upgraded" by the server to a WebSocket connection, the relationship changes to a persistent, bi-directional connection where either party can send data at any time.
 
-![webSocket.png](webSocket.png)
+![websocket.png](websocket.png)
 
 WebSocket connections are strictly between two parties. To facilitate a conversation between a group of users, the server must act as an intermediary. Each peer connects to the server, and the server manages the logic to forward messages among the connected peers.
 
