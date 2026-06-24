@@ -25,7 +25,6 @@ In a Chess application, this architectural evolution is clear:
 
 By separating these concerns, you ensure that the "Server" doesn't become a bloated, unmaintainable monolith.
 
-
 ```mermaid
 graph TD
     classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
@@ -35,6 +34,7 @@ graph TD
     Data -- Result --> Logic
     Logic -- API Response --> Presentation
 ```
+
 
 ### Practical Example: The Client-Server Interaction
 
@@ -114,7 +114,8 @@ For a large-scale gaming platform, you might have a "Matchmaking Service," a "Ch
 ```mermaid
 graph TD
     classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
-    Gateway[API Gateway] --> S1[Auth Service]
+    Client((Client)) --> Gateway[API Gateway]
+    Gateway --> S1[Auth Service]
     Gateway --> S2[Game Service]
     Gateway --> S3[Leaderboard Service]
     S1 --> DB1[(Auth DB)]
