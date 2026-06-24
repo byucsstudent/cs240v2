@@ -154,7 +154,7 @@ graph LR
     Bus -- "MoveEvent" --> Consumer3[Archive DB]
 ```
 
-**Practical Example (Node.js EventEmitter)**
+### Practical Example (Node.js EventEmitter)
 
 ```javascript
 // Using an event-driven approach for game updates
@@ -182,7 +182,6 @@ function handleMove(move) {
 
 While the five models above are the most common, several other specialized architectures exist:
 
-*   **N-Tier (Multi-Tier):** An expansion of Three-Tier that adds more layers (like a caching layer or a security layer) for massive enterprise systems.
 *   **Serverless Architecture:** Developers write code as functions (e.g., AWS Lambda) that execute in response to events. The cloud provider manages all infrastructure.
 *   **Space-Based Architecture:** Designed to handle huge spikes in traffic by distributing both data and processing across a "shared space" (memory grid), eliminating the database bottleneck.
 *   **Actor Model Architecture:** Units called "actors" communicate via asynchronous messages. This is excellent for high-concurrency systems where you want to avoid "locking" data.
