@@ -313,10 +313,15 @@ Java's direct support for logging via the `java.util.logging` package was not in
 - 🎥 [Logging: Configuration (13:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5c08583a-579d-452e-88d6-ad6d0149e2cc&start=0) - [[transcript]](https://github.com/user-attachments/files/17805094/CS_240_Logging_Configuration.pdf)
 - 🎥 [Logging: Messages (9:04)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e1afdb4c-bb5f-42cc-ad6c-ad6d014dd97d&start=0) - [[transcript]](https://github.com/user-attachments/files/17805096/CS_240_Logging_Messages.pdf)
 
-## Demonstration code
+## ☑ Exercise
 
-📁 [FileConfigurationExample](example-code/FileConfigurationExample.java)
 
-📁 [logging](example-code/logging.properties)
+```masteryls
+{"id":"d2e8e289-dc32-4c79-8343-a9474f84b310","title":"Logging vs. Print Statements","type":"multiple-choice"}
+In professional software development, why is it considered a best practice to use a logging framework (such as SLF4J, Log4j, or Logback) instead of using `System.out.println` for tracking application behavior?
 
-📁 [ProgrammaticConfigurationExample](example-code/ProgrammaticConfigurationExample.java)
+- [ ] `System.out.println` statements are automatically stripped out by the Java compiler during production builds, making them unreliable for debugging deployed code.
+- [ ] Standard output streams are strictly limited to console display and cannot be redirected to external files or databases.
+- [x] Logging frameworks provide granular control over message severity levels and allow for the dynamic configuration of output destinations without changing the code.
+- [ ] Using `System.out.println` triggers a mandatory `SecurityException` when the application is executed in a containerized environment like Docker or Kubernetes.
+```
