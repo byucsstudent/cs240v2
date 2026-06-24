@@ -18,6 +18,23 @@ WebSocket connections are strictly between two parties. To facilitate a conversa
 
 ![peers.png](peers.png)
 
+## The WebSocket Protocol Details
+
+A WebSocket connection begins with a standard HTTP request. The client sends a "Handshake" request containing an `Upgrade: websocket` header. If the server supports the protocol, it responds with an HTTP 101 status code (Switching Protocols). Once this handshake is complete, the communication shifts from the HTTP request/response format to a binary-framed message format.
+
+### Security (WSS)
+Just as HTTP has HTTPS, the WebSocket protocol has a secure version: **WSS** (WebSocket Secure). 
+*   `ws://`: Unencrypted communication (port 80).
+*   `wss://`: Encrypted via TLS/SSL (port 443).
+
+In production environments, you should always use `wss://` to prevent man-in-the-middle attacks and to ensure that intermediary proxies do not accidentally block or interfere with the long-running connection.
+
+### Statefulness and Scalability
+
+Unlike RESTful HTTP services, which are **stateless**, WebSockets are **stateful**. The server must maintain an open TCP connection for every active client. 
+*   **Memory Impact:** Each connection consumes server resources (memory and threads).
+*   **Load Balancing:** Because the connection is persistent, standard load balancers can be problematic. If a client connects to "Server A," all subsequent messages must go to "Server A." This often requires "sticky sessions" or a specialized load balancer that understands the WebSocket protocol.
+
 ## Creating a WebSocket Server Connection
 
 The following example demonstrates a basic HTTP server using the `Javalin` library. It supports upgrading to the WebSocket protocol when a client calls the `/ws` endpoint.
@@ -116,6 +133,31 @@ public class WsEchoClient extends Endpoint {
     }
 }
 ```
+
+## Alternative Technologies
+
+While WebSockets are a powerful tool for bi-directional communication, they are not the only solution for real-time data.
+
+| Technology | Direction | Use Case |
+| :--- | :--- | :--- |
+| **Long Polling** | Bi-directional (simulated) | Legacy systems where WebSockets are blocked by restrictive firewalls. |
+| **Server-Sent Events (SSE)** | Unidirectional (Server → Client) | Real-time dashboards, news feeds, or stock tickers where the client doesn't need to talk back. SSE is simpler to implement over standard HTTP. |
+| **WebTransport** | Bi-directional | A newer protocol (built on HTTP/3 and QUIC) designed for low-latency applications like gaming or live video processing. It handles congestion better than WebSockets. |
+| **gRPC Streams** | Bi-directional | High-performance microservice-to-microservice communication using Protocol Buffers. |
+
+## ☑ Exercise
+
+
+```masteryls
+{"id":"2d0aa07e-3398-475a-8c0d-e767bd659a5a","title":"Choosing between HTTP and WebSocket","type":"multiple-choice"}
+In which of the following application scenarios would implementing WebSockets provide a significant performance and architectural advantage over traditional HTTP?
+
+- [ ] Fetching a static list of product categories for an e-commerce landing page that updates once a week.
+- [ ] Submitting a secure one-time payment form that requires a transaction ID and a confirmation receipt.
+- [x] Building a high-frequency financial trading dashboard that requires sub-second updates of fluctuating market prices.
+- [ ] Delivering a long-form blog post where the user spends several minutes reading the content without further interaction.
+```
+
 
 ## Videos
 
