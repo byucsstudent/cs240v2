@@ -12,17 +12,9 @@ Advanced software construction (CS240) helps you become responsible software eng
 
 ## Outcomes
 
-You will learn to:
-
-- **Frame** software engineering problems by clarifying system purpose, constraints, and responsibilities, demonstrating both sound technical judgment and a sense of ownership for the long-term impact of software others depend on.
-- **Explore** object-oriented frameworks, network protocols, distributed services, and databases with curiosity and discipline, developing accurate mental models while valuing learning as essential to responsible engineering practice.
-- **Design** software systems using object-oriented principles and clear interfaces that support reliability and maintainability, motivated by care for future users, collaborators, and the evolution of the system over time.
-- **Build** distributed applications that faithfully translate design intent into readable, testable implementations, showing diligence and integrity in the quality of code produced.
-- **Test** software systems systematically to validate behavior and uncover failure modes, valuing evidence, honesty, and accountability as foundations of trustworthy software.
-
 ```masteryls
 {"id":"624dbbb7-bbc1-4061-9c51-080623358b39", "title":"Outcomes", "type":"likert", "showResults":"editor" }
-Let us know where you currently are in regard to the course outcomes. This will help us know how to adjust the course to assist your success.
+Let us know where you _currently_ are in regard to the course outcomes. This will help us know how to adjust the course to assist your success.
 
 Scale: Strongly disagree | Disagree | Neutral | Agree | Strongly agree
 
