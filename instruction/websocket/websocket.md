@@ -16,7 +16,7 @@ In 2011, the WebSocket protocol was standardized to solve this problem. The core
 
 WebSocket connections are strictly between two parties. To facilitate a conversation between a group of users, the server must act as an intermediary. Each peer connects to the server, and the server manages the logic to forward messages among the connected peers.
 
-![peers.png](peers.png)
+![webSocketPeers.png](webSocketPeers.png)
 
 ## The WebSocket Protocol Details
 
