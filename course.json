@@ -554,6 +554,9 @@
           "type": "instruction",
           "path": "instruction/phase-4-architectural-patterns/phase-4-architectural-patterns.md",
           "id": "e8f3b4ad-dbaf-4d8f-a925-409c31c35fe0",
+          "interactions": [
+            "b746e8d8-7f29-43b8-ad95-f52ae0ed6f19"
+          ],
           "description": "Describe the important software engineering architectural patterns and design principles used to implement a data access layer to a service"
         },
         {
