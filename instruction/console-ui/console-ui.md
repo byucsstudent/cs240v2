@@ -248,7 +248,7 @@ Input your numbers
 
 
 ````masteryls
-{"id":"c5b88226-5c50-4e90-86fa-342b4b8fb05d","title":"","type":"multiple-choice"}
+{"id":"c5b88226-5c50-4e90-86fa-342b4b8fb05d","title":"Console color","type":"essay"}
 Change the following Java code so that it prints out the text with a red foreground and a green background.
 
 ```java
