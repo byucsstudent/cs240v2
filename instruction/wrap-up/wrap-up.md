@@ -34,7 +34,7 @@ Scale: Beginner|Intermediate|Proficient|Advanced|Expert
 
 ## Practical Application: Your Next Steps
 
-To solidify what you have learned, I encourage you to take one of the following actions within the next week:
+To solidify what you have learned, I encourage you to take one of the following actions within the next month:
 
 1.  **Audit an Existing Project:** Take a piece of software you wrote previously and perform an architectural audit. Where does it violate SOLID principles? How would you refactor it into a more scalable pattern?
 2.  **Contribute to Open Source:** Find a project on GitHub that interests you. Observe how they manage their architecture and try to contribute a small improvement or a test case.
