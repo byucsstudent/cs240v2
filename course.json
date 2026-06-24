@@ -554,6 +554,7 @@
           "type": "instruction",
           "path": "instruction/phase-4-architectural-patterns/phase-4-architectural-patterns.md",
           "id": "e8f3b4ad-dbaf-4d8f-a925-409c31c35fe0",
+          "state": "published",
           "interactions": [
             "b746e8d8-7f29-43b8-ad95-f52ae0ed6f19"
           ],
@@ -596,7 +597,10 @@
           "title": "Console UI",
           "path": "instruction/console-ui/console-ui.md",
           "id": "b94dc1ae-a083-43cf-bbda-04b467b7ba04",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "c5b88226-5c50-4e90-86fa-342b4b8fb05d"
+          ]
         },
         {
           "title": "Phase 5: Getting Started",
