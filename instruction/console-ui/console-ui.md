@@ -14,9 +14,14 @@
 
 ---
 
-Typically, when a program prints output to the console (or terminal), the text is plain and without much formatting. However, it is possible to create fairly nice console user interfaces that include formatted, colored text, and use character-based graphics. This lecture explains how to create a text-based console user interface, with an emphasis on how to implement the Chess client user interface.
+Typically, when a program prints output to the console (or terminal), the text is plain and without much formatting. However, it is possible to create fairly nice console user interfaces that include formatted, colored text, and use character-based graphics.
 
-![Console User Interface](<Midnight_Commander_(2005)_en.png>)
+![Console User Interface](termui-go.gif)
+> _soruce: [Lucas F Costa](https://www.lucasfcosta.com/blog/ux-patterns-cli-tools)_
+
+
+
+ This lecture explains how to create a text-based console user interface, with an emphasis on how to implement the Chess client user interface.
 
 ## Processing Application Arguments
 
