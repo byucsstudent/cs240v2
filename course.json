@@ -615,7 +615,10 @@
           "title": "☑ Phase 5: Chess Pregame",
           "path": "chess/5-pregame/pregame.md",
           "id": "a9c3b3e6-bfe7-4247-a034-a08adbf35334",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "e21028f3-f5e5-413c-be2f-ee53b77d3f6b"
+          ]
         },
         {
           "title": "WebSocket",
