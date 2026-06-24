@@ -515,7 +515,12 @@
           "title": "JDBC",
           "path": "instruction/db-jdbc/db-jdbc.md",
           "id": "9773ec2e-938c-4f18-96b1-c76b6a835766",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "2975ae3a-d235-454d-a5b2-cb0e11cc0e97",
+            "d58d3fd8-6ba9-417d-b084-ed10e9bc459e",
+            "9393c3bb-b1de-4c25-8822-2cd06d2b8854"
+          ]
         },
         {
           "title": "Securing Passwords",
