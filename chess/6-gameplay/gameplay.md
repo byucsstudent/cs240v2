@@ -34,8 +34,7 @@ classDiagram
         +notify(ServerMessage message)
     }
 
-    ServerMessageObserver <|.. ChessClient
-
+    ChessClient --|> ServerMessageObserver
 
     WebsocketCommunicator --> ServerMessageObserver : notify()
 
