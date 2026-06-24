@@ -663,6 +663,7 @@
           "type": "instruction",
           "path": "instruction/phase-6-architectural-patterns/phase-6-architectural-patterns.md",
           "id": "44c48e77-2bae-460e-b1a0-f5ae2f0f850f",
+          "state": "published",
           "interactions": [
             "b0243709-feec-4de7-9dee-c55785397d85",
             "33b01d41-39c5-45dc-9ae6-b61fd516d6e6"
@@ -684,7 +685,12 @@
           "title": "Concurrency",
           "path": "instruction/concurrency/concurrency.md",
           "id": "65803a0c-cc78-41f6-9c01-f935e26c00ab",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "4226f08f-09a1-49a3-a5cc-cd30f4760fbd",
+            "33d58c6f-e8af-4c3b-990f-7f7b05f860a6",
+            "d7ae2be0-5609-4b7c-8563-346ab36b286f"
+          ]
         },
         {
           "title": "Command line tools",
