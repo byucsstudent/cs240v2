@@ -13,7 +13,7 @@ The Starter Code has 2 folders, `server` and `websocket`. Complete the following
 
 
 ````masteryls
-{"id":"0c644e53-10e0-46cb-aba5-7f59f3fa3293","title":"Phase 5: Getting started","type":"multiple-select"}
+{"id":"0c644e53-10e0-46cb-aba5-7f59f3fa3293","title":"Phase 6: Getting started","type":"multiple-select"}
 Once finished, your project structure should include the following additions:
 
 ```text
