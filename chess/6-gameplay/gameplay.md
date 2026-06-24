@@ -10,11 +10,12 @@ For the final part of the Chess Project, you will implement gameplay. Gameplay w
 
 
 ```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
 classDiagram
 
     direction LR
     class ChessClient
-    class ChessBoard
     class ServerFacade
     class WebsocketCommunicator
     class HttpCommunicator
@@ -22,8 +23,9 @@ classDiagram
     class Server
 
     ServerFacade --> HttpCommunicator
+    HttpCommunicator --> Internet
+
     ChessClient --> ServerFacade
-    ChessClient --> ChessBoard
 
     ServerFacade --> WebsocketCommunicator : ctor(observer)
 
@@ -35,12 +37,9 @@ classDiagram
     ServerMessageObserver <|.. ChessClient
 
 
-    ServerFacade ..> WebsocketCommunicator : passes\nServerMessageObserver
-
     WebsocketCommunicator --> ServerMessageObserver : notify()
 
-    WebsocketCommunicator --> Internet
-    HttpCommunicator --> Internet
+    WebsocketCommunicator <--> Internet
     Internet <--> Server
 ```
 _Figure 1: Recommended Chess Client Design_
