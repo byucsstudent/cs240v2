@@ -243,6 +243,21 @@ Input your numbers
 >>> 1 2 3
 1 + 2 + 3 = 6
 ```
+
+## ☑ Exercise
+
+
+````masteryls
+{"id":"c5b88226-5c50-4e90-86fa-342b4b8fb05d","title":"","type":"multiple-choice"}
+Change the following Java code so that it prints out the text with a red foreground and a green background.
+
+```java
+System.out.print("\u001b[35;100m");
+System.out.printf("Merry Christmas");
+```
+````
+
+
 ## Videos
 
 - 🎥 [Console User Interfaces (3:02)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=363561fc-a6f6-49ad-8d10-b19a0149fe26) - [[transcript]](https://github.com/user-attachments/files/17736991/CS_240_Console_User_Interfaces_Transcript.pdf)
