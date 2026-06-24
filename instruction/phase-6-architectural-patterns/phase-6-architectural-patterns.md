@@ -70,6 +70,38 @@ While this architecture is robust, it introduces new complexities:
 *   **State Synchronization:** The client and server must stay in sync. If a WebSocket connection drops and reconnects, the client needs a strategy to recover the current game state.
 *   **Complexity Overhead:** For a very small project, creating multiple classes and interfaces might feel like "over-engineering." However, in a professional environment, this overhead is a necessary investment to prevent "spaghetti code."
 
+#### Alternative: Simplified Direct Communication
+
+For smaller-scale implementations or rapid prototyping, you might choose a simplified architecture that collapses the layers of abstraction. In this model, the `ChessClient` communicates directly with a single `NetworkManager` that handles both HTTP and WebSocket protocols, bypassing the Observer interface and the Facade.
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
+classDiagram
+    direction LR
+    class ChessClient {
+        +onMessage(ServerMessage)
+    }
+    class NetworkManager {
+        +sendHttp(request)
+        +sendWs(command)
+    }
+    class Internet
+    class Server
+
+    ChessClient <--> NetworkManager : direct method calls
+    NetworkManager <..> Internet
+    Internet <..> Server
+```
+
+**Pros of the Simplified Model:**
+*   **Reduced Boilerplate:** Fewer classes and interfaces to define and maintain.
+*   **Linear Logic:** The path from user input to network transmission is shorter and easier to trace for beginners.
+
+**Cons of the Simplified Model:**
+*   **Tight Coupling:** The `NetworkManager` must have a direct reference to the `ChessClient` (or vice versa), making it difficult to swap out the UI or test the networking logic in isolation.
+*   **Poor Scalability:** As more protocols or message types are added, the `NetworkManager` quickly becomes a "God Object" that is difficult to refactor.
+
 ### Practical Example: Handling a Move
 
 Consider the flow of making a move in the game. 
