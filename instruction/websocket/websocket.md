@@ -6,21 +6,21 @@
 
 ![webSocket](webServicesWebSocketsLogo.png)
 
-HTTP is based on a client-server architecture. A client always initiates the request and the server responds. This is great if you are building a global document library connected by hyperlinks, but for many other use cases it just doesn't work. Applications for notifications, distributed task processing, peer-to-peer communication, or asynchronous events need communication that is initiated by two or more connected devices.
+HTTP is based on a client-server architecture where the client always initiates the request and the server responds. This model is ideal for building a global document library connected by hyperlinks, but it is insufficient for many modern use cases. Applications requiring real-time notifications, distributed task processing, peer-to-peer communication, or asynchronous events need communication that can be initiated by any connected device.
 
-For years, web developers created hacks to work around the limitation of the client/server model. This included solutions like having the client frequently pinging the server to see if the server had anything to say, or keeping client-initiated connections open for a very long time as the client waited for some event to happen on the server. Needless to say, none of these solutions were elegant or efficient.
+For years, web developers used various workarounds to overcome the limitations of the client-server model. These solutions included "polling," where the client frequently pings the server to see if there are updates, or "long polling," where the client opens a connection and keeps it open while waiting for the server to respond with an event. These solutions were often inefficient and difficult to maintain.
 
-Finally, in 2011 the communication protocol WebSocket was created to solve this problem. The core feature of WebSocket is that it is fully duplexed. This means that after the initial connection is made from a client, using vanilla HTTP, and then upgraded by the server to a WebSocket connection, the relationship changes to a peer-to-peer connection where either party can efficiently send data at any time.
+In 2011, the WebSocket protocol was standardized to solve this problem. The core feature of WebSocket is that it is **full-duplex**. After an initial connection is made over HTTP and then "upgraded" by the server to a WebSocket connection, the relationship changes to a persistent, bi-directional connection where either party can send data at any time.
 
-![WebSocket Upgrade](webServicesWebSocketUpgrade.jpg)
+![webSocket.png](webSocket.png)
 
-WebSocket connections are still only between two parties. So if you want to facilitate a conversation between a group of users, the server must act as the intermediary. Each peer first connects to the server, and then the server forwards messages amongst the peers.
+WebSocket connections are strictly between two parties. To facilitate a conversation between a group of users, the server must act as an intermediary. Each peer connects to the server, and the server manages the logic to forward messages among the connected peers.
 
-![WebSocket Peers](webServicesWebSocketPeers.jpg)
+![peers.png](peers.png)
 
 ## Creating a WebSocket Server Connection
 
-Here is an example of a basic HTTP server that uses the `Javalin` library to support upgrading to the WebSocket protocol when the `/ws` endpoint is called by a client.
+The following example demonstrates a basic HTTP server using the `Javalin` library. It supports upgrading to the WebSocket protocol when a client calls the `/ws` endpoint.
 
 ```java
 import io.javalin.Javalin;
@@ -32,37 +32,38 @@ public class SimpleWsEchoServer {
                 .ws("/ws", ws -> {
                     ws.onConnect(ctx -> {
                         ctx.enableAutomaticPings();
-                        System.out.println("Websocket connected");
+                        System.out.println("WebSocket connected");
                     });
-                    ws.onMessage(ctx -> ctx.send("WebSocket response:" + ctx.message()));
-                    ws.onClose(_ -> System.out.println("Websocket closed"));
+                    ws.onMessage(ctx -> ctx.send("WebSocket response: " + ctx.message()));
+                    ws.onClose(ctx -> System.out.println("WebSocket closed"));
                 })
                 .start(8080);
     }
 }
 ```
 
-This code calls Javalin.create() to create an HTTP server, and then uses a fluent API to chain calls to get, which registers code for handling an HTTP GET request; ws, which registers code for handling WebSocket connections, messages, and closures coming from a peer; and start, which starts the server on the specified port.
+This code uses `Javalin.create()` to initialize the server and a fluent API to configure it:
+*   `.get()` registers a handler for standard HTTP GET requests.
+*   `.ws()` registers handlers for WebSocket lifecycle events (connecting, receiving messages, and closing) at a specific path.
+*   `.start(8080)` launches the server on the specified port.
 
-## Websocket Timeout
+## WebSocket Timeout
 
-By default, if Javalin has not heard from it's client for 30 seconds, the connection is deemed closed. Once the connection is closed, no messages can be sent. If you want to send something again, you have to open a new connection.
+By default, if Javalin does not receive communication from a client for 30 seconds, the connection is considered timed out and closed. Once closed, no further messages can be sent without establishing a new connection.
 
-Rather than open a new connection every 30 seconds, we can have Javalin ping it's connections. If a pong is recieved back, then we know the connection is still open. Javalin can be instructed to do this with every connection by calling `context.enableAutomaticPings()`. You'll notice in the above example that this is enabled when the connection is opened.
+To maintain a persistent connection, we can instruct Javalin to "ping" its clients. If a "pong" is received in response, the connection remains active. This is enabled by calling `ctx.enableAutomaticPings()` within the `onConnect` handler, as shown in the server example above.
 
 ## Creating a WebSocket Client Connection
 
-In order to initiate a WebSocket connection to a server from a client in Java you need a library that implements the `javax.websocket.WebSocketContainer` interface. In this course we use the `glassfish.tyrus` library to implement `WebSocketContainer`.
+To initiate a WebSocket connection from a Java client, you need a library that implements the `jakarta.websocket.WebSocketContainer` interface (formerly `javax.websocket`). In this course, we use the `Tyrus` library.
 
-> Install: org.glassfish.tyrus.bundles:tyrus-standalone-client:2.1.4
+> **Install:** `org.glassfish.tyrus.bundles:tyrus-standalone-client:2.1.4`
 
-Then you need to implement the `onOpen` method on the `javax.websocket.Endpoint` abstract class in order to create the class that will handle sending and receiving WebSocket messages.
+To handle the connection, you must extend the `jakarta.websocket.Endpoint` abstract class and override the `onOpen` method. You then use a `WebSocketContainer` to connect to the server URI, which returns a `Session` object used for communication.
 
-Now you are ready to create your connection by calling the `connectToServer` method on the container and providing a reference to an object for the class that extends the `Endpoint` class. This will return a `Session` object that you can use to send messages over your WebSocket connection.
+Incoming messages are handled by registering a `MessageHandler` with the session.
 
-You receive messages by registering an `onMessage` listener with the session's `addMessageHandler`.
-
-The following code gives you a full example.
+The following code provides a complete client example:
 
 ```java
 import jakarta.websocket.ContainerProvider;
@@ -93,7 +94,9 @@ public class WsEchoClient extends Endpoint {
     public WsEchoClient() throws Exception {
         URI uri = new URI("ws://localhost:8080/ws");
         WebSocketContainer container = ContainerProvider.getWebSocketContainer();
-        session = container.connectToServer(this, uri);
+        
+        // This call connects to the server and triggers onOpen
+        this.session = container.connectToServer(this, uri);
 
         this.session.addMessageHandler(new MessageHandler.Whole<String>() {
             public void onMessage(String message) {
@@ -104,21 +107,15 @@ public class WsEchoClient extends Endpoint {
     }
 
     public void send(String message) throws IOException {
-        session.getBasicRemote().sendText(message);
+        this.session.getBasicRemote().sendText(message);
     }
 
-    // This method must be overridden, but we don't have to do anything with it
+    // This method is called when the connection is established
+    @Override
     public void onOpen(Session session, EndpointConfig endpointConfig) {
     }
 }
-
 ```
-
-## Demonstration code
-
-📁 [WebSocket Client Examples](example-code/client)
-
-📁 [WebSocket Server Examples](example-code/server)
 
 ## Videos
 
