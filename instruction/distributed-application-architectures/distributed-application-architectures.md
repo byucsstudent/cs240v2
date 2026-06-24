@@ -1,5 +1,14 @@
 # Distributed Application Architectures
 
+### 🔑 Key points
+
+- **Distributed Applications:** Systems where components on networked computers communicate and coordinate actions by passing messages to achieve common goals.
+- **Primary Architectures:** Key models include Layered Client-Server (N-Tier), Peer-to-Peer, Microservices, Event-Driven, and Serverless, each with distinct trade-offs in scalability and complexity.
+- **Strategic Selection:** The choice of architecture dictates how a system handles failure, grows under load, and manages data consistency.
+- **Distributed Challenges:** Engineers must navigate unique hurdles not found in monolithic systems, such as network latency, partial failures, and the constraints of the CAP theorem.
+
+---
+
 In the modern landscape of software engineering, very few applications run in complete isolation. As you progress through the development of complex systems, such as the Chess server projects in this module, you will find that the way components are organized across a network determines the system's scalability, reliability, and maintainability. A distributed application is one where components located on networked computers communicate and coordinate their actions by passing messages. Choosing the right architecture is not just a technical decision; it is a strategic one that dictates how your application will grow and handle failure.
 
 
