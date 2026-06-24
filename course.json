@@ -572,6 +572,13 @@
           "path": "instruction/defensive-programming/defensive-programming.md",
           "id": "7814003c-2643-4298-8452-b696a7fb4122",
           "state": "published"
+        },
+        {
+          "title": "Phase 4: Architectural Patterns",
+          "type": "instruction",
+          "path": "instruction/phase-4-architectural-patterns/phase-4-architectural-patterns.md",
+          "id": "e8f3b4ad-dbaf-4d8f-a925-409c31c35fe0",
+          "description": "Describe the important software engineering architectural patterns and design principles used to implement a data access layer to a service"
         }
       ]
     },
