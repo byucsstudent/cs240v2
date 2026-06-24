@@ -84,6 +84,15 @@ Phase 5 is less about complex algorithms and more about clean organizational str
 
 As you build, ask yourself: "If I replaced the server with a local database tomorrow, how many files would I have to change?" If the answer is "only the ServerFacade," you have achieved a successful, decoupled architecture.
 
+## ☑ Exercise
+
+
+```masteryls
+{"id":"65911966-69cc-4552-9be7-a1b1ffe2ef7b", "title":"Facade", "type":"teaching" }
+I don't understand the difference between the Facade and Adapter pattern.
+```
+
+
 ***
 
 ### External Resources for Further Study
