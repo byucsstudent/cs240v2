@@ -8,36 +8,41 @@ We will examine five distinct distributed application architectures to evaluate 
 
 | Architecture | Primary Focus | Best For |
 | :--- | :--- | :--- |
-| **Client-Server** | Centralization | Simple web apps, small-scale tools |
-| **Three-Tier** | Separation of Concerns | Standard enterprise applications |
+| **Layered Client-Server (N-Tier)** | Centralization & Separation | Web apps, standard enterprise tools |
 | **Peer-to-Peer** | Decentralization | File sharing, blockchain, decentralized chat |
 | **Microservices** | Independent Scalability | Large, complex systems like Netflix or Amazon |
 | **Event-Driven** | Loose Coupling | IoT, real-time data streaming, UI responsiveness |
 
 
-## Client-Server Architecture
+## Layered Client-Server (N-Tier) Architecture
 
-The Client-Server model is the foundational pattern for distributed systems. In this model, tasks are partitioned between the providers of a resource or service, called servers, and service requesters, called clients. The relationship is typically asymmetrical: the server sits in a passive state waiting for requests, while the client initiates the communication.
+The Client-Server model is the foundational pattern for distributed systems, where tasks are partitioned between service providers (servers) and service requesters (clients). In modern web applications, this model almost always evolves into a **Three-Tier** or **N-Tier** architecture. Rather than a single "server" handling everything, the system is organized into logical layers: the **Presentation Tier** (UI), the **Application Tier** (Logic), and the **Data Tier** (Storage).
 
-This architecture is the backbone of the World Wide Web. When you build a Chess client that connects to an AWS-hosted server, you are implementing this pattern. The server manages the game state and validates moves, while the client focuses on the user interface.
+In a Chess application, this architectural evolution is clear:
+1.  **Presentation Tier:** Your JavaScript web interface or Console UI.
+2.  **Application Tier:** An AWS-hosted server running Java or Node.js logic to validate moves and enforce rules.
+3.  **Data Tier:** A database storing user profiles and match histories.
 
-**UML Dataflow Diagram**
+By separating these concerns, you ensure that the "Server" doesn't become a bloated, unmaintainable monolith.
+
 
 ```mermaid
-graph LR
+graph TD
     classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
-    Client[Client/UI] -- Request --> Server[Centralized Server]
-    Server -- Response --> Client
-    Server -- Query --> DB[(Database)]
-    DB -- Data --> Server
+    User((User)) --> Presentation[Presentation Tier: Client/UI]
+    Presentation -- API Request --> Logic[Application Tier: Business Logic]
+    Logic -- SQL/NoSQL Query --> Data[Data Tier: Database]
+    Data -- Result --> Logic
+    Logic -- API Response --> Presentation
 ```
 
-**Practical Example (JavaScript/Node.js)**
+### Practical Example: The Client-Server Interaction
 
-A simple client-side request to a server might look like this:
+A modern application involves a client-side request and a server-side service layer.
 
+*Client-side request (JavaScript):*
 ```javascript
-// Client requesting game data
+// Presentation Tier: Requesting game data from the Application Tier
 async function getGameState(gameId) {
     const response = await fetch(`https://api.chess-server.com/games/${gameId}`);
     const data = await response.json();
@@ -45,35 +50,11 @@ async function getGameState(gameId) {
 }
 ```
 
-**Advantages and Disadvantages**
-*   **Advantages:** Centralized control makes data management and security easier to implement.
-*   **Disadvantages:** The server is a single point of failure and can become a performance bottleneck as the number of clients increases.
-
-
-## Three-Tier Architecture
-
-As applications grow, the "Server" in the client-server model often becomes bloated. Three-Tier architecture solves this by physically or logically separating the application into three layers: the Presentation Tier (UI), the Application Tier (Logic), and the Data Tier (Storage).
-
-In a Chess application, the Presentation Tier would be your Console UI or Web interface. The Application Tier would contain the complex rules of Chess (move validation, checkmate logic), and the Data Tier would store user profiles and match histories.
-
-**UML Dataflow Diagram**
-
-```mermaid
-graph TD
-    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
-    User((User)) --> Presentation[Presentation Tier: UI]
-    Presentation -- API Calls --> Logic[Application Tier: Business Logic]
-    Logic -- SQL/NoSQL --> Data[Data Tier: Database]
-```
-
-**Practical Example (Java)**
-
-In the Application Tier, we separate the logic from the data access:
-
+*Server-side logic (Java):*
 ```java
-// Application Logic Tier
+// Application Tier: Logic separated from data access
 public class GameService {
-    private GameRepository repository; // Data Tier Access
+    private GameRepository repository; // Access to Data Tier
 
     public boolean makeMove(String gameId, Move move) {
         Game game = repository.findById(gameId);
@@ -87,10 +68,9 @@ public class GameService {
 }
 ```
 
-**Advantages and Disadvantages**
-*   **Advantages:** High maintainability; you can change the database (Data Tier) without rewriting the UI (Presentation Tier).
-*   **Disadvantages:** Increased complexity in deployment and higher latency due to multiple network hops between tiers.
-
+### Advantages and Disadvantages
+*   **Advantages:** Centralized control simplifies security and data management. Separation of layers allows you to update the database or logic independently without rewriting the entire UI.
+*   **Disadvantages:** The server remains a single point of failure and can become a bottleneck. The multiple network hops between tiers (Client → Logic → Data) can increase latency.
 
 ## Peer-to-Peer (P2P) Architecture
 
@@ -98,7 +78,6 @@ Unlike the previous models, Peer-to-Peer (P2P) architecture treats every node as
 
 This model is famous for file-sharing networks like BitTorrent and the underlying structure of blockchain technologies. In a P2P Chess game, two players' computers would connect directly to each other to exchange moves without a central server mediating the match.
 
-**UML Dataflow Diagram**
 
 ```mermaid
 graph LR
@@ -108,7 +87,7 @@ graph LR
     NodeC <--> NodeA[Peer A]
 ```
 
-**Practical Example (Conceptual Python)**
+### Practical Example (Conceptual Python)
 
 ```python
 # A peer sending a move directly to another peer
@@ -120,7 +99,7 @@ def on_receive_move(move):
     update_local_board(move)
 ```
 
-**Advantages and Disadvantages**
+### Advantages and Disadvantages
 *   **Advantages:** Highly resilient and fault-tolerant; the system stays alive as long as nodes are active.
 *   **Disadvantages:** Extremely difficult to secure and coordinate. Data consistency is a major challenge.
 
@@ -131,7 +110,6 @@ Microservices architecture takes the idea of "separation of concerns" to the ext
 
 For a large-scale gaming platform, you might have a "Matchmaking Service," a "Chat Service," a "Billing Service," and a "Game Engine Service."
 
-**UML Dataflow Diagram**
 
 ```mermaid
 graph TD
@@ -156,7 +134,7 @@ def get_leaderboard():
     return jsonify(scores)
 ```
 
-**Advantages and Disadvantages**
+### Advantages and Disadvantages
 *   **Advantages:** Teams can deploy services independently. It is highly scalable, as you can scale only the services that are under heavy load.
 *   **Disadvantages:** Significant operational overhead. Managing inter-service communication and distributed transactions is difficult.
 
@@ -165,7 +143,6 @@ def get_leaderboard():
 
 In an Event-Driven Architecture, the flow of the program is determined by events, such as a user clicking a button, a sensor output, or a message from another program. Components communicate by publishing events to an event bus or broker, and other components subscribe to the events they care about. This creates a "loosely coupled" system where the producer of the information doesn't need to know who is consuming it.
 
-**UML Dataflow Diagram**
 
 ```mermaid
 graph LR
@@ -195,7 +172,7 @@ function handleMove(move) {
 }
 ```
 
-**Advantages and Disadvantages**
+### Advantages and Disadvantages
 *   **Advantages:** Excellent for real-time systems and high responsiveness. Components are decoupled, making the system easy to extend.
 *   **Disadvantages:** It can be hard to follow the "logic flow" of the application, making debugging and tracing a challenge.
 
