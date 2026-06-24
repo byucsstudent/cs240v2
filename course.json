@@ -644,7 +644,10 @@
           "title": "Phase 6: Getting Started",
           "path": "chess/6-gameplay/getting-started.md",
           "id": "855830c3-1eb0-4f72-befd-1398f534c493",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "0c644e53-10e0-46cb-aba5-7f59f3fa3293"
+          ]
         },
         {
           "title": "☑ Phase 6: Chess Gameplay",
