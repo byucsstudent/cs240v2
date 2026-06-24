@@ -341,6 +341,59 @@ Collection<Pet> listPets(Connection conn) throws SQLException {
 }
 ```
 
+## ☑ Exercise
+
+```masteryls
+{"id":"2975ae3a-d235-454d-a5b2-cb0e11cc0e97","title":"Purpose of Connection.setCatalog","type":"multiple-choice"}
+When working with a `java.sql.Connection` object in JDBC, what is the primary purpose of invoking the `setCatalog(String catalog)` method?
+
+- [ ] It updates the JDBC driver's connection string to point to a different physical database server or host.
+- [ ] It creates a new schema or database on the server using the provided string as the identifier.
+- [x] It instructs the driver to select a specific subspace (such as a database) within the current connection to be used for subsequent statements.
+- [ ] It sets the default character encoding (cataloging) for all `String` data types sent to the database.
+```
+
+```masteryls
+{"id":"d58d3fd8-6ba9-417d-b084-ed10e9bc459e","title":"Purpose of PreparedStatements","type":"multiple-choice"}
+In JDBC, what is the primary advantage of using a `PreparedStatement` instead of a standard `Statement`?
+
+- [ ] It is the only statement type that supports batch processing for multiple DML operations in a single database round-trip.
+- [ ] It automatically manages database connection pooling to ensure that resources are released immediately after a query executes.
+- [x] It improves performance through precompilation and enhances security by preventing SQL injection via parameterized inputs.
+- [ ] It allows the execution of multiple unrelated SQL command strings within a single object to minimize JVM memory overhead.
+```
+
+````masteryls
+{"id":"9393c3bb-b1de-4c25-8822-2cd06d2b8854","title":"Retrieving Auto-Increment Keys","type":"multiple-choice"}
+Consider the following JDBC code snippet used to insert a new record into a database table where the primary key is set to auto-increment:
+
+```java
+String sql = "INSERT INTO employees (name, department) VALUES (?, ?)";
+try (PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+    pstmt.setString(1, "Jane Doe");
+    pstmt.setString(2, "Engineering");
+    int affectedRows = pstmt.executeUpdate();
+
+    if (affectedRows > 0) {
+        try (ResultSet rs = pstmt.getGeneratedKeys()) {
+            if (rs.next()) {
+                long newId = rs.getLong(1);
+                System.out.println("Generated ID: " + newId);
+            }
+        }
+    }
+}
+```
+
+What is the primary purpose of passing `Statement.RETURN_GENERATED_KEYS` to the `prepareStatement` method in this context?
+
+- [ ] It forces the JDBC driver to execute a `SELECT LAST_INSERT_ID()` query as a separate transaction to ensure data integrity.
+- [x] It instructs the driver to make the automatically generated column values available for retrieval after the command executes.
+- [ ] It tells the Java application to generate a unique identifier locally and send it to the database as part of the insert statement.
+- [ ] It acts as a validation check that ensures the target table has an auto-increment column defined before the execution begins.
+````
+
+
 ## Videos
 
 - 🎥 [JDBC Overview (3:20)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cabe9971-3ff7-4579-be2e-ad660156090a&start=0) - [[transcript]](https://github.com/user-attachments/files/17737257/CS_240_Java_Database_Access_with_JDBC_Transcript.pdf)
