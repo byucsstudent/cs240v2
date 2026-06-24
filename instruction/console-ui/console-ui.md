@@ -7,7 +7,7 @@
 ### 🔑 Key points
 
 - How to use command line arguments
-- How to write to Standard Out
+- How to write to Standard Out and Standard Error
 - How to read from Standard In
 - How to use terminal control codes to clear the terminal, set background and text colors, and apply text attributes (bold, faint, italic, underline, and blinking)
 - How to use Unicode characters to draw the chessboard and pieces for the Chess project
@@ -59,13 +59,23 @@ public class ClientMain {
 }
 ```
 
-## Writing to Standard Out
+## Writing to Standard Out and Standard Error
 
-The `System.out` object is an output stream associated with the output device defined by your operating system—usually the command line console that launched your application. You can use `System.out` to print text to the command line and communicate with the user. We can combine application arguments and `System.out` to create a rudimentary calculator.
+Java provides two primary output streams for the console:
+
+1.  **`System.out`**: Used for standard output (normal program results).
+2.  **`System.err`**: Used for error messages. By default, both usually print to the same console, but `System.err` is often used so that errors can be redirected or logged separately from standard output.
+
+We can combine application arguments and `System.out` to create a rudimentary calculator.
 
 ```java
 public class CalculatorExample {
     public static void main(String[] args) {
+        if (args.length == 0) {
+            System.err.println("Usage: java CalculatorExample.java <num1> <num2> ...");
+            return;
+        }
+
         int result = 0;
         for (var arg : args) {
             result += Integer.parseInt(arg);
@@ -74,11 +84,6 @@ public class CalculatorExample {
         System.out.printf("%s = %d%n", equation, result);
     }
 }
-```
-
-```sh
-➜  java CalculatorExample.java 1 2 3
-1 + 2 + 3 = 6
 ```
 
 ## Outputting in Color
@@ -160,6 +165,39 @@ Now, when we run the calculator, the output is stylized:
 
 ![calculator](calculator.png)
 
+## Clearing the Terminal
+
+To create a clean UI, you may want to clear the terminal screen. You can do this using the escape sequence `\u001b[H\u001b[2J`. 
+- `\u001b[H` moves the cursor to the "home" position (top-left).
+- `\u001b[2J` clears the entire screen.
+
+```java
+public class ClearScreenExample {
+    public static void main(String[] args) {
+        System.out.print("\u001b[H\u001b[2J");
+        System.out.flush();
+        System.out.println("The screen has been cleared!");
+    }
+}
+```
+
+## Unicode and Special Characters
+
+For the Chess project, you will use Unicode characters to represent the pieces. Java supports Unicode natively in strings. You can use the Unicode escape sequence `\uXXXX` where `XXXX` is the hex code for the character.
+
+```java
+public class UnicodeExample {
+    public static void main(String[] args) {
+        // Chess piece Unicode characters
+        String whiteKing = "\u2654";
+        String blackQueen = "\u265B";
+        
+        System.out.println("White King: " + whiteKing);
+        System.out.println("Black Queen: " + blackQueen);
+    }
+}
+```
+
 ## Reading from Standard In
 
 To create an interactive application, you must receive input from the user. When a Java program executes, the operating system streams keyboard input to the `System.in` object.
@@ -174,6 +212,8 @@ public class InteractiveCalculatorExample {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.printf("Type your numbers (or 'exit' to quit)%n>>> ");
+            
+            if (!scanner.hasNextLine()) break;
             String line = scanner.nextLine();
             
             if (line.equalsIgnoreCase("exit")) {
@@ -189,7 +229,7 @@ public class InteractiveCalculatorExample {
                 var equation = String.join(" + ", numbers);
                 System.out.printf("%s = %d%n", equation, result);
             } catch (NumberFormatException e) {
-                System.out.println("Error: Please provide only integers.");
+                System.err.println("Error: Please provide only integers.");
             }
         }
     }
@@ -203,7 +243,6 @@ Input your numbers
 >>> 1 2 3
 1 + 2 + 3 = 6
 ```
-
 ## Videos
 
 - 🎥 [Console User Interfaces (3:02)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=363561fc-a6f6-49ad-8d10-b19a0149fe26) - [[transcript]](https://github.com/user-attachments/files/17736991/CS_240_Console_User_Interfaces_Transcript.pdf)
