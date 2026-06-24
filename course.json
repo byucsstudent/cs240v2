@@ -562,7 +562,10 @@
           "title": "Debugging",
           "path": "instruction/debugging/debugging.md",
           "id": "5f56719a-a964-4d91-afb2-80537d39bff0",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "e98f9beb-df82-41d3-96b9-b0b82c53c670"
+          ]
         },
         {
           "title": "Defensive Programming",
