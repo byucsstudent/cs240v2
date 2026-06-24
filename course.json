@@ -526,7 +526,10 @@
           "title": "Securing Passwords",
           "path": "instruction/securing-passwords/securing-passwords.md",
           "id": "7f39c46d-ccbd-4837-b559-d46b0997c5e4",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "7ea13f64-a461-4c6e-89ae-86a2da0e6a52"
+          ]
         },
         {
           "title": "Phase 4: Getting Started",
