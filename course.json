@@ -544,7 +544,10 @@
           "title": "☑ Phase 4: Chess Database",
           "path": "chess/4-database/database.md",
           "id": "35fc7825-07b3-4400-82c1-9b06147291ea",
-          "state": "published"
+          "state": "published",
+          "interactions": [
+            "bcc505a6-10fd-4994-bac8-28e2b37148b3"
+          ]
         },
         {
           "title": "Logging",
