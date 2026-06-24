@@ -10,36 +10,62 @@
 
 ### 🔑 Key points
 
-- What is logging and why do we need it?
+- What is logging, and why do we need it?
 - How do you log messages at different levels?
 - Why do we need different levels?
 - How do you configure logging from a configuration file?
-- Why do we have Log4J is Java has a built-in logging API?
+- Why do we use Log4J if Java has a built-in logging API?
 
 ---
 
-Logging is a critical piece of advanced software construction. Without logging your application is a black box where only your users know if it is working or not. By recording, or logging, what is happening within your application you create a persistent record of what users are doing and how the application is responding to their requests. Logging works by recording entries in a log that describes what is happening at key points in your application. Typically this includes the request and response of HTTP endpoints, authentication and authorization requests, and exceptional errors. You can then query your logs to view events, graphs, and reports that give you insight into what the system is doing. You can also set up your logging system to automatically alert you when things seem exceptional.
+Logging is a critical piece of advanced software construction. Without logging, your application is a "black box" where only your users know if it is working or not. By recording, or logging, what is happening within your application, you create a persistent record of what users are doing and how the application is responding to their requests. Logging works by recording entries in a log file or database that describes what is happening at key points in your application. Typically, this includes the requests and responses of HTTP endpoints, authentication and authorization requests, and exceptional errors. You can then query your logs to view events, graphs, and reports that give you insight into what the system is doing. You can also set up your logging system to automatically alert you when things seem exceptional.
 
 ![logging flow](logging-flow.png)
 
+```mermaid
+graph LR
+
+classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
+
+dev((fa:fa-user-cog dev))
+user((fa:fa-person user))
+database[(fa:fa-database database)]
+monitoring(fa:fa-chart-bar monitoring)
+alerting(fa:fa-bell alerting)
+
+classDef a fill:#258
+
+subgraph "logging"
+user:::a --> application
+application --> logger
+end
+logger --> database
+dev:::a --> monitoring
+monitoring --> database
+subgraph "observing"
+monitoring --> alerting
+alerting --> dev
+end
+```
+
 Logging provides the following benefits:
 
-1. **Debugging** - You can't put breakpoints into a production system in order to debug all of a user's requests. You can however, log out an entry that describes what a user requested and what the response was. You can the look at all of the requests of a specific user and get a good picture of where failures are happening.
-1. **Security** - By logging records that represent authentication, authorization, purchase, and payment attempts you can get a clear pictures of when someone is trying to abuse critical pieces of your application.
-1. **Auditing** - By aggregating log records you can determine what parts of your application are being used, who is using them, and how often. This allows you to adust resource allocations, determine new features, and reassess existing features of your application.
-1. **Performance Monitoring** - By aggregating timing measurements associated with requests, you can create graphs that visualize the performance characteristics of you application. You can see where the hot spots are and where optimization of the system needs to take place. You can also determine when your system is failing to satisfy user requests and automatically alert you to take corrective action.
+1. **Debugging** - You cannot easily put breakpoints into a production system to debug a user's requests. You can, however, log an entry that describes what a user requested and what the response was. You can then look at all the requests of a specific user to get a clear picture of where failures are happening.
+2. **Security** - By logging records that represent authentication, authorization, purchase, and payment attempts, you can get a clear picture of when someone is trying to abuse critical pieces of your application.
+3. **Auditing** - By aggregating log records, you can determine what parts of your application are being used, who is using them, and how often. This allows you to adjust resource allocations, prioritize new features, and reassess existing features.
+4. **Performance Monitoring** - By aggregating timing measurements associated with requests, you can create graphs that visualize the performance characteristics of your application. You can see where the "hot spots" are and where optimization needs to take place. You can also determine when your system is failing to satisfy user requests and automatically trigger alerts to take corrective action.
 
-Typically application logs are persistently recorded in a system that is independent of your production system. Otherwise when your production system fails you will also lose your logging data. This makes it more difficult to diagnose what went wrong with the application.
+Typically, application logs are persistently recorded in a system that is independent of your production system. Otherwise, when your production system fails, you might also lose your logging data, making it much more difficult to diagnose what went wrong.
 
 ## java.util.logging
 
-The Java Development Kit (JDK) provides support for logging with the `java.util.logging` package. To create, or get an existing, `Logger` you call the static method `Logger.getLogger` and supply a logger name. It will automatically associate your name with the calling class and so the name doesn't have to be unique from other `getLogger` requests.
+The Java Development Kit (JDK) provides support for logging with the `java.util.logging` package. To create or retrieve a `Logger`, you call the static method `Logger.getLogger` and supply a logger name. It is common practice to use the class name as the logger name.
 
 ```java
 Logger logger = Logger.getLogger(LoggingExample.class.getName());
 ```
 
-With a `Logger` you can then register a `Handler` that knows where to publish, or store, log records that represent some sort of event message. The JDK provides several useful implementations of the Handler abstract class. This includes the `ConsoleHandler` that publishes to the console window, the `FileHandler` that publishes to a given file, and a `SocketHandler` that publishes log records over a network connection.
+With a `Logger`, you can register a `Handler` that knows where to publish, or store, log records. The JDK provides several useful implementations of the `Handler` abstract class. These include the `ConsoleHandler` (publishes to the console window), the `FileHandler` (publishes to a given file), and the `SocketHandler` (publishes log records over a network connection).
 
 ```java
 FileHandler fileHandler = new FileHandler("example.log", true);
@@ -48,11 +74,11 @@ logger.addHandler(fileHandler);
 
 ### Log Levels
 
-Each log record specifies a `Level` that defines how important the record is. This can be anything from `SEVERE`, `WARNING`, or `INFO` down to the `FINEST` detail. You can then use the log levels to filter out details when you are looking for problems in your logs, or when you are generating alerts. For example, you might want to automatically send an alert for anything that is `SEVERE`.
+Each log record specifies a `Level` that defines how important the record is. This can range from `SEVERE`, `WARNING`, or `INFO` down to the `FINEST` detail. You can use these log levels to filter out details when you are searching for problems or generating alerts. For example, you might want to automatically send an alert for any log entry marked `SEVERE`.
 
-The level that you assign to your log records is dependent on what each log level means in the context of your application. With the chess program you might never publish a `SEVERE` log record. That is because the application could always fall back to some reasonable level of functionality. However, with an application that is protecting human safety, you might want to publish `SEVERE` log records for anything that might conceivably endanger life.
+The level you assign to your log records depends on what each level means in the context of your application. In a simple chess program, you might never publish a `SEVERE` log record because the application can usually fall back to a reasonable state. However, in an application protecting human safety, you might publish `SEVERE` log records for anything that could conceivably endanger life.
 
-You can also control how much logging your application is publishing by specifying a level on your logger. For example, when you are debugging you want to log the `FINEST` detail, but when you are running in production you only want to log `SEVERE`, `WARNING`, or `INFO`. When you restrict the handler to a certain level it will ignore any log requests that are below that level. This allows you to control how much logging is happening based upon an application configuration parameter. To set the level on a logger you use the `setLevel` method.
+You can also control how much logging your application publishes by specifying a level on your logger. For example, while debugging, you may want to log `FINEST` details, but in production, you might only want to log `SEVERE`, `WARNING`, or `INFO`. When you restrict a logger to a certain level, it will ignore any log requests that are below that level. This allows you to control logging volume via configuration parameters. To set the level on a logger, use the `setLevel` method:
 
 ```java
 logger.setLevel(Level.INFO);
@@ -60,7 +86,7 @@ logger.setLevel(Level.INFO);
 
 ### Logging Records
 
-A logger has several methods for actually logging a record. This includes the simple `log(Level, String msg)` method that takes a message and a level, or methods that represent the different log levels. For example, `severe(String msg)` or `info(String msg)`. The following example show two equivalent ways of logging an informational HTTP endpoint request.
+A `Logger` has several methods for logging records. This includes the general `log(Level level, String msg)` method or convenience methods for specific levels, such as `severe(String msg)` or `info(String msg)`. The following example shows two equivalent ways of logging an informational HTTP endpoint request:
 
 ```java
 var msg = String.format("[%s] %s", method, path);
@@ -68,7 +94,7 @@ logger.log(Level.INFO, msg);
 logger.info(msg);
 ```
 
-Remember that the logger might be restricted on what it will output based upon the log level that is set for the logger. That means that your code can log all it wants, but if the logger is set to log at a certain level, you log record will be discarded.
+Remember that the logger might be restricted by its current level. Your code can request to log a message, but if that message's level is lower than the logger's threshold, the record will be discarded.
 
 ### Logging Classes
 
@@ -76,7 +102,7 @@ Remember that the logger might be restricted on what it will output based upon t
 
 ## Full Example
 
-The following demonstrates the major logging functionality by creating a logger, registering a handler and formatter, and then logging out messages.
+The following demonstrates major logging functionality by creating a logger, registering a handler and level, and logging messages.
 
 ```java
 import java.io.IOException;
@@ -93,34 +119,40 @@ public class LoggingExample {
 
         logger.setLevel(Level.INFO);
 
+        // This will be ignored because FINEST is lower than INFO
         logger.finest("Ignored because it is lower than the logger level");
+        
+        // This will be logged
         logger.log(Level.INFO, "This will be logged");
     }
 }
 ```
 
-Typically loggers are created as global singletons in your application. That way you don't have to pass the logger all around your application. Instead you just reference the global logger whenever you want to log something.
+Typically, loggers are created as `static` fields in your classes. This allows you to reference the logger whenever you need to record an event without passing it around as a parameter.
 
 ## Writing Your Own Handler
 
-You can write your own handlers by extending the `Handler` class. Here is an example of a logger that simply outputs a string to the console.
+You can write your own handlers by extending the `Handler` class. Here is an example of a custom handler that simply outputs a formatted string to the console.
 
 ```java
 class MyHandler extends Handler {
 
+    @Override
     public void publish(LogRecord record) {
         System.out.printf("MyHandler - [%s] %s%n", record.getLevel(), record.getMessage());
     }
 
+    @Override
     public void flush() {}
 
+    @Override
     public void close() throws SecurityException {}
 }
 ```
 
 ### Database Handler
 
-In order for logging to be useful it needs to store the log records in a location that is accessible and queryable. One possible solution is to use a relational database. The following code demonstrates a simple handler that writes out to a database.
+In order for logging to be truly useful, it needs to store records in a location that is accessible and queryable. One solution is to use a relational database. The following code demonstrates a simple handler that writes logs to a database.
 
 ```java
 record DatabaseConfig(String url, String dbName, String user, String password) {}
@@ -133,6 +165,7 @@ class DatabaseHandler extends Handler {
         configureDatabase();
     }
 
+    @Override
     public void publish(LogRecord record) {
         try {
             try (var conn = getConnection()) {
@@ -149,8 +182,10 @@ class DatabaseHandler extends Handler {
         }
     }
 
+    @Override
     public void flush() {}
 
+    @Override
     public void close() throws SecurityException {}
 
     Connection getConnection() throws SQLException {
@@ -160,11 +195,12 @@ class DatabaseHandler extends Handler {
     void configureDatabase() throws SQLException {
         try (var conn = getConnection()) {
             var stm = String.format("CREATE DATABASE IF NOT EXISTS `%s`", config.dbName);
-            var createDbStatement = conn.prepareStatement(stm);
-            createDbStatement.executeUpdate();
+            try (var createDbStatement = conn.prepareStatement(stm)) {
+                createDbStatement.executeUpdate();
+            }
 
-            var createPetTable = String.format("""
-                    CREATE TABLE  IF NOT EXISTS `%s`.log (
+            var createLogTable = String.format("""
+                    CREATE TABLE IF NOT EXISTS `%s`.log (
                         id INT NOT NULL AUTO_INCREMENT,
                         message VARCHAR(4096) NOT NULL,
                         level VARCHAR(16) NOT NULL,
@@ -172,7 +208,7 @@ class DatabaseHandler extends Handler {
                         PRIMARY KEY(id),
                         INDEX(date)
                     )""", config.dbName);
-            try (var createTableStatement = conn.prepareStatement(createPetTable)) {
+            try (var createTableStatement = conn.prepareStatement(createLogTable)) {
                 createTableStatement.executeUpdate();
             }
         }
@@ -180,7 +216,7 @@ class DatabaseHandler extends Handler {
 }
 ```
 
-With a database logging handler you could then write an HTTP server that records all of your HTTP requests to a database by just adding a few lines of code.
+With a database logging handler, you could record all HTTP requests to a database with just a few lines of code in your server:
 
 ```java
 public class ServerLoggingExample {
@@ -191,11 +227,11 @@ public class ServerLoggingExample {
     static Logger logger = Logger.getLogger("myLogger");
 
     private void run() throws Exception {
-        var config = new DatabaseConfig("jdbc:mysql://localhost:3306", "pet_store", "root", "monkeypie");
+        var config = new DatabaseConfig("jdbc:mysql://localhost:3306", "pet_store", "root", "password");
         logger.addHandler(new DatabaseHandler(config));
 
         var javalin = Javalin.create()
-            .get("/*", (ctx) -> ctx.result("<p>OK</p>")
+            .get("/*", (ctx) -> ctx.result("<p>OK</p>"))
             .after(this::log)
             .start(8080);
     }
@@ -206,10 +242,10 @@ public class ServerLoggingExample {
 }
 ```
 
-You can then query your database for requests that match a given time range or level.
+You can then query your database for requests that match a specific time range or level:
 
 ```sql
-> SELECT * FROM log WHERE date > '2023-10-20' AND level='INFO';
+SELECT * FROM log WHERE date > '2023-10-20' AND level='INFO';
 
 +----+-------------------------------+-------+---------------------+
 | id | message                       | level | date                |
@@ -225,7 +261,7 @@ You can then query your database for requests that match a given time range or l
 
 ## Log4J
 
-Java's direct support for logging, with the `java.util.logging` package, was not introduced until 2002. Before that developers had to implement their own logging. The most common solution was to use the 3rd party package `Log4J`. In fact `java.util.logging` was modeled based upon the functionality of `Log4J`. For that reason it is very common to still see production Java code using `Log4J`.
+Java's direct support for logging via the `java.util.logging` package was not introduced until 2002 (JDK 1.4). Before that, developers had to implement their own logging solutions. The most common solution was the 3rd-party package `Log4J`. In fact, `java.util.logging` was largely modeled after the functionality of `Log4J`. For this reason, it is still very common to see production Java code using `Log4J` or its successor, `Log4j 2`.
 
 ## Videos
 
