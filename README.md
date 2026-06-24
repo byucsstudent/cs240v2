@@ -16,7 +16,7 @@ Advanced software construction (CS240) helps you become responsible software eng
 {"id":"624dbbb7-bbc1-4061-9c51-080623358b39", "title":"Outcomes", "type":"likert", "showResults":"editor" }
 Let us know where you _currently_ are in regard to the course outcomes. This will help us know how to adjust the course to assist your success.
 
-Scale: Strongly disagree | Disagree | Neutral | Agree | Strongly agree
+Scale: Beginner|Intermediate|Proficient|Advanced|Expert
 
 | qid | item |
 |-----|------|
