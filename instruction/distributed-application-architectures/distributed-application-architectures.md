@@ -204,24 +204,44 @@ sequenceDiagram
 
 ## Peer-to-Peer (P2P) Architecture
 
-Unlike the previous models, Peer-to-Peer (P2P) architecture treats every node as both a client and a server (often called "servents"). There is no central authority. Each node contributes resources, such as processing power, disk storage, or network bandwidth, directly to other participants.
+Unlike the centralized models, Peer-to-Peer (P2P) architecture treats every node in the network as an equal. In this model, there is no dedicated central server. Instead, each node acts as both a client and a server; a hybrid role often referred to as a **servent** (**serv**er-cli**ent**). Each participant contributes a portion of their own resources, such as processing power, disk storage, or network bandwidth, directly to other participants without the need for intermediate orchestration.
 
-Nodes in a P2P network often use **Distributed Hash Tables (DHTs)** for decentralized discovery and **NAT traversal** techniques (like STUN or TURN) to establish direct connections through firewalls and private networks.
+### The "Servent" Concept and Decentralization
+In a traditional client-server model, the server is a "special" node with high availability. In P2P, the workload is distributed across the "edge" of the network. This removes the **Single Point of Failure (SPOF)**; if one node goes offline, the rest of the network continues to function. However, this introduces the challenge of **churn**, the constant joining and leaving of nodes, which the architecture must be designed to handle gracefully.
 
-This model is famous for file-sharing networks like BitTorrent and the underlying structure of blockchain technologies. In a P2P Chess game, two players' computers would connect directly to each other to exchange moves without a central server mediating the match.
-
+### Decentralized Discovery: Distributed Hash Tables (DHTs)
+Without a central server to act as a directory (like a phone book), nodes must have a way to find data or other peers. Modern P2P systems use **Distributed Hash Tables (DHTs)**. 
+*   **What is a DHT?** Think of it as a decentralized key-value store. Instead of one server holding the entire index, the index is partitioned. Each node is responsible for a specific range of keys.
+*   **How it works:** If a player wants to find a specific chess game instance, they hash the Game ID to find which peer in the network is responsible for that ID's metadata.
 
 ```mermaid
-graph LR
-    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
-    NodeA[Peer A] <--> NodeB[Peer B]
-    NodeB <--> NodeC[Peer C]
-    NodeC <--> NodeA[Peer A]
+%%{init: { 'theme': 'neutral', 'look': 'handDrawn',
+  'sequence': { 
+    'mirrorActors': false,
+    'showSequenceNumbers': true
+  }, 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
+
+sequenceDiagram
+    participant A as Peer A (Requester)
+    participant N as P2P Network (DHT)
+    participant B as Peer B (Target)
+    
+    Note over A: Needs to find "Game_789"
+    A->>N: Query: Who has info for Hash(Game_789)?
+    N-->>A: Peer B is responsible for that key. IP: 192.168.1.50
+    A->>B: Direct Connection Request
+    B-->>A: Connection Accepted
 ```
+
+### Connectivity: NAT Traversal (STUN and TURN)
+A major hurdle for P2P is that most computers sit behind routers using **Network Address Translation (NAT)**. This means your computer has a "private" IP address that is not reachable from the public internet. To establish a direct connection between two peers, they use **NAT Traversal** techniques:
+
+1.  **STUN (Session Traversal Utilities for NAT):** A protocol that allows a node to discover its own public IP address and the type of NAT it is behind. This allows Peer A to tell Peer B exactly how to "call back" to it.
+2.  **TURN (Traversal Using Relays around NAT):** A fallback mechanism. If a direct connection is impossible due to strict firewalls, a TURN server acts as a relay, passing data between the two peers. While this introduces a "server," it is only used for data relay, not for application logic.
 
 ### Practical Example: P2P Move Exchange
 
-In a decentralized Chess match, players establish a direct connection. Each player's client is responsible for maintaining its own copy of the game state and verifying the opponent's moves.
+In a decentralized Chess match, once discovery is complete, players establish a direct socket connection. Each player's client is responsible for maintaining its own copy of the game state and verifying the opponent's moves against the rules of chess (since there is no server to "referee" the match).
 
 ```mermaid
 %%{init: { 'theme': 'neutral', 'look': 'handDrawn',
@@ -233,17 +253,26 @@ In a decentralized Chess match, players establish a direct connection. Each play
 sequenceDiagram
     participant P1 as Peer A (White)
     participant P2 as Peer B (Black)
-    Note over P1, P2: Direct Socket Connection
+    Note over P1, P2: Direct Socket Connection established via STUN
     P1->>P2: Move: "d2d4"
-    P2->>P2: Validate & Update Local State
+    Note right of P2: Peer B validates move locally
+    P2->>P2: Update Local Board State
     P2->>P1: Move: "Nf6"
-    P1->>P1: Validate & Update Local State
+    Note left of P1: Peer A validates move locally
+    P1->>P1: Update Local Board State
 ```
 
 ### Advantages and Disadvantages
-*   **Advantages:** Highly resilient and fault-tolerant; the system stays alive as long as nodes are active.
-*   **Disadvantages:** Extremely difficult to secure and coordinate. Data consistency is a major challenge.
 
+*   **Advantages:**
+    *   **High Resilience:** The system is extremely fault-tolerant. There is no central "brain" to kill.
+    *   **Scalability:** As more users join, the total capacity of the network (bandwidth and CPU) increases proportionally.
+    *   **Cost Efficiency:** The system owner doesn't need to pay for massive server farms; the users provide the infrastructure.
+
+*   **Disadvantages:**
+    *   **Security and Trust:** Since there is no central authority, it is difficult to prevent "poisoning" (nodes sending fake data) or cheating in a game.
+    *   **Consistency:** Ensuring every node has the same version of the data at the same time is a complex distributed systems problem.
+    *   **Complexity:** Implementing DHTs, NAT traversal, and handling constant peer "churn" is significantly harder than building a standard client-server app.
 
 ## Event-Driven Architecture (EDA)
 
