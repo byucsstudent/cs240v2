@@ -6,13 +6,11 @@
 - 🖥️ [Videos](#videos)
 - [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-2---server-diagram): A collection of common problems for this phase
 
-#### 🥅 Outcomes
+#### 🥅 Outcomes of this Deliverable
 
 1. **Frame** software engineering problems by clarifying system purpose, constraints, and responsibilities, demonstrating both sound technical judgment and a sense of ownership for the long-term impact of software others depend on.
 1. **Explore** object-oriented frameworks, network protocols, distributed services, and databases with curiosity and discipline, developing accurate mental models while valuing learning as essential to responsible engineering practice.
 1. **Design** software systems using object-oriented principles and clear interfaces that support reliability and maintainability, motivated by care for future users, collaborators, and the evolution of the system over time.
-1. **Build** distributed applications that faithfully translate design intent into readable, testable implementations, showing diligence and integrity in the quality of code produced.
-1. **Test** software systems systematically to validate behavior and uncover failure modes, valuing evidence, honesty, and accountability as foundations of trustworthy software.
 
 ---
 
@@ -170,6 +168,27 @@ When initially graded, your design will be given one of three scores:
 | Your design is mostly correct with only minor adjustments needed. Read TA suggestions for improvement in Canvas.                                                                                                                                                          |    50 |
 | Your design has significant deficiencies. Meet with a TA to discuss your design, ideally the same TA who originally graded your design. Improve and resubmit your design within one week (or two days in a term) of initial grading, and receive a maximum score of 100%. |    25 |
 | The submitted design was not a serious attempt at doing the assignment correctly. Resubmit your design within one week (or two days in a term) of initial grading and receive a maximum score of 50%.                                                                     |     0 |
+
+
+#### 🥅 Outcome Reflections
+
+With the completion of this chess server design deliverable checkpoint, it is time to reflect upon the course outcomes and your ability to master them.
+
+```masteryls
+{"id":"ef7e108e-d6b3-49e8-9745-1f9a25d6eb91","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What process did you use to frame your understanding of how chess server so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
+```
+
+```masteryls
+{"id":"c47c5b60-373f-47d8-81d7-2c5e48836b9a","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What software engineering principles and practices did you consider when you were exploring how to represent a chess server? What did you do to advance your learning of the possible solution space?
+```
+
+```masteryls
+{"id":"836e189e-364e-4030-907b-fd0b7a33a287","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What object-oriented and design principles did you consider as you converted your framing and exploration of the chess server into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
+```
+
 
 ## Videos
 
