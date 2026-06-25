@@ -194,6 +194,34 @@ Review the [Phase 5 Passoff Common Problems](../../instruction/chess-tips/chess-
 | Code Quality   | Adherence to the [Code Quality Rubric](../code-quality-rubric.md).                                                                                                                                                             |           30 |
 | Unit Tests     | All test cases pass. Each public `ServerFacade` method has a positive and negative test. Every test includes appropriate assertions. |           25 |
 |                | **Total**                                                                                                                                                                                       |      **155** |
+#### 🥅 Outcome Reflections
+
+With the completion of this chess pregame deliverable checkpoint, it is time to reflect upon the course outcomes and your ability to master them.
+
+```masteryls
+{"id":"939db0e5-dded-44d3-90a6-cd8e8ca21490","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What process did you use to frame your understanding of the chess pregame so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
+```
+
+```masteryls
+{"id":"f9237c61-b9e6-49f4-bb60-d27952c2d113","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What software engineering principles and practices did you consider when you were exploring how to represent a chess pregame? What did you do to advance your learning of the possible solution space?
+```
+
+```masteryls
+{"id":"4e1a8585-e1a7-4bcc-9d73-d8f46fccf4a8","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What object-oriented and design principles did you consider as you converted your framing and exploration of the chess pregame into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
+```
+
+```masteryls
+{"id":"368fa787-fc08-4b5d-b1ea-3f707fe87f40","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What went well and what did you find challenging as you implemented your chess pregame? What did you do to demonstrate design integrity and the quality of the application?
+```
+
+```masteryls
+{"id":"19f7601e-39e4-4014-9888-14861455ba58","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What testing patterns did you employ to ensure a correct implementation of the chess pregame and encourage the foundation of a trustworthy application that others can rely on?
+```
 
 ## Videos
 
