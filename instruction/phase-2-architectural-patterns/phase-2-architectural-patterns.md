@@ -74,10 +74,3 @@ Should you have one giant `ChessService` or multiple smaller ones like `UserServ
 ## Summary
 
 Phase 2 is the bridge between conceptual requirements and concrete implementation. By defining your **Application Components**, **Data Models**, and **API Flow** through sequence diagrams, you create a roadmap for your development. A well-designed architecture ensures that when you begin coding in Phase 3, you aren't guessing where a method belongs or how data should flow; you are simply following the blueprint you've already built.
-
-***
-
-**Next Steps:**
-*   Review the [Phase 3 Web API Requirements](../3-web-api/web-api.md) to understand the data requirements for each endpoint.
-*   Use [SequenceDiagram.org](https://sequencediagram.org) to draft the seven required endpoint flows.
-*   Refer to the [PetShop Example](../../petshop/petshop.md) for a practical look at how these patterns are applied in a smaller project.
