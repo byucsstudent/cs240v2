@@ -316,6 +316,36 @@ Before coming to passoff with a TA, check to make sure your code functions prope
 | Code Quality                  | [Rubric](../code-quality-rubric.md)                                                                                                                                  |           30 |
 |                               | **Total**                                                                                                                                                            |      **155** |
 
+#### 🥅 Outcome Reflections
+
+With the completion of this chess gameplay deliverable checkpoint, it is time to reflect upon the course outcomes and your ability to master them.
+
+```masteryls
+{"id":"ce464df0-a2d6-45a9-a659-a2eb2227d1b0","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What process did you use to frame your understanding of the chess gameplay so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
+```
+
+```masteryls
+{"id":"d586edeb-56ad-42da-a354-36a000e660b4","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What software engineering principles and practices did you consider when you were exploring how to represent a chess gameplay? What did you do to advance your learning of the possible solution space?
+```
+
+```masteryls
+{"id":"058feffa-056d-44fa-8a27-ab1e6a5c3762","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What object-oriented and design principles did you consider as you converted your framing and exploration of the chess gameplay into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
+```
+
+```masteryls
+{"id":"27be87bf-8c65-484a-a25c-ce0553215a4e","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What went well and what did you find challenging as you implemented your chess gameplay? What did you do to demonstrate design integrity and the quality of the application?
+```
+
+```masteryls
+{"id":"a5dec25a-2131-4137-927a-abbc6d331abd","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What testing patterns did you employ to ensure a correct implementation of the chess gameplay and encourage the foundation of a trustworthy application that others can rely on?
+```
+
+
 ## Videos
 
 - 🎥 [Phase 6 Overview (10:39)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=46d6e11c-7744-450d-964e-b1a10160f0c7) - [[transcript]](https://github.com/user-attachments/files/17707162/CS_240_Phase_6_Chess_Gameplay_Transcript.pdf)
