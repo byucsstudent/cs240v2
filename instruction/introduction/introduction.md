@@ -212,6 +212,13 @@ We often send out critical notifications for the course using Canvas announcemen
 - [ ] I want to stay in the dark and miss important notifications.
 ```
 
+
+```masteryls
+{"id":"b5d4705d-e6a7-431b-9f63-baa59af00e9f","title":"Serving through Code Quality","type":"essay"}
+In the context of software development as a vocation, how does prioritizing code quality serve as an act of service to God and your neighbor?
+```
+
+
 ## Videos
 
 - 🎥 [Course Overview (10:34)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=080df794-9d59-426b-b7c8-b19c0109e6f1) - [[transcript]](https://github.com/user-attachments/files/17738690/CS_240_Course_Overview_Transcript.pdf)
