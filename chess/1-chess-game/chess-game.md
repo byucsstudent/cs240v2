@@ -190,7 +190,7 @@ What went well and what did you find challenging as you implemented your chess g
 
 ```masteryls
 {"id":"cd733c72-dca6-4419-8685-b47db5d666a2","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
-What testing patterns did you employ to ensure a correct implementation of the game of chess and encourage the foundation of a trustworthy application?
+What testing patterns did you employ to ensure a correct implementation of the game of chess and encourage the foundation of a trustworthy application that others can rely on?
 ```
 
 ## Videos
