@@ -240,7 +240,7 @@ What went well and what did you find challenging as you implemented your chess p
 
 ```masteryls
 {"id":"083dfa87-6954-4af8-b180-7514db11cc72","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
-What testing patterns did you employ to ensure a correct implementation of chess piece movement and encourage the foundation of a trustworthy application?
+What testing patterns did you employ to ensure a correct implementation of chess piece movement and encourage the foundation of a trustworthy application that others can rely on?
 ```
 
 ---
