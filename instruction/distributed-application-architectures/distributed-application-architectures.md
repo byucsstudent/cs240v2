@@ -546,5 +546,5 @@ As you build your Chess server, consider which of these patterns best fits your 
 
 ```masteryls
 {"id":"2c6e844f-d498-44ef-8ac3-2a25b99d7b34", "title":"Distributed Architectures", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
-Discuss one of the distributed architectures that you find interesting. Give the advantages and disadvantages of the model.
+Discuss one of the distributed architectures that you find interesting. Explain how you would use it to build a package tracking system.
 ```
