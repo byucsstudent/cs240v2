@@ -32,10 +32,10 @@ Scale: Beginner|Intermediate|Proficient|Advanced|Expert
 As a culminating experience that demonstrates your mastery of software construction, you will incrementally build a full stack application over the duration of the course. The application focus on **quality**, **architectural excellence**, and **adherence to design principles**. This includes the following detailed characteristics.
 
 1. Documented and tested distributed architecture
-1. Account creation and authentication
+1. Secure management of customer data
 1. Multiple user roles
 1. Enforcement of role restrictions
-1. Creation and joining of groups
+1. Session management
 1. Real-time peer interaction over a network
 1. Persistent storage of data
 1. Robust handling of failure cases
