@@ -62,7 +62,7 @@ When a subclass inherits from a superclass, it gains all its non-private fields 
 **The Hierarchy of Objects:**
 
 ```mermaid
-%%{init: { 'theme': 'neutral', 'themeVariables': { 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 
 classDiagram
     class Vehicle {
@@ -99,11 +99,14 @@ If we have a method `makeSound()` in a superclass `Animal`, and subclasses `Dog`
 Transitioning to an object-oriented mindset can present several hurdles:
 
 *   **The "God Object" Problem:** Beginners often create a single class that tries to handle too many responsibilities. 
-    *   *Solution:* Follow the **Single Responsibility Principle**. Each class should have one, and only one, reason to change.
+    
+    *Solution:* Follow the **Single Responsibility Principle**. Each class should have one, and only one, reason to change.
 *   **Fragile Base Classes:** If an inheritance hierarchy is too deep, changing the parent class can inadvertently break dozens of child classes.
-    *   *Solution:* Favor **composition over inheritance** when possible. Instead of saying a class *is* something (inheritance), ask if it *has* something (composition).
+    
+    *Solution:* Favor **composition over inheritance** when possible. Instead of saying a class *is* something (inheritance), ask if it *has* something (composition).
 *   **Over-Engineering:** It is easy to get carried away with abstraction, creating interfaces for logic that will only ever have one implementation.
-    *   *Solution:* Keep it simple. Don't add abstraction until you actually need to support multiple variations of a behavior or need to decouple components for testing.
+    
+    *Solution:* Keep it simple. Don't add abstraction until you actually need to support multiple variations of a behavior or need to decouple components for testing.
 
 
 ## ☑ Exercise
