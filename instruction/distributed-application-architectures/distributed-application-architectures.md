@@ -29,8 +29,8 @@ We will examine five distinct distributed application architectures to evaluate 
 The Client-Server model is the foundational pattern for distributed systems, where tasks are partitioned between service providers (servers) and service requesters (clients). In modern web applications, this model almost always evolves into a **Three-Tier** or **N-Tier** architecture. Rather than a single "server" handling everything, the system is organized into logical layers: the **Presentation Tier** (UI), the **Application Tier** (Logic), and the **Data Tier** (Storage).
 
 In a Chess application, this architectural evolution is clear:
-1.  **Presentation Tier:** Your JavaScript web interface or Console UI.
-2.  **Application Tier:** An AWS-hosted server running Java or Node.js logic to validate moves and enforce rules.
+1.  **Presentation Tier:** Your Console UI.
+2.  **Application Tier:** A server running Java logic to validate moves and enforce rules.
 3.  **Data Tier:** A database storing user profiles and match histories.
 
 By separating these concerns, you ensure that the "Server" doesn't become a bloated, unmaintainable monolith.
