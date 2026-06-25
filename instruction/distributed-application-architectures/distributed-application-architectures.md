@@ -455,6 +455,18 @@ Reliability in the Actor Model is maintained through **supervision trees**. This
 *   **Supervisors:** Parent actors that create and monitor "child" actors.
 *   **Self-Healing:** If a child actor crashes due to an error, the supervisor detects the failure and decides on a strategy, such as restarting the child to its initial clean state, stopping it, or escalating the failure further up the tree.
 
+```mermaid
+graph TD
+    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
+    
+    Root[Root Supervisor] --> MG[Match Manager Actor]
+    MG --> G1[Game Actor #101]
+    MG --> G2[Game Actor #102]
+    MG --> G3[Game Actor #103]
+    
+    style G2 stroke-dasharray: 5 5, stroke:#ff0000
+    G2 --- Note[If G2 crashes, MG restarts it <br/> without affecting G1 or G3.]
+```
 
 ### Advanced Message Handling: Stashing and Rejections
 
