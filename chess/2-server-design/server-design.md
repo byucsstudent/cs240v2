@@ -38,7 +38,7 @@ The chess application components are demonstrated by the following diagram and d
 
 ## Application Programming Interface (API)
 
-As a first step for creating your design diagram, you need to carefully read the [Phase 3: Web API](../3-web-api/web-api.md) requirements so that you can internalize what each of the server endpoints do. This will help you understand the purpose and structure of the classes you are designing in this phase.
+As a first step for creating your design diagram, you need to **carefully read** the [Phase 3: Web API](../3-web-api/web-api.md) requirements so that you can internalize what each of the server endpoints do. This will help you understand the purpose and structure of the classes you are designing in this phase.
 
 The server endpoints are summarized below, but it is critical that you completely understand their purpose, the data they expect, and the data that they return.
 
