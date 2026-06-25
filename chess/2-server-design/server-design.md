@@ -64,9 +64,13 @@ The different components in your architecture will operate on three data model o
 
 These objects represent the core of what you are passing between your server, service, and data access components.
 
-## Creating Sequence Diagrams
+## Visualizing with Sequence Diagrams
 
-Based upon your understanding of the requirements provided by [Phase 3](../3-web-api/web-api.md) you now must create a sequence diagram for each endpoint that demonstrates the flow of interactions between your application objects. The diagram must include the successful happy path flow for each endpoint. You may also include error paths; doing so will likely be more helpful in preparing for Phase 3, but you will not lose points for not including error cases. You will need to at least consider error cases, as checking for some errors requires calls between layers which you are required to represent. For example, during registration we don't want to create a user with a username that's already taken, so there is a check for that in the starter diagram.
+Based upon your understanding of the requirements provided by [Phase 3](../3-web-api/web-api.md) you now must create a sequence diagram for each endpoint that demonstrates the flow of interactions between your application objects. Sequence diagrams are the industry standard for documenting these interactions. They use vertical "lifelines" to represent objects and horizontal arrows to represent method calls. 
+
+When creating your diagrams, focus on the **Happy Path** (the successful execution) but keep the **Error Paths** in mind. For instance, what happens if the `UserDAO` returns an error because the database is down? Your diagram should show the Service layer receiving that error and the Handler translating it into an appropriate HTTP status code (like `500 Internal Server Error`).
+
+You will need to at least consider error cases, as checking for some errors requires calls between layers which you are required to represent. For example, during registration we don't want to create a user with a username that's already taken, so there is a check for that in the starter diagram.
 
 ### SequenceDiagram.Org
 
