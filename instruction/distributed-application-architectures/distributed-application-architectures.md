@@ -417,21 +417,65 @@ sequenceDiagram
 
 ## Actor Model Architecture
 
-The Actor Model treats "actors" as the universal primitives of concurrent computation. An actor is an independent unit that encapsulates state and behavior. Actors communicate exclusively through asynchronous message passing. 
+The Actor Model treats **actors** as the universal primitives—the most basic building blocks—of concurrent computation. In this model, everything is an actor. Each actor is a self-contained, independent unit that encapsulates three specific things:
+1.  **State:** Private data that cannot be accessed or modified directly by any other actor.
+2.  **Behavior:** The logic that defines how the actor reacts to messages.
+3.  **Mailbox:** A message queue that stores incoming communications until the actor is ready to process them.
 
-Actors manage their internal state transitions using **stashing** (temporarily storing messages until the actor is in a state to process them) or **rejections**. Reliability is maintained through **supervision trees**, where parent actors monitor and restart failing child actors to achieve self-healing.
+### Communication and Concurrency
 
-In a Chess server, an actor could represent a single game instance, ensuring all moves for that specific game are processed sequentially while thousands of other games run concurrently in other actors.
+Unlike traditional object-oriented programming where you call a method on an object and wait for a return value (synchronous), actors communicate exclusively through **asynchronous message passing**. When Actor A sends a message to Actor B, it "fires and forgets," continuing its own work immediately without waiting for a response.
+
+By ensuring that actors never share memory, this architecture eliminates the need for complex synchronization tools like **locks** or **mutexes**, which are common sources of bugs (such as deadlocks or race conditions) in standard multi-threaded applications.
 
 ```mermaid
 graph LR
     classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
-    ActorA[Actor A] -- "Async Message" --> MailboxB[Mailbox B]
-    MailboxB --> ActorB[Actor B]
-    ActorB -- "Async Message" --> MailboxA[Mailbox A]
-    MailboxA --> ActorA
+    
+    subgraph "Actor A"
+    StateA[(Private State)]
+    LogicA[Behavior]
+    end
+
+    subgraph "Actor B"
+    MailboxB[Mailbox/Queue]
+    LogicB[Behavior]
+    StateB[(Private State)]
+    end
+
+    LogicA -- "1. Async Message" --> MailboxB
+    MailboxB -- "2. Process Sequential" --> LogicB
+    LogicB -- "3. Update" --> StateB
 ```
 
+### Resilience through Supervision Trees
+
+Reliability in the Actor Model is maintained through **supervision trees**. This follows a "let it crash" philosophy: instead of writing defensive code to catch every possible error, actors are organized in a hierarchy.
+
+*   **Supervisors:** Parent actors that create and monitor "child" actors.
+*   **Self-Healing:** If a child actor crashes due to an error, the supervisor detects the failure and decides on a strategy, such as restarting the child to its initial clean state, stopping it, or escalating the failure further up the tree.
+
+```mermaid
+graph TD
+    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
+    
+    Root[Root Supervisor] --> MG[Match Manager Actor]
+    MG --> G1[Game Actor #101]
+    MG --> G2[Game Actor #102]
+    MG --> G3[Game Actor #103]
+    
+    style G2 stroke-dasharray: 5 5, stroke:#ff0000
+    Note over G2: If G2 crashes, MG restarts it <br/> without affecting G1 or G3.
+```
+
+### Advanced Message Handling: Stashing and Rejections
+
+Actors manage their internal state transitions using specific patterns to handle messages that arrive at the "wrong" time:
+
+*   **Stashing:** If an actor receives a message it cannot handle in its current state (e.g., a "Move" message arriving before the game has officially "Started"), it can **stash** the message in a temporary secondary queue. Once the actor transitions to the correct state, it "unstashes" the messages to process them in order.
+*   **Rejections:** If a message is invalid or the actor is under too much load, it can explicitly **reject** the message, sending a failure notification back to the sender or simply ignoring it to protect its own resources.
+
+In a Chess server, an actor could represent a single game instance. This ensures all moves for that specific game are processed sequentially (one after another) by that actor's mailbox, while thousands of other games run concurrently in their own isolated actors across the network.
 ### Practical Example: Concurrent Game Management
 
 In a large Chess server, each game is managed by a dedicated "Game Actor." Players send move messages to the actor's mailbox, where they are processed one at a time.
