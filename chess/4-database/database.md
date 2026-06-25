@@ -4,6 +4,16 @@
 - 🖥️ [Videos](#videos)
 - [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-4---database): A collection of common problems for this phase
 
+#### 🥅 Outcomes
+
+1. **Frame** software engineering problems by clarifying system purpose, constraints, and responsibilities, demonstrating both sound technical judgment and a sense of ownership for the long-term impact of software others depend on.
+1. **Explore** object-oriented frameworks, network protocols, distributed services, and databases with curiosity and discipline, developing accurate mental models while valuing learning as essential to responsible engineering practice.
+1. **Design** software systems using object-oriented principles and clear interfaces that support reliability and maintainability, motivated by care for future users, collaborators, and the evolution of the system over time.
+1. **Build** distributed applications that faithfully translate design intent into readable, testable implementations, showing diligence and integrity in the quality of code produced.
+1. **Test** software systems systematically to validate behavior and uncover failure modes, valuing evidence, honesty, and accountability as foundations of trustworthy software.
+
+---
+
 In this part of the Chess project, you will create a MySQL-backed implementation of your Data Access interfaces and integrate it into your services. This enables the ability to store data persistently in a MySQL database instead of volatile main memory. You will also write unit tests using JUnit for your DAO classes. This involves the following steps:
 
 1. Install the MySQL database management system (DBMS) on your development machine. Instructions to [install MySQL](../../instruction/mysql/mysql.md).
