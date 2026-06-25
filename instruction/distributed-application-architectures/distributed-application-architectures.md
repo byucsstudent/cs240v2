@@ -112,6 +112,96 @@ sequenceDiagram
     *   **Complexity:** Managing multiple servers, load balancers, and network configurations is significantly more difficult than managing a single program.
     *   **Cascading Failures:** If the Data Tier goes offline, the Application and Presentation tiers may become useless, even if they are technically "running."
 
+
+## Microservices Architecture
+
+Microservices architecture is an evolution of the N-Tier model that pushes the principle of **Separation of Concerns** to its logical limit. Instead of a single, unified "monolith" application, the system is decomposed into a suite of small, modular services. Each service is **independently deployable**, runs in its own process, and communicates with others over a network using lightweight protocols like HTTP/REST, gRPC, or message brokers.
+
+### The Database-per-Service Pattern
+A defining characteristic of microservices is that each service manages its own private database. This is often referred to as **Polyglot Persistence**.
+*   **Loose Coupling:** Changes to one service's data schema do not break other services because they cannot access the data directly.
+*   **Autonomy:** The "Game Service" might use a high-speed NoSQL database like MongoDB for move history, while the "Billing Service" uses a strictly consistent SQL database like PostgreSQL for financial records.
+*   **Challenge:** This creates "data silos." If you need a report combining data from both, you cannot perform a standard SQL `JOIN`. You must instead aggregate data via APIs or use event-based synchronization.
+
+### The API Gateway
+In a microservices world, a client (like a mobile app) does not talk to dozens of different services individually. Instead, it interacts with an **API Gateway**.
+*   **Routing:** The gateway acts as a **reverse proxy**, directing incoming requests to the specific service responsible for that task.
+*   **Cross-Cutting Concerns:** It handles shared responsibilities like authentication, SSL termination, and rate limiting in one central place, so individual services don't have to implement them.
+
+```mermaid
+graph TD
+    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
+    Client((Client App)) --> Gateway[API Gateway]
+    subgraph "Service Mesh"
+    Gateway --> S1[Auth Service]
+    Gateway --> S2[Game Service]
+    Gateway --> S3[Leaderboard Service]
+    end
+    S1 --> DB1[(Auth DB: SQL)]
+    S2 --> DB2[(Game DB: NoSQL)]
+    S3 --> DB3[(Redis Cache)]
+```
+
+### Resiliency and the Circuit Breaker Pattern
+In a distributed system, network calls will eventually fail. If "Service A" waits for a response from a hanging "Service B," Service A's resources (such as threads or memory) will eventually be exhausted, leading to a **cascading failure** that brings down the entire system. 
+
+To prevent this, engineers use a **Circuit Breaker**. Just like an electrical fuse, it monitors for failures. If a service fails repeatedly, the circuit "trips" (opens). Further calls return an immediate error or a cached fallback response without hitting the failing service, giving it time to recover.
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
+
+stateDiagram-v2
+    [*] --> Closed: Normal Operation
+    Closed --> Open: Failure threshold reached
+    Open --> HalfOpen: Timeout expired (Testing recovery)
+    HalfOpen --> Closed: Success (Service recovered)
+    HalfOpen --> Open: Failure (Still broken)
+```
+
+### Service Discovery and Orchestration
+Because microservices scale horizontally by adding more instances, their IP addresses change constantly. **Service Discovery** acts like a dynamic "phone book" (e.g., Consul or Netflix Eureka) that tracks where every service instance is currently located.
+
+Managing hundreds of these instances manually is impossible. Developers use **Orchestration** platforms like **Kubernetes** to automate:
+*   **Deployment:** Rolling out new versions of code.
+*   **Scaling:** Automatically adding more instances during peak chess tournament hours.
+*   **Self-healing:** Automatically restarting a service container if it crashes.
+
+### Practical Example: Fetching a Leaderboard
+
+When a user wants to see the top Chess players, the request passes through the gateway to a specialized service that focuses solely on ranking data.
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'look': 'handDrawn',
+  'sequence': { 
+    'mirrorActors': false,
+    'showSequenceNumbers': true
+  }, 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
+
+sequenceDiagram
+    participant C as Client
+    participant G as API Gateway
+    participant L as Leaderboard Service
+    participant R as Cache (Redis)
+    
+    C->>G: GET /leaderboard
+    Note right of G: Gateway validates Auth JWT
+    G->>L: Forward Request
+    L->>R: Query Top 10 Players
+    R-->>L: Player List
+    L-->>G: JSON Response
+    G-->>C: 200 OK (Render List)
+```
+
+### Advantages and Disadvantages
+*   **Advantages:** 
+    *   **Independent Scalability:** You can scale just the "Game Engine" service during high load without wasting resources scaling the "Billing" service.
+    *   **Fault Isolation:** A bug in the "Chat Service" might disable chat, but it won't stop players from playing games.
+    *   **Technology Agility:** Teams can choose the best language for the job (e.g., Python for AI, Go for high-concurrency networking).
+*   **Disadvantages:** 
+    *   **Operational Overhead:** Managing dozens of deployment pipelines and monitoring tools is significantly more complex than managing one monolith.
+    *   **Distributed Transactions:** Ensuring data consistency across multiple databases requires complex patterns like the **Saga Pattern**.
+    *   **Network Latency:** Every inter-service call adds network delay compared to an in-memory function call.
+
 ## Peer-to-Peer (P2P) Architecture
 
 Unlike the previous models, Peer-to-Peer (P2P) architecture treats every node as both a client and a server (often called "servents"). There is no central authority. Each node contributes resources, such as processing power, disk storage, or network bandwidth, directly to other participants.
@@ -153,57 +243,6 @@ sequenceDiagram
 ### Advantages and Disadvantages
 *   **Advantages:** Highly resilient and fault-tolerant; the system stays alive as long as nodes are active.
 *   **Disadvantages:** Extremely difficult to secure and coordinate. Data consistency is a major challenge.
-
-
-## Microservices Architecture
-
-Microservices architecture takes the idea of "separation of concerns" to the extreme. Instead of one large "Application Tier," the system is composed of many small, independent services that communicate over a network (usually via HTTP or message queues). Each service runs its own process and manages its own database.
-
-Operational stability is maintained through **service discovery** (mapping service locations), **circuit breakers** to prevent cascading failures when one service hangs, and **orchestration platforms** like Kubernetes to manage container lifecycles.
-
-For a large-scale gaming platform, you might have a "Matchmaking Service," a "Chat Service," a "Billing Service," and a "Game Engine Service."
-
-
-```mermaid
-graph TD
-    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
-    Client((Client)) --> Gateway[API Gateway]
-    Gateway --> S1[Auth Service]
-    Gateway --> S2[Game Service]
-    Gateway --> S3[Leaderboard Service]
-    S1 --> DB1[(Auth DB)]
-    S2 --> DB2[(Game DB)]
-    S3 --> DB3[(Redis Cache)]
-```
-
-### Practical Example: Fetching a Leaderboard
-
-When a user wants to see the top Chess players, the request passes through a gateway to a specialized service that focuses solely on ranking data.
-
-```mermaid
-%%{init: { 'theme': 'neutral', 'look': 'handDrawn',
-  'sequence': { 
-    'mirrorActors': false,
-    'showSequenceNumbers': true
-  }, 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
-
-sequenceDiagram
-    participant C as Client
-    participant G as API Gateway
-    participant L as Leaderboard Service
-    participant R as Cache (Redis)
-    
-    C->>G: GET /leaderboard
-    G->>L: Forward Request
-    L->>R: Query Top 10 Players
-    R-->>L: Player List
-    L-->>G: JSON Response
-    G-->>C: 200 OK (Render List)
-```
-
-### Advantages and Disadvantages
-*   **Advantages:** Teams can deploy services independently. It is highly scalable, as you can scale only the services that are under heavy load.
-*   **Disadvantages:** Significant operational overhead. Managing inter-service communication and distributed transactions is difficult.
 
 
 ## Event-Driven Architecture (EDA)
