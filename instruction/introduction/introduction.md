@@ -214,8 +214,8 @@ We often send out critical notifications for the course using Canvas announcemen
 
 
 ```masteryls
-{"id":"b5d4705d-e6a7-431b-9f63-baa59af00e9f","title":"Serving through Code Quality","type":"essay"}
-In the context of software development as a vocation, how does prioritizing code quality serve as an act of service to God and your neighbor?
+{"id":"e90d5eb9-6d56-454d-a036-0bb576b1322c", "title":"Disciplinary Excellence", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+How does taking ownership of the long-term impact of your software prepare you to become a leader who blesses others through your profession?
 ```
 
 
