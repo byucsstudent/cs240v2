@@ -38,7 +38,7 @@ To solidify what you have learned, I encourage you to take one of the following 
 
 1.  **Audit an Existing Project:** Take a piece of software you wrote previously and perform an architectural audit. Where does it violate SOLID principles? How would you refactor it into a more scalable pattern?
 2.  **Contribute to Open Source:** Find a project on GitHub that interests you. Observe how they manage their architecture and try to contribute a small improvement or a test case.
-3.  **Build a Portfolio Piece:** Create a small system that utilizes at least two different architectural styles (e.g., a React frontend communicating with a Microservices backend via an API Gateway).
+3.  **Build a Portfolio Piece:** Create a small system that utilizes at least two different architectural styles (e.g., a two-tiered architecture communicating with a [Supabase](https://supabase.com/) database, or a serverless architecture communicating with Supabase edge functions.).
 
 ## Summary
 
