@@ -49,34 +49,29 @@ graph TD
 
 ### Practical Example: The Client-Server Interaction
 
-A modern application involves a client-side request and a server-side service layer.
+In a layered Chess application, the UI (Presentation) requests a move validation from the logic layer, which must then check the persistent state in the database.
 
-*Client-side request (JavaScript):*
-```javascript
-// Presentation Tier: Requesting game data from the Application Tier
-async function getGameState(gameId) {
-    const response = await fetch(`https://api.chess-server.com/games/${gameId}`);
-    const data = await response.json();
-    console.log("Current Board State:", data.board);
-}
-```
+```mermaid
+%%{init: { 'theme': 'neutral', 'look': 'handDrawn',
+  'sequence': { 
+    'mirrorActors': false,
+    'showSequenceNumbers': true
+  }, 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
 
-*Server-side logic (Java):*
-```java
-// Application Tier: Logic separated from data access
-public class GameService {
-    private GameRepository repository; // Access to Data Tier
 
-    public boolean makeMove(String gameId, Move move) {
-        Game game = repository.findById(gameId);
-        if (game.isValid(move)) {
-            game.apply(move);
-            repository.save(game);
-            return true;
-        }
-        return false;
-    }
-}
+
+sequenceDiagram
+    participant C as Presentation (Client)
+    participant A as Application (Server Logic)
+    participant D as Data (Database)
+    
+    C->>A: POST /move {gameId: 101, move: "e2e4"}
+    A->>D: SELECT board_state FROM games WHERE id=101
+    D-->>A: current board data
+    A->>A: Validate move rules
+    A->>D: UPDATE games SET board_state=... WHERE id=101
+    D-->>A: success
+    A-->>C: 200 OK {newBoard: "..."}
 ```
 
 ### Advantages and Disadvantages
@@ -98,16 +93,25 @@ graph LR
     NodeC <--> NodeA[Peer A]
 ```
 
-### Practical Example (Conceptual Python)
+### Practical Example: P2P Move Exchange
 
-```python
-# A peer sending a move directly to another peer
-def broadcast_move(move, peer_addresses):
-    for address in peer_addresses:
-        send_data_packet(address, move)
+In a decentralized Chess match, players establish a direct connection. Each player's client is responsible for maintaining its own copy of the game state and verifying the opponent's moves.
 
-def on_receive_move(move):
-    update_local_board(move)
+```mermaid
+%%{init: { 'theme': 'neutral', 'look': 'handDrawn',
+  'sequence': { 
+    'mirrorActors': false,
+    'showSequenceNumbers': true
+  }, 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
+
+sequenceDiagram
+    participant P1 as Peer A (White)
+    participant P2 as Peer B (Black)
+    Note over P1, P2: Direct Socket Connection
+    P1->>P2: Move: "d2d4"
+    P2->>P2: Validate & Update Local State
+    P2->>P1: Move: "Nf6"
+    P1->>P1: Validate & Update Local State
 ```
 
 ### Advantages and Disadvantages
@@ -134,16 +138,29 @@ graph TD
     S3 --> DB3[(Redis Cache)]
 ```
 
-**Practical Example (Microservice Endpoint)**
+### Practical Example: Fetching a Leaderboard
 
-A specialized service might only handle the leaderboard:
+When a user wants to see the top Chess players, the request passes through a gateway to a specialized service that focuses solely on ranking data.
 
-```python
-# Leaderboard Microservice (Flask)
-@app.route('/top-players', methods=['GET'])
-def get_leaderboard():
-    scores = db.query("SELECT username, rating FROM players ORDER BY rating DESC LIMIT 10")
-    return jsonify(scores)
+```mermaid
+%%{init: { 'theme': 'neutral', 'look': 'handDrawn',
+  'sequence': { 
+    'mirrorActors': false,
+    'showSequenceNumbers': true
+  }, 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
+
+sequenceDiagram
+    participant C as Client
+    participant G as API Gateway
+    participant L as Leaderboard Service
+    participant R as Cache (Redis)
+    
+    C->>G: GET /leaderboard
+    G->>L: Forward Request
+    L->>R: Query Top 10 Players
+    R-->>L: Player List
+    L-->>G: JSON Response
+    G-->>C: 200 OK (Render List)
 ```
 
 ### Advantages and Disadvantages
@@ -165,23 +182,31 @@ graph LR
     Bus -- "MoveEvent" --> Consumer3[Archive DB]
 ```
 
-### Practical Example (Node.js EventEmitter)
+### Practical Example: Reacting to a Game Move
 
-```javascript
-// Using an event-driven approach for game updates
-const EventEmitter = require('events');
-const gameEvents = new EventEmitter();
+In a Chess platform, once a move is finalized, several independent systems need to know about it. The Game Service doesn't call them directly; it simply announces the event.
 
-// Subscriber: Updates the UI
-gameEvents.on('moveMade', (move) => {
-    console.log(`Updating UI for move: ${move}`);
-});
+```mermaid
+%%{init: { 'theme': 'neutral', 'look': 'handDrawn',
+  'sequence': { 
+    'mirrorActors': false,
+    'showSequenceNumbers': true
+  }, 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
 
-// Publisher: Triggered when a move is validated
-function handleMove(move) {
-    // ... logic ...
-    gameEvents.emit('moveMade', move);
-}
+sequenceDiagram
+    participant GS as Game Service
+    participant EB as Event Bus (Kafka/RabbitMQ)
+    participant AS as Analytics Service
+    participant NS as Notification Service
+    
+    GS->>EB: Publish: "MOVE_MADE" {gameId: 101, move: "Qh5"}
+    par
+        EB->>AS: Push Event
+        AS->>AS: Update player accuracy stats
+    and
+        EB->>NS: Push Event
+        NS->>NS: Notify spectators via WebSocket
+    end
 ```
 
 ### Advantages and Disadvantages
@@ -203,21 +228,26 @@ graph LR
     Lambda --> Log[Logging Service]
 ```
 
-### Practical Example (AWS Lambda in Python)
+### Practical Example: Automated Rating Updates
 
-```python
-# A serverless function that updates player ratings
-def update_rating_handler(event, context):
-    player_id = event['player_id']
-    result = event['result']
+When a game ends, the database change triggers a serverless function to recalculate the players' ELO ratings. The function only runs for the few seconds required for the calculation.
 
-    # Logic to update rating
-    print(f"Updating rating for player {player_id}...")
+```mermaid
+%%{init: { 'theme': 'neutral', 'look': 'handDrawn',
+  'sequence': { 
+    'mirrorActors': false,
+    'showSequenceNumbers': true
+  }, 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
 
-    return {
-        'statusCode': 200,
-        'body': 'Rating updated'
-    }
+sequenceDiagram
+    participant DB as Game Database
+    participant L as Lambda (Rating Calculator)
+    participant S as Notification Service
+    
+    DB->>L: Trigger: New Game Result Record
+    L->>L: Fetch player ELOs & Calc new scores
+    L->>DB: Update Player Profiles
+    L->>S: Trigger: Send "Game Summary" Email
 ```
 
 ### Advantages and Disadvantages
@@ -239,26 +269,27 @@ graph LR
     MailboxA --> ActorA
 ```
 
-### Practical Example (Conceptual Java/Akka)
+### Practical Example: Concurrent Game Management
 
-```java
-// Conceptual Actor handling game logic
-public class GameActor extends AbstractActor {
-    private GameState state;
+In a large Chess server, each game is managed by a dedicated "Game Actor." Players send move messages to the actor's mailbox, where they are processed one at a time.
 
-    @Override
-    public Receive createReceive() {
-        return receiveBuilder()
-            .match(MoveMessage.class, move -> {
-                // Messages are processed one at a time from the mailbox
-                if (state.isValid(move)) {
-                    state.apply(move);
-                    System.out.println("Move applied to game " + state.getId());
-                }
-            })
-            .build();
-    }
-}
+```mermaid
+%%{init: { 'theme': 'neutral', 'look': 'handDrawn',
+  'sequence': { 
+    'mirrorActors': false,
+    'showSequenceNumbers': true
+  }, 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
+
+sequenceDiagram
+    participant PA as Player A Actor
+    participant GA as Game Actor (Game #500)
+    participant PB as Player B Actor
+    
+    PA->>GA: Async Message: Move("e4")
+    Note right of GA: Game Actor processes mailbox
+    GA->>GA: Update internal state
+    GA-->>PA: Async Message: MoveAccepted
+    GA-->>PB: Async Message: OpponentMoved("e4")
 ```
 
 ### Advantages and Disadvantages
