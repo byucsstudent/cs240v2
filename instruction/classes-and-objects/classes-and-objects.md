@@ -202,6 +202,11 @@ In object-oriented programming, which statement best describes the fundamental r
 - [ ] Classes and objects are synonymous terms used to describe the same data structures within a programming language.
 ```
 
+```masteryls
+{"id":"c935ba62-abf8-45a9-bb1c-22806e4296e2","title":"Modeling with Integrity","type":"essay"}
+As you learn to model real-world things as classes and objects, how does striving to represent them accurately and honestly shape the way you build software, and how does this reflect the BYU aim of developing Christlike character?
+```
+
 
 ## Videos
 

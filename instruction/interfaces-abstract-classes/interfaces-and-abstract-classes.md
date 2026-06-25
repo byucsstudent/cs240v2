@@ -413,6 +413,11 @@ Which statement accurately describes the primary characteristic of an interface 
 What is the difference between the extends and implements keywords in Java? When should I use which?
 ```
 
+```masteryls
+{"id":"105e15d4-edac-4832-9fab-9cfa0234b89d","title":"Honoring Your Commitments","type":"essay"}
+How does designing clear interfaces, which are promises that other code depends on, reflect personal integrity, and how does keeping such commitments relate to the BYU aim of building character?
+```
+
 
 ## Videos
 

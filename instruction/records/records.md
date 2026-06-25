@@ -111,6 +111,11 @@ public record PetRecord(int id, String name, String type) {
 What is the value of a Java record? Why not just always use a class?
 ```
 
+```masteryls
+{"id":"23e9006e-f703-4ee0-a7bc-4f2ec146aef4","title":"Clarity as Kindness","type":"essay"}
+How does using records to express data clearly and concisely make life easier for those who read your code, and how does writing for others' understanding reflect the BYU aim of building character?
+```
+
 
 ## Videos
 

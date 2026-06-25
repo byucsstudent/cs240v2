@@ -463,6 +463,11 @@ In object-oriented design, while abstraction and encapsulation are closely relat
 - [ ] Abstraction is used to achieve code reuse through inheritance, whereas encapsulation is used to achieve polymorphism through method overriding.
 ```
 
+```masteryls
+{"id":"7943abe7-dde5-42f1-b3b3-1b47d62dd12e","title":"Building to Last","type":"essay"}
+How does applying sound design principles to create maintainable software demonstrate respect and care for future developers, and how does this reflect Christlike service?
+```
+
 
 ## Videos
 

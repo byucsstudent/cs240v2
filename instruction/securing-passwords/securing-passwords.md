@@ -80,3 +80,8 @@ When a system stores user credentials, why is it considered a security best prac
 - [ ] To compress the password into a smaller fixed-length string to reduce the storage space required by the database.
 - [ ] To transform the password into a format that can be easily decrypted by a system administrator if the user forgets their login credentials.
 ```
+
+```masteryls
+{"id":"92b925c6-95ec-4402-939b-ce07d0623105","title":"Guarding the Trust of Others","type":"essay"}
+How does securely storing passwords protect the people who trust you with their information, and how does honoring that trust reflect Christlike service and personal integrity?
+```

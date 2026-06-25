@@ -143,7 +143,6 @@ Handler --> Formatter
 LogRecord *-- Level
 ```
 
-
 ## Full Example
 
 The following demonstrates major logging functionality by creating a logger, registering a handler and level, and logging messages.
@@ -165,7 +164,7 @@ public class LoggingExample {
 
         // This will be ignored because FINEST is lower than INFO
         logger.finest("Ignored because it is lower than the logger level");
-        
+
         // This will be logged
         logger.log(Level.INFO, "This will be logged");
     }
@@ -309,7 +308,6 @@ Java's direct support for logging via the `java.util.logging` package was not in
 
 ## ☑ Exercise
 
-
 ```masteryls
 {"id":"d2e8e289-dc32-4c79-8343-a9474f84b310","title":"Logging vs. Print Statements","type":"multiple-choice"}
 In professional software development, why is it considered a best practice to use a logging framework (such as SLF4J, Log4j, or Logback) instead of using `System.out.println` for tracking application behavior?
@@ -318,10 +316,15 @@ In professional software development, why is it considered a best practice to us
 - [ ] Standard output streams are strictly limited to console display and cannot be redirected to external files or databases.
 - [x] Logging frameworks provide granular control over message severity levels and allow for the dynamic configuration of output destinations without changing the code.
 - [ ] Using `System.out.println` triggers a mandatory `SecurityException` when the application is executed in a containerized environment like Docker or Kubernetes.
+```
+
+```masteryls
+{"id":"11fcc3e3-2f6e-42bf-b484-86dc8cb4f999","title":"Accountability and Transparency","type":"essay"}
+How does adding thoughtful logging to make a system observable reflect the values of honesty and accountability, and how does it serve the people who must understand and maintain your software?
+```
+
 ## Videos
 
 - 🎥 [Logging (6:47)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=014ade75-f4ad-4119-95c1-ad6d0147c217&start=0) - [[transcript]](https://github.com/user-attachments/files/17805093/CS_240_Java_Logging.pdf)
 - 🎥 [Logging: Configuration (13:44)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5c08583a-579d-452e-88d6-ad6d0149e2cc&start=0) - [[transcript]](https://github.com/user-attachments/files/17805094/CS_240_Logging_Configuration.pdf)
 - 🎥 [Logging: Messages (9:04)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e1afdb4c-bb5f-42cc-ad6c-ad6d014dd97d&start=0) - [[transcript]](https://github.com/user-attachments/files/17805096/CS_240_Logging_Messages.pdf)
-
-```

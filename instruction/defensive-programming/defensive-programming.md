@@ -207,6 +207,11 @@ What is the primary architectural benefit of using guard clauses at the beginnin
 - [ ] It automatically logs all input parameters to the system console for debugging purposes.
 ```
 
+```masteryls
+{"id":"fb9280b0-a467-4a9c-be3a-90b4ff2aa50b","title":"Protecting Your Neighbor","type":"essay"}
+How does writing defensive code that anticipates misuse and failure demonstrate love and care for your users, reflecting the second great commandment and the BYU aim of character building?
+```
+
 
 ## Videos
 

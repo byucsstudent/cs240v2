@@ -261,6 +261,11 @@ Which design pattern is primarily responsible for the ability to wrap a 'FileInp
 - [ ] The Factory Pattern
 ```
 
+```masteryls
+{"id":"8e89fd3f-4cff-4fa8-909f-4b84c02036de","title":"Reliability as Service","type":"essay"}
+As you learn to read and write data reliably, how does building software that people can trust reflect Christlike service toward those who depend on it?
+```
+
 
 
 ## Videos

@@ -393,6 +393,11 @@ What is the primary purpose of passing `Statement.RETURN_GENERATED_KEYS` to the 
 - [ ] It acts as a validation check that ensures the target table has an auto-increment column defined before the execution begins.
 ````
 
+```masteryls
+{"id":"0aec7a29-50f8-4a16-9222-2eeb236fbfeb","title":"Stewardship of Data","type":"essay"}
+As you connect applications to databases, how does the responsibility of safely handling other people's data reflect Christlike service and the BYU aim of building character?
+```
+
 
 ## Videos
 

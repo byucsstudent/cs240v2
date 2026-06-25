@@ -79,7 +79,8 @@
           "id": "b689ad9d-a894-4073-ae01-3190ff3cf151",
           "state": "published",
           "interactions": [
-            "955c39cf-a2b9-45ba-9cb4-62fde6b482a1"
+            "955c39cf-a2b9-45ba-9cb4-62fde6b482a1",
+            "0b9bcfa9-87fb-45bc-8abf-b4cdc1e2df5a"
           ]
         },
         {
@@ -196,7 +197,8 @@
           "state": "published",
           "interactions": [
             "6e801e6c-018a-498b-b702-2b5d76f81172",
-            "2ec94cfd-ac42-4ced-a34f-8cd81c95c0ef"
+            "2ec94cfd-ac42-4ced-a34f-8cd81c95c0ef",
+            "9bacd403-f736-4fc4-b613-e31ca5612502"
           ]
         },
         {
@@ -205,7 +207,8 @@
           "id": "e4725eb1-ac14-4229-b82c-69dbf98a5ccf",
           "state": "published",
           "interactions": [
-            "8818e31c-102f-4930-bc88-8f5662f09975"
+            "8818e31c-102f-4930-bc88-8f5662f09975",
+            "c935ba62-abf8-45a9-bb1c-22806e4296e2"
           ]
         },
         {
@@ -214,7 +217,8 @@
           "id": "1fdbe416-2d26-4e48-a761-b7a13ac2c012",
           "state": "published",
           "interactions": [
-            "dff0788f-db66-4a2f-bd87-1de307ac5bf0"
+            "dff0788f-db66-4a2f-bd87-1de307ac5bf0",
+            "23e9006e-f703-4ee0-a7bc-4f2ec146aef4"
           ]
         },
         {
@@ -224,7 +228,8 @@
           "state": "published",
           "interactions": [
             "225e7b39-9011-4973-8c40-704c9740b897",
-            "968a7b21-92da-4bf4-99bb-28fdb740a30d"
+            "968a7b21-92da-4bf4-99bb-28fdb740a30d",
+            "105e15d4-edac-4832-9fab-9cfa0234b89d"
           ]
         },
         {
@@ -245,7 +250,8 @@
           "interactions": [
             "d58151e1-451a-44ff-96c0-21c801866979",
             "96312950-c328-42db-96c5-94fbeea1b4fd",
-            "0db430e0-5fc8-4378-a384-47d2d427961e"
+            "0db430e0-5fc8-4378-a384-47d2d427961e",
+            "555866da-7ace-4523-963b-e1a523cc6511"
           ]
         },
         {
@@ -278,7 +284,8 @@
           "interactions": [
             "24db3b5d-61c5-4488-a9f8-9116634d7b5a",
             "08e88ca6-e6d9-467f-ae53-5502a601329d",
-            "32035b75-8e43-4ac3-9c02-d63e7517b65c"
+            "32035b75-8e43-4ac3-9c02-d63e7517b65c",
+            "7943abe7-dde5-42f1-b3b3-1b47d62dd12e"
           ]
         },
         {
@@ -358,7 +365,8 @@
           "interactions": [
             "7f4a04df-a0bf-41a2-9992-a29a38532709",
             "8b2838fa-5094-416a-a0c7-4dfab43557e3",
-            "8d58b3aa-ce96-4f18-8f5f-59a22f5cf918"
+            "8d58b3aa-ce96-4f18-8f5f-59a22f5cf918",
+            "8e89fd3f-4cff-4fa8-909f-4b84c02036de"
           ]
         },
         {
@@ -368,7 +376,8 @@
           "state": "published",
           "interactions": [
             "456c8942-f1aa-46a0-b24e-3337ad969702",
-            "f470d4bb-9996-49d1-8e91-6bb2a7337fa6"
+            "f470d4bb-9996-49d1-8e91-6bb2a7337fa6",
+            "28bf0130-6f80-4b48-b224-2d137bdf1339"
           ]
         }
       ]
@@ -421,7 +430,8 @@
           "id": "990189e6-efe2-44e9-8313-767c9074da9b",
           "state": "published",
           "interactions": [
-            "dc18f662-992d-4400-be14-87047258c032"
+            "dc18f662-992d-4400-be14-87047258c032",
+            "f1ce14d7-1260-41dc-ab21-a4168974c180"
           ]
         },
         {
@@ -441,7 +451,8 @@
           "id": "1ae9b65e-9a5f-413a-b224-de2fbecd11a2",
           "state": "published",
           "interactions": [
-            "b6c16aa7-1d68-4f2d-b159-d3da5e8e838a"
+            "b6c16aa7-1d68-4f2d-b159-d3da5e8e838a",
+            "5fbe2449-c027-496e-8996-6b927f882e57"
           ],
           "description": ""
         },
@@ -475,7 +486,8 @@
           "state": "published",
           "interactions": [
             "efe6a0a3-b72a-4126-8591-60d39f110906",
-            "d602989d-7d2a-4286-959f-1e864df2aff9"
+            "d602989d-7d2a-4286-959f-1e864df2aff9",
+            "06f01b46-4117-41d5-a6e7-b1fc1615ed9d"
           ]
         },
         {
@@ -493,7 +505,8 @@
           "id": "00287eee-722f-450a-b48b-6be729d43573",
           "state": "published",
           "interactions": [
-            "e23f3eaf-fadc-4285-8273-35b9852057b7"
+            "e23f3eaf-fadc-4285-8273-35b9852057b7",
+            "da9ad5d7-2473-4385-a73c-1f5d9167e751"
           ]
         },
         {
@@ -502,7 +515,8 @@
           "id": "0412f5dd-9767-420a-b2c4-3b64c6b3e16c",
           "state": "published",
           "interactions": [
-            "4057882b-96e0-4013-8f40-6f182d587ba5"
+            "4057882b-96e0-4013-8f40-6f182d587ba5",
+            "d74950d1-2903-4cda-ab9f-0d38a4dcb11c"
           ]
         }
       ]
@@ -519,7 +533,8 @@
             "919d8714-ed1e-46f4-bff4-a325ad6faa82",
             "b71c6678-edec-4df5-91cf-0ea35c052fe9",
             "bff5e1a4-9f58-4a88-9b7d-3f8a224a6cf4",
-            "1d3d77ad-0b50-47c5-933c-a3f4b715b436"
+            "1d3d77ad-0b50-47c5-933c-a3f4b715b436",
+            "dd51ad74-9844-4409-a5a7-08cf81aa1059"
           ]
         },
         {
@@ -528,7 +543,8 @@
           "id": "25c3b096-518e-438e-88dd-3443731f74d4",
           "state": "published",
           "interactions": [
-            "19d8fb82-cb67-4849-b5d1-2fce2786f6b7"
+            "19d8fb82-cb67-4849-b5d1-2fce2786f6b7",
+            "5097a507-34c8-491d-8c15-f0d339002d8f"
           ]
         },
         {
@@ -537,7 +553,8 @@
           "id": "8b21a842-4986-4984-af7f-457bff716739",
           "state": "published",
           "interactions": [
-            "b99232fb-8952-4891-820d-3d43c212c380"
+            "b99232fb-8952-4891-820d-3d43c212c380",
+            "6752ac49-2730-4b99-bb34-51e62dcf5bc3"
           ]
         },
         {
@@ -548,7 +565,8 @@
           "interactions": [
             "2975ae3a-d235-454d-a5b2-cb0e11cc0e97",
             "d58d3fd8-6ba9-417d-b084-ed10e9bc459e",
-            "9393c3bb-b1de-4c25-8822-2cd06d2b8854"
+            "9393c3bb-b1de-4c25-8822-2cd06d2b8854",
+            "0aec7a29-50f8-4a16-9222-2eeb236fbfeb"
           ]
         },
         {
@@ -557,7 +575,8 @@
           "id": "7f39c46d-ccbd-4837-b559-d46b0997c5e4",
           "state": "published",
           "interactions": [
-            "7ea13f64-a461-4c6e-89ae-86a2da0e6a52"
+            "7ea13f64-a461-4c6e-89ae-86a2da0e6a52",
+            "92b925c6-95ec-4402-939b-ce07d0623105"
           ]
         },
         {
@@ -600,7 +619,8 @@
           "id": "7dd775ef-6131-4ac4-b58d-2017f27634e8",
           "state": "published",
           "interactions": [
-            "d2e8e289-dc32-4c79-8343-a9474f84b310"
+            "d2e8e289-dc32-4c79-8343-a9474f84b310",
+            "11fcc3e3-2f6e-42bf-b484-86dc8cb4f999"
           ]
         },
         {
@@ -619,7 +639,8 @@
           "state": "published",
           "interactions": [
             "75dda285-9329-46b2-8c9e-3cba4efedb23",
-            "068fd0bf-baa3-4d1f-b12e-859d794716e2"
+            "068fd0bf-baa3-4d1f-b12e-859d794716e2",
+            "fb9280b0-a467-4a9c-be3a-90b4ff2aa50b"
           ]
         }
       ]
@@ -643,7 +664,8 @@
           "id": "1679af67-89cc-4c5a-bee7-53bad99f4d44",
           "state": "published",
           "interactions": [
-            "65911966-69cc-4552-9be7-a1b1ffe2ef7b"
+            "65911966-69cc-4552-9be7-a1b1ffe2ef7b",
+            "547ffb92-2b7d-4d99-9515-f15aa1ae2b76"
           ],
           "description": "Discuss the architectural patterns necessary to create a CLI program that communicates with a server over HTTP. Include software design patterns and pros and cons and common mistakes with the architecture.\n\nHere is the description of the project:\n\n\nIn this phase of the Chess Project, you will create the initial version of your Chess client. Your client will be a terminal-based (console) program providing a simple interface for interacting with the Chess server.\n\nYou will implement all user interactions that occur outside of active gameplay. Gameplay interactions will be implemented in the next phase. This includes functionality for displaying help text, registering, logging in, listing existing games, creating new games, joining a game, observing a game, logging out, and exiting. You will also write the client code responsible for drawing the chessboard.\n\nTo implement this, you will create a `ServerFacade` class to handle sending HTTP requests to your server and receiving responses. Your client code will use these `ServerFacade` methods to interact with the server API."
         },
@@ -676,7 +698,8 @@
           "id": "ea1daf23-33c1-4104-8fec-532d089e638d",
           "state": "published",
           "interactions": [
-            "2d0aa07e-3398-475a-8c0d-e767bd659a5a"
+            "2d0aa07e-3398-475a-8c0d-e767bd659a5a",
+            "527f286e-4439-40ef-9a8c-3c5891175325"
           ]
         },
         {

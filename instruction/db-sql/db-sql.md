@@ -335,6 +335,11 @@ What will be the result of executing this query?
 - [ ] It updates the `books` table to set the page count to 300 for any book where the title starts with the letter D.
 ````
 
+```masteryls
+{"id":"6752ac49-2730-4b99-bb34-51e62dcf5bc3","title":"Precision and Care","type":"essay"}
+How does writing precise, correct SQL queries reflect personal integrity, and how does such careful work serve the people who depend on the answers your queries produce?
+```
+
 ## Videos
 
 - 🎥 [Structured Query Language (2:14)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4f5a6bfe-5170-4c3c-97e8-ad660148d05a&start=0) - [[transcript]](https://github.com/user-attachments/files/17780823/CS_240_Structured_Query_Language_.SQL.pdf)

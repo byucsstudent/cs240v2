@@ -401,6 +401,11 @@ In the context of writing quality code, what is the primary purpose of refactori
 - [ ] Rewriting a legacy system from scratch using a more modern programming language or framework
 ```
 
+```masteryls
+{"id":"06f01b46-4117-41d5-a6e7-b1fc1615ed9d","title":"Serving through Code Quality","type":"essay"}
+In the context of software development as a vocation, how does prioritizing code quality serve as an act of service to God and your neighbor?
+```
+
 
 ## Videos
 

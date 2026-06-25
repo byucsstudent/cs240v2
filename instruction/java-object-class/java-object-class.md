@@ -276,6 +276,11 @@ In the Java programming language, the `java.lang.Object` class occupies a unique
 - [ ] It is the only class that provides a default implementation for the `toString()` and `equals()` methods.
 ```
 
+```masteryls
+{"id":"9bacd403-f736-4fc4-b613-e31ca5612502","title":"Foundations and Humility","type":"essay"}
+How does taking time to master the fundamentals that every Java object inherits cultivate the humility and discipline that support the BYU aim of lifelong learning and service?
+```
+
 ## Videos
 
 - 🎥 [Classes and Objects Overview](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8d7440ec-313d-45d1-891f-ad5f01307ab8&start=0) - [[transcript]](https://github.com/user-attachments/files/17750879/CS_240_Classes_and_Objects_Overview_Transcript.1.pdf)

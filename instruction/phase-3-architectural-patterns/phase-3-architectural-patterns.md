@@ -97,3 +97,8 @@ In a properly architected Javalin chess application, which layer is responsible 
 - [x] The Service Layer, because this is business logic specific to the rules of chess.
 - [ ] The Javalin Routing Layer, because it manages the flow of the application.
 ```
+
+```masteryls
+{"id":"5fbe2449-c027-496e-8996-6b927f882e57","title":"Order and Good Design","type":"essay"}
+How does organizing an application into well-defined layers reflect the value of order and careful work, and how does clear architecture serve the developers who come after you?
+```

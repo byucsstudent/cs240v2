@@ -135,6 +135,11 @@ public void processElements(List<? extends Number> elements) {
 - [ ] `elements.add(null);`
 ````
 
+```masteryls
+{"id":"28bf0130-6f80-4b48-b224-2d137bdf1339","title":"Intellectual Enlargement","type":"essay"}
+How has learning to write flexible, reusable code with generics stretched the way you think about solving problems, and how does embracing such abstraction support the BYU aim of being intellectually enlarged?
+```
+
 
 
 ## Videos

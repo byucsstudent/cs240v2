@@ -91,6 +91,11 @@ When troubleshooting a network request or inspecting the details of a TLS handsh
 - [ ] `-L`
 ```
 
+```masteryls
+{"id":"f1ce14d7-1260-41dc-ab21-a4168974c180","title":"Curiosity as a Lifelong Learner","type":"essay"}
+How has using tools like curl to explore how systems communicate increased your confidence to tackle unfamiliar technology, and how does that curiosity support BYU's aim of lifelong learning and service?
+```
+
 
 ## Videos
 

@@ -165,6 +165,11 @@ In which of the following application scenarios would implementing WebSockets pr
 - [ ] Delivering a long-form blog post where the user spends several minutes reading the content without further interaction.
 ```
 
+```masteryls
+{"id":"527f286e-4439-40ef-9a8c-3c5891175325","title":"Connecting People","type":"essay"}
+How does building real-time communication that connects people reflect the values of community and service, and how can this kind of work draw people together in meaningful ways?
+```
+
 
 ## Videos
 

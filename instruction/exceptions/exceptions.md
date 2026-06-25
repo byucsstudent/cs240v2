@@ -326,6 +326,11 @@ Which of the following best describes the 'Fail-Fast' principle in the context o
 - [ ] Retrying a failed network connection multiple times before finally throwing an exception.
 ```
 
+```masteryls
+{"id":"555866da-7ace-4523-963b-e1a523cc6511","title":"Honesty in Failure","type":"essay"}
+How does handling errors gracefully and honestly, rather than hiding them, reflect personal integrity, and how does it serve the users who encounter problems with your software?
+```
+
 
 ## Videos
 

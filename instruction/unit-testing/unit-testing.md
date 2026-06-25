@@ -128,6 +128,11 @@ What is a primary architectural benefit of practicing Test-Driven Development (T
 - [ ] It replaces the need for manual User Acceptance Testing (UAT) by ensuring that all business requirements are captured in code.
 ```
 
+```masteryls
+{"id":"da9ad5d7-2473-4385-a73c-1f5d9167e751","title":"Building Trust through Testing","type":"essay"}
+Why is trustworthy software an act of service, and how does systematic unit testing contribute to that trust and reflect the BYU aim of developing character?
+```
+
 
 ## Videos
 

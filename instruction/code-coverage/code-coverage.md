@@ -51,6 +51,11 @@ When establishing a target for code coverage within a software development team,
 - [x] There is no universal "correct" percentage; the target should be based on the project's risk profile and the point of diminishing returns.
 ```
 
+```masteryls
+{"id":"d74950d1-2903-4cda-ab9f-0d38a4dcb11c","title":"Diligence in Testing","type":"essay"}
+How does the discipline of measuring and improving code coverage cultivate the thoroughness and honesty that the BYU aim of character building seeks to develop, and how does that diligence serve the people who depend on your software?
+```
+
 
 ## Videos
 

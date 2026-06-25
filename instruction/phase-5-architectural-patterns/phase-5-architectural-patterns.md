@@ -92,6 +92,11 @@ As you build, ask yourself: "If I replaced the server with a local database tomo
 I don't understand the difference between the Facade and Adapter pattern.
 ```
 
+```masteryls
+{"id":"547ffb92-2b7d-4d99-9515-f15aa1ae2b76","title":"Simplicity for Others","type":"essay"}
+How do design patterns that hide complexity, such as the Facade, demonstrate care for the people who use your code, and how does making things simpler for others reflect Christlike service?
+```
+
 
 ***
 

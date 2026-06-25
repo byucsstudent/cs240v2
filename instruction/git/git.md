@@ -310,6 +310,11 @@ _Example: https://github.com/youraccount/testbyu240_
 After you have successfully submitted your URL, you may delete the GitHub repository.
 ```
 
+```masteryls
+{"id":"0b9bcfa9-87fb-45bc-8abf-b4cdc1e2df5a","title":"Working as a Team","type":"essay"}
+How does using version control to collaborate well with others reflect the value of community and service, and how does it prepare you to bless others through your profession?
+```
+
 
 
 ## Videos

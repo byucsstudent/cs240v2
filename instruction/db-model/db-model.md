@@ -274,6 +274,11 @@ Which software engineering principle is most directly supported by the ability t
 - [ ] Imperative logic flow
 ```
 
+```masteryls
+{"id":"dd51ad74-9844-4409-a5a7-08cf81aa1059","title":"Designing for Those Who Follow","type":"essay"}
+How does thoughtfully designing a data model demonstrate respect and care for the future developers and users who will depend on it, and how does this relate to the BYU aim of lifelong learning and service?
+```
+
 ## Videos
 
 - 🎥 [Relational Databases Overview (5:02)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=10667c35-dea3-4f1e-8c91-ad66013d553b&start=0) - [[transcript]](https://github.com/user-attachments/files/17737470/CS_240_Relational_Databases_Overview_Transcript.pdf)

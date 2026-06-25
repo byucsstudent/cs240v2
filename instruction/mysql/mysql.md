@@ -161,6 +161,11 @@ In which of the following scenarios would MySQL be a better choice than SQLite?
 - [ ] When you need a database that exists as a single, portable file on a disk.
 ```
 
+```masteryls
+{"id":"5097a507-34c8-491d-8c15-f0d339002d8f","title":"Stewardship of What You Store","type":"essay"}
+As you persist information in a database, how does the responsibility of caring for users' data reflect Christlike service and the BYU aim of developing character?
+```
+
 
 ## Videos
 
