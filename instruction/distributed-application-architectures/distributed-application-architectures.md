@@ -29,7 +29,8 @@ We will examine six distinct distributed application architectures to evaluate t
 
 ## Layered Client-Server (N-Tier) Architecture
 
-![ntier.png](ntier.png)
+![ntier-1.png](ntier-1.png)
+<img src="ntier.png" width="500"/>
 
 The Client-Server model is the foundational pattern for distributed systems. At its core, it partitions tasks between **service providers** (servers) and **service requesters** (clients). While a basic two-tier model (Client → Server) is common for simple tools, modern enterprise systems utilize an **N-Tier architecture**, which organizes the application into multiple logical and physical layers to improve maintainability and scalability.
 
@@ -206,6 +207,8 @@ sequenceDiagram
     *   **Network Latency:** Every inter-service call adds network delay compared to an in-memory function call.
 
 ## Peer-to-Peer (P2P) Architecture
+
+![peerToPeer-1.png](peerToPeer-1.png)
 
 Unlike the centralized models, Peer-to-Peer (P2P) architecture treats every node in the network as an equal. In this model, there is no dedicated central server. Instead, each node acts as both a client and a server; a hybrid role often referred to as a **servent** (**serv**er-cli**ent**). Each participant contributes a portion of their own resources, such as processing power, disk storage, or network bandwidth, directly to other participants without the need for intermediate orchestration.
 
