@@ -60,12 +60,6 @@ Consider the "Register" endpoint. When you diagram this, you aren't just showing
 7.  **Service** returns a `RegisterResult` containing the new token.
 8.  **Handler** sends a `200 OK` response with the JSON result.
 
-## Visualizing with Sequence Diagrams
-
-Sequence diagrams are the industry standard for documenting these interactions. They use vertical "lifelines" to represent objects and horizontal arrows to represent method calls. 
-
-When creating your diagrams on [SequenceDiagram.org](https://sequencediagram.org), focus on the **Happy Path** (the successful execution) but keep the **Error Paths** in mind. For instance, what happens if the `UserDAO` returns an error because the database is down? Your diagram should show the Service layer receiving that error and the Handler translating it into an appropriate HTTP status code (like `500 Internal Server Error`).
-
 ## Common Design Challenges
 
 ### 1. Handling State
