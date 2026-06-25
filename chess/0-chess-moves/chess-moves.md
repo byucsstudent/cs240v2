@@ -220,29 +220,28 @@ With the completion of this deliverable checkpoint, it is time to reflect upon t
 
 ```masteryls
 {"id":"ee5eb604-acc1-4231-bd9e-4e78db6eaab2", "title":"Frame", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
-What process did you use in order to frame your understanding of how chess pieces move such that it properly reflected the requirements? How did you determine a correct understanding of the problem such that you were able to consider the factors that your users deem important and will depend on?
+What process did you use to frame your understanding of how chess pieces move so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
 ```
 
 ```masteryls
 {"id":"a5e9dfeb-b48f-4cb9-ae34-69f3a6a342bb","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
-What software engineering principles and practices did you consider when you were exploring how to represent how pieces move? What did you do to advance your learning of the possible solution space?
+What software engineering principles and practices did you consider when you were exploring how to represent how chess pieces move? What did you do to advance your learning of the possible solution space?
 ```
 
 ```masteryls
 {"id":"df3d6c21-e574-403a-ba99-65c7ebf273aa","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
-What object-oriented and design principles did you consider as you converted your framing and exploration of the requirements into a design solution? What did you do to make sure you were considering the needs of future developers of the code and users of the application?
+What object-oriented and design principles did you consider as you converted your framing and exploration of chess piece movement into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
 ```
 
 ```masteryls
 {"id":"b51f2fa9-a148-4859-9292-183f69dc9062","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
-What went well and what did you find challenging as you implemented your design? What did you do to demonstrate design integrity and the quality of the application?
+What went well and what did you find challenging as you implemented your chess piece movement design? What did you do to demonstrate design integrity and the quality of the application?
 ```
 
 ```masteryls
 {"id":"083dfa87-6954-4af8-b180-7514db11cc72","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
-What testing patterns did you employ in order to encourage the foundation of a trustworthy application?
+What testing patterns did you employ to ensure a correct implementation of chess piece movement and encourage the foundation of a trustworthy application?
 ```
-
 
 ---
 
