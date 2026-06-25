@@ -143,3 +143,8 @@ In Object-Oriented Programming, both encapsulation and abstraction are used to h
 - [ ] Abstraction is an implementation-level technique used to protect data from outside interference, while encapsulation is a design-level technique used to simplify the system for the user.
 ```
 
+
+```masteryls
+{"id":"5f154b4b-762f-4bbf-8e0e-271e3bf05bcb", "title":"The Second Great Commandment", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+How can modeling your code using Object Oriented Programming principles help you better serve your customers and also other developers that follow after you?
+```
