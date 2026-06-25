@@ -29,7 +29,7 @@ Scale: Beginner|Intermediate|Proficient|Advanced|Expert
 
 ## Culminating Experience
 
-You will build a Semester long project that builds a full stack application that has been rigorously tested. The project will have the following characteristics.
+As a culminating experience that demonstrates your mastery of software construction, you will incrementally build a full stack application over the duration of the course. The application focus on **quality**, **architectural excellence**, and **adherence to design principles**. This includes the following detailed characteristics.
 
 1. Documented and tested distributed architecture
 1. Account creation and authentication
