@@ -414,6 +414,7 @@ sequenceDiagram
     *   **Latency:** Cold starts make serverless less suitable for high-performance applications requiring sub-millisecond responses.
     *   **Vendor Lock-in:** Moving code from AWS Lambda to Azure Functions often requires significant rewriting because the trigger APIs and deployment tools are proprietary.
     *   **Debugging Complexity:** It is difficult to replicate the exact cloud environment locally for testing, making integration testing more complex.
+
 ## Actor Model Architecture
 
 The Actor Model treats "actors" as the universal primitives of concurrent computation. An actor is an independent unit that encapsulates state and behavior. Actors communicate exclusively through asynchronous message passing. 
