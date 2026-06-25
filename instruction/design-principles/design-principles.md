@@ -132,7 +132,6 @@ Whenever you program you should try and abstract things into the following parts
 
 Note that sometimes it is not necessary to create an interface when a single class representation can simply expose public methods and abstract away the details. Interfaces are useful when there are multiple different algorithms that can be used to satisfy the interface, or when there are classes that implement multiple interfaces.
 
-The important thing to remember about abstraction is that you **hide** all implementation details of domain and system objects until those details are required. Think of everything on a purely "need to know" basis. This makes the current system easier to understand and allows for enhancement in the future.
 
 ### Benefits of abstraction
 
@@ -145,13 +144,18 @@ Some of the benefits of abstraction include:
 
 One common mistake with abstraction is to think that it only applies to the public methods that you include in a class. You can also provide data hiding by implementing interfaces that restrict the view of what an object can do to a small set of methods. For example, you might have a class that represents a person. In order to provide abstraction of the class, the person might represent an `Object`, `LivingEntity` and `Animal` interface. By exposing different aspects of the person, the consumer of the object only needs to know about the aspect that is of interest to them. This provides all of the benefits of comprehension, extensibility, evolution, and security.
 
+
+The important thing to remember about abstraction is that it **exposes** objects only in the way that it needs to be used in a given context. This makes the current system easier to understand and allows for enhancement in the future.
+
 ### Program to an Interface, Not an Implementation
 
 By defining variables and parameters using interface types or abstract classes rather than concrete implementations, the code becomes decoupled from specific classes. This allows for easier testing (via mocking) and the ability to swap implementations without modifying the consuming code.
 
 ## Encapsulation
 
-Encapsulation is a form of abstraction that takes an object that provides some functionality and encapsulates, or hides it, in another object. For example, a car encapsulates an engine, drive train, and suspension. The driver of the car does not need to know any of those details because the driver never interfaces with those components.
+![driverExample.png](driverExample.png)
+
+Encapsulation is a form of abstraction that takes an object that provides some functionality and encapsulates, or hides it, in another object. For example, a car encapsulates an engine, drive train, and suspension. The driver of the car does not need to know any of those details because the driver never interfaces with those components. By not allowing the driver to make assumptions about how she will drive based upon what is under the hood, a mechanic can change out the engine without impacting the driver.
 
 ```mermaid
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
@@ -183,23 +187,45 @@ classDiagram
     }
 ```
 
+The important thing to remember about encapsulation is that it **hides** all implementation details of domain and system objects until those details are required. Think of everything on a purely "need to know" basis. This makes the current system easier to understand and allows for enhancement in the future.
 
 ## Inheritance
 
-Inheritance is another form of abstraction where one object can inherit the functionality of another object without knowing the details of how the parent object provides the functionality.
+Inheritance is a form of abstraction that allows a new class (the subclass) to acquire the properties and behaviors (fields and methods) of an existing class (the superclass). This establishes an **"is-a" relationship**, where the subclass is a specialized version of the parent class.
 
-For example, a `Car` could inherit a `WheeledVehicle` object that provides the wheels and suspension. The `wheeledVehicle` could inherit a `Vehicle` object that provides a place for passengers to sit.
+By using inheritance, developers can achieve:
+1.  **Code Reuse**: Common functionality is defined once in a superclass and automatically available to all subclasses, reducing redundancy.
+2.  **Polymorphism**: Subclasses can be treated as instances of their superclass. This allows a single method to operate on different types of objects as long as they share a common ancestor.
+3.  **Centralized Maintenance**: Changes made to a superclass's logic automatically propagate to all subclasses, making it easier to update shared behavior.
+
+For example, a `Car` could inherit from a `WheeledVehicle` class that handles the logic for wheels and suspension. The `WheeledVehicle` could further inherit from a `Vehicle` class that provides general attributes like a passenger capacity or a serial number.
 
 ```mermaid
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
 classDiagram
+    class Vehicle {
+        +int passengerCapacity
+        +move()
+    }
+    class wheeledVehicle {
+        +int wheelCount
+        +checkSuspension()
+    }
+    class car {
+        +String fuelType
+        +turnOnRadio()
+    }
     car --|> wheeledVehicle
     wheeledVehicle --|> Vehicle
 ```
 
-## Prefer Encapsulation Over Inheritance
+## Prefer Composition Over Inheritance
 
-When you are creating your classes you need to carefully consider the different meanings and implications of using inheritance instead of encapsulation. However, by favoring encapsulation you can create composable objects that have the benefits of multiple inheritance without all of the complexity that multiple inheritance incurs. Encapsulated objects can demonstrate polymorphic behavior by exposing interfaces that are implemented by the contained objects. As long as interfaces are used to access the encapsulation, the containing class can replace the encapsulated objects without impacting any users of the objects. In short, when combined with interfaces, encapsulation can provide:
+When you are creating your classes you need to carefully consider the different meanings and implications of using inheritance of a parent class instead of composition that is exposed by the implementation of an interface.
+
+In Java inheritance is accomplished with the `extends` key word. Composition is accomplished with the `implements` key word.
+
+ By favoring composition you can create composable objects that have the benefits of multiple inheritance without all of the complexity that multiple inheritance incurs. Encapsulated objects can demonstrate polymorphic behavior by exposing interfaces that are implemented by the contained objects. As long as interfaces are used to access the composition, the containing class can replace the encapsulated objects without impacting any users of the objects. In short, when combined with interfaces, composition can provide:
 
 1. `has-a` and `is-a` relationships
 1. Benefits of multiple inheritance without the complexity
@@ -207,7 +233,7 @@ When you are creating your classes you need to carefully consider the different 
 1. Better hiding of details
 1. Increased interface segregation
 
-This suggests that in many cases Encapsulation should be preferred over inheritance.
+This suggests that in many cases componsition should be preferred over inheritance.
 
 ## Decomposition
 
