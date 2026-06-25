@@ -389,7 +389,11 @@
           "path": "chess/2-server-design/server-design.md",
           "id": "f459c5a9-c14e-4383-96f7-21fbfef67bae",
           "state": "published",
-          "interactions": []
+          "interactions": [
+            "ef7e108e-d6b3-49e8-9745-1f9a25d6eb91",
+            "c47c5b60-373f-47d8-81d7-2c5e48836b9a",
+            "836e189e-364e-4030-907b-fd0b7a33a287"
+          ]
         },
         {
           "title": "HTTP",
