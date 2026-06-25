@@ -455,18 +455,6 @@ Reliability in the Actor Model is maintained through **supervision trees**. This
 *   **Supervisors:** Parent actors that create and monitor "child" actors.
 *   **Self-Healing:** If a child actor crashes due to an error, the supervisor detects the failure and decides on a strategy, such as restarting the child to its initial clean state, stopping it, or escalating the failure further up the tree.
 
-```mermaid
-graph TD
-    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
-    
-    Root[Root Supervisor] --> MG[Match Manager Actor]
-    MG --> G1[Game Actor #101]
-    MG --> G2[Game Actor #102]
-    MG --> G3[Game Actor #103]
-    
-    style G2 stroke-dasharray: 5 5, stroke:#ff0000
-    Note over G2: If G2 crashes, MG restarts it <br/> without affecting G1 or G3.
-```
 
 ### Advanced Message Handling: Stashing and Rejections
 
@@ -476,6 +464,7 @@ Actors manage their internal state transitions using specific patterns to handle
 *   **Rejections:** If a message is invalid or the actor is under too much load, it can explicitly **reject** the message, sending a failure notification back to the sender or simply ignoring it to protect its own resources.
 
 In a Chess server, an actor could represent a single game instance. This ensures all moves for that specific game are processed sequentially (one after another) by that actor's mailbox, while thousands of other games run concurrently in their own isolated actors across the network.
+
 ### Practical Example: Concurrent Game Management
 
 In a large Chess server, each game is managed by a dedicated "Game Actor." Players send move messages to the actor's mailbox, where they are processed one at a time.
