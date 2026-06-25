@@ -161,6 +161,35 @@ To pass off this assignment, use the course [auto-grading](https://cs240.click/)
 | Unit Tests     | All test cases pass<br/>Each public method on DAO classes has two test cases (one positive, one negative)<br/>Every test case includes an Assert statement                           |           25 |
 |                | **Total**                                                                                                                                                                           |      **155** |
 
+#### 🥅 Outcome Reflections
+
+With the completion of this chess database deliverable checkpoint, it is time to reflect upon the course outcomes and your ability to master them.
+
+```masteryls
+{"id":"712d8fed-6c1f-449b-af7d-f8202d020522","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What process did you use to frame your understanding of the chess database so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
+```
+
+```masteryls
+{"id":"ffb735d5-1e63-4a7b-b180-49894ad2d166","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What software engineering principles and practices did you consider when you were exploring how to represent the chess database? What did you do to advance your learning of the possible solution space?
+```
+
+```masteryls
+{"id":"31b090f1-0051-4a91-9557-7bfbcd52a1d0","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What object-oriented and design principles did you consider as you converted your framing and exploration of the chess database into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
+```
+
+```masteryls
+{"id":"e0f6f56e-679b-4023-896d-4ea76530f513","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What went well and what did you find challenging as you implemented your chess database design? What did you do to demonstrate design integrity and the quality of the application?
+```
+
+```masteryls
+{"id":"38f734f7-3436-48d9-8b76-e0224b751d6f","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What testing patterns did you employ to ensure a correct implementation of the chess database and encourage the foundation of a trustworthy application that others can rely on?
+```
+
 ## Videos
 
 - 🎥 [Phase 4 Introduction (4:21)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1d2253eb-f42c-4091-8d6f-b19301573278) - [[transcript]](https://github.com/user-attachments/files/17707032/CS_240_Chess_Phase_4_Transcript.pdf)
