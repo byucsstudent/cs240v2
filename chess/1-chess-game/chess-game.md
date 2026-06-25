@@ -161,6 +161,36 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 | Extra Credit   | `extracredit` test cases succeed                                                                  |    bonus +10 |
 |                | **Total**                                                                                         |      **125** |
 
+
+
+#### 🥅 Outcome Reflections
+
+With the completion of this deliverable checkpoint, it is time to reflect upon the course outcomes and your ability to master them.
+
+```masteryls
+{"id":"df5861e0-a6ef-45d8-bc7c-c18feaa70629","title":"Frame","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What process did you use to frame your understanding of the rules of chess so that it properly reflected the requirements? How did you determine a correct understanding of the problem so that you were able to consider the factors that your users deem important and will depend on?
+```
+
+```masteryls
+{"id":"8477f3ba-fbc7-4bb4-9fab-a071e66472fb","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What software engineering principles and practices did you consider when you were exploring how to represent the rules of chess? What did you do to advance your learning of the possible solution space?
+```
+
+```masteryls
+{"id":"01c49ded-1eea-4d3f-8b82-36adb3b05700","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What object-oriented and design principles did you consider as you converted your framing and exploration of the requirements into a design solution? What did you do to ensure you were considering the needs of future developers and users of the application?
+```
+
+```masteryls
+{"id":"42f9117c-7ff4-4e0c-afad-c7ceecf7c2cc","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What went well and what did you find challenging as you implemented your design? What did you do to demonstrate design integrity and the quality of the application?
+```
+
+```masteryls
+{"id":"ad348c48-81ea-4601-a242-a63b40e38b4f","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What testing patterns did you employ to encourage the foundation of a trustworthy application?
+```
 ## Videos
 
 - 🎥 [Phase 1 Overview (6:13)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f2342f5a-8513-44fe-b5cc-b1700151beac) - [[transcript]](https://github.com/user-attachments/files/17706850/CS_240_Phase_1_Overview_Transcript.pdf)
