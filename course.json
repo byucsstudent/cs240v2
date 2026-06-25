@@ -425,6 +425,17 @@
           ]
         },
         {
+          "title": "Phase 3: Architectural Patterns",
+          "type": "instruction",
+          "path": "instruction/phase-3-architectural-patterns/phase-3-architectural-patterns.md",
+          "id": "1ae9b65e-9a5f-413a-b224-de2fbecd11a2",
+          "state": "published",
+          "interactions": [
+            "b6c16aa7-1d68-4f2d-b159-d3da5e8e838a"
+          ],
+          "description": ""
+        },
+        {
           "title": "Phase 3: Getting Started",
           "path": "chess/3-web-api/getting-started.md",
           "id": "afa916e8-a9dc-4b25-8c82-56f38395cb8e",
@@ -441,17 +452,6 @@
           "interactions": [
             "8e3c0adc-1d43-44d3-b12d-32d81b0db1a6"
           ]
-        },
-        {
-          "title": "Phase 3: Architectural Patterns",
-          "type": "instruction",
-          "path": "instruction/phase-3-architectural-patterns/phase-3-architectural-patterns.md",
-          "id": "1ae9b65e-9a5f-413a-b224-de2fbecd11a2",
-          "state": "published",
-          "interactions": [
-            "b6c16aa7-1d68-4f2d-b159-d3da5e8e838a"
-          ],
-          "description": ""
         },
         {
           "title": "Writing Quality Code",
