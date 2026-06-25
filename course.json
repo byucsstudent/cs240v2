@@ -166,7 +166,12 @@
           "id": "807a1d1b-6dff-4ccb-a7bb-3293602b7931",
           "state": "published",
           "interactions": [
-            "0bf59ef9-4f30-440c-aad5-0fdcd1bc7778"
+            "0bf59ef9-4f30-440c-aad5-0fdcd1bc7778",
+            "ee5eb604-acc1-4231-bd9e-4e78db6eaab2",
+            "a5e9dfeb-b48f-4cb9-ae34-69f3a6a342bb",
+            "df3d6c21-e574-403a-ba99-65c7ebf273aa",
+            "b51f2fa9-a148-4859-9292-183f69dc9062",
+            "083dfa87-6954-4af8-b180-7514db11cc72"
           ],
           "description": ""
         },
@@ -725,6 +730,7 @@
           "type": "instruction",
           "path": "instruction/wrap-up/wrap-up.md",
           "id": "b2e86dda-b774-4cc6-b437-0ac650e42233",
+          "state": "published",
           "interactions": [
             "ae0cbb96-e945-4746-8c51-048cce855e1c"
           ],
