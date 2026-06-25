@@ -276,23 +276,37 @@ sequenceDiagram
 
 ## Event-Driven Architecture (EDA)
 
-In an Event-Driven Architecture, the flow of the program is determined by events, such as a user clicking a button, a sensor output, or a message from another program. Components communicate by publishing events to an event bus or broker, and other components subscribe to the events they care about. 
+In an Event-Driven Architecture (EDA), the flow of the application is determined by **events**; significant changes in state, such as a user placing a chess piece, a system error occurring, or a sensor detecting motion. Unlike traditional architectures where components call each other directly (Request/Response), EDA components communicate by broadcasting that something has happened.
 
-Brokers handle high throughput using **backpressure** (throttling producers when consumers are overwhelmed) and ensure reliability through **dead-letter queues** for failed events and message partitioning to maintain strict event ordering.
+### Core Concepts: Pub/Sub and Decoupling
 
+EDA typically relies on the **Publish/Subscribe (Pub/Sub)** pattern. In this model, a **Producer** (the component where the event originates) sends a message to a central "Event Bus" or "Message Broker." It does not know who will consume the message, or even if anyone is listening. **Consumers** (the components that need to react) subscribe to specific types of events.
+
+This creates high **decoupling**:
+*   **Spatial Decoupling:** The producer and consumer don't need to know each other's IP addresses or identities.
+*   **Temporal Decoupling:** The producer and consumer don't need to be running at the same time. The broker can hold the message until the consumer is ready.
 
 ```mermaid
 graph LR
     classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
-    Producer[Move Producer] -- "MoveEvent" --> Bus{Event Bus}
-    Bus -- "MoveEvent" --> Consumer1[Analytics Engine]
-    Bus -- "MoveEvent" --> Consumer2[Live Stream Service]
-    Bus -- "MoveEvent" --> Consumer3[Archive DB]
+    Producer[Move Producer] -- "Publish: MoveEvent" --> Bus{Event Bus / Broker}
+    Bus -- "Push: MoveEvent" --> Consumer1[Analytics Engine]
+    Bus -- "Push: MoveEvent" --> Consumer2[Live Stream Service]
+    Bus -- "Push: MoveEvent" --> Consumer3[Archive DB]
 ```
+
+### The Role of the Message Broker
+
+The **Message Broker** (e.g., Apache Kafka, RabbitMQ) is the "intelligent post office" of the system. It handles the complexity of routing messages to the correct subscribers and ensures the system remains stable under heavy load.
+
+#### Handling Throughput and Reliability
+*   **Backpressure:** When a producer sends messages faster than a consumer can process them, the broker manages the flow. It can buffer messages or signal the producer to slow down, preventing the consumer from being overwhelmed and crashing.
+*   **Dead-Letter Queues (DLQ):** If a message fails to be processed after several attempts (perhaps due to a bug or malformed data), the broker moves it to a DLQ. This is a specialized "lost and found" queue where developers can inspect failed events without stopping the rest of the system.
+*   **Message Partitioning:** To maintain performance, brokers often split event streams into "partitions." For example, all moves for "Game A" might go to Partition 1, while "Game B" goes to Partition 2. This ensures that moves within a single game are processed in the correct **chronological order** while allowing multiple games to be processed in parallel.
 
 ### Practical Example: Reacting to a Game Move
 
-In a Chess platform, once a move is finalized, several independent systems need to know about it. The Game Service doesn't call them directly; it simply announces the event.
+In a Chess platform, once a move is finalized, several independent systems need to react. The Game Service doesn't call the Analytics or Notification services; it simply announces the event to the broker.
 
 ```mermaid
 %%{init: { 'theme': 'neutral', 'look': 'handDrawn',
@@ -302,25 +316,34 @@ In a Chess platform, once a move is finalized, several independent systems need 
   }, 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
 
 sequenceDiagram
-    participant GS as Game Service
-    participant EB as Event Bus (Kafka/RabbitMQ)
-    participant AS as Analytics Service
-    participant NS as Notification Service
+    participant GS as Game Service (Producer)
+    participant EB as Event Bus (Broker)
+    participant AS as Analytics Service (Consumer)
+    participant NS as Notification Service (Consumer)
     
     GS->>EB: Publish: "MOVE_MADE" {gameId: 101, move: "Qh5"}
+    Note over GS: GS continues immediately (Asynchronous)
+    
     par
         EB->>AS: Push Event
-        AS->>AS: Update player accuracy stats
+        AS->>AS: Calculate player accuracy
     and
         EB->>NS: Push Event
-        NS->>NS: Notify spectators via WebSocket
+        NS->>NS: Send WebSocket update to spectators
     end
 ```
 
 ### Advantages and Disadvantages
-*   **Advantages:** Excellent for real-time systems and high responsiveness. Components are decoupled, making the system easy to extend.
-*   **Disadvantages:** It can be hard to follow the "logic flow" of the application, making debugging and tracing a challenge.
 
+*   **Advantages:**
+    *   **Scalability:** You can add new consumers (e.g., a "Cheat Detection Service") without changing any code in the Game Service.
+    *   **Responsiveness:** The producer doesn't wait for consumers to finish. It broadcasts the event and immediately moves on to the next task.
+    *   **Resiliency:** If the Analytics Service goes down, the Game Service is unaffected. The events will wait in the broker until the Analytics Service recovers.
+
+*   **Disadvantages:**
+    *   **Complexity of Flow:** Because execution is non-linear, it can be difficult to see the "big picture" of how a request moves through the system.
+    *   **Debugging and Tracing:** Standard debuggers don't work across asynchronous boundaries. Engineers must use **Distributed Tracing** (assigning a unique ID to an event) to follow its path across different services.
+    *   **Eventual Consistency:** There is a delay between the move being made and the analytics being updated, meaning the system state might be slightly "out of sync" for a few milliseconds.
 
 ## Serverless Architecture
 
