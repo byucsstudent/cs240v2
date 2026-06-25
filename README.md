@@ -40,11 +40,13 @@ You will build a Semester long project that builds a full stack application that
 1. Persistent storage of data
 1. Robust handling of failure cases
 
-## Checkpoints
+## Deliverable Checkpoints
 
-As you work on your culminating experience project you will pass through a series of checkpoints that demonstrate your increasing mastery.
+As you work on your culminating experience project you will pass through a series of deliverable checkpoints that demonstrate your increasing mastery.
 
 ![checkpoints.jpg](instruction/introduction/checkpoints.jpg)
+
+After you complete each deliverable checkpoint you will be asked a series of questions related to your mastery of the course outcomes. Use this reflection as a time to internalize what you are learning and how you have applied it. This will deepen your mastery of the subject.
 
 ## Technologies
 
