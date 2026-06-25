@@ -27,29 +27,56 @@ We will examine six distinct distributed application architectures to evaluate t
 
 ## Layered Client-Server (N-Tier) Architecture
 
-The Client-Server model is the foundational pattern for distributed systems, where tasks are partitioned between service providers (servers) and service requesters (clients). In modern web applications, this model almost always evolves into a **Three-Tier** or **N-Tier** architecture. Rather than a single "server" handling everything, the system is organized into logical layers: the **Presentation Tier** (UI), the **Application Tier** (Logic), and the **Data Tier** (Storage).
+The Client-Server model is the foundational pattern for distributed systems. At its core, it partitions tasks between **service providers** (servers) and **service requesters** (clients). While a basic two-tier model (Client → Server) is common for simple tools, modern enterprise systems utilize an **N-Tier architecture**, which organizes the application into multiple logical and physical layers to improve maintainability and scalability.
 
-In a Chess application, this architectural evolution is clear:
-1.  **Presentation Tier:** Your Console UI.
-2.  **Application Tier:** A server running Java logic to validate moves and enforce rules.
-3.  **Data Tier:** A database storing user profiles and match histories.
 
-By separating these concerns, you ensure that the "Server" doesn't become a bloated, unmaintainable monolith.
+### The Three-Tier Structure
+
+The most common implementation of N-Tier is the **Three-Tier Architecture**, which separates the system into three distinct functional areas:
+
+1.  **Presentation Tier (User Interface):** This is the top-most level. It translates tasks and results to something the user can understand. In your Chess project, this might be a Console UI or a web-based React frontend.
+2.  **Application Tier (Business Logic):** This is the "brain" of the application. It coordinates the application, processes commands, makes logical decisions, and performs calculations. It moves and processes data between the two surrounding layers. In Chess, this layer validates if a move is legal according to the rules.
+3.  **Data Tier (Persistence):** This consists of database servers where information is stored and retrieved. Keeping this tier independent allows the application to remain **stateless**—meaning the Application Tier doesn't have to remember user data between sessions because the Data Tier handles it.
 
 ```mermaid
 graph TD
     classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
     User((User)) --> Presentation[Presentation Tier: Client/UI]
-    Presentation -- API Request --> Logic[Application Tier: Business Logic]
-    Logic -- SQL/NoSQL Query --> Data[Data Tier: Database]
-    Data -- Result --> Logic
-    Logic -- API Response --> Presentation
+    Presentation -- "API Request (HTTP/gRPC)" --> Logic[Application Tier: Business Logic]
+    Logic -- "Database Query (SQL/NoSQL)" --> Data[Data Tier: Database]
+    Data -- "Result Set" --> Logic
+    Logic -- "API Response (JSON)" --> Presentation
 ```
 
 
+### Understanding Layers vs. Tiers
+
+In computer science, the terms layers and tiers are often used interchangeably, but they represent different concepts:
+*   **Layers:** Refer to the **logical** grouping of software components (e.g., the packages or classes in your Java code). This follows the principle of **Separation of Concerns**, where each part of the code has a specific responsibility.
+*   **Tiers:** Refer to the **physical** distribution of these layers across different machines or processes. For example, if your database runs on a separate server from your application logic, you have a multi-tier system.
+
+### Scaling the N-Tier Model
+
+As an application grows, a single server often becomes a **bottleneck**—a point where the entire system's performance is limited by a single component's capacity. To resolve this, engineers use two primary strategies:
+
+*   **Vertical Scaling (Scaling Up):** Adding more power (CPU, RAM) to an existing server. This is simple but has a "ceiling" (you can only buy a server so large) and creates a **Single Point of Failure (SPOF)**—if that one powerful server dies, the whole system goes down.
+*   **Horizontal Scaling (Scaling Out):** Adding more server instances to the pool. This requires a **Load Balancer**, a specialized component that acts as a "traffic cop," distributing incoming client requests across multiple application servers so no single server is overwhelmed.
+
+```mermaid
+graph TD
+    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
+    Client((Clients)) --> LB[Load Balancer]
+    subgraph "Application Tier (Horizontal Scaling)"
+    LB --> S1[App Server 1]
+    LB --> S2[App Server 2]
+    LB --> S3[App Server 3]
+    end
+    S1 & S2 & S3 --> DB[(Shared Database)]
+```
+
 ### Practical Example: The Client-Server Interaction
 
-In a layered Chess application, the UI (Presentation) requests a move validation from the logic layer, which must then check the persistent state in the database.
+In a layered Chess application, the UI (Presentation) requests a move validation from the logic layer. The Application layer must then fetch the current board state from the Data layer, perform the validation, and save the result.
 
 ```mermaid
 %%{init: { 'theme': 'neutral', 'look': 'handDrawn',
@@ -58,29 +85,38 @@ In a layered Chess application, the UI (Presentation) requests a move validation
     'showSequenceNumbers': true
   }, 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
 
-
-
 sequenceDiagram
     participant C as Presentation (Client)
     participant A as Application (Server Logic)
     participant D as Data (Database)
     
     C->>A: POST /move {gameId: 101, move: "e2e4"}
+    Note over A: Application layer processes request
     A->>D: SELECT board_state FROM games WHERE id=101
     D-->>A: current board data
-    A->>A: Validate move rules
+    A->>A: Validate move rules (Logic)
     A->>D: UPDATE games SET board_state=... WHERE id=101
     D-->>A: success
     A-->>C: 200 OK {newBoard: "..."}
 ```
 
 ### Advantages and Disadvantages
-*   **Advantages:** Centralized control simplifies security and data management. Separation of layers allows you to update the database or logic independently without rewriting the entire UI.
-*   **Disadvantages:** The server remains a single point of failure and can become a bottleneck. The multiple network hops between tiers (Client → Logic → Data) can increase latency.
+
+*   **Advantages:**
+    *   **Maintainability:** You can update the database (Data Tier) or the UI (Presentation Tier) independently without needing to rewrite the business logic.
+    *   **Security:** The database is not directly accessible to the client; it is "hidden" behind the application logic, which acts as a gatekeeper.
+    *   **Scalability:** Each tier can be scaled independently based on its specific resource needs.
+
+*   **Disadvantages:**
+    *   **Latency:** Each tier usually lives on a different physical machine. Communication between these machines introduces **network latency** (delay), making the system slower than a monolithic application where everything is in memory.
+    *   **Complexity:** Managing multiple servers, load balancers, and network configurations is significantly more difficult than managing a single program.
+    *   **Cascading Failures:** If the Data Tier goes offline, the Application and Presentation tiers may become useless, even if they are technically "running."
 
 ## Peer-to-Peer (P2P) Architecture
 
 Unlike the previous models, Peer-to-Peer (P2P) architecture treats every node as both a client and a server (often called "servents"). There is no central authority. Each node contributes resources, such as processing power, disk storage, or network bandwidth, directly to other participants.
+
+Nodes in a P2P network often use **Distributed Hash Tables (DHTs)** for decentralized discovery and **NAT traversal** techniques (like STUN or TURN) to establish direct connections through firewalls and private networks.
 
 This model is famous for file-sharing networks like BitTorrent and the underlying structure of blockchain technologies. In a P2P Chess game, two players' computers would connect directly to each other to exchange moves without a central server mediating the match.
 
@@ -122,6 +158,8 @@ sequenceDiagram
 ## Microservices Architecture
 
 Microservices architecture takes the idea of "separation of concerns" to the extreme. Instead of one large "Application Tier," the system is composed of many small, independent services that communicate over a network (usually via HTTP or message queues). Each service runs its own process and manages its own database.
+
+Operational stability is maintained through **service discovery** (mapping service locations), **circuit breakers** to prevent cascading failures when one service hangs, and **orchestration platforms** like Kubernetes to manage container lifecycles.
 
 For a large-scale gaming platform, you might have a "Matchmaking Service," a "Chat Service," a "Billing Service," and a "Game Engine Service."
 
@@ -170,7 +208,9 @@ sequenceDiagram
 
 ## Event-Driven Architecture (EDA)
 
-In an Event-Driven Architecture, the flow of the program is determined by events, such as a user clicking a button, a sensor output, or a message from another program. Components communicate by publishing events to an event bus or broker, and other components subscribe to the events they care about. This creates a "loosely coupled" system where the producer of the information doesn't need to know who is consuming it.
+In an Event-Driven Architecture, the flow of the program is determined by events, such as a user clicking a button, a sensor output, or a message from another program. Components communicate by publishing events to an event bus or broker, and other components subscribe to the events they care about. 
+
+Brokers handle high throughput using **backpressure** (throttling producers when consumers are overwhelmed) and ensure reliability through **dead-letter queues** for failed events and message partitioning to maintain strict event ordering.
 
 
 ```mermaid
@@ -216,7 +256,9 @@ sequenceDiagram
 
 ## Serverless Architecture
 
-In a Serverless Architecture, developers write code as functions (e.g., AWS Lambda or Supabase Edge Functions) that execute in response to events. The cloud provider manages all infrastructure, scaling, and resource allocation. This allows developers to focus entirely on the logic without worrying about server maintenance or provisioning.
+In a Serverless Architecture, developers write code as functions (e.g., AWS Lambda or Supabase Edge Functions) that execute in response to events. The cloud provider manages all infrastructure, scaling, and resource allocation.
+
+To mitigate **cold starts** (the latency when a function is first invoked after being idle), developers use techniques like **provisioned concurrency** to keep a set number of functions "warm" or optimize deployment packages to minimize initialization time.
 
 In a Chess application, serverless functions are ideal for tasks that are intermittent or event-based, such as calculating a player's new rating after a game is recorded in the database.
 
@@ -256,7 +298,9 @@ sequenceDiagram
 
 ## Actor Model Architecture
 
-The Actor Model treats "actors" as the universal primitives of concurrent computation. An actor is an independent unit that encapsulates state and behavior. Actors communicate exclusively through asynchronous message passing. When an actor receives a message, it can make local decisions, create more actors, or send more messages. Because actors do not share state, this model avoids the need for complex locking mechanisms and prevents race conditions.
+The Actor Model treats "actors" as the universal primitives of concurrent computation. An actor is an independent unit that encapsulates state and behavior. Actors communicate exclusively through asynchronous message passing. 
+
+Actors manage their internal state transitions using **stashing** (temporarily storing messages until the actor is in a state to process them) or **rejections**. Reliability is maintained through **supervision trees**, where parent actors monitor and restart failing child actors to achieve self-healing.
 
 In a Chess server, an actor could represent a single game instance, ensuring all moves for that specific game are processed sequentially while thousands of other games run concurrently in other actors.
 
