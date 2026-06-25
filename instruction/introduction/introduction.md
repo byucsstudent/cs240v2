@@ -35,15 +35,6 @@ It is helpful to distinguish between "programming" and "software engineering." W
 
 For example, consider the difference in how a simple task is handled. A programmer might write a script to process data once. A software engineer writes a robust service that handles errors, logs activity, and can be easily updated by other team members.
 
-```masteryls
-{"id":"ce3d8811-e669-4b43-a13c-b037d81e0d0f","title":"Defining Software Engineering","type":"multiple-choice"}
-What is the primary factor that distinguishes software engineering from simple programming?
-
-- [ ] Software engineering is only concerned with writing code in complex languages like Java
-- [ ] Programming is done by teams, while software engineering is always done individually
-- [ ] Software engineering is the process of fixing bugs after a programmer has finished the code
-- [x] Software engineering applies a systematic, disciplined approach to the entire software lifecycle
-```
 
 ### Example: Modular Design
 
@@ -198,6 +189,22 @@ Take time during the course to dive deep into topics you find interesting. Learn
 
 ## ☑ Exercise
 
+
+```masteryls
+{"id":"ce3d8811-e669-4b43-a13c-b037d81e0d0f","title":"Defining Software Engineering","type":"multiple-choice"}
+What is the primary factor that distinguishes software engineering from simple programming?
+
+- [ ] Software engineering is only concerned with writing code in complex languages like Java
+- [ ] Programming is done by teams, while software engineering is always done individually
+- [ ] Software engineering is the process of fixing bugs after a programmer has finished the code
+- [x] Software engineering applies a systematic, disciplined approach to the entire software lifecycle
+```
+
+```masteryls
+{"id":"e90d5eb9-6d56-454d-a036-0bb576b1322c", "title":"Disciplinary Excellence", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+How does taking ownership of the long-term impact of your software prepare you to become a leader who blesses others through your profession?
+```
+
 ```masteryls
 {"id":"2fdc2fdb-e3de-49c9-ba25-f66b0da68d1a", "title":"Canvas notifications", "type":"multiple-choice" }
 We often send out critical notifications for the course using Canvas announcements. Log into Canvas and verify that you have the correct email address and notification settings associated with your account.
@@ -205,13 +212,6 @@ We often send out critical notifications for the course using Canvas announcemen
 - [x] My email address is associated with Canvas, and I frequently check for notifications.
 - [ ] I want to stay in the dark and miss important notifications.
 ```
-
-
-```masteryls
-{"id":"e90d5eb9-6d56-454d-a036-0bb576b1322c", "title":"Disciplinary Excellence", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
-How does taking ownership of the long-term impact of your software prepare you to become a leader who blesses others through your profession?
-```
-
 
 ## Videos
 
