@@ -3,7 +3,7 @@
 ### 🔑 Key points
 
 - **Distributed Applications:** Systems where components on networked computers communicate and coordinate actions by passing messages to achieve common goals.
-- **Primary Architectures:** Key models include Layered Client-Server (N-Tier), Peer-to-Peer, Microservices, Event-Driven, and Serverless, each with distinct trade-offs in scalability and complexity.
+- **Primary Architectures:** Key models include Layered Client-Server (N-Tier), Peer-to-Peer, Microservices, Event-Driven, Serverless, and the Actor Model, each with distinct trade-offs in scalability and complexity.
 - **Strategic Selection:** The choice of architecture dictates how a system handles failure, grows under load, and manages data consistency.
 - **Distributed Challenges:** Engineers must navigate unique hurdles not found in monolithic systems, such as network latency, partial failures, and the constraints of the CAP theorem.
 
@@ -12,7 +12,7 @@
 In the modern landscape of software engineering, very few applications run in complete isolation. As you progress through the development of complex systems, such as the Chess server projects in this module, you will find that the way components are organized across a network determines the system's scalability, reliability, and maintainability. A distributed application is one where components located on networked computers communicate and coordinate their actions by passing messages. Choosing the right architecture is not just a technical decision; it is a strategic one that dictates how your application will grow and handle failure.
 
 
-We will examine five distinct distributed application architectures to evaluate their structural design and operational impact. By analyzing these models side-by-side, we will compare and contrast their specific strengths and weaknesses regarding scalability, maintainability, and fault tolerance. Through the use of practical coding examples and UML dataflow diagrams, you will gain the insights necessary to navigate the trade-offs inherent in each approach, enabling more informed decision-making when designing complex, distributed systems.
+We will examine six distinct distributed application architectures to evaluate their structural design and operational impact. By analyzing these models side-by-side, we will compare and contrast their specific strengths and weaknesses regarding scalability, maintainability, and fault tolerance. Through the use of practical coding examples and UML dataflow diagrams, you will gain the insights necessary to navigate the trade-offs inherent in each approach, enabling more informed decision-making when designing complex, distributed systems.
 
 
 | Architecture | Primary Focus | Best For |
@@ -22,6 +22,7 @@ We will examine five distinct distributed application architectures to evaluate 
 | **Microservices** | Independent Scalability | Large, complex systems like Netflix or Amazon |
 | **Event-Driven** | Loose Coupling | IoT, real-time data streaming, UI responsiveness |
 | **Serverless** | Operational Efficiency | Event-based tasks, rapid scaling, APIs |
+| **Actor Model** | Concurrency & Isolation | High-concurrency systems, chat, real-time gaming |
 
 
 ## Layered Client-Server (N-Tier) Architecture
@@ -222,12 +223,53 @@ def update_rating_handler(event, context):
 ### Advantages and Disadvantages
 *   **Advantages:** No server management and high cost-efficiency (pay-per-use). It scales automatically and handles spikes in traffic seamlessly.
 *   **Disadvantages:** Cold starts can cause latency when functions are first invoked. High dependence on a specific cloud provider (vendor lock-in).
+
+## Actor Model Architecture
+
+The Actor Model treats "actors" as the universal primitives of concurrent computation. An actor is an independent unit that encapsulates state and behavior. Actors communicate exclusively through asynchronous message passing. When an actor receives a message, it can make local decisions, create more actors, or send more messages. Because actors do not share state, this model avoids the need for complex locking mechanisms and prevents race conditions.
+
+In a Chess server, an actor could represent a single game instance, ensuring all moves for that specific game are processed sequentially while thousands of other games run concurrently in other actors.
+
+```mermaid
+graph LR
+    classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
+    ActorA[Actor A] -- "Async Message" --> MailboxB[Mailbox B]
+    MailboxB --> ActorB[Actor B]
+    ActorB -- "Async Message" --> MailboxA[Mailbox A]
+    MailboxA --> ActorA
+```
+
+### Practical Example (Conceptual Java/Akka)
+
+```java
+// Conceptual Actor handling game logic
+public class GameActor extends AbstractActor {
+    private GameState state;
+
+    @Override
+    public Receive createReceive() {
+        return receiveBuilder()
+            .match(MoveMessage.class, move -> {
+                // Messages are processed one at a time from the mailbox
+                if (state.isValid(move)) {
+                    state.apply(move);
+                    System.out.println("Move applied to game " + state.getId());
+                }
+            })
+            .build();
+    }
+}
+```
+
+### Advantages and Disadvantages
+*   **Advantages:** Excellent for high concurrency and horizontal scalability. Fault isolation is built-in; if one actor crashes, it doesn't necessarily bring down the entire system.
+*   **Disadvantages:** Requires a significant shift in programming paradigm. Debugging complex chains of asynchronous messages can be difficult.
+
 ## Other Notable Architectures
 
-While the five models above are the most common, several other specialized architectures exist:
+While the six models above are the most common, several other specialized architectures exist:
 
 *   **Space-Based Architecture:** Designed to handle huge spikes in traffic by distributing both data and processing across a "shared space" (memory grid), eliminating the database bottleneck.
-*   **Actor Model Architecture:** Units called "actors" communicate via asynchronous messages. This is excellent for high-concurrency systems where you want to avoid "locking" data.
 *   **CQRS + Event Sourcing:** Separates the "read" and "write" models of an application. The state is not stored as a single row in a DB, but as a sequence of events that can be replayed.
 *   **Message-Oriented Architecture:** Similar to EDA, but focuses on the reliable delivery of messages through queues (like RabbitMQ) to ensure no data is lost during transit.
 *   **Distributed Object Architecture:** Treats objects as if they exist on a single machine, even if they are spread across a network (e.g., CORBA or Java RMI). This is less common today due to tight coupling.
@@ -251,7 +293,7 @@ Regardless of the architecture you choose, moving from a single-machine "monolit
 
 ## Summary
 
-Distributed application architecture is the study of trade-offs. The **Client-Server** and **Three-Tier** models offer simplicity and control, making them ideal for the initial phases of software development. As requirements for scale and resilience grow, **Microservices** and **Event-Driven** patterns provide the flexibility needed to handle millions of users. For specialized needs, **P2P** or **Serverless** models offer unique benefits in decentralization and cost management.
+Distributed application architecture is the study of trade-offs. The **Client-Server** and **Three-Tier** models offer simplicity and control, making them ideal for the initial phases of software development. As requirements for scale and resilience grow, **Microservices**, **Event-Driven**, and **Actor Model** patterns provide the flexibility needed to handle millions of users and high concurrency. For specialized needs, **P2P** or **Serverless** models offer unique benefits in decentralization and cost management.
 
 As you build your Chess server, consider which of these patterns best fits your needs. Are you building a simple server for a few friends (Client-Server), or are you designing the next global gaming platform (Microservices/EDA)? The architecture you choose today will define the limits of your application tomorrow.
 
