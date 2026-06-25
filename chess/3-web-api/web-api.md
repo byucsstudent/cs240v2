@@ -549,7 +549,7 @@ What went well and what did you find challenging as you implemented your chess s
 
 ```masteryls
 {"id":"d2f284fd-f0e7-491e-9f33-ea17a4a6262a","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
-What testing patterns did you employ to ensure a correct implementation of the chess server and encourage the foundation of a trustworthy application?
+What testing patterns did you employ to ensure a correct implementation of the chess server and encourage the foundation of a trustworthy application that others can rely on?
 ```
 
 ## Videos
