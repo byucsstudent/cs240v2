@@ -4,6 +4,16 @@
 - 🖥️ [Videos](#videos)
 - [TA Tips](../../instruction/chess-tips/chess-tips.md#phase-0---chess-moves): A collection of common problems for this phase
 
+#### 🥅 Outcomes
+
+1. **Frame** software engineering problems by clarifying system purpose, constraints, and responsibilities, demonstrating both sound technical judgment and a sense of ownership for the long-term impact of software others depend on.
+1. **Explore** object-oriented frameworks, network protocols, distributed services, and databases with curiosity and discipline, developing accurate mental models while valuing learning as essential to responsible engineering practice.
+1. **Design** software systems using object-oriented principles and clear interfaces that support reliability and maintainability, motivated by care for future users, collaborators, and the evolution of the system over time.
+1. **Build** distributed applications that faithfully translate design intent into readable, testable implementations, showing diligence and integrity in the quality of code produced.
+1. **Test** software systems systematically to validate behavior and uncover failure modes, valuing evidence, honesty, and accountability as foundations of trustworthy software.
+
+---
+
 In this part of the Chess Project, you will implement a basic representation of the game of chess. This includes the setting up of the board and defining how pieces move.
 
 > [!NOTE]
@@ -204,7 +214,36 @@ To pass off this assignment use the course [auto-grading](https://cs240.click/) 
 |                | **Total**                                                                                         |      **125** |
 
 
+#### 🥅 Outcome observations
 
+
+```masteryls
+{"id":"ee5eb604-acc1-4231-bd9e-4e78db6eaab2", "title":"Frame", "type":"essay", "gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts" }
+What process did you use in order to frame your understanding of how chess pieces move such that it properly reflected the requirements? How did you determine a correct understanding of the problem such that you were able to consider the factors that your users deem important and will depend on?
+```
+
+```masteryls
+{"id":"a5e9dfeb-b48f-4cb9-ae34-69f3a6a342bb","title":"Explore","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What software engineering principles and practices did you consider when you were exploring how to represent how pieces move? What did you do to advance your learning of the possible solution space?
+```
+
+```masteryls
+{"id":"df3d6c21-e574-403a-ba99-65c7ebf273aa","title":"Design","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What object-oriented and design principles did you consider as you converted your framing and exploration of the requirements into a design solution? What did you do to make sure you were considering the needs of future developers of the code and users of the application?
+```
+
+```masteryls
+{"id":"b51f2fa9-a148-4859-9292-183f69dc9062","title":"Build","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What went well and what did you find challenging as you implemented your design? What did you do to demonstrate design integrity and the quality of the application?
+```
+
+```masteryls
+{"id":"083dfa87-6954-4af8-b180-7514db11cc72","title":"Test","type":"essay","gradingCriteria":"- Addresses the prompt directly\n- Uses at least one concrete example\n- Demonstrates accurate understanding of key concepts"}
+What testing patterns did you employ in order to encourage the foundation of a trustworthy application?
+```
+
+
+---
 
 ## Videos
 
