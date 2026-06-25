@@ -347,23 +347,40 @@ sequenceDiagram
 
 ## Serverless Architecture
 
-In a Serverless Architecture, developers write code as functions (e.g., AWS Lambda or Supabase Edge Functions) that execute in response to events. The cloud provider manages all infrastructure, scaling, and resource allocation.
+Serverless architecture is a cloud-computing execution model where the cloud provider dynamically manages the allocation and provisioning of machine resources. Despite the name, "serverless" does not mean servers are absent; rather, it means the **abstraction** is so high that developers do not need to manage, patch, or scale the underlying virtual machines or containers.
 
-To mitigate **cold starts** (the latency when a function is first invoked after being idle), developers use techniques like **provisioned concurrency** to keep a set number of functions "warm" or optimize deployment packages to minimize initialization time.
+### Function as a Service (FaaS)
+The core of serverless is **Function as a Service (FaaS)**. In this model, developers break down application logic into small, discrete functions (e.g., AWS Lambda, Google Cloud Functions, or Supabase Edge Functions). These functions are **ephemeral**, meaning they are spun up on demand to execute a specific task and then immediately destroyed.
 
-In a Chess application, serverless functions are ideal for tasks that are intermittent or event-based, such as calculating a player's new rating after a game is recorded in the database.
+### Event-Driven Triggers
+Serverless functions are inherently reactive. They remain idle and consume no resources until they are "triggered" by an event. Common triggers include:
+*   **HTTP Requests:** A user hitting an API endpoint.
+*   **Database Changes:** An entry being inserted into a "Games" table.
+*   **File Uploads:** A user uploading a profile picture to a storage bucket.
+*   **Scheduled Tasks:** A "cron job" that runs every midnight to clean up inactive accounts.
 
 ```mermaid
-graph LR
+graph TD
     classDef default fill:#ffffff,stroke:#000000,color:#000000,stroke-width:1px;
-    Client --> Lambda[AWS Lambda]
-    Lambda --> DB[(Database)]
-    Lambda --> Log[Logging Service]
+    Trigger[Event Trigger: e.g., HTTP/S3/DB Change] --> Gateway[API Gateway / Event Router]
+    Gateway --> Env[Compute Environment Created]
+    Env --> Func[Execute Function Code]
+    Func --> External[Interact with DB/Cache/Logs]
+    Func --> Destroy[Environment Destroyed]
 ```
 
-### Practical Example: Automated Rating Updates
+### The "Cold Start" Problem
+A significant technical hurdle in serverless computing is the **Cold Start**. When a function is triggered after being idle, the cloud provider must pull the code, initialize a new container environment, and start the runtime (like the JVM or Node.js). This creates a noticeable delay (latency) before the code actually executes.
 
-When a game ends, the database change triggers a serverless function to recalculate the players' ELO ratings. The function only runs for the few seconds required for the calculation.
+To mitigate this, developers use two main strategies:
+1.  **Provisioned Concurrency:** Paying the provider to keep a specific number of function instances "warm" (pre-initialized and ready to go).
+2.  **Package Optimization:** Reducing the size of the deployment package (the `.jar` or `.zip` file) so it loads into memory faster.
+
+### Statelessness and External State
+Serverless functions are **stateless**. Because the execution environment is destroyed after the function finishes, you cannot store variables in memory and expect them to be there the next time the function runs. To maintain state, functions must connect to external services like a database (PostgreSQL) or a distributed cache (Redis).
+
+### Practical Example: Automated Rating Updates
+In a Chess application, serverless is ideal for intermittent tasks like calculating ELO ratings. The rating logic doesn't need to run 24/7; it only needs to run for a few milliseconds after a game concludes.
 
 ```mermaid
 %%{init: { 'theme': 'neutral', 'look': 'handDrawn',
@@ -374,19 +391,29 @@ When a game ends, the database change triggers a serverless function to recalcul
 
 sequenceDiagram
     participant DB as Game Database
-    participant L as Lambda (Rating Calculator)
-    participant S as Notification Service
+    participant L as FaaS (Rating Calculator)
+    participant Notif as Notification Service
     
-    DB->>L: Trigger: New Game Result Record
-    L->>L: Fetch player ELOs & Calc new scores
+    Note over DB, L: Event Trigger
+    DB->>L: Update Hook: Game "Checkmate" recorded
+    Note right of L: Function Environment Starts (Cold or Warm)
+    L->>L: Calculate new ELO scores
     L->>DB: Update Player Profiles
-    L->>S: Trigger: Send "Game Summary" Email
+    L->>Notif: Trigger: Send "Game Summary" Email
+    Note over L: Function instance terminated
 ```
 
 ### Advantages and Disadvantages
-*   **Advantages:** No server management and high cost-efficiency (pay-per-use). It scales automatically and handles spikes in traffic seamlessly.
-*   **Disadvantages:** Cold starts can cause latency when functions are first invoked. High dependence on a specific cloud provider (vendor lock-in).
 
+*   **Advantages:**
+    *   **Operational Efficiency:** No server maintenance, OS updates, or security patches for the hardware.
+    *   **Granular Billing:** You are billed only for the milliseconds the code is actually running (Pay-per-use).
+    *   **Infinite Scalability:** The provider can automatically spin up 1,000 instances of a function simultaneously if there is a sudden spike in traffic.
+
+*   **Disadvantages:**
+    *   **Latency:** Cold starts make serverless less suitable for high-performance applications requiring sub-millisecond responses.
+    *   **Vendor Lock-in:** Moving code from AWS Lambda to Azure Functions often requires significant rewriting because the trigger APIs and deployment tools are proprietary.
+    *   **Debugging Complexity:** It is difficult to replicate the exact cloud environment locally for testing, making integration testing more complex.
 ## Actor Model Architecture
 
 The Actor Model treats "actors" as the universal primitives of concurrent computation. An actor is an independent unit that encapsulates state and behavior. Actors communicate exclusively through asynchronous message passing. 
