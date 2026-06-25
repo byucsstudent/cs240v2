@@ -271,11 +271,11 @@ Programming languages themselves utilize decomposition to represent different pa
 Using decomposition at the program level helps you so that you don't have to keep the whole code base on your screen at the same time. You just need to open the files that represent the current task.
 ## High Cohesion and Low Coupling
 
-![cohesionAndCoupling.jpg](cohesionAndCoupling.jpg)
-
 Effective software design seeks to maximize **cohesion** within a component and minimize **coupling** between components.
 
 High cohesion and low coupling together create **modularity**. When a system is modular, a change or bug in one part of the code has a minimal "ripple effect" on the rest of the application. This makes the system significantly easier to test, debug, and evolve as requirements change.
+
+![cohesionAndCoupling.jpg](cohesionAndCoupling.jpg)
 
 ### Cohesion
 High cohesion means that an object only represents highly related data and functionality. You don't include tangentially related methods or fields in an object. Instead, you create a cohesive object that executes in concert with other related objects.
