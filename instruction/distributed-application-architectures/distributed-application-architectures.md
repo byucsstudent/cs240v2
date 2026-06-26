@@ -355,6 +355,8 @@ sequenceDiagram
 
 ## Serverless Architecture
 
+![serverless-1.png](serverless-1.png)
+
 Serverless architecture is a cloud-computing execution model where the cloud provider dynamically manages the allocation and provisioning of machine resources. Despite the name, "serverless" does not mean servers are absent; rather, it means the **abstraction** is so high that developers do not need to manage, patch, or scale the underlying virtual machines or containers.
 
 ### Function as a Service (FaaS)
@@ -424,6 +426,8 @@ sequenceDiagram
     *   **Debugging Complexity:** It is difficult to replicate the exact cloud environment locally for testing, making integration testing more complex.
 
 ## Actor Model Architecture
+
+![actor-1.png](actor-1.png)
 
 The Actor Model treats **actors** as the universal primitives—the most basic building blocks—of concurrent computation. In this model, everything is an actor. Each actor is a self-contained, independent unit that encapsulates three specific things:
 1.  **State:** Private data that cannot be accessed or modified directly by any other actor.
