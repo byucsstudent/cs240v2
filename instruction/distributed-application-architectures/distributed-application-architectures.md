@@ -118,6 +118,8 @@ sequenceDiagram
 
 ## Microservices Architecture
 
+![microservices-1.png](microservices-1.png)
+
 Microservices architecture is an evolution of the N-Tier model that pushes the principle of **Separation of Concerns** to its logical limit. Instead of a single, unified "monolith" application, the system is decomposed into a suite of small, modular services. Each service is **independently deployable**, runs in its own process, and communicates with others over a network using lightweight protocols like HTTP/REST, gRPC, or message brokers.
 
 ### The Database-per-Service Pattern
