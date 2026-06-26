@@ -207,8 +207,8 @@ sequenceDiagram
     *   **Network Latency:** Every inter-service call adds network delay compared to an in-memory function call.
 
 ## Peer-to-Peer (P2P) Architecture
-
-![peerToPeer-1.png](peerToPeer-1.png)
+![p2p-1.png](p2p-1.png)
+![peerToPeerArchitecture.png](peerToPeerArchitecture.png)
 
 Unlike the centralized models, Peer-to-Peer (P2P) architecture treats every node in the network as an equal. In this model, there is no dedicated central server. Instead, each node acts as both a client and a server; a hybrid role often referred to as a **servent** (**serv**er-cli**ent**). Each participant contributes a portion of their own resources, such as processing power, disk storage, or network bandwidth, directly to other participants without the need for intermediate orchestration.
 
