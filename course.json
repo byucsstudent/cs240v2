@@ -799,6 +799,10 @@
           "description": "Conclusion of the class. A quick review of what was learned, suggestions on future areas of study and I review of the outcomes"
         }
       ]
+    },
+    {
+      "title": "Enrichment",
+      "topics": []
     }
   ]
 }
