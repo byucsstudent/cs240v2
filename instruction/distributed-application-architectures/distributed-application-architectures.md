@@ -282,6 +282,8 @@ sequenceDiagram
 
 ## Event-Driven Architecture (EDA)
 
+![event-1.png](event-1.png)
+
 In an Event-Driven Architecture (EDA), the flow of the application is determined by **events**; significant changes in state, such as a user placing a chess piece, a system error occurring, or a sensor detecting motion. Unlike traditional architectures where components call each other directly (Request/Response), EDA components communicate by broadcasting that something has happened.
 
 ### Core Concepts: Pub/Sub and Decoupling
