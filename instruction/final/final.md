@@ -1,7 +1,7 @@
 # Final
 
-**Discipline:** _unspecified_
-**Problem type:** _unspecified_
+**Discipline:** Software Engineering
+**Problem type:** Designing a simple client server application with a MySQL database
 **Difficulty:** 1 / 5
 **Modes:** Practice, Final
 **Instability:** Off
@@ -26,8 +26,8 @@ The solution must address:
 ```json
 {
   "title": "Final",
-  "discipline": "",
-  "problemType": "",
+  "discipline": "Software Engineering",
+  "problemType": "Designing a simple client server application with a MySQL database",
   "difficulty": 1,
   "practiceMode": true,
   "finalMode": true,
