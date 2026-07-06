@@ -1,8 +1,8 @@
 # Final Exam Review
 
-The final exam puts you in a generated scenario where you must design an application that satisfies the 
+The final exam puts you in a generated scenario where you must design an application allows you to demonstrate the outcomes of the course. The exam uses AI to generate the scenario, represent stakeholders in conversations, provide feedback, and evaluation your performance.
 
-This exam covers topics represented by everything covered in the course. This includes the topics you used for building the Chess application and other enrichment topics such as:
+This simulation covers topics represented by everything covered in the course. This includes the topics you used for building the Chess application and other enrichment topics such as:
 
 - [Computer Security](../computer-security/computer-security.md)
 - [Concurrency](../concurrency/concurrency.md)
