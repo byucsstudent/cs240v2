@@ -793,6 +793,13 @@
           "state": "published"
         },
         {
+          "title": "Final",
+          "type": "dra",
+          "path": "instruction/final/final.md",
+          "id": "8be8beff-d55f-40e8-9941-9bb56ad303f9",
+          "description": ""
+        },
+        {
           "title": "Wrap Up",
           "type": "instruction",
           "path": "instruction/wrap-up/wrap-up.md",
@@ -802,13 +809,6 @@
             "ae0cbb96-e945-4746-8c51-048cce855e1c"
           ],
           "description": "Conclusion of the class. A quick review of what was learned, suggestions on future areas of study and I review of the outcomes"
-        },
-        {
-          "title": "Final",
-          "type": "dra",
-          "path": "instruction/final/final.md",
-          "id": "8be8beff-d55f-40e8-9941-9bb56ad303f9",
-          "description": ""
         }
       ]
     }
