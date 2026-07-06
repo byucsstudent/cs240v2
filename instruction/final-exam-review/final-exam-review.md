@@ -14,6 +14,7 @@ Since a new scenario is generated each time you begin the simulation, you can pr
     ![startDra.png](startDra.png)
 1. To practice:
     1. Select **Generate scenario**
+    ![scenarioOverview.png](scenarioOverview.png)
     1. Read the scenario overview
     1. Go through all of the different investigation stages by interviewing stakeholders and resources.
     1. Create entries for each stage in the reasoning record.
