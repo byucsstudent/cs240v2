@@ -1,17 +1,23 @@
 # Final Exam Review
 
-🖥️ [Lecture Videos](#videos)
+The final exam puts you in a generated scenario where you must design an application that satisfies the 
 
-This exam covers the topics not included in your Chess project work. This includes the following concepts:
+This exam covers topics represented by everything covered in the course. This includes the topics you used for building the Chess application and other enrichment topics such as:
 
-- [Command-Line Builds](../command-line-builds/command-line-builds.md)
 - [Computer Security](../computer-security/computer-security.md)
 - [Concurrency](../concurrency/concurrency.md)
+- [Distributed Application Architectures](/course/12f2522b-d70d-4982-89e4-171435b02a63/topic/55fcd10b-d313-4f56-b69b-7608d05242cf)
 
-The format is multiple choice, multiple answer, and true/false. No external documents, references, persons, or sources of any kind may be referenced during the exam. The exam is proctored using [Honorlock](https://honorlock.com/).
+Since a new scenario is generated each time you begin the simulation, you can practice the final as many times as you would like before actually taking the final assessment.
 
-For in-person students, it is strongly recommended that you attend the in-class final exam review. For online students, you should watch the final exam review video and take and study the Kahoot that your instructor will make avilable to you.
-
-## Videos
-
-- 🎥 [Final Exam Review (3:40)](https://byu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d35c30fd-b1c6-47dc-ad31-b1aa0126a444&start=0) - [[transcript]](https://github.com/user-attachments/files/17738250/CS_240_Final_Exam_Review_Transcript.pdf)
+1. Navigate to the [Final](/course/12f2522b-d70d-4982-89e4-171435b02a63/topic/8be8beff-d55f-40e8-9941-9bb56ad303f9) topic.
+    ![startDra.png](startDra.png)
+1. To practice:
+    1. Select **Generate scenario**
+    1. Read the scenario overview
+    1. Go through all of the different investigation stages by interviewing stakeholders and resources.
+    1. Create entries for each stage in the reasoning record.
+    1. Use the **Coaching** tab to get suggestions about how to move forward.
+    1. Use the **Evaluation** tab to get feedback on your work.
+    1. Complete the practice assessment and repeat again if you would like.
+1. To take the final chose **Start final assessment** option. Complete the generated scenario by going through the investigation stages and creating your reasoning record. Note that the **Coaching** and **Evaluation** tabs are not available when taking the final. **Submit the final** to see your final evaluation.
