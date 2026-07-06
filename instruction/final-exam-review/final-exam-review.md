@@ -25,7 +25,7 @@ Since a new scenario is generated each time you begin the simulation, you can pr
     ![evaluation.png](evaluation.png)
     1. Complete the practice assessment and repeat again if you would like.
 1. For the `final`:
-    1. To take the final chose **Start final assessment** option. 
+    1. Chose **Start final assessment** option. 
     1. Complete the generated scenario by going through the investigation stages and creating your reasoning record.
     1. Note that the **Coaching** and **Evaluation** tabs are not available when taking the final.
     1. **Submit the final** to see your final evaluation.
