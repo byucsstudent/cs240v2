@@ -15,7 +15,7 @@ Because the system generates a new scenario each time you begin the simulation, 
 1. To **practice**:
     1. Select **Generate scenario**.
     1. Read the scenario overview.
-    ![scenarioOverview.png](scenarioOverview.png)
+    <img src="scenarioOverview.png" width="600" />
     1. Complete each investigation stages by interviewing stakeholders and reviewing resources. Stages include:
         * **Framing** the problem
         * **Researching** existing information, actions, and possible directions.
@@ -23,6 +23,7 @@ Because the system generates a new scenario each time you begin the simulation, 
         * **Acting** by describing the execution of the solution.
         * **Validating** by describing methods for determining success.
         * **Reflecting** on other paths and method for future work.
+    1. Make sure you **Save** frequently as you make progress.
     1. Create entries for each stage by completing the **Reasoning Record** displayed in the frame on the right.
     ![investigation.png](investigation.png)
     1. Use the **Coaching** tab to get suggestions on how to move forward.
