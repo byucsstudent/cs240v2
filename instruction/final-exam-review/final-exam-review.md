@@ -16,7 +16,9 @@ Because the system generates a new scenario each time you begin the simulation, 
     1. Select **Generate scenario**.
     1. Read the scenario overview.
     ![scenarioOverview.png](scenarioOverview.png)
-    1. Complete the investigation stages by interviewing stakeholders and reviewing resources.
+    1. Complete each investigation stages by interviewing stakeholders and reviewing resources. Stages include:
+        1. **Framing** the problem
+        1. **Researching** existing information, actions, and possible directions.
     1. Create entries for each stage in the reasoning record.
     ![investigation.png](investigation.png)
     1. Use the **Coaching** tab to get suggestions on how to move forward.
