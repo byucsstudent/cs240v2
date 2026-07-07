@@ -19,7 +19,11 @@ Because the system generates a new scenario each time you begin the simulation, 
     1. Complete each investigation stages by interviewing stakeholders and reviewing resources. Stages include:
         1. **Framing** the problem
         1. **Researching** existing information, actions, and possible directions.
-    1. Create entries for each stage in the reasoning record.
+        1. **Modeling** a solution design.
+        1. **Acting** by describing the execution of the solution.
+        1. **Validating** by describing methods for determining success.
+        1. **Reflecting** on other paths and method for future work.
+    1. Create entries for each stage by completing the reasoning record displayed in the frame on the right.
     ![investigation.png](investigation.png)
     1. Use the **Coaching** tab to get suggestions on how to move forward.
     ![coaching.png](coaching.png)
