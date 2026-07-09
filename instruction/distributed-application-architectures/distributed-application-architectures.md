@@ -168,16 +168,7 @@ In a distributed system, network calls will eventually fail. If "Service A" wait
 
 To prevent this, engineers use a **Circuit Breaker**. Just like an electrical fuse, it monitors for failures. If a service fails repeatedly, the circuit "trips" (opens). Further calls return an immediate error or a cached fallback response without hitting the failing service, giving it time to recover.
 
-```mermaid
-%%{init: { 'theme': 'neutral', 'look': 'handDrawn', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
-
-stateDiagram-v2
-    [*] --> Closed: Normal Operation
-    Closed --> Open: Failure threshold reached
-    Open --> HalfOpen: Timeout expired (Testing recovery)
-    HalfOpen --> Closed: Success (Service recovered)
-    HalfOpen --> Open: Failure (Still broken)
-```
+![circuitBreaker.png](circuitBreaker.png)
 
 ### Service Discovery and Orchestration
 Because microservices scale horizontally by adding more instances, their IP addresses change constantly. **Service Discovery** acts like a dynamic "phone book" (e.g., Consul or Netflix Eureka) that tracks where every service instance is currently located.
