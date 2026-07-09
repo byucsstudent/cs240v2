@@ -266,7 +266,7 @@ In a decentralized Chess match, once discovery is complete, players establish a 
 sequenceDiagram
     participant P1 as Peer A (White)
     participant P2 as Peer B (Black)
-    Note over P1, P2: Direct Socket Connection established via STUN
+    Note over P1, P2: Connection via STUN
     P1->>P2: Move: "d2d4"
     Note right of P2: Peer B validates move locally
     P2->>P2: Update Local Board State
