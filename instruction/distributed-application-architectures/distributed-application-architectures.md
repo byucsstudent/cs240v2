@@ -1,5 +1,7 @@
 # Distributed Architectures
 
+🖥️ [Slides](https://docs.google.com/presentation/d/1Mj5SeoHmskFz4GbOkdULgDfVrUxuQ542)
+
 ### 🔑 Key points
 
 - **Distributed Applications:** Systems where components on networked computers communicate and coordinate actions by passing messages to achieve common goals.
