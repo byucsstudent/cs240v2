@@ -12,19 +12,20 @@
 ![architectures.jpg](architectures.jpg)
 
 In the modern landscape of software engineering, very few applications run in complete isolation. As you progress through the development of complex systems, such as the Chess server projects in this module, you will find that the way components are organized across a network determines the system's scalability, reliability, and maintainability. A distributed application is one where components located on networked computers communicate and coordinate their actions by passing messages. Choosing the right architecture is not just a technical decision; it is a strategic one that dictates how your application will grow and handle failure.
-
 ## Foundational Concepts
 
-Distributed systems rely on several foundational principles to ensure robustness and performance. **Abstraction** uses layers, models, and interfaces to hide implementation details, while **state management** aims to keep components as stateless as possible, utilizing single masters or caching for data consistency. Systems achieve high availability through **redundancy**, which allows for handling partial failures and automatic repair. **Concurrency** is managed through stateless designs and efficient locking mechanisms, ensuring data integrity. To handle growth, **scalability** provides paths for both horizontal and vertical expansion. Finally, **loose coupling** ensures minimal dependencies and adherence to the Single Responsibility Principle (SRP), making the system easier to maintain and evolve.
+Distributed systems rely on several foundational principles to ensure robustness and performance. **Networking** provides the essential communication backbone, utilizing protocols and message passing to connect disparate nodes across a network. **Abstraction** uses layers, models, and interfaces to hide implementation details, while **state management** aims to keep components as stateless as possible, utilizing single-master patterns or strategic caching for data consistency. Systems achieve **fault tolerance** through **redundancy**, which allows for handling partial failures and automatic repair. **Concurrency** is managed through stateless designs and efficient locking mechanisms, ensuring data integrity. To handle growth, **scalability** provides paths for both horizontal and vertical expansion. **Loose coupling** ensures minimal dependencies and adherence to the Single Responsibility Principle (SRP), making the system easier to maintain. Finally, **observability** provides necessary visibility into system health through logging, monitoring, and distributed tracing.
 
 | Concept | Key Principles |
 | :--- | :--- |
-| **Abstraction** | Layers, models, and interfaces to decouple components. |
-| **State Management** | Statelessness, single master patterns, and strategic caching. |
-| **Redundancy** | Handling partial failures and implementing automatic repair. |
+| **Networking** | Communication protocols (HTTP, TCP, gRPC), latency management, and message passing. |
+| **Abstraction** | Layers, models, and interfaces to decouple components and hide complexity. |
+| **State Management** | Statelessness, single-master patterns, and strategic caching. |
+| **Fault Tolerance** | Handling partial failures through redundancy and automatic repair. |
 | **Concurrency** | Stateless execution with efficient locking where necessary. |
 | **Scalability** | Support for both horizontal (adding nodes) and vertical (adding resources) growth. |
 | **Loose Coupling** | Minimal dependencies and adherence to the Single Responsibility Principle (SRP). |
+| **Observability** | Visibility into system health via logging, metrics, and distributed tracing. |
 
 
 ## Examples
