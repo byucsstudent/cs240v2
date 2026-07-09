@@ -40,7 +40,7 @@
 | 13 | Tue Nov 24 |  |  | _Thanksgiving_ **NO CLASS** |  |
 |  | Thu Nov 26 |  |  | _Thanksgiving_ **NO CLASS** |  |
 | 14 | Tue Dec 1 |  |  | [Concurrency](../instruction/concurrency/concurrency.md) | [Concurrency](https://docs.google.com/presentation/d/1OcH2XYen-U0f1sBAxaaCswwzp_OergGhq7b9mopszRM) |
-|  | Thu Dec 3 |  |  | [Distributed Application Architectures](../instruction/distributed-application-architectures/distributed-application-architectures.md) | [Architecture](https://docs.google.com/presentation/d/1pUU4DDACUndgj_ij7bbKOUY8cxmGinZq) |
+|  | Thu Dec 3 |  |  | [Distributed Application Architectures](../instruction/distributed-application-architectures/distributed-application-architectures.md) | [Architecture](https://docs.google.com/presentation/d/1Mj5SeoHmskFz4GbOkdULgDfVrUxuQ542) |
 |  | Sat Dec 5, 2026 |  | [☑ Phase 6: Chess Gameplay](../chess/6-gameplay/gameplay.md) |  |  |
 | 15 | Tue Dec 8 |  |  | [Final Exam Review](../instruction/final-exam-review/final-exam-review.md)</br>[Wrap Up](../instruction/wrap-up/wrap-up.md) |  |
 |  | Thu Dec 10 |  | _Dec 11-17_ - Final |  |  |
