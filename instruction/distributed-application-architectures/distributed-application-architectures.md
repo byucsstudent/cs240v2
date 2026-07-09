@@ -508,9 +508,9 @@ In a large Chess server, each game is managed by a dedicated "Game Actor." Playe
   }, 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000' } }}%%
 
 sequenceDiagram
-    participant PA as Player A Actor
-    participant GA as Game Actor (Game #500)
-    participant PB as Player B Actor
+    participant PA as Player 12 Actor
+    participant GA as Game 54 Actor
+    participant PB as Player 73 Actor
     
     PA->>GA: Async Message: Move("e4")
     Note right of GA: Game Actor processes mailbox
