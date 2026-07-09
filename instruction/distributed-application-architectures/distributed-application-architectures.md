@@ -1,4 +1,4 @@
-# Distributed Application Architectures
+# Distributed Architectures
 
 ### 🔑 Key points
 
