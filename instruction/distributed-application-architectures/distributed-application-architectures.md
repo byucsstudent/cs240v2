@@ -559,6 +559,8 @@ Maintaining a single "source of truth" is difficult when data is spread across m
 *   **Availability (A):** Every request receives a (non-error) response, even if some nodes are down, though the data might be "stale."
 *   **Partition Tolerance (P):** The system continues to operate despite an arbitrary number of messages being dropped or delayed by the network between nodes.
 
+![capTheorem.png](capTheorem.png)
+
 Because network partitions (P) are inevitable in distributed computing, architects must choose between **CP** (Consistency) or **AP** (Availability).
 *   **Architectural Context:** A **Microservices** architecture often favors **AP**, using **Event-Driven** messaging to achieve *Eventual Consistency*. This means the "Leaderboard Service" might be a few seconds behind the "Game Service," but the system remains available for players. In contrast, a **P2P** blockchain network prioritizes **CP** to ensure that all nodes agree on the ledger state, even if it means the system slows down to reach a consensus.
 ### Solutions
