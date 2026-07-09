@@ -13,6 +13,21 @@
 
 In the modern landscape of software engineering, very few applications run in complete isolation. As you progress through the development of complex systems, such as the Chess server projects in this module, you will find that the way components are organized across a network determines the system's scalability, reliability, and maintainability. A distributed application is one where components located on networked computers communicate and coordinate their actions by passing messages. Choosing the right architecture is not just a technical decision; it is a strategic one that dictates how your application will grow and handle failure.
 
+## Foundational Concepts
+
+Distributed systems rely on several foundational principles to ensure robustness and performance. **Abstraction** uses layers, models, and interfaces to hide implementation details, while **state management** aims to keep components as stateless as possible, utilizing single masters or caching for data consistency. Systems achieve high availability through **redundancy**, which allows for handling partial failures and automatic repair. **Concurrency** is managed through stateless designs and efficient locking mechanisms, ensuring data integrity. To handle growth, **scalability** provides paths for both horizontal and vertical expansion. Finally, **loose coupling** ensures minimal dependencies and adherence to the Single Responsibility Principle (SRP), making the system easier to maintain and evolve.
+
+| Concept | Key Principles |
+| :--- | :--- |
+| **Abstraction** | Layers, models, and interfaces to decouple components. |
+| **State Management** | Statelessness, single master patterns, and strategic caching. |
+| **Redundancy** | Handling partial failures and implementing automatic repair. |
+| **Concurrency** | Stateless execution with efficient locking where necessary. |
+| **Scalability** | Support for both horizontal (adding nodes) and vertical (adding resources) growth. |
+| **Loose Coupling** | Minimal dependencies and adherence to the Single Responsibility Principle (SRP). |
+
+
+## Examples
 
 We will examine six distinct distributed application architectures to evaluate their structural design and operational impact. By analyzing these models side-by-side, we will compare and contrast their specific strengths and weaknesses regarding scalability, maintainability, and fault tolerance. Through the use of practical coding examples and UML dataflow diagrams, you will gain the insights necessary to navigate the trade-offs inherent in each approach, enabling more informed decision-making when designing complex, distributed systems.
 
