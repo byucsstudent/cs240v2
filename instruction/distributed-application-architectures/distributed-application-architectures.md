@@ -520,8 +520,12 @@ sequenceDiagram
 ```
 
 ### Advantages and Disadvantages
-*   **Advantages:** Excellent for high concurrency and horizontal scalability. Fault isolation is built-in; if one actor crashes, it doesn't necessarily bring down the entire system.
-*   **Disadvantages:** Requires a significant shift in programming paradigm. Debugging complex chains of asynchronous messages can be difficult.
+* **Advantages:**
+    * **Scalability & Concurrency:** Excellent for high concurrency and horizontal scalability.
+    * **Fault Isolation:** Built-in fault isolation; if one actor crashes, it doesn't necessarily bring down the entire system.
+* **Disadvantages:**
+    * **Paradigm Shift:** Requires a significant shift in programming paradigm.
+    * **Debugging Complexity:** Debugging complex chains of asynchronous messages can be difficult.
 
 ## Other Notable Architectures
 
