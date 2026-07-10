@@ -99,6 +99,8 @@ By separating concerns, the software engineer makes it possible to test the `pro
 
 To teach the principles of software engineering, we need an application with enough complexity to warrant a structured architectural approach, yet simple enough that you do not get lost in the details.
 
+![Chess game](highlight-moves.png)
+
 We have chosen a multiplayer, full-stack implementation of the game of [chess](../../chess/chess.md) as your mastery project. Your development work is divided into different phases, each demonstrating a different architectural concept or technology. The first phase implements the rules of chess.
 
 After implementing the first phase, you will rewrite the code from the base project template—from memory and without external help—during a timed exam. This demonstrates your ability to work independently under pressure. Writing code efficiently under a deadline is an essential skill that prepares you for the realities of professional programming.
@@ -107,7 +109,6 @@ After implementing the first phase, you will rewrite the code from the base proj
 
 The remaining phases involve implementing a chess server that allows multiple client programs to connect, register users, and play games.
 
-![Chess game](highlight-moves.png)
 
 ## Java
 
