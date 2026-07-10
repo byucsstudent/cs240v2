@@ -158,7 +158,7 @@ The Pet Shop [WebSocket Communication Diagram](https://sequencediagram.org/index
 
 ```masteryls
 {"id":"409b54f0-93e2-4aea-9877-77f9367c82bf","title":"Purpose of the Pet Shop Application","type":"multiple-choice"}
-What is the primary purpose of the Pet Shop application in the context of software development?
+What is the primary purpose of the Pet Shop application in the context of this course?
 
 - [ ] To provide me with code I can blindly copy into my chess application
 - [ ] To demonstrate the one and only solution for building distributed applications
