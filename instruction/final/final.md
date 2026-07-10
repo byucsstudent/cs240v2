@@ -8,11 +8,9 @@
 
 ## Learning Outcomes
 
-This assessment challenges you to apply the complete software development lifecycle by designing and implementing a full client-server application from concept to completion. 
+This assessment challenges you to apply the complete software development lifecycle by designing and implementing a full client-server application from concept to completion.  Your solution will consist of a Java command-line interface (CLI) client that communicates with a Java-based RESTful web service, which in turn persists and retrieves data from a MySQL database.
 
-You will progress through the phases of Frame, Evaluate, Design, Build, Validate, and Reflect, demonstrating both technical proficiency and sound engineering practices at each stage. Your solution will consist of a Java command-line interface (CLI) client that communicates with a Java-based RESTful web service, which in turn persists and retrieves data from a MySQL database.
-
-Throughout the assessment, you will be expected to justify design decisions, describe how you would implement a robust and maintainable solution, define validation criteria, and critically reflect on your design descisions.
+Throughout the assessment, you will be expected to justify design decisions, describe how you would implement a robust and maintainable solution, define validation criteria, and critically reflect on your design decisions.
 
 The solution must address:
 
@@ -32,6 +30,6 @@ The solution must address:
   "practiceMode": true,
   "finalMode": true,
   "instability": false,
-  "learningOutcomes": "This assessment challenges you to apply the complete software development lifecycle by designing and implementing a full client-server application from concept to completion. \n\nYou will progress through the phases of Frame, Evaluate, Design, Build, Validate, and Reflect, demonstrating both technical proficiency and sound engineering practices at each stage. Your solution will consist of a Java command-line interface (CLI) client that communicates with a Java-based RESTful web service, which in turn persists and retrieves data from a MySQL database.\n\nThroughout the assessment, you will be expected to justify design decisions, describe how you would implement a robust and maintainable solution, define validation criteria, and critically reflect on your design descisions.\n\nThe solution must address:\n\n- Justification for use of design patterns (Facade, Factory, Iterator, ...)\n- Application of software engineering principles (SOLID, KISS, POLA, ...)\n- Consideration of concurrency at all levels\n- Use of cryptography for security (Encryption in transit, Hashing passwords, ...)"
+  "learningOutcomes": "This assessment challenges you to apply the complete software development lifecycle by designing and implementing a full client-server application from concept to completion.  Your solution will consist of a Java command-line interface (CLI) client that communicates with a Java-based RESTful web service, which in turn persists and retrieves data from a MySQL database.\n\nThroughout the assessment, you will be expected to justify design decisions, describe how you would implement a robust and maintainable solution, define validation criteria, and critically reflect on your design decisions.\n\nThe solution must address:\n\n- Justification for use of design patterns (Facade, Factory, Iterator, ...)\n- Application of software engineering principles (SOLID, KISS, POLA, ...)\n- Consideration of concurrency at all levels\n- Use of cryptography for security (Encryption in transit, Hashing passwords, ...)"
 }
 ```
