@@ -67,7 +67,7 @@ When a subclass inherits from a superclass, it gains all its non-private fields 
 classDiagram
     class Vehicle {
         +String brand
-        +startEngine()
+        +driveTo(location)
     }
     class Car {
         +int numberOfDoors
@@ -81,7 +81,7 @@ classDiagram
     Vehicle <|-- Motorcycle
 ```
 
-In this diagram, both `Car` and `Motorcycle` inherit from `Vehicle`. They share the `brand` attribute and the `startEngine()` method but maintain their own specific attributes and behaviors.
+In this diagram, both `Car` and `Motorcycle` inherit from `Vehicle`. They share the `brand` attribute and the `driveTo(location)` method but maintain their own specific attributes and behaviors.
 
 ### Polymorphism
 
