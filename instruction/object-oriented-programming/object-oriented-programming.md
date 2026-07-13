@@ -89,7 +89,7 @@ Polymorphism, meaning "many shapes," allows objects of different types to be tre
 
 There are two main types:
 1.  **Static Polymorphism (Method Overloading):** Multiple methods in the same class have the same name but different parameters (different signatures).
-2.  **Dynamic Polymorphism (Interface Overriding):** A subclass provides a specific implementation of a method that is already defined in its superclass or interface.
+2.  **Dynamic Polymorphism (Method Overriding):** A subclass provides a specific implementation of a method that is defined by its superclass or interface.
 
 ```mermaid
 %%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
