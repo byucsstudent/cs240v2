@@ -88,8 +88,27 @@ In this diagram, both `Car` and `Motorcycle` inherit from `Vehicle`. They share 
 Polymorphism, meaning "many shapes," allows objects of different types to be treated as objects of a common superclass. It is most commonly seen when a single method call behaves differently depending on the type of object it is called upon.
 
 There are two main types:
-1.  **Static Polymorphism (Overloading):** Multiple methods in the same class have the same name but different parameters (different signatures).
-2.  **Dynamic Polymorphism (Overriding):** A subclass provides a specific implementation of a method that is already defined in its superclass.
+1.  **Static Polymorphism (Method Overloading):** Multiple methods in the same class have the same name but different parameters (different signatures).
+2.  **Dynamic Polymorphism (Interface Overriding):** A subclass provides a specific implementation of a method that is already defined in its superclass or interface.
+
+```mermaid
+%%{init: { 'theme': 'neutral', 'themeVariables': { 'mainBkg': '#ffffff', 'lineColor': '#000000', 'primaryTextColor': '#000000', 'actorBorder': '#000000', 'participantBorder': '#000000', 'noteBorderColor': '#000000' } }}%%
+
+classDiagram
+    class Animal {
+        <<interface>>
+        +makeSound()
+    }
+    class Dog {
+        +makeSound()
+    }
+    class Cat {
+        +makeSound()
+    }
+    Animal <|.. Dog
+    Animal <|.. Cat
+```
+
 
 **Practical Example:**
 If we have a method `makeSound()` in a superclass `Animal`, and subclasses `Dog` and `Cat` override that method, calling `animal.makeSound()` on a list of animals will result in "Woof" for the dog and "Meow" for the cat. The code calling the method doesn't need to know the specific subclass at compile time to execute the correct behavior.
