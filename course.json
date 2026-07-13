@@ -810,6 +810,13 @@
             "ae0cbb96-e945-4746-8c51-048cce855e1c"
           ],
           "description": "Conclusion of the class. A quick review of what was learned, suggestions on future areas of study and I review of the outcomes"
+        },
+        {
+          "title": "Job Interview",
+          "type": "interview",
+          "path": "instruction/job-interview/job-interview.md",
+          "id": "2075d10f-6f6b-47d5-8d25-0c1f3765bc2b",
+          "description": ""
         }
       ]
     }
