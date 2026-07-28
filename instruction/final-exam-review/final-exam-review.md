@@ -25,7 +25,7 @@ Because the system generates a new scenario each time you begin the simulation, 
         * **Reflecting** on other paths and method for future work.
     1. Make sure you **Save** frequently as you make progress.
     1. Create entries for each stage by completing the **Reasoning Record** displayed in the frame on the right.
-    ![investigation.png](investigation.png)
+    ![workspace.png](workspace.png)
     1. Use the **Coaching** tab to get suggestions on how to move forward.
     ![coaching.png](coaching.png)
     1. Use the **Evaluation** tab to get feedback on your progress. Don't get discouraged if you are not exemplary in every category. Focus on learning and making steady progress.
