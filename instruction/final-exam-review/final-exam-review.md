@@ -17,12 +17,12 @@ Because the system generates a new scenario each time you begin the simulation, 
     1. Read the scenario overview.
     <img src="scenarioOverview.png" width="600" />
     1. Complete each investigation stages by interviewing stakeholders and reviewing resources. Stages include:
-        * **Framing** the problem.
-        * **Researching** existing information, actions, and possible directions.
-        * **Modeling** a solution design.
-        * **Acting** by describing the execution of the solution.
-        * **Validating** by describing methods for determining success.
-        * **Reflecting** on other paths and method for future work.
+        * **Understand** the problem.
+        * **Investigate** existing information, actions, and possible directions.
+        * **Plan** an solution outline.
+        * **Propose** the how to execute the solution including details and time frames.
+        * **Evaluate** by describing methods for determining success.
+        * **Reflect** on other paths and method for future work.
     1. Make sure you **Save** frequently as you make progress.
     1. Create entries for each stage by completing the **Reasoning Record** displayed in the frame on the right.
     ![workspace.png](workspace.png)
