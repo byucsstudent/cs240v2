@@ -211,7 +211,7 @@ public class InteractiveCalculatorExample {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.printf("Type your numbers (or 'exit' to quit)%n>>> ");
+            System.out.printf("Input your numbers (or 'exit' to quit)%n>>> ");
             
             if (!scanner.hasNextLine()) break;
             String line = scanner.nextLine();
