@@ -609,7 +609,9 @@
           ]
         },
         {
-          "title": "☑ Phase 4: Chess Database",
+          "title": "Phase 4: Chess Database",
+          "type": "project",
+          "points": 100,
           "path": "chess/4-database/database.md",
           "id": "35fc7825-07b3-4400-82c1-9b06147291ea",
           "state": "published",
@@ -620,7 +622,8 @@
             "31b090f1-0051-4a91-9557-7bfbcd52a1d0",
             "e0f6f56e-679b-4023-896d-4ea76530f513",
             "38f734f7-3436-48d9-8b76-e0224b751d6f"
-          ]
+          ],
+          "description": ""
         },
         {
           "title": "Logging",
