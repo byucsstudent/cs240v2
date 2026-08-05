@@ -691,7 +691,9 @@
           ]
         },
         {
-          "title": "☑ Phase 5: Chess Pregame",
+          "title": "Phase 5: Chess Pregame",
+          "type": "project",
+          "points": 100,
           "path": "chess/5-pregame/pregame.md",
           "id": "a9c3b3e6-bfe7-4247-a034-a08adbf35334",
           "state": "published",
@@ -702,7 +704,8 @@
             "4e1a8585-e1a7-4bcc-9d73-d8f46fccf4a8",
             "368fa787-fc08-4b5d-b1ea-3f707fe87f40",
             "19f7601e-39e4-4014-9888-14861455ba58"
-          ]
+          ],
+          "description": ""
         },
         {
           "title": "WebSocket",
