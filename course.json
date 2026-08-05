@@ -344,7 +344,7 @@
           ]
         },
         {
-          "title": "☑ Phase 1: Chess Game",
+          "title": "Phase 1: Chess Game",
           "type": "project",
           "points": 100,
           "path": "chess/1-chess-game/chess-game.md",
