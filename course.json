@@ -787,17 +787,18 @@
       "title": "Final",
       "topics": [
         {
-          "title": "Job Interview",
-          "type": "interview",
-          "path": "instruction/job-interview/job-interview.md",
-          "id": "2075d10f-6f6b-47d5-8d25-0c1f3765bc2b",
-          "description": ""
-        },
-        {
           "title": "Final Exam Review",
           "path": "instruction/final-exam-review/final-exam-review.md",
           "id": "04fc421b-e9af-4ba9-9ae0-09c1133683ae",
           "state": "published"
+        },
+        {
+          "title": "Job Interview",
+          "type": "interview",
+          "path": "instruction/job-interview/job-interview.md",
+          "id": "2075d10f-6f6b-47d5-8d25-0c1f3765bc2b",
+          "state": "published",
+          "description": ""
         },
         {
           "title": "Final",
