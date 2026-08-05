@@ -32,7 +32,10 @@ We are looking for a Junior Backend Developer to join our core engineering team.
 - Explaining the HTTP protocol
 - Testing with JUnit
 - Abstracting the Database with Data Access Objects (DAOs)
-- Using SOLID principles and basic OOP techniques including Encapsulation, Abstraction, Inheritance, and Polymorphism.
+- Using good software development principles
+- Using basic OOP techniques including Encapsulation, Abstraction, Inheritance, and Polymorphism
+- Explaining concurrency
+- Explaining why cryptographic hashing and encryption is used when building applications
 
 ## Assessment Definition
 
@@ -45,6 +48,6 @@ We are looking for a Junior Backend Developer to join our core engineering team.
   "difficulty": 1,
   "practiceMode": true,
   "finalMode": true,
-  "learningOutcomes": "- Creating a RESTful service using Javalin\n- Explaining the HTTP protocol\n- Testing with JUnit\n- Abstracting the Database with Data Access Objects (DAOs)\n- Using SOLID principles and basic OOP techniques including Encapsulation, Abstraction, Inheritance, and Polymorphism."
+  "learningOutcomes": "- Creating a RESTful service using Javalin\n- Explaining the HTTP protocol\n- Testing with JUnit\n- Abstracting the Database with Data Access Objects (DAOs)\n- Using good software development principles\n- Using basic OOP techniques including Encapsulation, Abstraction, Inheritance, and Polymorphism\n- Explaining concurrency\n- Explaining why cryptographic hashing and encryption is used when building applications"
 }
 ```
