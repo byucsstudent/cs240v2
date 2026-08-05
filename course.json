@@ -801,14 +801,6 @@
           "description": ""
         },
         {
-          "title": "Final",
-          "type": "dra",
-          "path": "instruction/final/final.md",
-          "id": "8be8beff-d55f-40e8-9941-9bb56ad303f9",
-          "state": "published",
-          "description": ""
-        },
-        {
           "title": "Wrap Up",
           "type": "instruction",
           "path": "instruction/wrap-up/wrap-up.md",
