@@ -345,6 +345,8 @@
         },
         {
           "title": "☑ Phase 1: Chess Game",
+          "type": "project",
+          "points": 100,
           "path": "chess/1-chess-game/chess-game.md",
           "id": "773b3a41-6df9-4796-8894-a9a8ae6036ae",
           "state": "published",
@@ -355,7 +357,8 @@
             "e20bf737-288c-4c74-9327-9661ff4ccdd8",
             "4935143c-88fb-4462-b7a4-2424d2d48821",
             "cd733c72-dca6-4419-8685-b47db5d666a2"
-          ]
+          ],
+          "description": ""
         },
         {
           "title": "Java Input and Output (IO)",
