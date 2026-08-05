@@ -162,7 +162,7 @@
           ]
         },
         {
-          "title": "☑ Phase 0: Chess Moves",
+          "title": "Phase 0: Chess Moves",
           "type": "project",
           "points": 100,
           "path": "chess/0-chess-moves/chess-moves.md",
